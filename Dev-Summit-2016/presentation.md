@@ -1,6 +1,6 @@
-#ArcGIS API for Javascript
-#Road-ahead
-Yann Cabon - Jeremy Bartley
+<!-- .slide: data-background="../reveal.js/image/title.png" -->
+#What's New in the ArcGIS API for JavaScript
+Julie Powell, Yann Cabon, and Heather Gonzago
 
 ---
 
