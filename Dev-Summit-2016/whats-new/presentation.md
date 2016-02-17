@@ -1,4 +1,4 @@
-<!-- .slide: data-background="../reveal.js/img/title.png" -->
+<!-- .slide: data-background="../../reveal.js/img/title.png" -->
 #What's New in the ArcGIS API for JavaScript
 Julie Powell, Yann Cabon, and Heather Gonzago
 
