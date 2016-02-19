@@ -4,122 +4,124 @@ Julie Powell and Heather Gonzago
 
 ---
 
-## 3.x
- - [Geometry Engine](http://developers.arcgis.com/javascript/samples/ge_geodesic_buffers/)
- - [Smart Mapping](http://developers.arcgis.com/javascript/samples/smartmapping_bycolor/)
- - [Image Server](http://developers.arcgis.com/javascript/samples/layers_imageservicevector/)
- - [Quantization](demos/quantization/PIXELATE_ALL_THE_POLYGONS.html) vs. [Generalization](demos/quantization/TRIANGULATE_ALL_THE_POLYGONS.html)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Agenda**
+ - <span style="color:yellow">Types of apps</span>
+ - Traditional token-based authentication
+ - OAuth2 authentication
+ - User login authentication
+ - Two-factor authentication
+ - Application authentication
+ - Service proxy
+ - Resource proxy
 
 ---
 
-## 4.0 - highlights
- - 2D/3D
- - 4.0beta1 released July 15th!
- - multiple betas coming
- - API 4.0: new concepts & changes
- - IE9+ for 2D, IE11+ for 3D
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Types of apps**
+  - How are you interacting with the application?
+  - Are the end users known to the application?
+    - User-login
+      - Application allows user to log in with valid credentials
+  - Are the end users unknown to the application?
+    - App-login
+      - App provides credentials within the app itself
 
 ---
 
-## 2D/3D
- - Starting point of 4.0: 3D is coming!
- - currently in [3.x](http://developers.arcgis.com/javascript/samples/map_simple/):
-   - Map, many DOM nodes
-   - Each Layer, 1 DOM Node
- - Can't work, WebGL renders in one Canvas
- - Solution?
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Agenda**
+ - Types of apps
+ - <span style="color:yellow">Traditional token-based authentication</span>
+ - OAuth2 authentication
+ - User login authentication
+ - Two-factor authentication
+ - Application authentication
+ - Service proxy
+ - Resource proxy
 
 ---
 
-## 2D/3D
- - Separate the business logic from the drawing logic.
-![New model: Map/Layers + View(s)/LayerViews](images/architecture.png)
- - Communication model by __events__ and __properties watching__
-   - clean decoupling
-   - clearer about what's going on when something changes
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Traditional server-based token authentication**
+ - Classic way to access secured services
+ - Username and password sent over https
+<span style="color:cyan">`/generateToken`</span> call
+ - Short-lived token response
+ - Handled via SDK’s Identity Manager component
+ - Everything handled on the client
+ - Web application responsible for keeping credentials secure
 
 ---
 
-## 2D/3D
- - For the rest, one API
- - [demo](demos/visualization/epic-citadel.html)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **generateToken**
+ - Access secured service with server-based token authentication
+ - Identity Manager takes care of most of this work
+ - Challenge for credentials <span style="color:cyan">`https://<server>/sharing/rest/generateToken`</span>
+ called when credentials are passed
+ - Token appended and used to unlock these services
 
 ---
 
-Experiment - Map running in node
-![Map running in node](images/map-node.png)
+<!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
+## **Demo: Traditional token-based authentication**
+[![generateToken](images/generateTokenDemo.png)](./demos/GenerateToken/DemoGenerateToken.html)
 
 ---
 
-```javascript
-// create the map and its layers
-var map = new Map({
-  basemap: "topo"
-});
-map.add(new FeatureLayer(...));
-
-// create a 3D view for the Map
-var view = new SceneView({
-  map: map,
-  container: "viewDiv"
-});
-```
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="ArcGIS Based services. User logins, you write the app, and the application is responsible for accessing the credentials from the user and keeping these credentials safe" -->
+## **generateToken limitations**
+ - The web application has access to credentials
+ - The application is responsible for recognizing when to prompt for login
+ - No enterprise logins
+ - Need to sign in every time calls made to a secure service
+ - Can’t track how the app is being used
+ - Can’t list in Marketplace
 
 ---
 
-## `esri/Accessor`
- - Mixin similar to `dojo/Stateful`
- - single object constructor
- - `get()`, `set()`, `watch()`
-
-```javascript
-map.watch('basemap', function(newValue, oldValue, name, target) {
-  // ...
-});
-```
- - support for ES7 `Object.observe()`
-
----
-
-## Properties watching
-
- - Direct benefits:
-   - remove inconsistancies between constructor, getter, setter functions, events
-   - one convention everywhere. _"just need to know what properties for a class"_
-   - Single object constructor, no more 3+ constructors
-   - Leaner SDK: we doc only the properties, the rest is convention
-
- - Changes:
-   - no more **_property_**-change events, use `watch()`
-   - in 3.x, listen for `extent-change` event.
-   - in 4.0 `extent` watchers will be call very often
-   - new events and properties for animation.
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Agenda**
+- Types of apps
+- Traditional token-based authentication
+- <span style="color:yellow">OAuth2 authentication</span>
+- User login authentication
+- Two-factor authentication
+- Application authentication
+- Service proxy
+- Resource proxy
 
 ---
 
-## Properties watching
-
- - Frameworks integration
-   - properties are framework agnostic
-   - better/easier integration
-
- - Examples
-   - [side by side views](demos/accessor/side-by-side.html)
-   - [dbind](demos/integration/dbind.html)
-   - [React](http://jsbin.com/togemadodo/1/edit?js,output)
-   - [camera recorder](http://output.jsbin.com/robegolosa)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: User login authentication**
+[![user logins](images/userLoginDemo.png)](./demos/UserLogin_OAuth/OAuthUserLoginSecureWebMap.html)
 
 ---
 
-## Layers
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: User login workflows**
 
- - `map.layers`, a collection of the operational layers
-   - mix of image AND graphics
- - Shorter names: `ArcGISTiledLayer`, `ArcGISDynamicLayer`
- - new ones:
-   - `ArcGISElevationLayer`
-   - `SceneLayer`
-   - `GroupLayer`
+ - Working with browser-based or mobile applications?
+   - 1-step workflow, i.e. Implicit Grant
+
+ - Desktop, mobile, or server-side web application?
+  - 2-step workflow, i.e. Authorization Grant
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: 1 step user-login workflow**
+
+<img style="float: right;" src="images/UserLoginWorkflowSteps.png">
+1. App directs user to /authorize endpoint
+2. Valid user/pass?
+3. Redirect back to app at provided `redirect_uri`
+4. `access_token` is added to URL
+5. [App can parse the URL for token use](https://developers.arcgis.com/authentication/browser-based-user-logins/#parse-the-token-from-the-url)
+
 
 ---
 
