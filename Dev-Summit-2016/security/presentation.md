@@ -10,10 +10,10 @@ Julie Powell and Heather Gonzago
  - Traditional token-based authentication
  - OAuth2 authentication
  - User login authentication
- - Two-factor authentication
+ - Multi-factor authentication
  - Application authentication
- - Service proxy
  - Resource proxy
+ - Service proxy
 
 ---
 
@@ -35,10 +35,10 @@ Julie Powell and Heather Gonzago
  - <span style="color:yellow">Traditional token-based authentication</span>
  - OAuth2 authentication
  - User login authentication
- - Two-factor authentication
+ - Multi-factor authentication
  - Application authentication
- - Service proxy
  - Resource proxy
+ - Service proxy
 
 ---
 
@@ -88,22 +88,69 @@ Julie Powell and Heather Gonzago
 - Traditional token-based authentication
 - <span style="color:yellow">OAuth2 authentication</span>
 - User login authentication
-- Two-factor authentication
+- Multi-factor authentication
 - Application authentication
-- Service proxy
 - Resource proxy
+- Service proxy
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2 authentication: why and when**
+- <span style="color:cyan">Why you may want to use OAuth2</span>
+  - The registered app provides information on how the application is being used, whom is accessing it, credit usage, etc?
+- <span style="color:cyan">When to use OAuth2</span>
+  - Access users’ private data
+  - Create and publish content
+  - Access premium content and services on AGO
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Register your app**
+- Possible in organizational online and portal site, on-premise portal (as of 10.3), or Developers site
+- Generates:
+  - <span style="color:cyan">App ID (client_id)</span>
+  - <span style="color:cyan">App Secret (client_secret)</span>
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Demo: Register your app**
+
+<img style="float: left;" src="images/registerapp.png">
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Agenda**
+- Types of apps
+- Traditional token-based authentication
+- OAuth2 authentication
+- <span style="color:yellow">User login authentication</span>
+- Multi-factor authentication
+- Application authentication
+- Resource proxy
+- Service proxy
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **OAuth2: User login authentication**
-[![user logins](images/userLoginDemo.png)](./demos/UserLogin_OAuth/OAuthUserLoginSecureWebMap.html)
+
+<img style="float: right;" src="images/UserLoginWorkflowSteps.png">
+
+- Works with named users
+- Server-side login page
+- Provides single sign-on
+  - If already in active portal session, </br>
+  user is not required to enter credentials again
+  - Approval screen to grant access to the app
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **OAuth2: User login workflows**
-
  - Working with browser-based or mobile applications?
    - 1-step workflow, i.e. Implicit Grant
 
@@ -116,175 +163,200 @@ Julie Powell and Heather Gonzago
 ## **OAuth2: 1 step user-login workflow**
 
 <img style="float: right;" src="images/UserLoginWorkflowSteps.png">
-1. App directs user to /authorize endpoint
-2. Valid user/pass?
-3. Redirect back to app at provided `redirect_uri`
-4. `access_token` is added to URL
-5. [App can parse the URL for token use](https://developers.arcgis.com/authentication/browser-based-user-logins/#parse-the-token-from-the-url)
+  1. App directs user to <span style="color:cyan">`/authorize`</span> endpoint
+  2. Valid user/pass?
+  3. Redirect back to app at provided <span style="color:cyan">`redirect_uri`</span>
+  4. <span style="color:cyan">`access_token`</span> is added to URL
+  5. [App can parse the URL for token use](https://developers.arcgis.com/authentication/browser-based-user-logins/#parse-the-token-from-the-url)
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: Identity Manager**
+- Client SDKS provide OAuth2 functionality via the Identity Manager
+- Handles the complexity of calling endpoints and parsing tokens
+- Example: JS API Identity Manager
+  - <span style="color:cyan">`OAuthInfo`</span> class -> pass in registered <span style="color:cyan">`App ID`</span>
+  - Pass this information to the Identity Manager
+<img style="float: bottom;" src="images/IdentityManager.png">
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Demo: OAuth2 login**
+
+[![user login](images/userLoginDemo.png)](./demos/UserLogin_OAuth/OAuthUserLoginSecureWebMap.html)
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Multi-factor authentication**
+
+Another level of security -
+can't just rely on only one method, need to have both password and device
+Two administrators
+Google or Microsoft Authenticator
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Demo: Multi-factor authentication**
+
+Update screen captures!!!!!!!
 
 
 ---
 
-## GroupLayer
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## Enterprise logins
 
- - New layer: GroupLayer
- - group layers together
- - structure your data visualization
- - visibility mode: `exclusive`, `independent`, `inherit`
- - listMode: `hide-children`, `hidden`
- - [demo](demos/grouplayer/index.html)
-
----
-
-## Collection
-
- - More or less like an Array
- - `add` / `remove` / `forEach` / `map` / `find` / `findIndex`...
- - emit "change" events when something is added/removed/moved
- - used for layers, used for layers in Basemap, used for graphics...
+- Login to ArcGIS Online using your enterprise login (Active Directory, LDAP, …)
+- Uses the SAML standard
+- [Setting up Enterprise Logins](http://doc.arcgis.com/en/arcgis-online/administer/enterprise-logins.htm)
+</br>
+- Nothing changes for the App Developer
+  - Use standard OAuth workflow (redirect user to /authorize URL as usual)
+  - Portal detects enterprise login if configured for the organization
+  - Redirects user to their enterprise provider
+  - Enterprise redirects user to portal upon login
+  - Portal generates token and sends it to the app
 
 ---
 
-## Basemap
-
-- full fledge class `esri/Basemap`
-- basemap's layers are not part of the `map.layers`, but from `map.basemap`
-- contains 3 Collections: baseLayers, referenceLayers, elevationLayers
-- can be set with
-  - [string for esri's basemap](demos/basemap/2d.html)
-  - or custom [Basemap instance](demos/basemap/2d-custom.html)
-  - in 2D and [3D](demos/basemap/3d.html)
-
----
-
-## Basemap
-
- - `basemap` as a string, creation of the appropriated Basemap instance
-
-  ```javascript
-  var map = new Map({
-    basemap: 'topo'
-  });
-
-  map.basemap = 'streets';
-  ```
-
- - `basemap` as an instance of `Basemap`
-
-  ```javascript
-  var map = new Map({/*...*/});
-
-  var toner = new Basemap({
-    baseLayers: [
-      new WebTiledLayer({
-        urlTemplate: '...'
-      })
-    ]
-  })
-
-  map.basemap = toner;
-  ```
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Agenda**
+ - Types of apps
+ - Traditional token-based authentication
+ - OAuth2 authentication
+ - User login authentication
+ - Multi-factor authentication
+ - <span style="color:yellow">Application authentication</span>
+ - <span style="color:yellow">Resource proxy</span>
+ - Service proxy
 
 ---
 
-## 2D
- - new "engine" in the work.
- - faster, more future proof
-   - abstraction to draw tiles and dynamic images to ease custom layers/layerviews
-   - abstraction to draw in DOM or Canvas, possibly webgl ;-)
- - display graphics while zooming.
- - rotation
- - continous zoom
- - [vector map tiles](http://blogs.esri.com/esri/arcgis/2015/07/20/vector-tiles-preview/), [basemaps](http://basemapsbeta.arcgis.com/preview/app/index.html)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: application authentication**
+
+- Users of the App are unknown to the ArcGIS platform
+- No login prompts
+- App logs in to the ArcGIS platform on behalf of itself
+- App must contain valid app credentials
+- App is responsible for keeping the app secret secure
 
 ---
 
-## 3D
- - webgl engine to display the earth.
- - [z/m support](http://maps.esri.com/rc/sat/index.html) in the API, tasks, layers...
- - support for simple symbols
- - new 3D Symbols
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: app authentication workflow**
+
+<img style="float: right;" src="images/appauthentication.png">
+  1. App makes POST to <span style="color:cyan">`/token`</span> endpoint</br>
+  with <span style="color:cyan">`client_id`</span> </br> and <span style="color:cyan">`/client_secret`</span> </br> with <span style="color:cyan">`grant_type=client_credentials`</span>
+
+  2. <span style="color:cyan">`Access_token`</span> in JSON response
+
+  3. Parse token and use in requests as needed
 
 ---
 
-## Resizing logic
- - automatically measure and position the view
- - [resize by center, or not](demos/resizing/manual-resize.html)
- - better integration with responsive design pages
- - and [frameworks](demos/resizing/responsive-bootstrap.html)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Limitations with app authentication**
+
+- Applications can only read or query private data content.
+- Cannot modify, upload, create, or delete content.
+- Content Restrictions
+- Members of an AGO org can only access private content owned by the person who created the application.
+- Marketplace restrictions
+- Cannot list applications in ArcGIS Marketplace. In order to do so, must work with user logins.
 
 ---
 
-## Padding
- - easier fullscreen view application.
- - defines inner margin to make space for UI.
- - [2D](demos/padding/2d.html)
- - [3D](demos/padding/3d.html)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **App logins: proxy use case steps**
+
+1. Register app
+2. Configure proxy with app credentials
+3. Proxy uses app credentials to get app token from the portal
+4. Front-end app calls into the proxy
+5. Proxy uses app token to call into secured portal resources
+6. Proxy returns results to the app
 
 ---
 
-## Animation
- - generic function `animateTo(target, options):Promise`
- - customize [easing, duration, chaining](demos/animation/random.html)
- - DIY using [other libs](demos/animation/tweenjs.html) or [custom](demos/whats-next/routing.html)
- - `esri/Viewpoint`: common way to share between 2D/3D
+<!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
+## **Demo: app authentication**
+TODO- screen capture and url link
 
 ---
 
-## Widgets
- - `ui` property on view to quickly place components
- - widgets designed as MVVM
-   - separates the logic from the UI implementation
-   - easier to create new versions using other frameworks
- - ported to 4.0beta1: Search, Zoom, Attribution
- - new ones: Compass
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: Security with application authentication**
+- Never expose client_secret
+- Keep secure server-side in proxy
+- Rate limiting against server-based misuse
+- Web-tier authentication,
+  -users sign into your application, only your authenticated users </br>
+  would be able to use your application to access premium content and services.
 
 ---
 
-## WebMap & WebScene APIs
- - read
- - save / save as
- - easier portal / arcgis.com interaction
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Updated proxy files**
+
+- [https://github.com/Esri/resource-proxy](https://github.com/Esri/resource-proxy)
+- DotNet, JSP, and PHP
+- Access resources secured with token-based authentication, i.e. premium credit-based services
+- Resource and referer-based rate limiting
+- Access cross domain resources
+- Enabled logging
 
 ---
 
-## SDK
- - new SDK, built from scratch
- - simpler, focused samples
- - user experience
- - more code snippets
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Proxies**
+
+- Install proxy based on README.md file
+- Can also use token based authentication in addition to OAuth2
+- Locking it down by referrer: Only requests coming from listed referrers are proxies
+- Rate limits
+  - rateLimitPeriod: The time period (in minutes) which the rateLimit is tracked.
+  - rateLimit: Maximum number of requests for a specific referer over the given rateLimitPeriod.
 
 ---
 
-## Other
- - legacy dojo loader removed - AMD only
- - classes properly cased: esri/Map, esri/Graphic, esri/layers/Layer
- - new folder structure.
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Agenda**
+ - Types of apps
+ - Traditional token-based authentication
+ - OAuth2 authentication
+ - User login authentication
+ - Multi-factor authentication
+ - Application authentication
+ - Resource proxy
+ - <span style="color:yellow">Service proxy</span>
 
 ---
 
-## Beta2
- - initial implementation of WebMap and WebScene. reading first
- - more layer support
- - more widgets
- - performance improvements
- - 3D
-   - realistic atmosphere
-   - subsurface rendering
-   - point cloud
-   - planar mode
- - bugs...
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Service proxy**
+
+ PUT IN SLIDE showing what this is and how to access it
 
 ---
 
-
+ <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## Conclusion
- - One API
- - 3D, and better 2D
- - simplified API
+
+- Use OAuth2 for user logins
+- Benefits include usage tracking, enterprise logins, etc.
+- Identity Manager simplifies login workflow in client SDKs
+- Use app tokens to access secured resources in certain use cases
+- [https://developers.arcgis.com/authentication](https://developers.arcgis.com/authentication) for additional information.
 
 ---
 
+ <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 # Questions
 
 ---
