@@ -118,7 +118,7 @@ Julie Powell and Heather Gonzago
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Demo: Register your app**
 
-<img style="float: left;" src="images/registerapp.png">
+<img style="middle: left;" src="images/registerapp.png">
 
 ---
 
