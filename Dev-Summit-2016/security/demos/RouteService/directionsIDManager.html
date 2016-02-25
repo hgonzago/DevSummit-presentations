@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
     <title>Directions Widget</title>
-    <link rel="stylesheet" href="http://jsdev.arcgis.com/3.13/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="http://jsdev.arcgis.com/3.13/esri/css/esri.css">
+    <link rel="stylesheet" href="http://jsdev.arcgis.com/3.15/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://jsdev.arcgis.com/3.15/esri/css/esri.css">
     <style>
       html, body, #map {
         height:100%;
@@ -20,18 +20,18 @@
       }
     </style>
 
-    <script src="http://js.arcgis.com/3.12compact/"></script>
+    <script src="http://js.arcgis.com/3.15compact/"></script>
     <script>
       require([
-        "esri/map", "esri/dijit/Directions", 
-        "dojo/parser", 
+        "esri/map", "esri/dijit/Directions",
+        "dojo/parser",
          "esri/IdentityManager",
         "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/domReady!"
       ], function(
         Map, Directions, parser
       ) {
         parser.parse();
- 
+
 
         var map = new Map("map", {
           basemap: "streets",
@@ -47,17 +47,17 @@
     </script>
   </head>
   <body class="claro">
-    <div data-dojo-type="dijit/layout/BorderContainer" 
-         data-dojo-props="design:'headline', gutters:false" 
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="design:'headline', gutters:false"
          style="width:100%;height:100%;">
-      <div data-dojo-type="dijit/layout/ContentPane" 
-           data-dojo-props="region:'right'" 
+      <div data-dojo-type="dijit/layout/ContentPane"
+           data-dojo-props="region:'right'"
            style="width:250px;">
-        
+
         <div id="dir"></div>
       </div>
-      <div id="map" 
-           data-dojo-type="dijit/layout/ContentPane" 
+      <div id="map"
+           data-dojo-type="dijit/layout/ContentPane"
            data-dojo-props="region:'center'">
       </div>
     </div>
