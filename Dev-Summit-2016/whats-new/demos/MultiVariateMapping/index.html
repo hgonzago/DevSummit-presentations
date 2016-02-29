@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+<title>U.S. College Attendance (2015)</title>
+<link rel="stylesheet" href="http://js.arcgis.com/3.16/esri/css/esri.css">
+<link rel="stylesheet" href="http://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
+<style>
+  html, body, #map {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #info {
+    background-color: #000;
+    z-index: 92;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
+    font-family: Segoe UI;
+    color: #fff;
+    width: 200px;
+    border-top-right-radius: 8px;
+    opacity: 0.8;
+    max-height: 80%;
+    overflow-y: scroll;
+  }
+</style>
+<script src="http://js.arcgis.com/3.16/"></script>
+<script>
+var map, collegeLyr, legend, renderer;
+  require([
+    "esri/map",
+    "esri/layers/FeatureLayer",
+    "esri/symbols/SimpleMarkerSymbol",
+    "esri/symbols/SimpleLineSymbol",
+    "esri/Color",
+    "esri/renderers/UniqueValueRenderer",
+    "esri/dijit/Legend",
+    "esri/dijit/PopupTemplate",
+    "dojo/domReady!"
+  ], function(Map, FeatureLayer, SimpleMarkerSymbol, SimpleLineSymbol, Color, UniqueValueRenderer, Legend, PopupTemplate
+) {
+
+  //Service url
+  var url = "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/us_county_educational_attainment_pop/FeatureServer/0";
+
+  map = new Map("map", {
+    zoom: 5,
+    center: [-96.5,40],
+    basemap: "gray"
+  });
+
+  //Define PopupTemplate for the layer
+  var collegePopup = new PopupTemplate({
+    title: "{COUNTY}, {STATE}",
+    description: "<b>{ATT_COL}</b> adults (ages 25+) in {COUNTY} have attended at least some college in their lifetime. <b>{NO_COL}</b> adults in the same age group have never attended any college courses.",
+    fieldInfos: [{
+      fieldName: "ATE_COL_DOM_PER",
+      label: "Majority group percentage",
+      format: { places: 0, digitSeparator: true }
+    }, {
+      fieldName: "EDUCBASECY",
+      label: "Total adult population",
+      format: { places: 0, digitSeparator: true }
+    }, {
+      fieldName: "NO_COL",
+      label: "Never attended any college",
+      format: { places: 0, digitSeparator: true }
+    }, {
+      fieldName: "ATT_COL",
+      label: "Adults who attended at least some college",
+      format: { places: 0, digitSeparator: true }
+    }],
+    mediaInfos: [{
+      title: "Adults who attended college versus those who didn't",
+      type: "piechart",
+      value: {
+        fields: ["ATT_COL", "NO_COL"]
+      }
+    }]
+  });
+
+  collegeLyr = new FeatureLayer(url, {
+    outFields: ["ATT_COL_DOM", "ATE_COL_DOM_PER", "COL_ATT_GAP", "EDUCBASECY", "NO_COL", "ATT_COL", "COUNTY", "STATE"],
+    infoTemplate: collegePopup
+  });
+
+  //Set the default symbols to a SimpleMarkerSymbol so counties
+  //are renderered with sizeable circles
+  var defaultSym = new SimpleMarkerSymbol().setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([128,128,128,0.5])));
+  var attColSym = new SimpleMarkerSymbol().setColor(new Color("#4daf4a")).setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([128,128,128,0.5])));
+  var noColSym = new SimpleMarkerSymbol().setColor(new Color("#984ea3")).setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([128,128,128,0.5])));
+
+  /********************************************************************************
+  * Use a UniqueValueRenderer to shade each feature by
+  * a dominant attribute - one of two competing variables:
+  *
+  *   - Did the majority of adults in <county name> attend at least some college? (green)
+  *   - Or did the majority not attend any college at all? (purple)
+  *
+  * Then set a sizeInfo visual variable to indicate the number of adults in each county
+  * and an opacityInfo visual variable to indicate the strength of the dominance of the
+  * dominant attribute. If a high % of adults did not attend college then the feature
+  * will be shaded with a strong, opaque purple. If most adults didn't attend college, but
+  * don't comprise a high % of the adult population, then the feature will be shaded with a
+  * transparent purple.
+  *****************************************************************************/
+  renderer = new UniqueValueRenderer(defaultSym, "ATT_COL_DOM");
+  renderer.addValue({
+    value: "Population 25+ that attended college",
+    label: "Majority of adults attended at least some college",
+    symbol: attColSym
+  });
+  renderer.addValue({
+    value: "Population 25+ that never attended college",
+    label: "Majority of adults never attended college",
+    symbol: noColSym
+  });
+
+  /**************************************************************************
+   *
+   * The sizeInfo visual variable defines the values of the data that will be
+   * renderered with the minimum size and the maximum size of the symbols. All
+   * features with values falling in between those values will be scaled
+   * proportionally between the min and max sizes.
+   *
+   * In this case the total adult population is used to size the symbols.
+   *
+   **************************************************************************/
+  var sizeVisVar = {
+    type: "sizeInfo",
+    field: "EDUCBASECY",  //total adult population 25 years and older
+    minDataValue: 10000,  //counties with <10,000 adults will be assigned the min size
+    maxDataValue: 1000000,  //counties with >1,000,000 adults will be assigned the max size
+    valueUnit: "unknown",
+    minSize: {
+      type: "sizeInfo",
+      expression: "view.scale",
+      //The min size of the symbol varies depending on the map scale
+      stops: [
+        { value: 250000000, size: 6 },
+        { value: 6000000, size: 6 },   //at a 1:6,000,000 scale, the min size is 6px
+        { value: 1000000, size: 4 },
+        { value: 200000, size: 2 },
+        { value: 1000, size: 2 }
+      ]
+    },
+    maxSize: {
+      type: "sizeInfo",
+      expression: "view.scale",
+      //The max size of the symbol varies depending on the map scale
+      stops: [
+        { value: 250000000, size: 50 },
+        { value: 6000000, size: 50 },  //at a 1:6,000,000 scale, the max size is 50px
+        { value: 1000000, size: 40 },
+        { value: 200000, size: 20 },
+        { value: 1000, size: 10 }
+      ]
+    }
+  };
+
+  /**************************************************************************
+   *
+   * The opacityInfo visual variable defines the opacity of the features based
+   * on a field value. The minimum and maximum values of the data are defined
+   * along with their respective opacity values.
+   *
+   * In this case, opacity of the features is determined based on the
+   * percentage of the the dominant group's population out of the adult
+   * population in the feature. Since there are only two competing variables,
+   * the lowest % a dominant group can have is 50%. So we'll set the minimum value
+   * at 55% with a very low opacity. Features whose dominant group is very strong
+   * (70% of total adults or more) will receive full opacity.
+   *
+   * This will depict the strength of the dominance in each feature.
+   *
+   **************************************************************************/
+  var opacityVisVar = {
+    type: "opacityInfo",
+    field: "ATE_COL_DOM_PER",
+    stops: [
+      { value: 55, opacity: 0.1 },
+      { value: 75, opacity: 1 }
+    ]
+  };
+  //Set the size and opacity visual variables on the UniqueValueRenderer
+  renderer.setVisualVariables([sizeVisVar, opacityVisVar]);
+  //Set the renderer on the layer
+  collegeLyr.setRenderer(renderer);
+
+  map.addLayer(collegeLyr);
+
+  map.on("load", function(){
+    //Add a legend to the map
+    legend = new Legend({
+      map: map,
+      layerInfos: [
+        {
+          layer: collegeLyr,
+          title: "U.S. Counties by adult population (25+) and whether the majority of adults attended college",
+          defaultSymbol: false
+        }
+      ]
+    }, "legendDiv");
+    legend.startup();
+  });
+});
+</script>
+</head>
+<body class="claro">
+    <div id="map"></div>
+    <div id="info"><div id="legendDiv"></div></div>
+</body>
+</html>

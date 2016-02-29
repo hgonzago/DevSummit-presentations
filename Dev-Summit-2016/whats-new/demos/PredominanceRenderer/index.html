@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+<title>U.S. College Attendance (2015)</title>
+<link rel="stylesheet" href="http://js.arcgis.com/3.16/esri/css/esri.css">
+<link rel="stylesheet" href="http://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
+<style>
+  html, body, #map {
+    height: 100%;
+    margin: 0;
+  }
+  #info {
+    background-color: #FFFFFF;
+    z-index: 92;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
+    font-family: Segoe UI;
+    color: #000000;
+    width: 200px;
+    border-top-right-radius: 8px;
+    opacity: 1;
+    max-height: 80%;
+    overflow-y: scroll;
+  }
+</style>
+<script src="http://js.arcgis.com/3.16/"></script>
+<script>
+  require([
+    "esri/map",
+    "esri/layers/FeatureLayer",
+    "esri/renderers/UniqueValueRenderer",
+    "esri/symbols/SimpleFillSymbol",
+    "esri/symbols/SimpleLineSymbol",
+    "esri/dijit/PopupTemplate",
+    "esri/Color",
+    "esri/dijit/Legend",
+    "dojo/domReady!"
+  ], function(Map, FeatureLayer, UniqueValueRenderer, SimpleFillSymbol,
+              SimpleLineSymbol, PopupTemplate, Color, Legend) {
+
+    var map = new Map("map", {
+      basemap: "gray",
+      center: [-96.5, 40],
+      zoom: 5
+    });
+
+    //Service URL
+    var layerUrl = "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/us_county_educational_attainment_pop/FeatureServer/0";
+
+    //Define PopupTemplate for the layer
+    var collegePopup = new PopupTemplate({
+      title: "{COUNTY}, {STATE}",
+      description: "<b>{ATT_COL}</b> adults (ages 25+) in {COUNTY} have attended at least some college in their lifetime. <b>{NO_COL}</b> adults in the same age group have never attended any college courses.",
+      fieldInfos: [{
+        fieldName: "ATE_COL_DOM_PER",
+          label: "Majority group percentage",
+          format: { places: 0, digitSeparator: true }
+        }, {
+        fieldName: "EDUCBASECY",
+          label: "total adult population",
+          format: { places: 0, digitSeparator: true }
+        }, {
+        fieldName: "NO_COL",
+          label: "Never attended any college",
+          format: { places: 0, digitSeparator: true }
+        }, {
+        fieldName: "ATT_COL",
+          label: "Adults who attended at least some college",
+          format: { places: 0, digitSeparator: true }
+        }],
+      mediaInfos: [{
+        title: "Adults who attended college versus those who didn't",
+        type: "piechart",
+        value: {
+          fields: ["ATT_COL", "NO_COL"]
+        }
+      }]
+    });
+
+    //Set the symbols for each category
+    var defaultSym = new SimpleFillSymbol().setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([128,128,128,0.5])));
+    var attColSym = new SimpleFillSymbol().setColor(new Color("#0000E1")).setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([128,128,128,0.5])));
+    var noColSym = new SimpleFillSymbol().setColor(new Color("#E10000")).setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([128,128,128,0.5])));
+
+    /******************************************************************
+    * Define a UniqueValue renderer and set the symbols for
+    * each category based on whether or not the majority of
+    * the adults in the county attended at least some college.
+    *
+    * Each county is assigned a color - either green (majority
+    * attended at least some college) or purple (the majority
+    * did not attended any college).
+    ******************************************************************/
+    var renderer = new UniqueValueRenderer(defaultSym, "ATT_COL_DOM");
+    renderer.addValue({
+      value: "Population 25+ that attended college",
+      label: "Majority of adults attended at least some college",
+      symbol: attColSym
+    });
+    renderer.addValue({
+      value: "Population 25+ that never attended college",
+      label: "Majority of adults never attended college",
+      symbol: noColSym
+    });
+
+    renderer.setVisualVariables([{
+      type: "opacityInfo",
+      field: "ATE_COL_DOM_PER",
+      maxDataValue: 100,
+      minDataValue: 0,
+      stops: [
+        { value: 55, opacity: 0.1}, { value: 70, opacity: 1}
+      ]
+    }]);
+
+    layer = new FeatureLayer(layerUrl, {
+      outFields: ["*"],
+      infoTemplate: collegePopup,
+      opacity: 1
+    });
+
+    //Set up legend
+    layer.on("load", function(){
+      var legend = new Legend({
+        map: map,
+        layerInfos: [{
+          layer: layer,
+          title: "U.S. Counties by adult population (25+) and whether the majority of adults attended college"
+        }]
+      }, "legend");
+      legend.startup();
+    });
+
+    //Set the renderer on the layer
+    layer.setRenderer(renderer);
+    //Add the layer to the map
+    map.addLayer(layer);
+  });
+</script>
+</head>
+<body class="claro">
+<div id="map"></div>
+<div id="info"><div id="legend"></div></div>
+</body>
+</html>
