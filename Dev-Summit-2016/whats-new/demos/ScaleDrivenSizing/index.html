@@ -1,22 +1,19 @@
+
 <!DOCTYPE html>
 <html>
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
   <title>Symbol size, outline width based on map scale</title>
-  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
-  <style>
-    body, .esriPopup, #sidebar {
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 14px;
-    }
 
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-  </style>
-  <script src="https://js.arcgis.com/3.16/"></script>
+  <link rel="stylesheet" href="//js.arcgis.com/3.16/esri/css/esri.css">
+  <link rel="stylesheet" href="../commons/css/style.css">
+  <link rel="stylesheet" href="../commons/libs/codemirror/codemirror.css">
+  <link rel="stylesheet" href="../commons/libs/codemirror/monokai.css">
+
+  <script src="../commons/dojo-config.js"></script>
+  <script src="//js.arcgis.com/3.16/"></script>
+
   <script>
     var map, layer;
 
@@ -30,16 +27,17 @@
         "esri/renderers/ClassBreaksRenderer",
         "esri/symbols/SimpleFillSymbol",
         "esri/symbols/SimpleMarkerSymbol",
-
+        "commons/init",
         "dojo/domReady!"
       ],
       function (Color, Legend, PopupTemplate, FeatureLayer,
         Map, ClassBreaksRenderer, SimpleFillSymbol, SimpleMarkerSymbol){
 
-        map = new Map("mapDiv", {
+        map = new Map("viewDiv", {
           basemap: "dark-gray",
           center: [-100, 40],
-          zoom: 5
+          zoom: 5,
+          smartNavigation: false
         });
 
         var layerUrl = "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/USA_County_Crops_2007/FeatureServer/0";
@@ -71,7 +69,7 @@
         // (2.A) Define circle MARKER symbol to be drawn at the centroid
         // of each polygon.
         var markerSymbol = new SimpleMarkerSymbol();
-        markerSymbol.setColor(new Color([227, 139, 79, 1]));
+        markerSymbol.setColor(new Color([251, 222, 127, 1]));
         markerSymbol.setSize(12);
         markerSymbol.outline.setColor(new Color([51, 51, 51, 1]));
         markerSymbol.outline.setWidth(1);
@@ -166,6 +164,9 @@
         });
 
         layer.setRenderer(renderer);
+        map.addLayer(layer);
+
+        map.on('load', function() {
 
         //----------------------
         // Create legend
@@ -179,22 +180,72 @@
         }, "legendDiv");
 
         legend.startup();
-
-        map.on("layer-add", function (){
-          legend.refresh();
         });
-
-        map.addLayer(layer);
       });
   </script>
   </head>
-  <body>
-    <div id="mapDiv" style="position: relative; height: 100%;">
-      <div id="sidebar" style="position: absolute; top: 5px; right: 5px; z-index: 100; padding: 5px; background-color: #F5F5F5; box-shadow: -3px 3px 3px 0px #959595;">
-        <div style="font-weight: bold; padding: 3px;">Legend</div>
-        <hr>
-        <div id="legendDiv"></div>
+<body class="dark">
+  <div class="application">
+     <div id="viewDiv">
+      <div id="code" class="code left shadowed" style="height: 600px">
+        <textarea id="codemirror">
+          // create a unique value renderer and its unique value info
+          var renderer = new UniqueValueRenderer(null, 'DISTRICT');
+          var createSymbol = function(color) {
+            return new SimpleLineSymbol('solid', new Color(color), 1.5);
+          }
+          renderer.addValue("1", createSymbol("#6EC4AE"));
+          renderer.addValue("2", createSymbol("#37A9B7"));
+          renderer.addValue("3", createSymbol("#D68989"));
+          renderer.addValue("4", createSymbol("#BC7EBA"));
+          renderer.addValue("5", createSymbol("#F97B60"));
+          renderer.addValue("6", createSymbol("#7BFAEB"));
+          renderer.addValue("7", createSymbol("#A1D77E"));
+          renderer.addValue("8", createSymbol("#FBDE7F"));
+
+          // define visual variables that varies the width and opacity
+          // of the lines based on the average
+          renderer.setVisualVariables([
+            {
+              type: 'sizeInfo',
+              field: 'AADT',
+              minSize: 0.75,
+              maxSize: 8.25,
+              minDataValue: 10,
+              maxDataValue: 150000
+            },
+            {
+              type: 'opacityInfo',
+              field: 'AADT',
+              stops: [
+                {
+                  value: 10,
+                  opacity: 0.5
+                },
+                {
+                  value: 38518,
+                  opacity: 1
+                }
+              ]
+            }
+          ]);
+
+        </textarea>
       </div>
     </div>
-  </body>
+    <div class="applicationBar">
+      <div class="content">
+        <div class="cartouche">
+          <span class="label">3.16</span>
+        </div>
+        <div class="main">
+          <span class="title">Scale-driven sizing</span>
+        </div>
+     </div>
+   </div>
+    <div class="legend shadowed">
+      <div id="legendDiv"></div>
+    </div>
+  </div>
+</body>
 </html>
