@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+        <title>Elevation Profile: Create Features</title>
+        <link rel="stylesheet" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
+        <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+        <script>var dojoConfig = { parseOnLoad: true };</script>
+        <script src="https://js.arcgis.com/3.16/"></script>
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            label {
+                font-family: arial;
+                color: white;
+                font-size: 14px;
+                display: block;
+                padding-bottom: 5px;
+            }
+            select {
+                display: block;
+            }
+            #info {
+                min-height: 100px;
+                min-width: 200px;
+                right: 5px;
+                top: 5px;
+                margin: 5px;
+                padding: 10px;
+                position: absolute;
+                width: 10%;
+                z-index: 40;
+                border: solid 2px #666;
+                border-radius: 4px;
+                background-color: #666;
+            }
+            #map {
+                padding: 0px;
+            }
+        </style>
+        <script>
+            require([
+                "esri/map",
+                "esri/toolbars/draw",
+                "esri/symbols/SimpleLineSymbol",
+                "esri/symbols/CartographicLineSymbol",
+                "esri/graphic",
+                "esri/units",
+                "esri/dijit/ElevationProfile",
+                "esri/Color",
+                "dojo/dom",
+                "dojo/on",
+                "dojo/domReady!"
+            ], function(
+                Map,
+                Draw,
+                SimpleLineSymbol,
+                CartographicLineSymbol,
+                Graphic,
+                Units,
+                ElevationsProfileWidget,
+                Color,
+                dom,
+                on
+                ) {
+                var tb, epWidget, lineSymbol;
+                var map = new Map("map", {
+                    basemap: "topo",
+                    center: [-122.45, 37.75],
+                    zoom: 10
+                });
+                map.on("load", init);
+
+                function init() {
+                    var eleList = ["Polyline", "FreehandPolyline"];
+                    for (var ele in eleList) {
+                        on(dom.byId(eleList[ele]), "click", function (evt) {
+                            initToolbar(evt.target.id.toLowerCase());
+                        });
+                    }
+
+                    on(dom.byId("unitsSelect"), "change", function (evt) {
+                        if (epWidget) {
+                            epWidget.set("measureUnits", evt.target.options[evt.target.selectedIndex].value);
+                        }
+                    })
+
+                    // lineSymbol used for freehand polyline and line.
+                    lineSymbol = new CartographicLineSymbol(
+                            CartographicLineSymbol.STYLE_SOLID,
+                            new Color([255, 0, 0]), 2,
+                            CartographicLineSymbol.CAP_ROUND,
+                            CartographicLineSymbol.JOIN_MITER, 2
+                    );
+
+                    var profileParams = {
+                        map: map,
+                        profileTaskUrl: "https://elevation.arcgis.com/arcgis/rest/services/Tools/ElevationSync/GPServer",
+                        scalebarUnits: Units.MILES
+                    };
+                    epWidget = new ElevationsProfileWidget(profileParams, dom.byId("profileChartNode"));
+                    epWidget.startup();
+                }
+
+                function initToolbar(toolName) {
+                    epWidget.clearProfile(); //Clear profile
+
+                    map.graphics.clear();
+                    tb = new Draw(map);
+                    tb.on("draw-end", addGraphic);
+                    tb.activate(toolName);
+                    map.disableMapNavigation();
+                }
+
+                function addGraphic(evt) {
+                    //deactivate the toolbar and clear existing graphics
+                    tb.deactivate();
+                    map.enableMapNavigation();
+                    var symbol = lineSymbol;
+                    map.graphics.add(new Graphic(evt.geometry, symbol));
+                    epWidget.set("profileGeometry", evt.geometry);
+
+                    var sel = dom.byId("unitsSelect");
+                    if (sel) {
+                        var val = sel.options[sel.selectedIndex].value;
+                        epWidget.set("measureUnits", val);
+                    }
+                }
+            })
+        </script>
+    </head>
+    <body class="claro">
+        <div id="info">
+            <label>Digitize a route:</label>
+            <button id="Polyline" type="button">Polyline</button>
+            <button id="FreehandPolyline" type="button">Freehand Polyline</button>
+            <label>Select unit measure:</label>
+            <select id="unitsSelect">
+                <option value="esriMiles">Miles</option>
+                <option value="esriKilometers">Kilometers</option>
+                <option value="esriMeters">Meters</option>
+                <option value="esriNauticalMiles">Nautical Miles</option>
+                <option value="esriYards">Yards</option>
+                <option value="esriFeet">Feet</option>
+            </select>
+        </div>
+        <div id="mainContainer" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline', gutters:true" style="width:100%;height:100%">
+            <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="height:100%"></div>
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'" style="background-color: #666;">
+                <div id="profileChartNode"></div>
+            </div>
+        </div>
+    </body>
+</html>

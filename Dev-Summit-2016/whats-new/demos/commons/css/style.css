@@ -1,0 +1,762 @@
+/*******************
+*     Layout
+********************/
+
+html, body, #viewDiv {
+  position: absolute;
+  height:  100%;
+  width:   100%; 
+  margin:  0;
+  padding: 0;
+}
+
+/*******************
+*   Layout: esri
+********************/
+
+.map .esriSimpleSlider {
+  top: 97px;
+  transition: left 250ms;
+  border-radius: 2px;
+  box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.5);
+}
+
+.legend {
+  position: absolute;
+  right: 15px;
+  top: 97px;
+  padding: 15px;
+  max-width: 300px;
+}
+
+/*******************
+*     Layout: UI
+********************/
+
+.applicationUI {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.application .drawer {
+  position: absolute;
+  width:      300px;
+  left:       -310px;
+  top:        0;
+  bottom:     0;
+  margin-top: 77px;
+  transition: all 250ms;
+  box-sizing: border-box;
+}
+
+.application .applicationBar {
+  position: absolute;
+  top:      0;
+  left:     0;
+  right:    0;
+  box-sizing: border-box;
+}
+
+.applicationBar > .content {
+  width: 100%;
+}
+
+.applicationBar > .content > .cartouche {
+  position: relative;
+  float:    left;
+  padding:  20px;
+}
+
+.applicationBar > .content > .main {
+  position: relative;
+  float:    left;
+  padding:  20px;
+}
+
+.applicationBar > .content > .actionBar {
+  position: relative;
+  float:    right;
+  right: 10px;
+  padding-top: 6px;
+  padding-right: 20px;
+  top: 0;
+  bottom: 0;
+}
+
+.applicationBar > .content > .actionBar > * {
+  position: relative;
+  float:    left;
+  margin-left: 20px !important;
+}
+
+.applicationBar > .content > .actionBar > .topcoat-switch {
+  margin-top: 16px;
+  z-index: 2;
+}
+
+.applicationBar > .content > .actionBar > .bookmark {
+  margin-top: 17px;
+  padding: 5px 16px;
+}
+
+.applicationBar > .content > .actionBar > .topcoat-checkbox {
+  margin-top: 23px;
+}
+
+.drawer > .section {
+  left: 0;
+  right: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.drawer > .section > span {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 32px;
+}
+
+.drawer > .toggleButtonBar {
+  margin-top: 4px;
+}
+
+.drawer > .toggleButtonBar > .toggleButton {
+  padding: 12px 20px;
+}
+
+.esri-slides {
+  position: absolute;
+  padding: 10px;
+}
+
+/*******************
+*    Open State
+********************/
+
+.applicationUI.open .drawer {
+  left: 0px;
+}
+
+.applicationUI.open .map .esriSimpleSlider {
+  left: 320px;
+}
+
+.applicationUI.open .applicationBar > .content > .cartouche {
+  background-position: -4px;
+}
+
+
+/*******************
+*     Fonts
+********************/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.drawer {
+  font-size:   12pt;
+}
+
+.legend {
+  font-size: 14px;
+}
+
+.esri-slides {
+  font-size: 12px;
+}
+
+.applicationBar > .content > .cartouche span {
+  font-size:   24pt;
+  font-weight: normal;
+}
+
+.applicationBar > .content > .main {
+  font-size:   24pt;
+}
+
+/*******************
+*   Style: common
+********************/
+
+.applicationBar > .content > .cartouche {
+  transition: all 200ms;
+  cursor: default;
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.applicationBar > .content > .actionBar > .bookmark {
+  transition: all 200ms;
+  cursor: default;
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.drawer > .toggleButtonBar > .toggleButton {
+  border-left: 4px solid;
+  border-bottom: 1px solid;
+}
+
+.toggleButton {
+  opacity: 0.25;
+  -webkit-transition: opacity 200ms;
+  cursor: default;
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+.toggleButton:hover {
+  opacity: 0.5;
+}
+.toggleButton[data-selected="true"] {
+  opacity: 1;
+}
+.esriAttribution {
+  padding: 4px;
+}
+
+/*******************
+*   Style: light
+********************/
+
+body.light  {
+  background: url("../images/noisy_grid_light.png") #fff;
+}
+
+.light .drawer {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.light .applicationBar {
+  background: rgba(255,255,255, 0.9);
+  box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);
+  transition: all 250ms;
+}
+.light .open .applicationBar {
+  box-shadow: 300px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.light .applicationBar > .content {
+  height: 100%;
+  width: 100%;
+}
+
+.light .applicationBar > .content > .cartouche {
+  background-color: #FD7F00;
+}
+/* if there's a drawer */
+.light .drawer ~ .applicationBar > .content > .cartouche {
+  background-image: url("../images/sandwish_light.png");
+  background-repeat: no-repeat;
+}
+
+.light .applicationBar > .content > .cartouche span {
+  color: white;
+}
+
+.light .applicationBar > .content > .main {
+  color: #D96202;
+  /* text-shadow: 0px 1px 1px #000000, 0 0 1em white, 0 0 0.2em white; */
+}
+
+.light .drawer > .section {
+  background-color: #FFF;
+}
+
+.light .drawer > .toggleButtonBar > .toggleButton {
+  background-color: #FFF;
+}
+
+.light .legend {
+  background: rgba(255, 255, 255, 0.9);
+  color: #222222;
+}
+
+.light .esri-slides {
+  /* background: rgba(255, 255, 255, 0.9); */
+  /* color: #222222; */
+}
+
+.light .esriAttribution {
+  color: #222222;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.light .map .esriSimpleSlider {
+  color: #444444;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+}
+.light .esriSimpleSliderVertical .esriSimpleSliderIncrementButton {
+  border-bottom: none;
+}
+.light .map .esriSimpleSliderDecrementButton:hover, .light .map .esriSimpleSliderIncrementButton:hover {
+  background: #FFFFFF;
+}
+
+/*******************
+*     Style: dark
+********************/
+
+body.dark {
+  background: url("../images/noisy_grid_dark.png") #000;
+}
+
+.dark .drawer {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.dark .applicationBar {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  transition: all 250ms;
+}
+
+.dark .open .applicationBar {
+  box-shadow: 300px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark .applicationBar > .content {
+  height: 100%;
+  width: 100%;
+}
+
+.dark .applicationBar > .content > .cartouche {
+  background: #1F78B4;
+}
+
+.dark .applicationBar > .content > .cartouche span {
+  color: #EEEEEE;
+}
+
+/* if there's a drawer */
+.dark .drawer ~ .applicationBar > .content > .cartouche {
+  background-image: url("../images/sandwish_dark.png");
+  background-repeat: no-repeat;
+}
+
+.dark .applicationBar > .content > .main {
+  color: white;
+}
+
+.dark .applicationBar > .content > .actionBar > .bookmark {
+  color: grey;
+  border: 1px solid grey;
+  border-radius: 0px;
+}
+.dark .applicationBar > .content > .actionBar > .bookmark:hover {
+  border: 1px solid white;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .legend, .dark .esri-slides {
+  background: rgba(0, 0, 0, 0.9);
+  color: #EEEEEE;
+}
+
+.dark .esriAttribution {
+  color: #999999;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.dark .map .esriSimpleSlider {
+  color: #EEEEEE;
+  border: none;
+  background: rgba(0, 0, 0, 0.9);
+}
+.dark .esriSimpleSliderVertical .esriSimpleSliderIncrementButton {
+  border-bottom: none;
+}
+.dark .map .esriSimpleSliderDecrementButton:hover, .dark .map .esriSimpleSliderIncrementButton:hover {
+  background: #222222;
+}
+
+.dark .esri-zoom .esri-button {
+  border-radius: 2px;
+  color: #EEEEEE;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: none;
+}
+.dark .esri-zoom .esri-button:hover {
+  background: #222222;
+}
+
+
+/*******************
+* Cartouche colors: orange
+********************/
+
+.applicationBar.orange > .content > .cartouche {
+  background-color: #FD7F00;
+}
+
+.applicationBar.orange  > .content > .cartouche span {
+  color: white;
+}
+
+/*******************
+* Cartouche colors: rougerose
+********************/
+
+.applicationBar.rougerose  > .content > .cartouche {
+  background-color: #F55;
+}
+.applicationBar.rougerose > .content > .main {
+  color: #F55;
+}
+
+/*******************
+* Cartouche colors: bluesky
+********************/
+
+.applicationBar.bluesky  > .content > .cartouche {
+  background-color: #1BB;
+}
+.applicationBar.bluesky > .content > .main {
+  color: #1BB;
+}
+
+.esri-slide:hover {
+  border-top: 4px solid #1BB;
+}
+
+/*******************
+* Cartouche colors: green
+********************/
+
+.applicationBar.green  > .content > .cartouche {
+  background-color: #33A02C;
+}
+.drawer > .toggleButtonBar > .toggleButton[data-selected='true'] {
+  border-color: #33A02C;
+}
+
+.applicationBar.green > .content > .main {
+  color: #66A61E;
+}
+
+/*******************
+*  switch button
+********************/
+
+.topcoat-switch {
+  position: relative;
+  display: inline-block;  
+  padding: 0 1.25rem;
+  border-radius: 0px;
+  border: 1px solid #333434;
+  overflow: hidden;
+  width: 6rem;
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.topcoat-switch__input {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.1)";
+  filter: alpha(opacity=0.1);
+  opacity: 0.001;
+}
+
+.topcoat-switch__toggle,.button {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: default;
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topcoat-switch__toggle {
+  line-height: 2rem;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 2px;
+  color: #c6c8c8;
+  text-shadow: 0 -1px rgba(0,0,0,0.69);
+  background-color: #595b5b;  
+  border: 1px solid #333434;
+  margin-left: -1.3rem;
+  margin-bottom:-1px;
+  margin-top:-1px;
+
+  -webkit-box-shadow: inset 0 1px #737373;
+  box-shadow: inset 0 1px #737373;
+
+  -webkit-transition: margin-left 0.05s ease-in-out;
+  -moz-transition: margin-left 0.05s ease-in-out;
+  -o-transition: margin-left 0.05s ease-in-out;
+  -ms-transition: margin-left 0.05s ease-in-out;
+  transition: margin-left 0.05s ease-in-out;
+}
+
+.topcoat-switch__input:checked + .topcoat-switch__toggle {
+  margin-left: 2.7rem;
+}
+
+.topcoat-switch__toggle:before,
+.topcoat-switch__toggle:after {
+  position: absolute;
+  
+  width: 5rem;
+  z-index: -1;
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.topcoat-switch__toggle:before {
+  /* opacity: 0.5; */
+  content: '3D';
+  color: #288edf;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  top: -1px;
+  right: 1rem;
+  padding-left: 1.5rem;
+}
+
+.topcoat-switch__toggle:after {
+  content: '2D';
+  background-color: rgba(0,0,0,0.5);
+  top: -1px;
+  left: 1rem;
+  padding-left: 2rem;
+}
+
+/*******************
+*  checkbox
+********************/
+
+input[type=checkbox] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1rem;
+  margin: 0 -1rem -1rem 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1rem;
+  opacity: 0.001;
+}
+
+.topcoat-checkbox {
+  position: relative;
+  display: inline-block;
+  line-height: 1rem;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.topcoat-checkbox__checkmark {
+  display: inline-block;
+  vertical-align: top;
+  width: 1rem;
+  height: 1rem;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Background */
+.topcoat-checkbox__checkmark:before {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  background: #e5e9e9;
+  border: 1px solid #a5a8a8;
+  border-radius: 3px;
+  cursor: pointer;
+  
+  -webkit-box-shadow: inset 0 1px #fff;
+  box-shadow: inset 0 1px #fff;
+}
+
+/* Checkmark */
+.topcoat-checkbox__checkmark:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  /* Length of check tail */
+  width: 14px; 
+  /* Lenght of check foot */
+  height: 6px;
+  background: transparent;
+  border: 4px solid #666666;
+  border-top: none;
+  border-right: none;
+  border-radius: 2px;
+
+  -webkit-transform: rotate(-50deg);
+  -moz-transform: rotate(-50deg);
+  -o-transform: rotate(-50deg);
+  -ms-transform: rotate(-50deg);
+  transform: rotate(-50deg);
+}
+
+:checked + .topcoat-checkbox__checkmark:after {
+  opacity: 1;
+}
+
+:focus + .topcoat-checkbox__checkmark:before {
+  border: 1px solid #0940fd;
+  -webkit-box-shadow: 0 0 0 2px #6fb5f1;
+  box-shadow: 0 0 0 2px #6fb5f1;
+}
+
+:disabled + .topcoat-checkbox__checkmark:before {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.code {
+  opacity: 0;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  transition: all ease 250ms;
+  bottom: 20px;
+  right: 20px;
+  position: absolute;
+  z-index: 20000;
+  height: auto;
+}
+
+.code.visible, .code:hover {
+  opacity: 1;
+  filter: none;
+  -webkit-filter: none;
+}
+
+.light .code {
+  background: rgba(255,255,255,0.9);
+}
+
+.dark .code {
+  background: rgba(0,0,0,0.9);
+}
+
+
+.code.left {
+  left: 20px;
+  right: auto;
+}
+
+.code.right {
+  right: 20px;
+  left: auto;
+}
+
+.code.top {
+  top: 100px;
+  bottom: auto;
+}
+
+.code > * {
+  /* background: white; */
+  font-size: 16pt;
+}
+
+.shadowed {
+  box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.5);
+}
+
+.esri-zoom {
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);
+}
+.esri-zoom .esri-button {
+  border: none;
+}
+
+.codesnippet {
+  display: none;
+}
+
+.esri-slides {
+  left: 0;
+  right: 0;
+  bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.light .esri-slides-container {
+  border: 4px solid white;
+  background: rgba(255,255,255,0.9);
+}
+
+.esri-slides > .esri-slide {
+  /* float: left; */
+}
+
+.esri-slide {
+  float: left;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.esri-slide:hover {
+  cursor: pointer;
+}
+.light .esri-slide:hover {
+  background: white;
+}
+
+.esri-slide > figure {
+  text-align: center;
+  -webkit-margin-start: 20px;
+  -webkit-margin-end: 20px;
+  -webkit-margin-after: 20px;
+  -webkit-margin-before: 20px;
+}

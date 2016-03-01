@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+<title>Layer List Dijit</title>
+<link rel="stylesheet" href="https://jsdev.arcgis.com/3.16/dijit/themes/claro/claro.css">
+<link rel="stylesheet" href="https://jsdev.arcgis.com/3.16/esri/css/esri.css">
+
+<style>
+html, body, .container, #map {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    margin:0;
+    font-family: "Open Sans";
+}
+#map {
+    padding:0;
+}
+#layerListPane{
+    width:25%;
+}
+.esriLayer{
+  background-color: #fff;
+}
+.esriLayerList .esriList{
+    border-top:none;
+}
+.esriLayerList .esriTitle {
+  background-color: #fff;
+  border-bottom:none;
+}
+.esriLayerList .esriList ul{
+  background-color: #fff;
+}
+</style>
+<script>var dojoConfig = { parseOnLoad: true };</script>
+<script src="https://jsdev.arcgis.com/3.16/"></script>
+<script>
+require([
+    "esri/arcgis/utils",
+    "esri/dijit/LayerList",
+    "dijit/layout/BorderContainer",
+    "dijit/layout/ContentPane",
+    "dojo/domReady!"
+], function(
+    arcgisUtils,
+    LayerList
+) {
+    //Create a map based on an ArcGIS Online web map id
+    arcgisUtils.createMap("df8bcc10430f48878b01c96e907a1fc3", "map").then(function(response){
+        var myWidget = new LayerList({
+           map: response.map,
+           showLegend: true,
+					 showSubLayers: true,
+           layers: arcgisUtils.getLayerList(response)
+        },"layerList");
+        myWidget.startup();
+    });
+
+});
+</script>
+</head>
+<body class="claro">
+<div class="container" data-dojo-type="dijit/layout/BorderContainer"
+data-dojo-props="design:'headline',gutters:false">
+<div id="layerListPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'">
+    <div id="layerList"></div>
+</div>
+<div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+</div>
+</body>
+</html>

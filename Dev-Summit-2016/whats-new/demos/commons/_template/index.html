@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>4.0</title>
+
+    <link href="../../commons/libs/codemirror/codemirror.css" rel="stylesheet">
+    <link href="../../commons/css/style.css" rel="stylesheet" type="text/css">
+    <script src="../../commons/libs/codemirror/codemirror.js"></script>
+    <script src="../../commons/libs/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../../commons/dojo-config.js"></script>
+     
+    <link href="//js.arcgis.com/4.0beta1/esri/css/jsapi.css" rel="stylesheet" type="text/css">
+    <script src="//js.arcgis.com/4.0beta1/"></script>
+
+    <script type="text/javascript">
+
+      var map, view;
+      
+      require([
+        "esri/Map",
+        "esri/Camera",
+        "esri/views/View3D",
+
+        "esri/layers/SceneServiceLayer",
+
+        "esri/SpatialReference",
+        
+        "esri/geometry/Point",
+        "esri/geometry/Extent",
+        
+        "commons/init",
+        "dojo/domReady!"
+      ], function(
+        Map, Camera, View3D,
+        SceneLayer,
+        SpatialReference, Point, Extent
+      ) {
+        
+        //----------------------------------
+        //  Setup the map
+        //----------------------------------
+        
+        map = new Map({
+          basemap: 'satellite',
+          center: [-100, 40]
+        });
+
+        var sd = new SceneLayer({
+          url: '//genesis.esri.com/arcgis/rest/services/Hosted/SD_Buildings/SceneServer/layers/0'
+        });
+        map.add(sd);
+
+        //genesis.esri.com/arcgis/rest/services/Hosted/SanDiegoBlds_NoSDCC/SceneServer/layers/0
+        //genesis.esri.com/arcgis/rest/services/Hosted/SDCC_-_Mezzanine/SceneServer/layers/0
+        //genesis.esri.com/arcgis/rest/services/Hosted/SDCC_-_Upper_Floor/SceneServer/layers/0
+        //genesis.esri.com/arcgis/rest/services/Hosted/SDCC_-_Ground_Floor/SceneServer/layers/0
+        //genesis.esri.com/arcgis/rest/services/Hosted/SD_Convention_Center/SceneServer/layers/0
+
+        var sdcc = new SceneLayer({
+          url: '//genesis.esri.com/arcgis/rest/services/Hosted/SD_Convention_Center/SceneServer/layers/0'
+        });
+        map.add(sdcc);
+
+        //----------------------------------
+        //  Setup the view
+        //----------------------------------
+
+        var camera = new Camera({
+          position: new Point({
+            spatialReference: new SpatialReference({
+              wkid: 102100
+            }),
+            x: -13043535,
+            y: 3855869,
+            z: 490
+          }),
+          heading: 68,
+          tilt: 66
+        });
+
+        view = new View3D({
+          container: 'mapDiv',
+          map: map
+        });
+
+        view.then(function() {
+          view.set("camera", camera);
+        })
+
+//         view.then(function() {
+//           view.animateTo({
+//             center: new Point([-100, 40]),
+//             tilt: 50,
+//             scale: 1000
+//           });
+//         })
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+          lineNumbers: true,
+          mode: "javascript"
+        });
+      });
+      
+    </script>
+  </head>
+  
+<!-- possible values: light & dark -->
+  <body class="light">
+    <div class="application">
+      <div id="mapDiv" class="esriMap">
+        <div class="code">
+        <textarea id="code">
+//----------------------------------
+//  Setup the map
+//----------------------------------
+
+var map = new Map({
+  basemap: 'satellite',
+  center: [-100, 40]
+});
+
+var sandiego = new SceneServiceLayer({
+  url: '...'
+});
+map.add(sandiego);
+
+//----------------------------------
+//  Setup the view
+//----------------------------------
+
+var view = new View3D({
+  container: 'mapDiv',
+  map: map
+});
+         </textarea>
+         </div>
+      </div>
+      <div class="applicationUI">
+      
+<!-- Uncomment to add a drawer on the left of the app -->
+<!--        <div class="drawer">
+         
+       </div> -->
+
+<!-- possible values: applicationBar + (none, green, orange) -->
+        <div class="applicationBar">
+          <div class="content">
+            <div class="cartouche">
+              <span class="label">4.0</span>
+            </div>
+            <div class="main">
+              <span class="title"></span>
+            </div>
+            <div class="actionBar">
+<!-- top right content, have some style issues -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+</html>
