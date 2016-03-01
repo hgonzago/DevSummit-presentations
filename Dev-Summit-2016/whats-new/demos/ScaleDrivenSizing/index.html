@@ -189,47 +189,79 @@
      <div id="viewDiv">
       <div id="code" class="code left shadowed" style="height: 600px">
         <textarea id="codemirror">
-          // create a unique value renderer and its unique value info
-          var renderer = new UniqueValueRenderer(null, 'DISTRICT');
-          var createSymbol = function(color) {
-            return new SimpleLineSymbol('solid', new Color(color), 1.5);
-          }
-          renderer.addValue("1", createSymbol("#6EC4AE"));
-          renderer.addValue("2", createSymbol("#37A9B7"));
-          renderer.addValue("3", createSymbol("#D68989"));
-          renderer.addValue("4", createSymbol("#BC7EBA"));
-          renderer.addValue("5", createSymbol("#F97B60"));
-          renderer.addValue("6", createSymbol("#7BFAEB"));
-          renderer.addValue("7", createSymbol("#A1D77E"));
-          renderer.addValue("8", createSymbol("#FBDE7F"));
+// Define circle MARKER symbol to be drawn at the centroid
+// of each polygon.
+var markerSymbol = new SimpleMarkerSymbol();
+markerSymbol.setColor(new Color([251, 222, 127, 1]));
+markerSymbol.setSize(12);
+markerSymbol.outline.setColor(new Color([51, 51, 51, 1]));
+markerSymbol.outline.setWidth(1);
 
-          // define visual variables that varies the width and opacity
-          // of the lines based on the average
-          renderer.setVisualVariables([
-            {
-              type: 'sizeInfo',
-              field: 'AADT',
-              minSize: 0.75,
-              maxSize: 8.25,
-              minDataValue: 10,
-              maxDataValue: 150000
-            },
-            {
-              type: 'opacityInfo',
-              field: 'AADT',
-              stops: [
-                {
-                  value: 10,
-                  opacity: 0.5
-                },
-                {
-                  value: 38518,
-                  opacity: 1
-                }
-              ]
-            }
-          ]);
+// Make sure the MARKER symbol defined above is used to
+// draw polygons that have valid numeric field value.
+renderer.addBreak({
+  minValue: -9007199254740991,
+  maxValue: 9007199254740991,
+  symbol: markerSymbol
+});
 
+//----------------------
+// Visual variables
+//----------------------
+
+renderer.setVisualVariables([
+// This visual variable determines the size of circle marker
+// for each polygon based on the value of its attribute field.
+{
+  type: "sizeInfo",
+  field: rendererField,
+  minDataValue: 0,
+  maxDataValue: 2638797,
+  valueUnit: "unknown",
+
+  // The SMALLEST marker size at any given map scale is determined by
+  // minSize specification.
+
+   minSize: {
+     type: "sizeInfo",
+     expression: "view.scale",
+     stops: [
+       {value: 1128, size: 16},
+       {value: 144447, size: 16},
+       {value: 18489298, size: 4},
+       {value: 147914382, size: 4},
+       {value: 591657528, size: 2}
+     ]
+    },
+  // The LARGEST marker size at any given map scale is determined by
+  // maxSize specification.
+
+   maxSize: {
+     type: "sizeInfo",
+     expression: "view.scale",
+     stops: [
+       {value: 1128, size: 80},
+       {value: 144447, size: 80},
+       {value: 18489298, size: 50},
+       {value: 147914382, size: 50},
+       {value: 591657528, size: 25}
+     ]
+   }
+},
+// This visual variable determines the outline width of polygons
+// based on map scale.
+
+{
+    type: "sizeInfo",
+    target: "outline",
+    expression: "view.scale",
+    stops: [
+      {value: 1153765, size: 2},
+      {value: 7211032, size: 1},
+      {value: 28844129, size: 0}
+    ]
+}
+]);
         </textarea>
       </div>
     </div>
