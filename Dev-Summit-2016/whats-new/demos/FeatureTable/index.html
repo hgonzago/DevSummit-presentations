@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
   <title>FeatureTable - Custom Menu Items</title>
   <link rel="stylesheet" href="//jsdev.arcgis.com/3.16/dijit/themes/claro/claro.css">
   <link rel="stylesheet" href="//jsdev.arcgis.com/3.16/esri/css/esri.css">
@@ -19,33 +19,36 @@
   </style>
 
   <script>
+    // Globals
+    var map, myFeatureLayer, myFeatureTable;
+
     require([
-      "dijit/layout/BorderContainer",
-      "dijit/layout/ContentPane",
-      "dojo/dom",
-      "dojo/on",
-      "dojo/parser",
-      "dojo/ready",
+      "esri/layers/FeatureLayer",
       "esri/dijit/FeatureTable",
       "esri/geometry/Extent",
       "esri/graphicsUtils",
-      "esri/layers/FeatureLayer",
-      "esri/map",
+      "esri/tasks/query",
       "esri/symbols/PictureMarkerSymbol",
-      "esri/tasks/query"
-    ], function (BorderContainer, ContentPane, dom, on, parser, ready, FeatureTable,
-      Extent, graphicsUtils, FeatureLayer, Map, PictureMarkerSymbol, Query){
+      "esri/map",
+      "dojo/dom",
+      "dojo/parser",
+      "dojo/ready",
+      "dojo/on",
+      "dijit/layout/ContentPane",
+      "dijit/layout/BorderContainer"
+    ], function (
+      FeatureLayer, FeatureTable, Extent, graphicsUtils, Query, PictureMarkerSymbol, Map,
+      dom, parser, ready, on, ContentPane, BorderContainer
+    ) {
 
       parser.parse();
 
-      ready(function (){
-        var map, myFeatureLayer, myFeatureTable;
-        map = new Map("map", {
+      ready(function(){
+        map = new Map("map",{
           basemap: "dark-gray",
-          extent: new Extent({
-            xmax: -13035353.854156237, xmin: -13053431.211345658,
+          extent: new Extent({xmax: -13035353.854156237, xmin: -13053431.211345658,
             ymax: 4038351.1313028745, ymin: 4034089.766975982,
-            "spatialReference": {"wkid": 102100, "latestWkid": 3857}
+            "spatialReference":{"wkid":102100,"latestWkid":3857}
           })
         });
 
@@ -55,7 +58,7 @@
         function loadTable(){
 
           //Editable FeatureLayer
-          myFeatureLayer = new FeatureLayer("https://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/FeatureServer/1", {
+          var myFeatureLayer = new FeatureLayer("https://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/FeatureServer/1", {
             mode: FeatureLayer.MODE_ONDEMAND,
             outFields: ["*"],
             visible: true,
@@ -63,7 +66,7 @@
           });
 
           //set a selection symbol for the featurelayer.
-          var selectionSymbol = new PictureMarkerSymbol("https://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/FeatureServer/1/images/3540cfc7a09a7bd66f9b7b2114d24eee", 48, 48);
+          var selectionSymbol = new PictureMarkerSymbol("https://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/FeatureServer/1/images/3540cfc7a09a7bd66f9b7b2114d24eee", 48 ,48);
 
           myFeatureLayer.setSelectionSymbol(selectionSymbol);
 
@@ -72,10 +75,9 @@
           map.addLayer(myFeatureLayer);
 
           //create new FeatureTable and set its properties
-          //editable option must be set to true to enable editing within the FeatureTable
           myFeatureTable = new FeatureTable({
-            featureLayer: myFeatureLayer,
-            map: map,
+            featureLayer : myFeatureLayer,
+            map : map,
             editable: true,
             dateOptions: {
               datePattern: 'M/d/y',
@@ -85,49 +87,64 @@
             //use fieldInfos object to change field's label (column header),
             //change the editability of the field, and to format how field values are displayed
             //you will not be able to edit callnumber field in this example.
-            //By default if the field is editable, you should be able to edit.
-            //If the layer is not set to be editable on the server end, you will not be able to override it in the fieldInfos.
             fieldInfos: [
-              {name: 'callnumber', alias: 'Call Number', editable: false},
-              {name: 'speed', alias: 'Current Speed'},
-              {name: 'type', alias: 'Vehicle Type'},
-              {name: 'unitname', alias: 'Unit Name'}
+              {
+                name: 'callnumber',
+                alias: 'Call Number',
+                editable: false //disable editing on this field
+              },
+              {
+                name: 'speed',
+                alias: 'Current Speed',
+                format: {
+                  template: "${value} mph" //add mph af
+                }
+              },
+              {
+                name: 'type',
+                alias: 'Vehicle Type'
+              },
+              {
+                name: 'unitname',
+                alias: 'Unit Name'
+              }
             ],
             //add custom menu functions to the 'Options' drop-down Menu
             menuFunctions: [
-              {
-                label: "Zoom To Selected Feature(s)",
-                callback: function (evt){
-                  console.log(" -- evt: ", evt);
-                  var query = new Query();
-                  //selectedRowIds property returns ObjectIds of features selected in the feature table
-                  //Use the ObjectIds to query the feature layer. In this case, we will zoom to
-                  //selected features on the map
-                  query.objectIds = myFeatureTable.selectedRowIds;
-                  query.where = "1=1";
+            {
+              label: "Zoom To Selected Feature(s)",
+              callback: function(evt){
+                console.log(" -- evt: ", evt);
+                var query = new Query();
+                //selectedRowIds property returns ObjectIds of features selected in the feature table
+                //Use the ObjectIds to query the feature layer. In this case, we will zoom to
+                //selected features on the map
+                query.objectIds = myFeatureTable.selectedRowIds;
+                query.where = "1=1";
 
-                  myFeatureLayer.selectFeatures(query, FeatureLayer.SELECTION_NEW, function (features){
-                    //zoom to the selected feature
-                    //if only one point feature is selected in the table
-                    if (features.length == 1 && features[0].geometry.type === "point") {
-                      maxZoom = map.getMaxZoom();
-                      map.centerAndZoom(features[0].geometry, maxZoom - 1);
-                    }
-                    else {
-                      var extent = graphicsUtils.graphicsExtent(features);
-                      map.setExtent(extent)
-                    }
-                  });
-                }
-              },
-              {label: "Custom Refresh", callback: customRefresh}
-            ]
+                myFeatureLayer.selectFeatures(query, FeatureLayer.SELECTION_NEW, function(features){
+                  //zoom to the selected feature
+                  //if only one point feature is selected in the table
+                  if (features.length == 1 && features[0].geometry.type ==="point") {
+                    maxZoom = map.getMaxZoom();
+                    map.centerAndZoom(features[0].geometry, maxZoom - 1);
+                  }
+                  else {
+                    var extent = graphicsUtils.graphicsExtent(features);
+                    map.setExtent(extent)
+                  }
+                });
+              }
+            },
+            { label: "Custom Refresh",  callback: customRefresh }
+          ]
           }, 'myTableNode');
 
           myFeatureTable.startup();
         }
 
         function customRefresh(evt){
+          //refresh the table
           console.log("custom refresh")
           myFeatureTable.grid.refresh();
         }
