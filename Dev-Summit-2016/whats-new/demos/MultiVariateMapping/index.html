@@ -209,10 +209,10 @@
   </script>
 </head>
 <body class="light">
-  <div class="application">
-    <div id="viewDiv">
-      <div id="code" class="code left shadowed" style="height: 600px">
-        <textarea id="codemirror">
+  <div class="application" style="overflow: hidden;">
+     <div id="viewDiv" class="view">
+      <div id="code" class="code manual left shadowed" style="height: 600px">
+        <textarea class="codemirror">
 renderer = new UniqueValueRenderer(defaultSym, "ATT_COL_DOM");
 renderer.addValue({
   value: "Population 25+ that attended college",
@@ -244,19 +244,24 @@ var opacityVisVar = {
     { value: 70, opacity: 1 }
   ]
 };
-        </textarea>
-      </div>
-    </div>
-    <div class="applicationBar">
-      <div class="content">
-        <div class="cartouche">
-          <span class="label">3.16</span>
-        </div>
-        <div class="main">
-          <span class="title">Mapping 3 variables</span>
-        </div>
-      </div>
-    </div>
+</textarea>
+</div>
+</div>
+<div class="applicationBar">
+<div class="content">
+<div class="cartouche">
+  <span class="label">3.16</span>
+</div>
+<div class="main">
+  <span class="title">Scale-driven sizing</span>
+</div>
+<div class="actionBar">
+  <div class="button showcode">
+    <span>code</span>
+  </div>
+</div>
+</div>
+</div>
     <div class="legend shadowed">
       <div id="legendDiv"></div>
     </div>
