@@ -185,10 +185,10 @@
   </script>
   </head>
 <body class="dark">
-  <div class="application">
-     <div id="viewDiv">
-      <div id="code" class="code left shadowed" style="height: 600px">
-        <textarea id="codemirror">
+  <div class="application" style="overflow: hidden;">
+     <div id="viewDiv" class="view">
+      <div id="code" class="code manual left shadowed" style="height: 600px">
+        <textarea class="codemirror">
 // Define circle MARKER symbol to be drawn at the centroid
 // of each polygon.
 var markerSymbol = new SimpleMarkerSymbol();
@@ -273,11 +273,16 @@ renderer.setVisualVariables([
         <div class="main">
           <span class="title">Scale-driven sizing</span>
         </div>
+        <div class="actionBar">
+          <div class="button showcode">
+            <span>code</span>
+          </div>
+        </div>
      </div>
    </div>
-    <div class="legend shadowed">
-      <div id="legendDiv"></div>
-    </div>
+   <div class="legend shadowed">
+       <div id="legendDiv"></div>
+     </div>
   </div>
 </body>
 </html>

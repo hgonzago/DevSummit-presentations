@@ -2,12 +2,23 @@
 *     Layout
 ********************/
 
-html, body, #viewDiv {
-  position: absolute;
+html, body, .split, #viewDiv, .application {
   height:  100%;
   width:   100%; 
   margin:  0;
   padding: 0;
+}
+
+.split {
+  height:  100%;
+  width:   100%; 
+  margin:  0;
+  padding: 0;
+}
+
+.split > .view {
+  width:   50%; 
+  float: left;
 }
 
 /*******************
@@ -96,7 +107,7 @@ html, body, #viewDiv {
   z-index: 2;
 }
 
-.applicationBar > .content > .actionBar > .bookmark {
+.applicationBar > .content > .actionBar > .bookmark, .applicationBar > .content > .actionBar > .button {
   margin-top: 17px;
   padding: 5px 16px;
 }
@@ -155,7 +166,7 @@ html, body, #viewDiv {
 ********************/
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Avenir Next W01", "Avenir Next W00", "Avenir Next", "Avenir", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .drawer {
@@ -382,7 +393,7 @@ body.dark {
 }
 
 .dark .esri-zoom .esri-button {
-  border-radius: 2px;
+  /* border-radius: 2px; */
   color: #EEEEEE;
   background: rgba(0, 0, 0, 0.9);
   border-bottom: none;
@@ -400,6 +411,10 @@ body.dark {
   background-color: #FD7F00;
 }
 
+.applicationBar.orange > .content > .actionBar > .button {
+  border: 2px solid #FD7F00;
+}
+
 .applicationBar.orange  > .content > .cartouche span {
   color: white;
 }
@@ -410,6 +425,9 @@ body.dark {
 
 .applicationBar.rougerose  > .content > .cartouche {
   background-color: #F55;
+}
+.applicationBar.rougerose > .content > .actionBar > .button {
+  border: 2px solid #F55;
 }
 .applicationBar.rougerose > .content > .main {
   color: #F55;
@@ -425,19 +443,38 @@ body.dark {
 .applicationBar.bluesky > .content > .main {
   color: #1BB;
 }
-
+.applicationBar.bluesky > .content > .actionBar > .button {
+  border: 2px solid #1BB;
+}
 .esri-slide:hover {
   border-top: 4px solid #1BB;
+}
+
+
+/*******************
+* Cartouche colors: blueocean
+********************/
+
+.applicationBar.blueocean  > .content > .cartouche {
+  background-color: #9ABFEB;
+}
+.applicationBar.blueocean > .content > .main {
+  color: #9ABFEB;
+}
+
+.esri-slide:hover {
+  border-top: 4px solid #9ABFEB;
 }
 
 /*******************
 * Cartouche colors: green
 ********************/
 
-.applicationBar.green  > .content > .cartouche {
+.applicationBar.green  > .content > .cartouche, {
   background-color: #33A02C;
 }
-.drawer > .toggleButtonBar > .toggleButton[data-selected='true'] {
+.drawer > .toggleButtonBar > .toggleButton[data-selected='true'],
+.applicationBar.green > .content > .actionBar > .button {
   border-color: #33A02C;
 }
 
@@ -446,126 +483,15 @@ body.dark {
 }
 
 /*******************
-*  switch button
+*  button
 ********************/
 
-.topcoat-switch {
-  position: relative;
-  display: inline-block;  
-  padding: 0 1.25rem;
-  border-radius: 0px;
-  border: 1px solid #333434;
-  overflow: hidden;
-  width: 6rem;
-  
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
+.button {
+  cursor: pointer;
 }
-
-.topcoat-switch__input {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  margin: 0;
-  padding: 0;
-  border: 0;
-  
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.1)";
-  filter: alpha(opacity=0.1);
-  opacity: 0.001;
-}
-
-.topcoat-switch__toggle,.button {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  background: transparent;
-  border: none;
-  cursor: default;
-  
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding-box;
-  background-clip: padding-box;
-  
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  
-  -o-text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.topcoat-switch__toggle {
-  line-height: 2rem;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 2px;
-  color: #c6c8c8;
-  text-shadow: 0 -1px rgba(0,0,0,0.69);
-  background-color: #595b5b;  
-  border: 1px solid #333434;
-  margin-left: -1.3rem;
-  margin-bottom:-1px;
-  margin-top:-1px;
-
-  -webkit-box-shadow: inset 0 1px #737373;
-  box-shadow: inset 0 1px #737373;
-
-  -webkit-transition: margin-left 0.05s ease-in-out;
-  -moz-transition: margin-left 0.05s ease-in-out;
-  -o-transition: margin-left 0.05s ease-in-out;
-  -ms-transition: margin-left 0.05s ease-in-out;
-  transition: margin-left 0.05s ease-in-out;
-}
-
-.topcoat-switch__input:checked + .topcoat-switch__toggle {
-  margin-left: 2.7rem;
-}
-
-.topcoat-switch__toggle:before,
-.topcoat-switch__toggle:after {
-  position: absolute;
-  
-  width: 5rem;
-  z-index: -1;
-  
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.topcoat-switch__toggle:before {
-  /* opacity: 0.5; */
-  content: '3D';
-  color: #288edf;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0;
-  top: -1px;
-  right: 1rem;
-  padding-left: 1.5rem;
-}
-
-.topcoat-switch__toggle:after {
-  content: '2D';
-  background-color: rgba(0,0,0,0.5);
-  top: -1px;
-  left: 1rem;
-  padding-left: 2rem;
+.dark .button {
+  border: 1px solid white;
+  color: white;
 }
 
 /*******************
@@ -673,7 +599,11 @@ input[type=checkbox] {
   height: auto;
 }
 
-.code.visible, .code:hover {
+.code.manual:not(.visible) {
+  pointer-events: none;
+}
+
+.code.visible, .code:not(.manual):hover {
   opacity: 1;
   filter: none;
   -webkit-filter: none;
