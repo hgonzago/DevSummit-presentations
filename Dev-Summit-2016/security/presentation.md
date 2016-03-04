@@ -313,7 +313,6 @@ Julie Powell and Heather Gonzago
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-
 ## **OAuth2: application authentication**
 
 
@@ -329,7 +328,7 @@ Julie Powell and Heather Gonzago
 
 
 ---
-
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **OAuth2: application authentication**
 
 - Users of the App are unknown to the ArcGIS platform
