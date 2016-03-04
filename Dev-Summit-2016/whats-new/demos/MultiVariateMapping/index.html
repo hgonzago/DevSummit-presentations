@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <title>Mapping 3 variables</title>
+  <title>Mapping multiple variables</title>
 
   <link rel="stylesheet" href="//js.arcgis.com/3.16/esri/css/esri.css">
   <link rel="stylesheet" href="../commons/css/style.css">
@@ -224,26 +224,49 @@ renderer.addValue({
   label: "Majority of adults never attended college",
   symbol: noColSym
 });
-
-
 var sizeVisVar = {
   type: "sizeInfo",
-  field: "EDUCBASECY",
-  minDataValue: 10000,
-  maxDataValue: 1000000,
+  field: "EDUCBASECY",  //total adult population 25 years and older
+  minDataValue: 10000,  //counties with < 10,000 adults will be assigned the min size
+  maxDataValue: 1000000,  //counties with > 1,000,000 adults will be assigned the max size
   valueUnit: "unknown",
-  minSize: 10,
-  maxSize: 50
+  minSize: {
+    type: "sizeInfo",
+    expression: "view.scale",
+    //The min size of the symbol varies depending on the map scale
+    stops: [
+      { value: 250000000, size: 6 },
+      { value: 6000000, size: 6 },   //at a 1:6,000,000 scale, the min size is 6px
+      { value: 1000000, size: 4 },
+      { value: 200000, size: 2 },
+      { value: 1000, size: 2 }
+    ]
+  },
+  maxSize: {
+    type: "sizeInfo",
+    expression: "view.scale",
+    //The max size of the symbol varies depending on the map scale
+    stops: [
+      { value: 250000000, size: 50 },
+      { value: 6000000, size: 50 },  //at a 1:6,000,000 scale, the max size is 50px
+      { value: 1000000, size: 40 },
+      { value: 200000, size: 20 },
+      { value: 1000, size: 10 }
+    ]
+  }
 };
 
+// This will depict the strength of the dominance in each feature.
 var opacityVisVar = {
   type: "opacityInfo",
   field: "ATE_COL_DOM_PER",
   stops: [
-    { value: 55, opacity: 0.1 },
-    { value: 70, opacity: 1 }
+    {value: 55, opacity: 0.1},
+    {value: 70, opacity: 1}
   ]
 };
+//Set the size and opacity visual variables on the UniqueValueRenderer
+renderer.setVisualVariables([sizeVisVar, opacityVisVar]);
 </textarea>
 </div>
 </div>
@@ -253,7 +276,7 @@ var opacityVisVar = {
   <span class="label">3.16</span>
 </div>
 <div class="main">
-  <span class="title">Scale-driven sizing</span>
+  <span class="title">Mapping multiple variables</span>
 </div>
 <div class="actionBar">
   <div class="button showcode">
