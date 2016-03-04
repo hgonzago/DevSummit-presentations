@@ -13,7 +13,7 @@ Julie Powell and Heather Gonzago
  - Multi-factor authentication
  - Application authentication
  - Resource proxy
- - Service proxy
+ - ArcGIS Online hosted proxy
 
 ---
 
@@ -38,7 +38,7 @@ Julie Powell and Heather Gonzago
  - Multi-factor authentication
  - Application authentication
  - Resource proxy
- - Service proxy
+ - ArcGIS Online hosted proxy
 
 ---
 
@@ -89,7 +89,7 @@ Julie Powell and Heather Gonzago
 - Multi-factor authentication
 - Application authentication
 - Resource proxy
-- Service proxy
+- ArcGIS Online hosted proxy
 
 ---
 
@@ -129,7 +129,7 @@ Julie Powell and Heather Gonzago
 - <span style="color:yellow">Multi-factor authentication</span>
 - Application authentication
 - Resource proxy
-- Service proxy
+- ArcGIS Online hosted proxy
 
 ---
 
@@ -231,7 +231,7 @@ Julie Powell and Heather Gonzago
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Trusted Server Connection:**</br>## **Obtain info about user**
+## **2 step: Trusted Server Connection:**</br>## **Obtain info about user**
 <img style="float: center;" src="images/Step2-TrustConnection.png">
 
 
@@ -245,7 +245,7 @@ Julie Powell and Heather Gonzago
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Access secured ArcGIS Server services:**</br>## **(based on user/role)**
+## **2 step: Access secured ArcGIS Server services:**</br>## **(based on user/role)**
 <img style="float: center;" src="images/2Step-AccessService.png">
 
 
@@ -268,22 +268,23 @@ Julie Powell and Heather Gonzago
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Multi-factor authentication**
 
-Another level of security -
-can't just rely on only one method, need to have both password and device
-Two administrators
-Google or Microsoft Authenticator
+- Extra level of security
+- Requests a verification code in addition to a user name and password
+- Mobile device with a supported authentication app installed 
+- Two administrators: Google or Microsoft Authenticator
+- Not supported with enterprise logins or public accounts
 
+---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Demo: Multi-factor authentication**
-
-Update screen captures!!!!!!!
+<img style="float: center;" src="images/MultiFactor.png">
 
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## Enterprise logins
+## **Enterprise logins**
 
 - Login to ArcGIS Online using your enterprise login (Active Directory, LDAP, …)
 - Uses the SAML standard
@@ -307,18 +308,35 @@ Update screen captures!!!!!!!
  - Multi-factor authentication
  - <span style="color:yellow">Application authentication</span>
  - <span style="color:yellow">Resource proxy</span>
- - Service proxy
+ - ArcGIS Online hosted proxy
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **OAuth2: application authentication**
+
+
+- <span style="color:cyan">When would you want to use app authentication?</span>
+</br>Do not want users to have to log in to access application and/or content. 
+- Access the following services:
+ - Geocoding
+ - Routing and Directions
+ - Demographic Data (GeoEnrichment)
+ - Esri Geotrigger Service
+ - Esri Premium Maps and Layers which require a subscription.
+ - Elevation Analysis
+
+
+---
+
 ## **OAuth2: application authentication**
 
 - Users of the App are unknown to the ArcGIS platform
 - No login prompts
 - App logs in to the ArcGIS platform on behalf of itself
 - App must contain valid app credentials
-- App is responsible for keeping the app secret secure
+- Proxy is responsible for keeping the app secret secure
 
 ---
 
@@ -340,15 +358,12 @@ Update screen captures!!!!!!!
 
 - Applications can only read or query private data content.
 - Cannot modify, upload, create, or delete content.
-- Content Restrictions
-- Members of an AGO org can only access private content owned by the person who created the application.
-- Marketplace restrictions
-- Cannot list applications in ArcGIS Marketplace. In order to do so, must work with user logins.
+- Cannot list applications in ArcGIS Marketplace. 
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **App logins: proxy use case steps**
+## **App logins: proxy steps**
 
 1. Register app
 2. Configure proxy with app credentials
@@ -361,7 +376,7 @@ Update screen captures!!!!!!!
 
 <!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
 ## **Demo: app authentication**
-TODO- screen capture and url link
+<img style="float: center;" src="images/appauthdemo.png">
 
 ---
 
@@ -370,9 +385,6 @@ TODO- screen capture and url link
 - Never expose client_secret
 - Keep secure server-side in proxy
 - Rate limiting against server-based misuse
-- Web-tier authentication,
-  -users sign into your application, only your authenticated users </br>
-  would be able to use your application to access premium content and services.
 
 ---
 
@@ -409,14 +421,24 @@ TODO- screen capture and url link
  - Multi-factor authentication
  - Application authentication
  - Resource proxy
- - <span style="color:yellow">Service proxy</span>
+ - <span style="color:yellow">ArcGIS Online hosted proxy</span>
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Service proxy**
+## **ArcGIS Online hosted proxy**
 
- PUT IN SLIDE showing what this is and how to access it
+- Esri maintained server-side proxy service
+- Allows access to a secured AGO service 
+- Token is not stored with the client app
+- The proxy service also supports a whitelist based on the HTTP Referer header 
+- Supports service rate limiting
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Configure AGO hosted proxy**
+[![generateToken](images/agoproxy.png)](./demos/AGOProxy/index.html)
 
 ---
 
@@ -426,7 +448,6 @@ TODO- screen capture and url link
 - Use OAuth2 for user logins
 - Benefits include usage tracking, enterprise logins, etc.
 - Identity Manager simplifies login workflow in client SDKs
-- Use app tokens to access secured resources in certain use cases
 - [https://developers.arcgis.com/authentication](https://developers.arcgis.com/authentication) for additional information.
 
 ---

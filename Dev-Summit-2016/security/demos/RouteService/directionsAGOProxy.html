@@ -40,7 +40,8 @@
         });
 
         var directions = new Directions({
-          map: map
+          map: map,
+          routeTaskUrl: "//utility.arcgis.com/usrsvcs/appservices/UnTCP3A0KgZ5jnFW/rest/services/World/Route/NAServer/Route_World"
         },"dir");
         directions.startup();
       });
