@@ -5,8 +5,8 @@
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
    <title>ArcGIS API for JavaScript | Search from webmap</title>
-   <link rel="stylesheet" href="http://jsdev.arcgis.com/3.15/dijit/themes/claro/claro.css">
-   <link rel="stylesheet" href="http://jsdev.arcgis.com/3.15/esri/css/esri.css">
+   <link rel="stylesheet" href="http://jsdev.arcgis.com/3.13/dijit/themes/claro/claro.css">
+   <link rel="stylesheet" href="http://jsdev.arcgis.com/3.13/esri/css/esri.css">
 
    <style>
       html,
@@ -18,9 +18,9 @@
          padding: 0;
       }
    </style>
-   <script src="http://jsdev.arcgis.com/3.15"></script>
+   <script src="http://jsdev.arcgis.com/3.13"></script>
    <script>
-
+      
       webmapId = "37072577f3cc499d90a284d62034daf0";
       require(["esri/map",
       "esri/arcgis/utils",
@@ -37,19 +37,19 @@
             ready) {
             ready(function () {
                parser.parse();
-
+                    
             utils.addProxyRule({
             urlPrefix: "http://jsapi.maps.arcgis.com/",
-            proxyUrl: "<replace with your proxy URL>"
+            proxyUrl: "http://heatherg.esri.com/proxy/proxy.php"
          });
-
+         
          utils.addProxyRule({
             urlPrefix: "http://www.arcgis.com/",
-            proxyUrl: "<replace with your proxy URL>"
+            proxyUrl: "http://heatherg.esri.com/proxy/proxy.php"
          });
          utils.addProxyRule({
             urlPrefix: "http://services.arcgis.com/V6ZHFr6zdgNZuVG0",
-            proxyUrl: "<replace with your proxy URL>"
+            proxyUrl: "http://heatherg.esri.com/proxy/proxy.php"
          });
 
                arcgisUtils.createMap(webmapId, "map").then(function (response) {

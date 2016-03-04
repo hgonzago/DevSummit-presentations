@@ -50,7 +50,6 @@ Julie Powell and Heather Gonzago
  - Short-lived token response
  - Handled via SDK’s Identity Manager component
  - Everything handled on the client
- - Web application responsible for keeping credentials secure
 
 ---
 
@@ -76,7 +75,6 @@ Julie Powell and Heather Gonzago
  - The web application has access to credentials
  - The application is responsible for recognizing when to prompt for login
  - No enterprise logins
- - Need to sign in every time calls made to a secure service
  - Can’t track how the app is being used
  - Can’t list in Marketplace
 
@@ -128,7 +126,7 @@ Julie Powell and Heather Gonzago
 - Traditional token-based authentication
 - OAuth2 authentication
 - <span style="color:yellow">User login authentication</span>
-- Multi-factor authentication
+- <span style="color:yellow">Multi-factor authentication</span>
 - Application authentication
 - Resource proxy
 - Service proxy
@@ -189,6 +187,84 @@ Julie Powell and Heather Gonzago
 
 ---
 
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **OAuth2: 2 step user-login workflow**
+<img style="float: center;" src="images/2Step-RequestAsset.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: Get authorization code**
+<img style="float: center;" src="images/2Step-GetAuthCode.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: Auth code sent to Server (redirect uri)**
+<img style="float: center;" src="images/2Step-RedirectURI.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: Request Tokens (Access + Refresh)**
+<img style="float: center;" src="images/2Step-AccessRefresh.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: Redirect to Callback with Tokens**
+<img style="float: center;" src="images/2Step-CallbackToken.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: Save Refresh Token on Server**
+<img style="float: center;" src="images/2Step-SaveRefresh.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Trusted Server Connection:**</br>## **Obtain info about user**
+<img style="float: center;" src="images/Step2-TrustConnection.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: App config based on user/role**
+<img style="float: center;" src="images/2Step-AppConfig.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Access secured ArcGIS Server services:**</br>## **(based on user/role)**
+<img style="float: center;" src="images/2Step-AccessService.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: Send Token to Client App**
+<img style="float: center;" src="images/2Step-ClientToken.png">
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **2 step: Request Asset Again & Authorize**
+<img style="float: center;" src="images/2Step-RequestAgain.png">
+
+
+---
+
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Multi-factor authentication**
 
@@ -197,7 +273,6 @@ can't just rely on only one method, need to have both password and device
 Two administrators
 Google or Microsoft Authenticator
 
----
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Demo: Multi-factor authentication**
