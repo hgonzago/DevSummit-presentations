@@ -278,7 +278,7 @@ Julie Powell and Heather Gonzago
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Demo: Multi-factor authentication**
-<img style="float: center;" src="images/MultiFactor.png">
+<img style="float: center;" src="images/multifactor.png">
 
 
 ---
