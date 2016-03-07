@@ -40,7 +40,7 @@ Julie Powell, Heather Gonzago, and Yann Cabon
 ## **Rendering improvements: Show predominance**
 
 <a href="./demos/PredominanceRenderer/index.html">
-<img style="float: right;" src="images/showpred" Show predominance></a>
+<img style="float: right;" src="images/showpred.png" Show predominance></a>
 
 - Generates UniqueValueRenderer showing </br>predominant value for each feature- Compares among two+ competing fields- [SmartMapping.createPredominanceRenderer()](http://developers.arcgis.com/javascript/samples/smartmapping_predominance)- Supported on hosted feature services that </br>support standardized SQL.</br>- Good [app](http://arcg.is/1QiDrjP) demonstrating this
 
@@ -52,7 +52,7 @@ Julie Powell, Heather Gonzago, and Yann Cabon
 
 
 ## **Rendering improvements: Multivariate rendering**<a href="./demos/MultiVariateMapping/index.html">
-<img style="float: right;" src="images/multivar" Map multiple variables></a>
+<img style="float: right;" src="images/multivar.png" Map multiple variables></a>
 
 - Use VisualVariables - ColorInfo - OpacityInfo - SizeInfo
 
@@ -107,7 +107,7 @@ Creates an elevation profile based on an input polyline geometry
 ## **Widgets: LayerList**
 
 <a href="">
-<img style="float: center;" src="images/ll" LayerList widget></a>
+<img style="float: center;" src="images/ll.png" LayerList widget></a>
 
 
 ---
@@ -190,7 +190,7 @@ Creates an elevation profile based on an input polyline geometry
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 
 ## ** 2D & 3D visualization**
- <img style="float: center;" src="images/2d3d">
+ <img style="float: center;" src="images/2d3d.png">
 
 
 
