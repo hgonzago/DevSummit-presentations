@@ -1,288 +1,403 @@
 <!-- .slide: data-background="../../reveal.js/img/title.png" -->
 #What's New in the ArcGIS API for JavaScript
-Julie Powell, Yann Cabon, and Heather Gonzago
+Julie Powell, Heather Gonzago, and Yann Cabon
 
 ---
 
-## 3.x
- - [Geometry Engine](http://developers.arcgis.com/javascript/samples/ge_geodesic_buffers/)
- - [Smart Mapping](http://developers.arcgis.com/javascript/samples/smartmapping_bycolor/)
- - [Image Server](http://developers.arcgis.com/javascript/samples/layers_imageservicevector/)
- - [Quantization](demos/quantization/PIXELATE_ALL_THE_POLYGONS.html) vs. [Generalization](demos/quantization/TRIANGULATE_ALL_THE_POLYGONS.html)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Hello**
+ <img style="float: center;" src="images/hello.png">
 
 ---
 
-## 4.0 - highlights
- - 2D/3D
- - 4.0beta1 released July 15th!
- - multiple betas coming
- - API 4.0: new concepts & changes
- - IE9+ for 2D, IE11+ for 3D
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+## **Agenda**
+- <span style="color:yellow">What's new: 3x</span>
+- Introducing 4.0
+- Resources
+- Additional sessions
+- Questions
 
 ---
 
-## 2D/3D
- - Starting point of 4.0: 3D is coming!
- - currently in [3.x](http://developers.arcgis.com/javascript/samples/map_simple/):
-   - Map, many DOM nodes
-   - Each Layer, 1 DOM Node
- - Can't work, WebGL renders in one Canvas
- - Solution?
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Using the smartMapping module, the createSizeRenderer method supports the following values for its optimizeForScale parameter. For example, map-scale or true indicates that the size range is optimized only for the current map scale. Next, visible-scale-range indicates that the range is optimized for all scales in the layer's visible scale range.</p>This sample displays farm expenses throughout the United States. It does this by setting visualVariables on the renderer. One visual variable determines the size of the circle based on the value of the specified attribute field, whereas another determines the outline width of the polygons based on the map scale. </p>expression is set to 'view.scale', the value corresponds to the map's scale. The size represents the maximum symbol size (in pixels) that corresponds to this scale. If the map scale matches the scale value of a stop, the size corresponding to that stop value is used as the maximum symbol size for the features. If the map scale value falls between two stops, the maximum symbol size is interpolated between the sizes of the two stops." -->
+
+## **Rendering improvements: Scale-driven sizing**
+
+<a href="./demos/ScaleDrivenSizing/index.html">
+<img style="float: right;" src="images/scaledriven.png" Scale-driven sizing></a>
+
+
+- Use on polygon markers and outlines- Calculate symbol size based on </br>attribute values and map scale- SizeInfo- Stops
+- Expression
 
 ---
 
-## 2D/3D
- - Separate the business logic from the drawing logic.
-![New model: Map/Layers + View(s)/LayerViews](images/architecture.png)
- - Communication model by __events__ and __properties watching__
-   - clean decoupling
-   - clearer about what's going on when something changes
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Mapping predominant values is a popular visualization technique for communicating the dominant attribute when two or more competing attributes are considered. For example, this map shows a single feature layer of U.S. counties with two competing numeric fields; one contains the number of adults who attended college, and the other the number of adults who did not. They are competing because all adults fall into one of these categories – not both and not none. Blue features indicate counties where more adults attended college than those who didn’t. Red features depict the inverse – more adults did not attend college than those who did. Opacity is optionally used to show the strength of the predominant variable. If a county is shaded with a very opaque color then the 'winning' category won by a large margin, whereas transparent features indicate the competing variables are nearly equal to each other." -->
+
+## **Rendering improvements: Show predominance**
+
+<a href="./demos/PredominanceRenderer/index.html">
+<img style="float: right;" src="images/showpred" Show predominance></a>
+
+- Generates UniqueValueRenderer showing </br>predominant value for each feature- Compares among two+ competing fields- [SmartMapping.createPredominanceRenderer()](http://developers.arcgis.com/javascript/samples/smartmapping_predominance)- Supported on hosted feature services that </br>support standardized SQL.</br>- Good [app](http://arcg.is/1QiDrjP) demonstrating this
+
 
 ---
 
-## 2D/3D
- - For the rest, one API
- - [demo](demos/visualization/epic-citadel.html)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Multivariate maps depict two or more attributes or variables from a dataset in a single map. </p>This map displays three attributes that are mapped using three different visualization techniques.</p>Color is used to shade each feature based on unique values.</p>The sample below uses a UniqueValueRenderer to shade each county in the U.S. with one of two colors – green or purple. Green features are counties where the majority of adults (25 years of age or older) attended at least some college in their lifetime. Counties shaded with purple are areas where the number of adults who never attended any college outnumbers those who attended at least some college. </p>Opacity is used to depict the strength of the predominance in each unique value. Because opacity is good for depicting strength, we’ll use it to show the strength of the majority population in each county. We’ll shade features with full opacity if the majority group (either attended college or did not attend college) outnumbers the minority 3:1 or makes up at least 75% of the total adult population.</p>Size is used to show the count of a particular attribute in each feature.To gain additional insight into our data, we’ll add a sizeInfo visual variable to visualize the adult population in each county." -->
+
+
+## **Rendering improvements: Multivariate rendering**<a href="./demos/MultiVariateMapping/index.html">
+<img style="float: right;" src="images/multivar" Map multiple variables></a>
+
+- Use VisualVariables - ColorInfo - OpacityInfo - SizeInfo
+
 
 ---
 
-Experiment - Map running in node
-![Map running in node](images/map-node.png)
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Version 3.15 introduced the ArcGIS Symbol Playground. This sample provides a place to explore symbol capabilities of the API. Here you can try out new features, customize them, and copy the generated code into your own application. It also provides a starting point so as to allow use of these features as quickly as possible.</p>The sample works with symbols such as: SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, CartographicLineSymbol, PictureMarkerSymbol, PictureFillSymbol, and TextSymbol. The playground displays the symbol in addition to providing an easy-to-use UI for modifying properties. Once modified, the symbol updates appropriately while updating the sample snippet displaying how it appears in code." -->## **Symbol playground**
+
+<a href="http://developers.arcgis.com/javascript/samples/playground/index.html">
+<img style="float: center;" src="images/playground.png" Symbol playground></a>
+
+<a href="https://developers.arcgis.com/javascript/jshelp/intro_bettermaps.html">Data visualization techniques</a>
 
 ---
 
-```javascript
-// create the map and its layers
-var map = new Map({
-  basemap: "topo"
-});
-map.add(new FeatureLayer(...));
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 
-// create a 3D view for the Map
-var view = new SceneView({
-  map: map,
-  container: "viewDiv"
-});
-```
+## **Added support for OGC Web Feature Services (beta)**
+
+<a href="http://developers.arcgis.com/javascript/samples/layers_wfs/">
+<img style="float: center;" src="images/wfs.png" WFS layer></a>
+
 
 ---
 
-## `esri/Accessor`
- - Mixin similar to `dojo/Stateful`
- - single object constructor
- - `get()`, `set()`, `watch()`
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 
-```javascript
-map.watch('basemap', function(newValue, oldValue, name, target) {
-  // ...
-});
-```
- - support for ES7 `Object.observe()`
+## **Widgets: FeatureTable**
 
----
+<a href="http://localhost/~heather/Demos/DevSummit/2016/Presentations/Dev-Summit-2016/whats-new/demos/FeatureTable/">
+<img style="float: right;" src="images/ft.png" FeatureTable widget></a>
 
-## Properties watching
-
- - Direct benefits:
-   - remove inconsistancies between constructor, getter, setter functions, events
-   - one convention everywhere. _"just need to know what properties for a class"_
-   - Single object constructor, no more 3+ constructors
-   - Leaner SDK: we doc only the properties, the rest is convention
-
- - Changes:
-   - no more **_property_**-change events, use `watch()`
-   - in 3.x, listen for `extent-change` event.
-   - in 4.0 `extent` watchers will be call very often
-   - new events and properties for animation. 
-
----
-
-## Properties watching
-
- - Frameworks integration
-   - properties are framework agnostic
-   - better/easier integration
-
- - Examples
-   - [side by side views](demos/accessor/side-by-side.html)
-   - [dbind](demos/integration/dbind.html)
-   - [React](http://jsbin.com/togemadodo/1/edit?js,output)
-   - [camera recorder](http://output.jsbin.com/robegolosa)
-
----
-
-## Layers
-
- - `map.layers`, a collection of the operational layers
-   - mix of image AND graphics
- - Shorter names: `ArcGISTiledLayer`, `ArcGISDynamicLayer`
- - new ones:
-   - `ArcGISElevationLayer`
-   - `SceneLayer`
-   - `GroupLayer`
-
----
-
-## GroupLayer
-
- - New layer: GroupLayer
- - group layers together
- - structure your data visualization
- - visibility mode: `exclusive`, `independent`, `inherit`
- - listMode: `hide-children`, `hidden`
- - [demo](demos/grouplayer/index.html)
-
----
-
-## Collection
-
- - More or less like an Array
- - `add` / `remove` / `forEach` / `map` / `find` / `findIndex`...
- - emit "change" events when something is added/removed/moved
- - used for layers, used for layers in Basemap, used for graphics...
-
----
-
-## Basemap
-
-- full fledge class `esri/Basemap`
-- basemap's layers are not part of the `map.layers`, but from `map.basemap`
-- contains 3 Collections: baseLayers, referenceLayers, elevationLayers
-- can be set with
-  - [string for esri's basemap](demos/basemap/2d.html)
-  - or custom [Basemap instance](demos/basemap/2d-custom.html)
-  - in 2D and [3D](demos/basemap/3d.html)
-
----
-
-## Basemap
-
- - `basemap` as a string, creation of the appropriated Basemap instance
-
-  ```javascript
-  var map = new Map({
-    basemap: 'topo'
-  });
-
-  map.basemap = 'streets';
-  ```
-
- - `basemap` as an instance of `Basemap`
-
-  ```javascript
-  var map = new Map({/*...*/});
-
-  var toner = new Basemap({
-    baseLayers: [
-      new WebTiledLayer({
-        urlTemplate: '...'
-      })
-    ]
-  })
-
-  map.basemap = toner;
-  ```
-
----
-
-## 2D
- - new "engine" in the work.
- - faster, more future proof
-   - abstraction to draw tiles and dynamic images to ease custom layers/layerviews
-   - abstraction to draw in DOM or Canvas, possibly webgl ;-)
- - display graphics while zooming.
- - rotation
- - continous zoom
- - [vector map tiles](http://blogs.esri.com/esri/arcgis/2015/07/20/vector-tiles-preview/), [basemaps](http://basemapsbeta.arcgis.com/preview/app/index.html)
-
----
-
-## 3D
- - webgl engine to display the earth.
- - [z/m support](http://maps.esri.com/rc/sat/index.html) in the API, tasks, layers...
- - support for simple symbols
- - new 3D Symbols
-
----
-
-## Resizing logic
- - automatically measure and position the view
- - [resize by center, or not](demos/resizing/manual-resize.html)
- - better integration with responsive design pages
- - and [frameworks](demos/resizing/responsive-bootstrap.html)
-
----
-
-## Padding
- - easier fullscreen view application.
- - defines inner margin to make space for UI.
- - [2D](demos/padding/2d.html)
- - [3D](demos/padding/3d.html)
-
----
-
-## Animation
- - generic function `animateTo(target, options):Promise`
- - customize [easing, duration, chaining](demos/animation/random.html)
- - DIY using [other libs](demos/animation/tweenjs.html) or [custom](demos/whats-next/routing.html)
- - `esri/Viewpoint`: common way to share between 2D/3D
-
----
-
-## Widgets
- - `ui` property on view to quickly place components
- - widgets designed as MVVM
-   - separates the logic from the UI implementation
-   - easier to create new versions using other frameworks
- - ported to 4.0beta1: Search, Zoom, Attribution
- - new ones: Compass
-
----
-
-## WebMap & WebScene APIs
- - read
- - save / save as
- - easier portal / arcgis.com interaction
-
----
-
-## SDK
- - new SDK, built from scratch
- - simpler, focused samples
- - user experience
- - more code snippets
-
----
-
-## Other
- - legacy dojo loader removed - AMD only
- - classes properly cased: esri/Map, esri/Graphic, esri/layers/Layer
- - new folder structure.
-
----
-
-## Beta2
- - initial implementation of WebMap and WebScene. reading first
- - more layer support
- - more widgets
- - performance improvements
- - 3D
-   - realistic atmosphere
-   - subsurface rendering
-   - point cloud
-   - planar mode
- - bugs...
+- Out of beta at 3.15- 3.16 introduces editing support - attributes of existing features- Customize UI- Reorder columns
 
 ---
 
 
-## Conclusion
- - One API
- - 3D, and better 2D
- - simplified API
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **Widgets: Elevation profile**
+
+<a href="http://developers.arcgis.com/javascript/samples/widget_elevationprofile_createfeature/">
+<img style="float: center;" src="images/epw.png" EPW widget></a>
+
+Creates an elevation profile based on an input polyline geometry
 
 ---
 
-# Questions
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **Widgets: LayerList**
+
+<a href="">
+<img style="float: center;" src="images/ll" LayerList widget></a>
+
 
 ---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="http://www.arcgis.com/home/group.html?id=30de8da907d240a0bccd5ad3ff25ef4a<p>Show operational layer</p>Demo:1. Copy basemap layer in Online2. Style using style editor3. Bring into app4. "http://maps.esri.com/AGSJS_Demos/templates/VectorBasemapStyleEditor/index.html"5. "http://developers.arcgis.com/javascript/sandbox/sandbox.html?sample=layers_vector" -->
+
+## **3.15 & 4.0: Vector tiles**
+<a href="">
+<img style="float: right;" src="images/vtl.png" Vector tiles></a>
+
+
+- Esri vector tile basemaps- Custom vector tile maps published from Pro- Map Style - Use as-is in apps - Use a tool like <a href="http://maps.esri.com/AGSJS_Demos/templates/VectorBasemapStyleEditor/index.html">this</a> to </br>customize style & save as a item - Style dynamically in code- Programmatically update map
+ - styling or layer visibility
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **3:13+ & 4.0: Geometry Engine Overview**
+
+- <a href="https://developers.arcgis.com/javascript/jsapi/esri.geometry.geometryengine-amd.html">Geometry Engine out of beta at 3.15</a>
+</br>
+- <b>What is it?</b> - 30+  methods for measuring, overlaying, and testing spatial relationships- <b>Why and when should you use this?</b> - Use if application makes frequent requests with GeometryService or handles large amounts of geometries.- Client-side =  No network requests made
+- ~ 160 GZipped- A few examples include: - buffer - intersect - offset
+
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="This sample demonstrates several GeometryEngine methods including cut, geodesicArea, union, and difference. But it’s the testing functions (offset, disjoint, equals, within, intersects, and crosses) that allow this application to perform the proper cutting, merging, deleting and creating of new features.</p>Really helps enhance the user experience of editing geometries in web applications.</p>Does not contain ALL operations that GS has, for  example, project, fromGeoCoordinateString, simplify, and trimExtend are not included." -->## **GE: Spatial relationships and editing**
+<a href="./demos/GE_SpatRelEditing">
+<img style="float: right;" src="images/GESpatRel.png" Spatial Relationships></a>- Spatial relationships are verified before </br>editing using testing functions
+ - offset, disjoint, equals, within, intersects,<br>and crosses </br>
+- Operations
+ - Intersect, cut, etc. perform quicker - No multiple GeometryService requests
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="GeometryEngine supports only WGS84 geographic coordinate system. Use geodesic methods when working in WGS84 or Web Mercator and use planar methods when working with data defined in a PCS.</p>The geodesic method approaches measurement differently from the planar method and thus may generate different results depending on the geometry and the location.</p>Notice how the shapes of the geodesic buffers (symbolized in green) become more distorted as they approach the poles, while the shapes of the planar buffers (symbolized in orange) are all equal. The only location where both geodesic and planar buffers are exactly the same size and shape is the equator." -->## **GE: Measurement**
+<a href="./demos/GE_Measurement">
+<img style="float: right;" src="images/GEMeasurement.png" Measurement></a>- Measurement for - lengths, areas, and distances- Methods for both - Geodesic -> curvature of Earth - Planar- Geodesic supports WGS84  and Web Mercator- Planar supports projected coordinate systems
+ - Not limited to WGS84 and Web Mercator
+
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Allows you to explore spatial relationships and perform preliminary calculations prior to doing hefty GIS analysis.</p>Note there are similar overlay functions available in the ArcGIS JavaScript API as analysis widgets, such as OverlayLayers, CreateBuffers,MergeLayers, etc. These widgets are very different from the overlay functions in GeometryEngine.</p>GeometryEngine’s methods work only with geometries, not attributes or layers." -->
+
+## **GE: Overlay analysis**
+
+<a href="./demos/GE_Overlay">
+<img style="float: right;" src="images/GEOverlay.png" Overlay analysis></a>
+
+- Overlay functions, e.g. - Clip - Difference - Intersect - Union - SymmetricDifference- Provides a means of performing preliminary</br>calculations prior to doing any major analysis
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
+
+## **Agenda**
+
+- What's new: 3x
+- <span style="color:yellow">Introducing 4.0 </span>
+- Resources
+- Additional sessions
+- Questions
+
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## ** 2D & 3D visualization**
+ <img style="float: center;" src="images/2d3d">
+
+
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Demos:</p>http://julie/demos/3d/oildrilling.htmlhttp://maps.esri.com/rc/sat2/index.html</p>http://maps.esri.com/AGSJS_Demos/templates/3D/Directions3D/index.html" -->
+
+
+## **4.0: 3D Web Mapping Examples**
+
+<img style="float: center;" src="images/2d3dexamples.png" Examples></a>
+
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **4.0: Visualization**
+
+<img style="float: right;" src="images/viewcodesnippet.png" Snippets></a>
+
+
+- Map model / view separation- Same programming model for 2D and 3D- 3D introduces additional capabilities/concepts - 3D symbology - Environment - Camera - Slides - Local scenes</br>- <span style="color:yellow"><a href="https://blogs.esri.com/esri/arcgis/2016/01/19/3d-visualization-working-with-icons-lines-and-fill-symbols">Blog on visualization</a></span></span>
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Visual variables define the parameters for data-driven geographic visualizations of numeric data. They allow you to easily map continuous ramps of color, size, and/or opacity to minimum and maximum data values of one of the layer's numeric attribute fields.</p>Top map: UniqueValueRenderer: predominant education attainment</p>Bottom map: UniqueValueRenderer to shade each county with a color depending on the dominant crop harvested for the year (e.g. purple represents wheat, green cotton, etc.). Size and opacity visual variables are then added to depict the size of the harvest and how strong the dominant crop was" -->
+
+## **4.0: Visualization**
+
+<img style="float: right;" src="images/visvars.png" Visualization></a>
+
+- Renderers - Simple - ClassBreaks - UniqueValue- Visual Variables & multivariate mapping - Using symbol size, opacity, color - Thematic - Real-world sizes
+
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Web map is partially supported. Meaning it relies on the capabilities already available in the API. For example, web maps can be read even when they contain layer types that are not yet supported (i.e. WMS), but only the API-supported layer types will be displayed. Known limitations and the API ref can be used to get an idea of the specific capabilities supported. We will be expanding the documentation to make it easier for developers to determine what is possible with the current release of the API. Each release will expand on the API’s capabilities; eventually enabling full support for reading and (later) writing web maps.</p>Having partial web map support will enable developers to architect their apps to leverage web maps. Partial support will work for some developers because they are working within a controlled environment and know exactly what will be contained in their web maps. In other cases when an app loads a wider collection of web maps (with unsupported content), the application developer will be responsible for handling the unsupported content gracefully. We will provide samples for guiding developers on implementation techniques for handling these scenarios." -->
+
+## **4.0: Support for web maps and scenes**
+<a href="./demos/AddWebMap">
+<img style="float: right;" src="images/webmap.png" Webmap></a>
+
+- Map contains - basemap - operational layers - initial state- WebMap/WebScene contains - portal item - presentations - environment options- Scene can be global or local
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="http://heatherg.esri.com/40JSSDK/sample-code/scene-local/index.html</p>Local scenes with a global extent (e.g. webmercator) don’t work very well at the moment (e.g. light) and they are not recommended.</p>https://blogs.esri.com/esri/arcgis/2015/11/18/whats-new-in-the-scene-viewer-november-2015</p>The WebScene class extends Map and can therefore be used to create a new map with additional properties specific to web scenes. The viewingMode property of WebScene determines whether the scene is global or local.</p>http://www.arcgis.com/home/webscene/viewer.html?webscene=51c67be4a5ea4da6948a40210ddfab1a" -->
+
+## **Local scenes**
+
+<img style="float: right;" src="images/localscene.png" Local scene></a>
+
+- World is flat- Supports local PCS- Possible to render data below the surface- Optional 'clipping area' makes a custom</br>size/extent of the map/view.
+- <code>webScene.viewingMode = 'local'</code>
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Useshttp://www.arcgis.com/home/webscene/viewer.html?webscene=fe6f06ac89734d12b8fc8ecdeb89bb1cLink to an app that passed in the portalId" -->
+## **Global scenes**
+
+<img style="float: right;" src="images/globalscene.png" Global scene></a>
+
+- World is a globe- Only supports WGS84 and </br>WebMercator coordinate systems- No subsurface rendering
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Show sample using ID manager and Oauth2Explain how it is very similar to the 3x sample with the exception of different folder paths and a few caveats" -->
+## **4.0: Security**
+<a href="./demos/IDManager/4x">
+<img style="float: right;" src="images/oauth.png" OAUth login dialog></a>
+
+- Support for <a href="http://hgonzago.github.io/presentations/Dev-Summit-2016/whats-new/demos/IDManager/4x/index.html">IdentityManager</a>- Use for token-based ArcGIS Server security- Use with OAuth2 security against the ArcGIS platform
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="" -->
+
+##  **4.0: Tasks**
+
+- ClosestFacilityTask- Locator- QueryTask- RouteTask- ServiceAreaTask
+- ImageServiceIdentifyTask- Locator- QueryTask- RouteTask- ServiceAreaTask
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="" -->
+
+## **4.0: RouteTask**
+
+<img style="float: center;" src="images/routetask.png" RouteTask></a>
+
+Use RouteTask for Directions functionality
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
+
+## **User Interface**
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="" -->
+
+## **User Interface: Creating apps that run across any device**
+
+<img style="float: center;" src="images/ui.png" User Interface></a>
+
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Maybe show: https://devtopia.esri.com/pages/bjor3345/presentations/2016-holistic-testing/demos/ui/ui-padding.htmlhttps://devtopia.esri.com/pages/bjor3345/presentations/2016-holistic-testing/demos/ui/view-padding.html" -->## **UI: padding**
+
+<img style="float: right;" src="images/uipadding.png" UI padding></a>- Map view padding:  Center, extent, etc. works</br>off subsection of view- UI padding:Position widgets manually</br>or in corners + offset from edge
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **UI: Widgets**
+
+<img style="float: right;" src="images/uiwidgets.png" UI widgets></a>
+- OOB widgets @ 4.0 - Attribution - BasemapToggle - Compass - Home - Locate - Popup - Search - Track - Zoom - Legend- Style with css
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="Using React for the UI: http://rene-mbp.esri.com/samples/presentations/2016-devsummit-plenary-jsapi/demos/uiux/http://rene-mbp.esri.com/samples/presentations/2016-devsummit-plenary-jsapi/demos/react-nav/" -->## **UI: Widgets and view models**
+<img style="float: right;" src="images/react.png" view models></a>
+- Separation between business logic & UI - ViewModel - View- Replace OOB View with your own- Use your framework of choice
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **UI: Popups**
+
+<a href="https://ycabon.github.io/presentations/2015-berlin-plenary/demos/4-ui/popup.html">
+<img style="float: center;" src="images/popup1.png" Popup></a> 
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->## **Configurable web apps**
+
+<img style="float: center;" src="images/wab.png" Configurable web apps></a> 
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
+
+## **Agenda**
+
+- What's new: 3x
+- Introducing 4.0
+- <span style="color:yellow">Resources</span>
+- <span style="color:yellow">Additional sessions</span>
+- <span style="color:yellow">Questions</span>
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **3.x & 4.x: Additional help and resources**
+
+- Visualization blogs- Geometry Engine blogs- SDK site - GeoNet
+
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **Other sessions**
+
+Get StartedWidgets (using OOB, customizing/extending, building your own)Discover 4.0Visualization (Smart mapping, 3D-specific, etc)Geometry EngineWeb mobile appsRoad Ahead
+---
+
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+
+## **Question time**
+
+<b>Thank you and hope you enjoy the rest of Dev Summit</b>
