@@ -1,86 +1,16 @@
-<!doctype html>
-<html lang="en">
+<h1>Popup Demo Theater</h1>
+<p><a href="demos/default_popup.html">Default</a> : This sample shows an info window that displays all the fields in a layer. In general this isn't a good idea because end users will see field that may not have any meaning to them such as OBJECTID and other fields that show the internal name that isn't nicely formatted like DESC_.</p>
 
-	<head>
-		<meta charset="utf-8">
+<p><a href="demos/format_content.html">Format content</a>: This sample adds a custom description by creating a template with some html formatting and placeholders for the field values. This allows you to nicely format your content. For more details on the various options for formatting content check out the <a href="https://developers.arcgis.com/javascript/jshelp/intro_popuptemplate.html">Format Popup Content</a> help topic. </p>
 
-		<title>Making Popups</title>
+<p><a href="demos/popup_themes.html">Light and dark themes</a>: The popup has two out of the box themes (light and dark). These can be a nice alternative to the default popup look. </p>
 
-                <meta name="description" content="Presentation given at the Esri Developer Summit 2016 which discusses how to modify the ArcGIS API for JavaScript's popup appearance and behavior. ">
-		<meta name="author" content="Kelly Hutchins and Heather Gonzago">
+<p><a href="demos/customize_default_theme.html">Customize css</a>: You can tweak the default (light and dark) themes by modifying the css to make changes to the apperance. For example in this demo we set the icons for the light popup to be blue.  You can also use css to modify the background-color, pointer arrows, size of the icons, color of the icons and more. The developer tools are a quick and easy way to find the css class names for various elements and tweak them quickly.</p>
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<p><a href="https://developers.arcgis.com/javascript/jssamples/widget_extendInfowindow.html">Custom Popup Window</a> : If you need to make more drastic customizations than are possible by modifying the css you can inherit from the InfoWindowBase class to create an info window with a completely custom look and custom behavior. </p>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<p><a href="demos/custom_action.html">Add new action item to popup</a> : This demo shows how to add a new item to the popup action pane. The action pane is the strip at the bottom of the popup where the zoom-to capability displays. Here we've added a link that shows the elevation profile for the selected feature. </p>
 
-		<link rel="stylesheet" href="../../reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../../reveal.js/css/theme/esri-dev-summit-2016.css" id="theme">
+<p><a href="demos/action_40.html">Custom action using 4.0</a> : This demo displays similar functionality as the previous demo but instead of working with version 3.16, we switched it to use beta 4.0. Working with popup actions has been built into the Popup in 4.0 to make it much more straightforward.
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="../../reveal.js/lib/css/solarized_dark.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '../../reveal.js/css/print/pdf.css' : '../../reveal.js/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-
-
-	<body>
-
-		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section data-markdown="presentation.md"></section>
-			</div>
-
-		</div>
-
-		<script src="../../reveal.js/lib/js/head.min.js"></script>
-		<script src="../../reveal.js/js/reveal.js"></script>
-
-		<script>
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				// The "normal" size of the presentation, aspect ratio will be preserved
-                // when the presentation is scaled to fit different resolutions. Can be
-                // specified using percentage units.
-                width: 1366,
-                height: 768,
-                // Factor of the display size that should remain empty around the content
-                margin: 0.1,
-                // Bounds for smallest/largest possible scale to apply to content
-                minScale: 0.2,
-                maxScale: 1.5,
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: '../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '../../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true },
-					{ src: '../../reveal.js/plugin/notes/notes.js', async: true }
-				]
-			});
-		</script>
-
-	</body>
-
-
-</html>
+<p><a href="demos/Embed/index.html">Popup Content in Side Panel</a>: Here we have some features that have lots of text and several pictures associated with each popup. We can format this content to show up in the poup or if we want we can display the popup content in another node. Here we put it in the side panel.  </p>
