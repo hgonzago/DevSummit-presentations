@@ -21,40 +21,41 @@ Julie Powell, Heather Gonzago, and Yann Cabon
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-<!-- .slide: data-notes="Using the smartMapping module, the createSizeRenderer method supports the following values for its optimizeForScale parameter. For example, map-scale or true indicates that the size range is optimized only for the current map scale. Next, visible-scale-range indicates that the range is optimized for all scales in the layer's visible scale range.</p>This sample displays farm expenses throughout the United States. It does this by setting visualVariables on the renderer. One visual variable determines the size of the circle based on the value of the specified attribute field, whereas another determines the outline width of the polygons based on the map scale. </p>expression is set to 'view.scale', the value corresponds to the map's scale. The size represents the maximum symbol size (in pixels) that corresponds to this scale. If the map scale matches the scale value of a stop, the size corresponding to that stop value is used as the maximum symbol size for the features. If the map scale value falls between two stops, the maximum symbol size is interpolated between the sizes of the two stops." -->
+<!-- .slide: data-notes="Multivariate maps depict two or more attributes or variables from a dataset in a single map. It does this by using visual variables. These are variables you can set on your renderer to specify how you want to visually convey your data.</p>ColorInfo defines how a continuous color ramp is applied to features based on the values of a numeric field attribute.</p>SizeInfo can be used to visualize the true sizes of features (e.g. tree canopy, road width, building height, etc.) based on their size in the real world.</p>OpacityInfo defines the opacity of the features based on a numeric field attribute value.</p> This map displays three attributes that are mapped using three different visualization techniques.</p>The sample uses a UniqueValueRenderer to shade each county in the U.S. with one of two colors – green or purple. Green features are counties where the majority of adults (25 years of age or older) attended at least some college in their lifetime. Counties shaded with purple are areas where the number of adults who never attended any college outnumbers those who attended at least some college. </p>Size is used to show the count of a particular attribute in each feature.To gain additional insight into our data, the sizeInfo visual variable is used to visualize the adult population in each county.</p>Opacity is used to depict the strength of the predominance in each unique value. Because opacity is good for depicting strength, we’ll use it to show the strength of the majority population in each county. We’ll shade features with full opacity if the majority group (either attended college or did not attend college) outnumbers the minority 3:1 or makes up at least 75% of the total adult population." -->
+
+
+## **Rendering improvements: Multivariate rendering**<a href="./demos/MultiVariateMapping/index.html">
+<img style="float: right;" src="images/multivar.png" Map multiple variables></a>
+
+- Use VisualVariables - ColorInfo -> defines color ramp
+ - SizeInfo -> defines symbol size</br>feature size proportional to data - OpacityInfo -> defines the opacity of features 
+ 
+
+---
+
+<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
+<!-- .slide: data-notes="There is now scale driven sizing for polygon markers and outlines based on map-scale. We do this by setting the sizeInfo visualVariable.</p> You need to specify the stops which is just a array of objects that define the maximum size of the symbol at various values of the expression.</p>This sample displays farm expenses throughout the United States. It does this by setting visualVariables on the renderer. One visual variable determines the size of the circle based on the value of the specified attribute field, whereas another determines the outline width of the polygons based on the map scale. </p>The expression is set to 'view.scale', which corresponds to the map's scale. The size represents the maximum symbol size (in pixels) that corresponds to this scale." -->
 
 ## **Rendering improvements: Scale-driven sizing**
 
 <a href="./demos/ScaleDrivenSizing/index.html">
 <img style="float: right;" src="images/scaledriven.png" Scale-driven sizing></a>
 
-
-- Use on polygon markers and outlines- Calculate symbol size based on </br>attribute values and map scale- SizeInfo- Stops
-- Expression
+- Calculate symbol size based on map scale (SizeInfo)
+- Use on polygon markers and outlines- Stops
+- Expression, e.g. <code>view.scale</code>
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-<!-- .slide: data-notes="Mapping predominant values is a popular visualization technique for communicating the dominant attribute when two or more competing attributes are considered. For example, this map shows a single feature layer of U.S. counties with two competing numeric fields; one contains the number of adults who attended college, and the other the number of adults who did not. They are competing because all adults fall into one of these categories – not both and not none. Blue features indicate counties where more adults attended college than those who didn’t. Red features depict the inverse – more adults did not attend college than those who did. Opacity is optionally used to show the strength of the predominant variable. If a county is shaded with a very opaque color then the 'winning' category won by a large margin, whereas transparent features indicate the competing variables are nearly equal to each other." -->
+<!-- .slide: data-notes="Mapping predominant values is a popular visualization technique for communicating the dominant attribute when two or more competing attributes are considered.</p>This map shows a single feature layer of U.S. counties with two competing numeric fields; one contains the number of adults who attended college, and the other the number of adults who did not. They are competing because all adults fall into one of these categories – not both and not none. Blue features indicate counties where more adults attended college than those who didn’t. Red features depict the inverse – more adults did not attend college than those who did. Opacity is optionally used to show the strength of the predominant variable. If a county is shaded with a very opaque color then the 'winning' category won by a large margin, whereas transparent features indicate the competing variables are nearly equal to each other." -->
 
 ## **Rendering improvements: Show predominance**
 
 <a href="./demos/PredominanceRenderer/index.html">
 <img style="float: right;" src="images/showpred.png" Show predominance></a>
 
-- Generates UniqueValueRenderer showing </br>predominant value for each feature- Compares among two+ competing fields- [SmartMapping.createPredominanceRenderer()](http://developers.arcgis.com/javascript/samples/smartmapping_predominance)- Supported on hosted feature services that </br>support standardized SQL.</br>- Good [app](http://arcg.is/1QiDrjP) demonstrating this
-
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-<!-- .slide: data-notes="Multivariate maps depict two or more attributes or variables from a dataset in a single map. </p>This map displays three attributes that are mapped using three different visualization techniques.</p>Color is used to shade each feature based on unique values.</p>The sample below uses a UniqueValueRenderer to shade each county in the U.S. with one of two colors – green or purple. Green features are counties where the majority of adults (25 years of age or older) attended at least some college in their lifetime. Counties shaded with purple are areas where the number of adults who never attended any college outnumbers those who attended at least some college. </p>Opacity is used to depict the strength of the predominance in each unique value. Because opacity is good for depicting strength, we’ll use it to show the strength of the majority population in each county. We’ll shade features with full opacity if the majority group (either attended college or did not attend college) outnumbers the minority 3:1 or makes up at least 75% of the total adult population.</p>Size is used to show the count of a particular attribute in each feature.To gain additional insight into our data, we’ll add a sizeInfo visual variable to visualize the adult population in each county." -->
-
-
-## **Rendering improvements: Multivariate rendering**<a href="./demos/MultiVariateMapping/index.html">
-<img style="float: right;" src="images/multivar.png" Map multiple variables></a>
-
-- Use VisualVariables - ColorInfo - OpacityInfo - SizeInfo
+- Generates UniqueValueRenderer showing </br>predominant value for each feature- Compares among two+ competing fields- Supported on hosted feature services- Good [app](http://arcg.is/1QiDrjP) demonstrating this
 
 
 ---
@@ -106,7 +107,6 @@ Creates an elevation profile based on an input polyline geometry
 
 ## **Widgets: LayerList**
 
-<a href="">
 <img style="float: center;" src="images/ll.png" LayerList widget></a>
 
 
@@ -133,25 +133,27 @@ Creates an elevation profile based on an input polyline geometry
 - <a href="https://developers.arcgis.com/javascript/jsapi/esri.geometry.geometryengine-amd.html">Geometry Engine out of beta at 3.15</a>
 </br>
 - <b>What is it?</b> - 30+  methods for measuring, overlaying, and testing spatial relationships- <b>Why and when should you use this?</b> - Use if application makes frequent requests with GeometryService or handles large amounts of geometries.- Client-side =  No network requests made
-- ~ 160 GZipped- A few examples include: - buffer - intersect - offset
+- ~ 160 GZipped- Reasons to use the GE include:
+ - Working with spatial relationships and editing
+ - Measurements
+ - Overlay analysis
 
 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-<!-- .slide: data-notes="This sample demonstrates several GeometryEngine methods including cut, geodesicArea, union, and difference. But it’s the testing functions (offset, disjoint, equals, within, intersects, and crosses) that allow this application to perform the proper cutting, merging, deleting and creating of new features.</p>Really helps enhance the user experience of editing geometries in web applications.</p>Does not contain ALL operations that GS has, for  example, project, fromGeoCoordinateString, simplify, and trimExtend are not included." -->## **GE: Spatial relationships and editing**
+<!-- .slide: data-notes="The power of the geometry engine can really be seen with the client-side editing experience. What edit operations that may have once taken quite a bit of time to complete now takes a fraction of that time using the spatial relationship testing methods and edit operations.</p>This sample demonstrates several GeometryEngine methods including cut, geodesicArea, union, and difference. But it’s the testing functions (offset, disjoint, equals, within, intersects, and crosses) that allow this application to perform the proper cutting, merging, deleting and creating of new features.</p>Really helps enhance the user experience of editing geometries in web applications.</p>Does not contain ALL operations that GeometryService has, for  example, project, fromGeoCoordinateString, simplify, and trimExtend are not included." -->## **GE: Spatial relationships and editing**
 <a href="./demos/GE_SpatRelEditing">
 <img style="float: right;" src="images/GESpatRel.png" Spatial Relationships></a>- Spatial relationships are verified before </br>editing using testing functions
  - offset, disjoint, equals, within, intersects,<br>and crosses </br>
-- Operations
- - Intersect, cut, etc. perform quicker - No multiple GeometryService requests
+- Operations (intersect, cut, etc.) perform quicker- No multiple <code>GeometryService</code> requests when</br> testing relationships and actual edit operations
+- Overall should enhance the user's editing experience 
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 <!-- .slide: data-notes="GeometryEngine supports only WGS84 geographic coordinate system. Use geodesic methods when working in WGS84 or Web Mercator and use planar methods when working with data defined in a PCS.</p>The geodesic method approaches measurement differently from the planar method and thus may generate different results depending on the geometry and the location.</p>Notice how the shapes of the geodesic buffers (symbolized in green) become more distorted as they approach the poles, while the shapes of the planar buffers (symbolized in orange) are all equal. The only location where both geodesic and planar buffers are exactly the same size and shape is the equator." -->## **GE: Measurement**
 <a href="./demos/GE_Measurement">
-<img style="float: right;" src="images/GEMeasurement.png" Measurement></a>- Measurement for - lengths, areas, and distances- Methods for both - Geodesic -> curvature of Earth - Planar- Geodesic supports WGS84  and Web Mercator- Planar supports projected coordinate systems
- - Not limited to WGS84 and Web Mercator
+<img style="float: right;" src="images/GEMeasurement.png" Measurement></a>- Measure lengths, areas, and distances- Methods for both - Geodesic -> curvature of Earth - Planar -> flat (projected) Earth- Geodesic supports WGS84  and Web Mercator- Planar Not limited to WGS84 and Web Mercator
 
 
 
@@ -271,7 +273,7 @@ Creates an elevation profile based on an input polyline geometry
 
 <img style="float: right;" src="images/globalscene.png" Global scene></a>
 
-- World is a globe- Only supports WGS84 and </br>WebMercator coordinate systems- No subsurface rendering
+- World is a globe- Only supports WGS84 and </br>Web Mercator coordinate systems- No subsurface rendering
 ---
 
 
@@ -390,9 +392,17 @@ Use RouteTask for Directions functionality
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 
-## **Other sessions**
+## **A few other sessions**
 
-Get StartedWidgets (using OOB, customizing/extending, building your own)Discover 4.0Visualization (Smart mapping, 3D-specific, etc)Geometry EngineWeb mobile appsRoad Ahead
+- ArcGIS API for JavaScript: Discover 4.0 the Next Generation / Wed. 2:30 Primrose A
+- Vector Tiles in the ArcGIS Platform / Wed. 4PM Mohave
+- Web 3D with the ArcGIS API for JavaScript Advanced Topics / Thur. 9AM Santa Rosa  
+- Building Your Own Widget with ArcGIS API for JavaScript / Thur., 10:30AM Mohave
+- An Insight into Esri’s 3D Engine in the Browser / Thur. 10:30 Mesquite C
+- ArcGIS API for JavaScript: Building Apps that Consume Web Maps and Web Scenes / Thur. 11AM Mesquite C
+- Building Interactive Web Apps Using the JavaScript API’s Geometry Engine / Thur. 1PM Demo Theater 2
+- Using and Customizing the ArcGIS API for JavaScript Widgets / Thur. 1:30 Demo Theater 2 
+- 3D Visualization With the ArcGIS API for JavaScript / Thur. 1PM Primrose B - The Road Ahead: ArcGIS API for JavaScript / Thur. 4PM Primrose A
 ---
 
 
