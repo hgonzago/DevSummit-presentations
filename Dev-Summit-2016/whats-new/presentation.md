@@ -34,7 +34,7 @@ Julie Powell, Heather Gonzago, and Yann Cabon
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-<!-- .slide: data-notes="There is now scale driven sizing for polygon markers and outlines based on map-scale. We do this by setting the sizeInfo visualVariable.</p> You need to specify the stops which is just a array of objects that define the maximum size of the symbol at various values of the expression.</p>This sample displays farm expenses throughout the United States. It does this by setting visualVariables on the renderer. One visual variable determines the size of the circle based on the value of the specified attribute field, whereas another determines the outline width of the polygons based on the map scale. </p>The expression is set to 'view.scale', which corresponds to the map's scale. The size represents the maximum symbol size (in pixels) that corresponds to this scale." -->
+<!-- .slide: data-notes="There is now scale driven sizing for polygon markers and outlines based on map-scale. We do this by setting the sizeInfo visualVariable.</p> You need to specify the stops which is just a array of objects that define the maximum size of the symbol at various values of the expression. The expression, in this case, is the map (or view) scale.</p>This sample displays farm expenses throughout the United States. It does this by setting visualVariables on the renderer. One visual variable determines the size of the circle based on the value of the specified attribute field, whereas another determines the outline width of the polygons based on the map scale. </p>The expression is set to 'view.scale', which corresponds to the map's scale. The size represents the maximum symbol size (in pixels) that corresponds to this scale." -->
 
 ## **Rendering improvements: Scale-driven sizing**
 
@@ -52,10 +52,10 @@ Julie Powell, Heather Gonzago, and Yann Cabon
 
 ## **Rendering improvements: Show predominance**
 
-<a href="./demos/PredominanceRenderer/index.html">
+<a href="./demos/CreatePredRenderer/index.html">
 <img style="float: right;" src="images/showpred.png" Show predominance></a>
 
-- Generates UniqueValueRenderer showing </br>predominant value for each feature- Compares among two+ competing fields- Supported on hosted feature services- Good [app](http://arcg.is/1QiDrjP) demonstrating this
+- Generates UniqueValueRenderer showing </br>predominant value for each feature- Compares among two+ competing fields- Supported on hosted feature services- Good [app](http://arcg.is/1QiDrjP) discussing this
 
 
 ---
@@ -241,7 +241,7 @@ Creates an elevation profile based on an input polyline geometry
 
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-<!-- .slide: data-notes="Web map is partially supported. Meaning it relies on the capabilities already available in the API. For example, web maps can be read even when they contain layer types that are not yet supported (i.e. WMS), but only the API-supported layer types will be displayed. Known limitations and the API ref can be used to get an idea of the specific capabilities supported. We will be expanding the documentation to make it easier for developers to determine what is possible with the current release of the API. Each release will expand on the API’s capabilities; eventually enabling full support for reading and (later) writing web maps.</p>Having partial web map support will enable developers to architect their apps to leverage web maps. Partial support will work for some developers because they are working within a controlled environment and know exactly what will be contained in their web maps. In other cases when an app loads a wider collection of web maps (with unsupported content), the application developer will be responsible for handling the unsupported content gracefully. We will provide samples for guiding developers on implementation techniques for handling these scenarios." -->
+<!-- .slide: data-notes="Web map is partially supported. Meaning it relies on the capabilities already available in the API. For example, web maps can be read even when they contain layer types that are not yet supported (i.e. WMS), but only the API-supported layer types will be displayed. Known limitations and the API ref can be used to get an idea of the specific capabilities supported. We will be expanding the documentation to make it easier for developers to determine what is possible with the current release of the API. Each release will expand on the API’s capabilities; eventually enabling full support for reading and (later) writing web maps." -->
 
 ## **4.0: Support for web maps and scenes**
 <a href="./demos/AddWebMap">
@@ -385,7 +385,7 @@ Use RouteTask for Directions functionality
 
 ## **3.x & 4.x: Additional help and resources**
 
-- Visualization blogs- Geometry Engine blogs- SDK site - GeoNet
+- [Visualization blogs](https://blogs.esri.com/esri/arcgis/2016/01/11/multivariate-rendering-2d-visualization-techniques-in-javascript/)- [Geometry Engine blogs](https://blogs.esri.com/esri/arcgis/2015/09/09/geometryengine-part-1-testing-spatial-relationships-and-editing/)- [SDK site](https://developers.arcgis.com/javascript/) - [GeoNet](https://geonet.esri.com/community/developers/web-developers/arcgis-api-for-javascript)
 
 ---
 
