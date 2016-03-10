@@ -20,12 +20,12 @@ Julie Powell and Heather Gonzago
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Types of apps**
   - How are you interacting with the application?
-  - Are the end users known to the application?
+  - Are the end users known to the server?
     - User-login
       - Application allows user to log in with valid credentials
-  - Are the end users unknown to the application?
+  - Are the end users unknown to the server?
     - App-login
-      - App provides credentials within the app itself
+      - All users get access via a generic app user 
 
 ---
 
@@ -46,20 +46,10 @@ Julie Powell and Heather Gonzago
 ## **Traditional server-based token authentication**
  - Classic way to access secured services
  - Username and password sent over https
-<span style="color:cyan">`/generateToken`</span> call
+<span style="color:cyan">`https://<server>/sharing/rest/generateToken`</span> call
  - Short-lived token response
  - Handled via SDK’s Identity Manager component
- - Everything handled on the client
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **generateToken**
- - Access secured service with server-based token authentication
- - Identity Manager takes care of most of this work
- - Challenge for credentials <span style="color:cyan">`https://<server>/sharing/rest/generateToken`</span>
- called when credentials are passed
- - Token appended and used to unlock these services
+ - Token is appended to the request
 
 ---
 
@@ -96,7 +86,8 @@ Julie Powell and Heather Gonzago
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **OAuth2 authentication: why and when**
 - <span style="color:cyan">Why you may want to use OAuth2</span>
-  - The registered app provides information on how the application is being used, whom is accessing it, credit usage, etc?
+  - Get access to info on how the app is being used, whom is accessing it, credit usage, etc.
+  - The platform handles the login for you
 - <span style="color:cyan">When to use OAuth2</span>
   - Access users’ private data
   - Create and publish content
@@ -106,7 +97,7 @@ Julie Powell and Heather Gonzago
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **Register your app**
-- Possible in organizational online and portal site, on-premise portal (as of 10.3), or Developers site
+- Possible in Online and Portal (as of 10.3), or Developers site
 - Generates:
   - <span style="color:cyan">App ID (client_id)</span>
   - <span style="color:cyan">App Secret (client_secret)</span>
@@ -148,7 +139,7 @@ Julie Powell and Heather Gonzago
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: User login workflows**
+## **OAuth2: Typical user login workflows**
  - Working with browser-based or mobile applications?
    - 1-step workflow, i.e. Implicit Grant
 
@@ -164,7 +155,7 @@ Julie Powell and Heather Gonzago
   1. App directs user to <span style="color:cyan">`/authorize`</span> endpoint
   2. Valid user/pass?
   3. Redirect back to app at provided <span style="color:cyan">`redirect_uri`</span>
-  4. <span style="color:cyan">`access_token`</span> is added to URL
+  4. <span style="color:cyan">`access_token`</span> is included with the response
   5. [App can parse the URL for token use](https://developers.arcgis.com/authentication/browser-based-user-logins/#parse-the-token-from-the-url)
 
 ---
@@ -231,7 +222,8 @@ Julie Powell and Heather Gonzago
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Trusted Server Connection:**</br>## **Obtain info about user**
+## **2 step: Trusted Server Connection:**</br>
+## **Obtain info about user**
 <img style="float: center;" src="images/Step2-TrustConnection.png">
 
 
@@ -245,7 +237,8 @@ Julie Powell and Heather Gonzago
 ---
 
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Access secured ArcGIS Server services:**</br>## **(based on user/role)**
+## **2 step: Access secured ArcGIS Server services:**</br>
+## **(based on user/role)**
 <img style="float: center;" src="images/2Step-AccessService.png">
 
 
