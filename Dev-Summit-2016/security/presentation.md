@@ -328,6 +328,7 @@ Julie Powell and Heather Gonzago
 
 
 ---
+
 <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
 ## **OAuth2: application authentication**
 
