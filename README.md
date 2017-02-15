@@ -1,6 +1,6 @@
 # Developer Summit presentations
 
-Here you can access the presentations and demos used past years' Developer Summits.
+Here you can access the presentations and demos used in past years' Developer Summits.
 ### 2017
 
 * [Making Popups](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2017/Popups/)
