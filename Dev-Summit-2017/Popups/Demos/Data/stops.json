@@ -1,0 +1,3160 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.3083333,
+          41.7608333
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/AURORA"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3jw6rf6x-aurora",
+        "name": "Aurora",
+        "tags": {
+          "zone_id": "H",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.AURORA.html",
+          "osm_way_id": "287980759",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 287980759,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.436Z",
+        "updated_at": "2017-02-19T17:03:34.148Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3jw6rf6x-aurora"
+      },
+      "type": "Feature",
+      "id": "s-dp3jw6rf6x-aurora"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.2086111,
+          41.7777778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/ROUTE59"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3m8v2mnq-route59",
+        "name": "Route 59",
+        "tags": {
+          "zone_id": "G",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.ROUTE59.html",
+          "osm_way_id": "123389477",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 123389477,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.452Z",
+        "updated_at": "2017-02-19T17:02:57.566Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3m8v2mnq-route59"
+      },
+      "type": "Feature",
+      "id": "s-dp3m8v2mnq-route59"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.1455556,
+          41.7797222
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/NAPERVILLE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mdjy2e8-naperville",
+        "name": "Naperville",
+        "tags": {
+          "zone_id": "F",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.NAPERVILLE.html",
+          "osm_way_id": "238619555",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 238619555,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.456Z",
+        "updated_at": "2017-02-19T16:31:09.362Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mdjy2e8-naperville"
+      },
+      "type": "Feature",
+      "id": "s-dp3mdjy2e8-naperville"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0719444,
+          41.7977778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LISLE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mgc5cwy-lisle",
+        "name": "Lisle",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.LISLE.html",
+          "osm_way_id": "22121719",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 22121719,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.459Z",
+        "updated_at": "2017-02-19T16:33:47.796Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mgc5cwy-lisle"
+      },
+      "type": "Feature",
+      "id": "s-dp3mgc5cwy-lisle"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0380556,
+          41.7952778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/BELMONT"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mu8sehs-belmont",
+        "name": "Belmont",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.BELMONT.html",
+          "osm_way_id": "244771953",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 244771953,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.463Z",
+        "updated_at": "2017-02-19T17:03:34.878Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mu8sehs-belmont"
+      },
+      "type": "Feature",
+      "id": "s-dp3mu8sehs-belmont"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0097222,
+          41.7952778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/MAINST-DG"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mv2970u-downersgrove",
+        "name": "Downers Grove",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.MAINST-DG.html",
+          "osm_way_id": "200218654",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 200218654,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.481Z",
+        "updated_at": "2017-02-19T17:01:45.956Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mv2970u-downersgrove"
+      },
+      "type": "Feature",
+      "id": "s-dp3mv2970u-downersgrove"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9936111,
+          41.7952778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/FAIRVIEWDG"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mv8t50h-fairviewave",
+        "name": "Fairview Ave.",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.FAIRVIEWDG.html",
+          "osm_way_id": "22108941",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 22108941,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.485Z",
+        "updated_at": "2017-02-19T17:03:25.807Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mv8t50h-fairviewave"
+      },
+      "type": "Feature",
+      "id": "s-dp3mv8t50h-fairviewave"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9763889,
+          41.7955556
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/WESTMONT"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3my09sc8-westmont",
+        "name": "Westmont",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.WESTMONT.html",
+          "osm_way_id": "22099698",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 22099698,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.489Z",
+        "updated_at": "2017-02-19T16:33:47.815Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3my09sc8-westmont"
+      },
+      "type": "Feature",
+      "id": "s-dp3my09sc8-westmont"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9536111,
+          41.7969444
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/CLARNDNHIL"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3my8fhu7-clarendonhills",
+        "name": "Clarendon Hills",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.CLARNDNHIL.html",
+          "osm_way_id": "22084947",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 22084947,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.492Z",
+        "updated_at": "2017-02-19T17:01:45.979Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3my8fhu7-clarendonhills"
+      },
+      "type": "Feature",
+      "id": "s-dp3my8fhu7-clarendonhills"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9283333,
+          41.8027778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/HINSDALE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mz1uwc6-hinsdale",
+        "name": "Hinsdale",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.HINSDALE.html",
+          "osm_way_id": "22108317",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 22108317,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.497Z",
+        "updated_at": "2017-02-19T17:01:38.566Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mz1uwc6-hinsdale"
+      },
+      "type": "Feature",
+      "id": "s-dp3mz1uwc6-hinsdale"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9011111,
+          41.8088889
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/WESTSPRING"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mzg067t-westernsprings",
+        "name": "Western Springs",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.WESTSPRING.html",
+          "osm_way_id": "24116848",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24116848,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.501Z",
+        "updated_at": "2017-02-19T17:02:59.742Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mzg067t-westernsprings"
+      },
+      "type": "Feature",
+      "id": "s-dp3mzg067t-westernsprings"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8711111,
+          41.8158333
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LAGRANGE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tbkq4ys-lagrangeroad",
+        "name": "LaGrange Road",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.LAGRANGE.html",
+          "osm_way_id": "410331029",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 410331029,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.505Z",
+        "updated_at": "2017-02-19T16:34:39.984Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tbkq4ys-lagrangeroad"
+      },
+      "type": "Feature",
+      "id": "s-dp3tbkq4ys-lagrangeroad"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6388889,
+          41.8788889
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/CUS"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3wjxz61y-chicagounionstation",
+        "name": "Chicago Union Station",
+        "tags": {
+          "zone_id": "A",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map.html",
+          "osm_way_id": "443259321",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 443259321,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.511Z",
+        "updated_at": "2017-02-19T16:35:01.664Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "HC",
+            "route_onestop_id": "r-dp3m-hc"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-W",
+            "route_onestop_id": "r-dp3q-md~w"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "NCS",
+            "route_onestop_id": "r-dp3-ncs"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "SWS",
+            "route_onestop_id": "r-dp3-sws"
+          }
+        ],
+        "title": "s-dp3wjxz61y-chicagounionstation"
+      },
+      "type": "Feature",
+      "id": "s-dp3wjxz61y-chicagounionstation"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6472222,
+          41.8602778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/HALSTED"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3wjs3jz9-halstedstreet",
+        "name": "Halsted Street",
+        "tags": {
+          "zone_id": "A",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.HALSTED.html",
+          "osm_way_id": "230401636",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 230401636,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.517Z",
+        "updated_at": "2017-02-19T16:32:38.318Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3wjs3jz9-halstedstreet"
+      },
+      "type": "Feature",
+      "id": "s-dp3wjs3jz9-halstedstreet"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6852778,
+          41.8577778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/BNWESTERN"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3whevx0z-westernavenue",
+        "name": "Western Avenue",
+        "tags": {
+          "zone_id": "A",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.BNWESTERN.html",
+          "osm_way_id": "314014956",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 314014956,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.521Z",
+        "updated_at": "2017-02-19T17:00:32.820Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3whevx0z-westernavenue"
+      },
+      "type": "Feature",
+      "id": "s-dp3whevx0z-westernavenue"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7455556,
+          41.8441667
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/CICERO"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3w533xuq-cicero",
+        "name": "Cicero",
+        "tags": {
+          "zone_id": "B",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.CICERO.html",
+          "osm_way_id": "316174521",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 316174521,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.525Z",
+        "updated_at": "2017-02-19T16:32:24.004Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3w533xuq-cicero"
+      },
+      "type": "Feature",
+      "id": "s-dp3w533xuq-cicero"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7936111,
+          41.8330556
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/BERWYN"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tfpqxhw-berwyn",
+        "name": "Berwyn",
+        "tags": {
+          "zone_id": "B",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.BERWYN.html",
+          "osm_way_id": "24085925",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24085925,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.530Z",
+        "updated_at": "2017-02-19T17:02:56.161Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tfpqxhw-berwyn"
+      },
+      "type": "Feature",
+      "id": "s-dp3tfpqxhw-berwyn"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8019444,
+          41.8313889
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/HARLEM"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tfp0td2-harlemave",
+        "name": "Harlem Ave.",
+        "tags": {
+          "zone_id": "B",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.HARLEM.html",
+          "osm_way_id": "24085925",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24085925,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.534Z",
+        "updated_at": "2017-02-19T16:34:09.511Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tfp0td2-harlemave"
+      },
+      "type": "Feature",
+      "id": "s-dp3tfp0td2-harlemave"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.82,
+          41.8272222
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/RIVERSIDE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tcw7mjx-riverside",
+        "name": "Riverside",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.RIVERSIDE.html",
+          "osm_way_id": "24102584",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24102584,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.538Z",
+        "updated_at": "2017-02-19T16:31:32.087Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tcw7mjx-riverside"
+      },
+      "type": "Feature",
+      "id": "s-dp3tcw7mjx-riverside"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8430556,
+          41.8219444
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/BROOKFIELD"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tcj6wkr-brookfield",
+        "name": "Brookfield",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.BROOKFIELD.html",
+          "osm_way_id": "181421449",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 181421449,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.542Z",
+        "updated_at": "2017-02-19T16:35:30.068Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tcj6wkr-brookfield"
+      },
+      "type": "Feature",
+      "id": "s-dp3tcj6wkr-brookfield"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9183333,
+          41.805
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/HIGHLANDS"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mz67gf2-highlands",
+        "name": "Highlands",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.HIGHLANDS.html",
+          "osm_way_id": "222509643",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 222509643,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.547Z",
+        "updated_at": "2017-02-19T16:31:48.141Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3mz67gf2-highlands"
+      },
+      "type": "Feature",
+      "id": "s-dp3mz67gf2-highlands"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9452778,
+          41.7988889
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/WHINSDALE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3myc20nm-westhinsdale",
+        "name": "West Hinsdale",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.WHINSDALE.html",
+          "osm_way_id": "22115197",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 22115197,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.550Z",
+        "updated_at": "2017-02-19T17:02:56.178Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3myc20nm-westhinsdale"
+      },
+      "type": "Feature",
+      "id": "s-dp3myc20nm-westhinsdale"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8783333,
+          41.8141667
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/STONEAVE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tbk0cnm-stoneave",
+        "name": "Stone Ave.",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.STONEAVE.html",
+          "osm_way_id": "24093428",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24093428,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.554Z",
+        "updated_at": "2017-02-19T16:36:27.184Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tbk0cnm-stoneave"
+      },
+      "type": "Feature",
+      "id": "s-dp3tbk0cnm-stoneave"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8575,
+          41.8188889
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/CONGRESSPK"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tbubhev-congresspark",
+        "name": "Congress Park",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.CONGRESSPK.html",
+          "osm_way_id": "59738978",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 59738978,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.558Z",
+        "updated_at": "2017-02-19T16:32:59.926Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tbubhev-congresspark"
+      },
+      "type": "Feature",
+      "id": "s-dp3tbubhev-congresspark"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8338889,
+          41.8244444
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/HOLLYWOOD"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tcmcm41-hollywood",
+        "name": "Hollywood",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.HOLLYWOOD.html",
+          "osm_way_id": "24082844",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24082844,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.561Z",
+        "updated_at": "2017-02-19T16:32:37.994Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tcmcm41-hollywood"
+      },
+      "type": "Feature",
+      "id": "s-dp3tcmcm41-hollywood"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7833333,
+          41.8355556
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LAVERGNE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tfryju0-lavergne",
+        "name": "Lavergne",
+        "tags": {
+          "zone_id": "B",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/bnsf/station.LAVERGNE.html",
+          "osm_way_id": "323013067",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 323013067,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.565Z",
+        "updated_at": "2017-02-19T16:31:00.161Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "BNSF",
+            "route_onestop_id": "r-dp3m-bnsf"
+          }
+        ],
+        "title": "s-dp3tfryju0-lavergne"
+      },
+      "type": "Feature",
+      "id": "s-dp3tfryju0-lavergne"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0797222,
+          41.5244444
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/JOLIET"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3k5xq33t-joliet",
+        "name": "Joliet",
+        "tags": {
+          "zone_id": "H",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/ri/station.JOLIET.html",
+          "osm_way_id": "109795039",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 109795039,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.568Z",
+        "updated_at": "2017-02-19T17:01:44.963Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "HC",
+            "route_onestop_id": "r-dp3m-hc"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "RI",
+            "route_onestop_id": "r-dp3t-ri"
+          }
+        ],
+        "title": "s-dp3k5xq33t-joliet"
+      },
+      "type": "Feature",
+      "id": "s-dp3k5xq33t-joliet"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0602778,
+          41.585
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LOCKPORT"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3ks4k6nv-lockport",
+        "name": "Lockport",
+        "tags": {
+          "zone_id": "G",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/hc/station.LOCKPORT.html",
+          "osm_way_id": "22064239",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 22064239,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.573Z",
+        "updated_at": "2017-02-19T17:02:57.584Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "HC",
+            "route_onestop_id": "r-dp3m-hc"
+          }
+        ],
+        "title": "s-dp3ks4k6nv-lockport"
+      },
+      "type": "Feature",
+      "id": "s-dp3ks4k6nv-lockport"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0025,
+          41.6736111
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LEMONT"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3mj6qw3h-lemont",
+        "name": "Lemont",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/hc/station.LEMONT.html",
+          "osm_way_id": "24099402",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24099402,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.576Z",
+        "updated_at": "2017-02-19T16:31:29.555Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "HC",
+            "route_onestop_id": "r-dp3m-hc"
+          }
+        ],
+        "title": "s-dp3mj6qw3h-lemont"
+      },
+      "type": "Feature",
+      "id": "s-dp3mj6qw3h-lemont"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8783333,
+          41.7333333
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/WILLOWSPRN"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3t2m2fq3-willowsprings",
+        "name": "Willow Springs",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/hc/station.WILLOWSPRN.html",
+          "osm_way_id": "141412111",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 141412111,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.580Z",
+        "updated_at": "2017-02-19T16:33:30.819Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "HC",
+            "route_onestop_id": "r-dp3m-hc"
+          }
+        ],
+        "title": "s-dp3t2m2fq3-willowsprings"
+      },
+      "type": "Feature",
+      "id": "s-dp3t2m2fq3-willowsprings"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8097222,
+          41.795
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/SUMMIT"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3tcbdct0-summit",
+        "name": "Summit",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/hc/station.SUMMIT.html",
+          "osm_way_id": "176388678",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 176388678,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.584Z",
+        "updated_at": "2017-02-19T16:33:13.698Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "HC",
+            "route_onestop_id": "r-dp3m-hc"
+          }
+        ],
+        "title": "s-dp3tcbdct0-summit"
+      },
+      "type": "Feature",
+      "id": "s-dp3tcbdct0-summit"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6880556,
+          41.8891667
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/WESTERNAVE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3wk9ew04-westernave",
+        "name": "Western Ave",
+        "tags": {
+          "zone_id": "A",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.WESTERNAVE.html",
+          "osm_way_id": "254959622",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 254959622,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.588Z",
+        "updated_at": "2017-02-19T16:35:55.613Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-W",
+            "route_onestop_id": "r-dp3q-md~w"
+          },
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "NCS",
+            "route_onestop_id": "r-dp3-ncs"
+          }
+        ],
+        "title": "s-dp3wk9ew04-westernave"
+      },
+      "type": "Feature",
+      "id": "s-dp3wk9ew04-westernave"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7277778,
+          41.9247222
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/HEALY"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3we8nt4w-healy",
+        "name": "Healy",
+        "tags": {
+          "zone_id": "B",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.HEALY.html",
+          "osm_way_id": "255361618",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 255361618,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.592Z",
+        "updated_at": "2017-02-19T17:03:34.161Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3we8nt4w-healy"
+      },
+      "type": "Feature",
+      "id": "s-dp3we8nt4w-healy"
+    },
+    { 
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7402778,
+          41.9488889
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/GRAYLAND"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3wekt3zr-grayland",
+        "name": "Grayland",
+        "tags": {
+          "zone_id": "B",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.GRAYLAND.html",
+          "osm_way_id": "153640744",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 153640744,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.596Z",
+        "updated_at": "2017-02-19T17:02:13.014Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3wekt3zr-grayland"
+      },
+      "type": "Feature",
+      "id": "s-dp3wekt3zr-grayland"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7458333,
+          41.9597222
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/MAYFAIR"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3weq93jg-mayfair",
+        "name": "Mayfair",
+        "tags": {
+          "zone_id": "B",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.MAYFAIR.html",
+          "osm_way_id": "44685463",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 44685463,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.600Z",
+        "updated_at": "2017-02-19T16:36:27.457Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3weq93jg-mayfair"
+      },
+      "type": "Feature",
+      "id": "s-dp3weq93jg-mayfair"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7555556,
+          41.9780556
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/FORESTGLEN"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3wg1f7gk-forestglen",
+        "name": "Forest Glen",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.FORESTGLEN.html",
+          "osm_way_id": "192270572",
+          "wheelchair_boarding": "0"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 192270572,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": null,
+        "created_at": "2016-06-10T14:06:27.604Z",
+        "updated_at": "2017-02-19T17:02:37.835Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3wg1f7gk-forestglen"
+      },
+      "type": "Feature",
+      "id": "s-dp3wg1f7gk-forestglen"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7655556,
+          41.9977778
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/EDGEBROOK"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3wfv7nf3-edgebrook",
+        "name": "Edgebrook",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.EDGEBROOK.html",
+          "osm_way_id": "24071080",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24071080,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.609Z",
+        "updated_at": "2017-02-19T17:03:34.174Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3wfv7nf3-edgebrook"
+      },
+      "type": "Feature",
+      "id": "s-dp3wfv7nf3-edgebrook"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7852778,
+          42.035
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/MORTONGRV"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3x4khxwg-mortongrove",
+        "name": "Morton Grove",
+        "tags": {
+          "zone_id": "C",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.MORTONGRV.html",
+          "osm_way_id": "202347193",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 202347193,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.615Z",
+        "updated_at": "2017-02-19T16:36:12.027Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3x4khxwg-mortongrove"
+      },
+      "type": "Feature",
+      "id": "s-dp3x4khxwg-mortongrove"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7969444,
+          42.0583333
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/GOLF"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3x60kpwc-golf",
+        "name": "Golf",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.GOLF.html",
+          "osm_way_id": "203047609",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 203047609,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.620Z",
+        "updated_at": "2017-02-19T16:35:01.676Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3x60kpwc-golf"
+      },
+      "type": "Feature",
+      "id": "s-dp3x60kpwc-golf"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8055556,
+          42.075
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/GLENVIEW"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3x3gtbwk-glenview",
+        "name": "Glenview",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.GLENVIEW.html",
+          "osm_way_id": "24078522",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 24078522,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.624Z",
+        "updated_at": "2017-02-19T16:36:27.473Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3x3gtbwk-glenview"
+      },
+      "type": "Feature",
+      "id": "s-dp3x3gtbwk-glenview"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8158333,
+          42.0975
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/NGLENVIEW"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3x3xw7wy-glen~nglenview",
+        "name": "Glen/N. Glenview",
+        "tags": {
+          "zone_id": "D",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.NGLENVIEW.html",
+          "osm_way_id": "43327278",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 43327278,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.628Z",
+        "updated_at": "2017-02-19T17:02:35.141Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3x3xw7wy-glen~nglenview"
+      },
+      "type": "Feature",
+      "id": "s-dp3x3xw7wy-glen~nglenview"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8277778,
+          42.1269444
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/NBROOK"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3x9kvz0r-northbrook",
+        "name": "Northbrook",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.NBROOK.html",
+          "osm_way_id": "44698337",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 44698337,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.632Z",
+        "updated_at": "2017-02-19T16:34:29.711Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3x9kvz0r-northbrook"
+      },
+      "type": "Feature",
+      "id": "s-dp3x9kvz0r-northbrook"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8413889,
+          42.1516667
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LAKECOOKRD"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3xc17z72-lake~cook",
+        "name": "Lake-Cook",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.LAKECOOKRD.html",
+          "osm_way_id": "441855440",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 441855440,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.635Z",
+        "updated_at": "2017-02-19T16:36:27.485Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3xc17z72-lake~cook"
+      },
+      "type": "Feature",
+      "id": "s-dp3xc17z72-lake~cook"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.85,
+          42.1680556
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/DEERFIELD"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp3xbumwdx-deerfield",
+        "name": "Deerfield",
+        "tags": {
+          "zone_id": "E",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.DEERFIELD.html",
+          "osm_way_id": "432426885",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 432426885,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.639Z",
+        "updated_at": "2017-02-19T16:33:49.914Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp3xbumwdx-deerfield"
+      },
+      "type": "Feature",
+      "id": "s-dp3xbumwdx-deerfield"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8747222,
+          42.2236111
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LAKEFRST"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp980qed6e-lakeforest",
+        "name": "Lake Forest",
+        "tags": {
+          "zone_id": "F",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.LAKEFRST.html",
+          "osm_way_id": "45495988",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 45495988,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.642Z",
+        "updated_at": "2017-02-19T16:32:59.943Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp980qed6e-lakeforest"
+      },
+      "type": "Feature",
+      "id": "s-dp980qed6e-lakeforest"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.1822222,
+          42.3983333
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/FOXLAKE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp931q7sjq-foxlake",
+        "name": "Fox Lake",
+        "tags": {
+          "zone_id": "J",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.FOXLAKE.html",
+          "osm_way_id": "21828822",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 21828822,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.646Z",
+        "updated_at": "2017-02-19T17:02:06.649Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp931q7sjq-foxlake"
+      },
+      "type": "Feature",
+      "id": "s-dp931q7sjq-foxlake"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.1536111,
+          42.3838889
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/INGLESIDE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp9345b2pc-ingleside",
+        "name": "Ingleside",
+        "tags": {
+          "zone_id": "J",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.INGLESIDE.html",
+          "osm_way_id": "124540981",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 124540981,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.650Z",
+        "updated_at": "2017-02-19T17:05:43.868Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp9345b2pc-ingleside"
+      },
+      "type": "Feature",
+      "id": "s-dp9345b2pc-ingleside"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.1280556,
+          42.3680556
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/LONGLAKE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp9348g5g6-longlake",
+        "name": "Long Lake",
+        "tags": {
+          "zone_id": "J",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.LONGLAKE.html",
+          "osm_way_id": "21841255",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 21841255,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.653Z",
+        "updated_at": "2017-02-19T17:01:45.995Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp9348g5g6-longlake"
+      },
+      "type": "Feature",
+      "id": "s-dp9348g5g6-longlake"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0941667,
+          42.3544444
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/ROUNDLAKE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp92gq7u90-roundlake",
+        "name": "Round Lake",
+        "tags": {
+          "zone_id": "I",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.ROUNDLAKE.html",
+          "osm_way_id": "21850712",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 21850712,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.657Z",
+        "updated_at": "2017-02-19T17:02:59.756Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp92gq7u90-roundlake"
+      },
+      "type": "Feature",
+      "id": "s-dp92gq7u90-roundlake"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0433333,
+          42.3336111
+        ]
+      },
+      "properties": {
+        "identifiers": [
+          "gtfs://f-dp3-metra/s/GRAYSLAKE"
+        ],
+        "imported_from_feeds": [
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          },
+          {
+            "feed_onestop_id": "f-dp3-metra",
+            "feed_version_sha1": "abd3cdc3260c592b386f9ea4f4bfbacf77fa0ab0",
+            "gtfs_id": null
+          }
+        ],
+        "created_or_updated_in_changeset_id": 1542,
+        "onestop_id": "s-dp92ud8g1t-grayslake",
+        "name": "Grayslake",
+        "tags": {
+          "zone_id": "I",
+          "stop_url": "http://metrarail.com/metra/en/home/maps_schedules/metra_system_map/md-n/station.GRAYSLAKE.html",
+          "osm_way_id": "459099244",
+          "wheelchair_boarding": "1"
+        },
+        "timezone": "America/Chicago",
+        "osm_way_id": 459099244,
+        "served_by_vehicle_types": [
+          "rail"
+        ],
+        "parent_stop_onestop_id": null,
+        "wheelchair_boarding": true,
+        "created_at": "2016-06-10T14:06:27.660Z",
+        "updated_at": "2017-02-19T16:34:20.855Z",
+        "operators_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra"
+          }
+        ],
+        "routes_serving_stop": [
+          {
+            "operator_name": "Metra",
+            "operator_onestop_id": "o-dp3-metra",
+            "route_name": "MD-N",
+            "route_onestop_id": "r-dp3-md~n"
+          }
+        ],
+        "title": "s-dp92ud8g1t-grayslake"
+      },
+      "type": "Feature",
+      "id": "s-dp92ud8g1t-grayslake"
+    }
+  ],
+  "meta": {
+    "sort_key": "id",
+    "sort_order": "asc",
+    "offset": 0,
+    "per_page": 50,
+    "next": "https://transit.land/api/v1/stops?offset=50&per_page=50&served_by=o-dp3-metra&sort_key=id&sort_order=asc"
+  }
+}

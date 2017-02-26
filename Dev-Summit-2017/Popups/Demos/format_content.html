@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Format Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/themes/calcite/dijit/calcite.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/themes/calcite/esri/esri.css">
+  <style>
+    html, body, #mapDiv{
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+  </style>
+
+  <script src="http://js.arcgis.com/3.16/"></script>
+  <script>
+    require(["esri/map", "esri/config", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "dojo/domReady!"], function(Map, esriConfig, FeatureLayer, PopupTemplate) {
+      //Demo 2: In this demo we define a template for the popup content to limit the fields that are displayed
+      //and to nicely present the content
+      //Note that this popup has the words -Zoom To in the link section and also includes the default title and
+      //text color
+      esriConfig.defaults.io.corsDetection = false; 
+      var map = new Map("mapDiv", {
+        center: [-78.85, 43.98],
+        zoom: 11,
+        basemap: "topo"
+      });
+
+      var template = new PopupTemplate({title:"{NAME}",description:'<p>{IMG}</p><p>{SOURCE} / {PHONE} / <a href="http://{WEBSITE}" target="_blank">{WEBSITE}</a></p><p>{PARKING} {WASHROOM} {ACCESS_} {HIKING} {ROLLERBL} {BIKING} {HORSE} {SKIING}</p><p><font color="#008000"><b>LENGTH &amp; SURFACE:</b></font> {LENGTH};{SURFACE}</p><p><b><font color="#008000">ACCESS POINT(S): </font></b>{ACCESSPT}</p><p><font color="#008000"><b>TRAIL INFO: </b></font><font color="#000000">{DESC_}</font></p>'});
+
+
+      var trails = new FeatureLayer("http://image.durham.ca/ArcGIS/rest/services/TrailsWebMap/MapServer/0",{
+        infoTemplate:template,
+        outFields:["*"]
+      });
+
+      map.addLayer(trails);
+    });
+  </script>
+
+</head>
+<body class="calcite">
+  <div id="mapDiv"></div>
+</body>
+</html>
