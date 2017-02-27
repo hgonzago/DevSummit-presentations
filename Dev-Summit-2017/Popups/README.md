@@ -1,1 +1,1 @@
-Presentation - http://hgonzago.github.io/presentations/Dev-Summit-2017/Popups/
+Presentation - http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2017/Popups/
