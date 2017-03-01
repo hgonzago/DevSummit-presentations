@@ -16,7 +16,7 @@ require([
   // streets-relief-vector, streets-navigation-vector
 
   var map = new Map({
-    basemap: "streets"
+    basemap: "streets-vector"
   });
 
   view = new MapView({

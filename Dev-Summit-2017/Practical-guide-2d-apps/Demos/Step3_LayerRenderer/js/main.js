@@ -123,7 +123,7 @@ require([
 
   // Step 3: Pass in an array of layers to the map's constructor
   var map = new Map({
-    basemap: "gray",
+    basemap: "streets-vector",
     layers: [hoods, foodLayer]
   });
 

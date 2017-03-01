@@ -29,7 +29,7 @@ require([
 
     // Option 1: Add layer(s) to map using constructor option
     var map = new Map({
-        basemap: "gray",
+        basemap: "streets-vector",
         layers: [hoods, foodLayer, activitiesLayer]
     });
 

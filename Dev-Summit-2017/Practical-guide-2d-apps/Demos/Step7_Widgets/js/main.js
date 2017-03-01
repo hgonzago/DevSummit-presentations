@@ -18,8 +18,8 @@ require([
   var view = new MapView({
     container: "viewDiv",
     map: map,
-    zoom: 13,
-    center: [-116.5403668778997, 33.82106252508553]
+    zoom: 12,
+    center: [-116.51131318985159, 33.82694510172852]
   });
 
   /******************************************************************
@@ -38,7 +38,7 @@ require([
       layerInfos: [{
         layer: foodLayer,
         title: "Palm Springs restaurants"
-            }]
+      }]
     });
     // Step 3: Add the widget to the view's UI, specify the docking position as well
     view.ui.add(legend, "bottom-left");

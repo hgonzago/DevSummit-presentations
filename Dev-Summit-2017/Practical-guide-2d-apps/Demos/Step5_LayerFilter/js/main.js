@@ -145,7 +145,7 @@ require([
   });
 
   var map = new Map({
-    basemap: "topo",
+    basemap: "streets-vector",
     layers: [hoods, foodLayer]
   });
 
