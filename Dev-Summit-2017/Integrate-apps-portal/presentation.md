@@ -3,403 +3,189 @@
 # Building Web Apps that Integrate with Your Portal
 Bjorn Svensson and Heather Gonzago
 
----
+----
 
 ## **Agenda**
- - <span style="color:yellow">Types of apps</span>
- - Traditional token-based authentication
- - OAuth2 authentication
- - User login authentication
- - Application authentication
- - Resource proxy
- - ArcGIS Online hosted proxy
- 
----
+
+* General AGO/Portal overview
+* Inside web map/scenes
+* Adding AGO content to a JS application
+* Working with secured AGO items in a JS application
+
+----
+
+<div style="text-align: left">
+
+## **Advantages of working with AGO/Portal when building web apps**
+
+- Sharing and managing secure resources
+- Data hosting
+- Easy to leverage- Less code- Reusable- Organize/Update content centrally without updating apps
+
+<img width="600" src="images/PortalIcon.png" style="position: absolute; top: 110px; right:0; background:lightsteelblue; border:none; box-shadow:none; "/>
+
+----
+
 
 ## **Architecture: Apps + Content**
 
- <img style="float: center;" src="images/Architecture.png">
- 
----
+<img class="stretch" src="images/Architecture.png" alt="Architecture" style="background:none; border:none; box-shadow:none;"/>
+
+----
+
+## **Content: Basic building block for Apps**
+
+<img class="stretch" src="images/Content-diagram.png" alt="Content"style="background:none; border:none; box-shadow:none;"/>
+
+----
 
 ## **Web Maps**
 
- <img style="float: center;" src="images/webmap.gif">
+<a href="http://arcg.is/01f1nO" target="_blank">
+  <img class="stretch" src="images/webMap.png" alt="Webmap">
+</a>
 
----
+----
 
 ## **Web Scene**
-[![generateToken](images/generateTokenDemo.png)](./demos/GenerateToken/DemoGenerateToken.html)
 
+<a href="http://jsapi.maps.arcgis.com/home/webscene/viewer.html?webscene=bde8e884a5064f48bcf3440964d748e2" target="_blank">
+  <img class="stretch" src="images/webScene.png" alt="Webmap">
+</a>
 
----
+----
 
 
 ## **ID: Unique Identifier**
 
 <img style="float: center;" src="images/webmap-id.png">
 
-Note:
-ArcGIS Based services. User logins, you write the app, and the application is responsible for accessing the credentials from the user and keeping these credentials safe.
+
+----
 
 
----
-
-
-## **Web map & scenes: JSON information & data **
+## **Web map & scenes: JSON information & data**
 
 <img width="500" src="images/itemdetails.png">
 <img width="500" src="images/iteminfo2.png">
 
-Note:
-Web maps are defined in JSON, a text format that can be easily transferred and stored.  A web map is compose of two sets of information. The item information which contains details about the web map like title, description, author etc. The other portion is the web map data which describes the map contents like layers, popup info, extent, symbology, bookmarks and more. Visit the web map specification for more details about the components of a web map. Show examples: Web map: http://jsapi.maps.arcgis.com/home/webmap/viewer.html?webmap=09025acac97146949f71422fcc4dde71Item detailshttp://www.arcgis.com/sharing/rest/content/items/09025acac97146949f71422fcc4dde71?f=pjsonItem Infohttp://www.arcgis.com/sharing/rest/content/items/09025acac97146949f71422fcc4dde71/data?f=pjson
 
----
+----
 
+## **Demo: Inside the web map/scene**
 
-## **Advantages of using web maps/scenes**
-- Easy to leverage- Content for Web App Templates, Web App Builder and Native Apps- Supported by mobile device SDKs and web APIs- Discoverable - Less code- Reusable- Organize/Update content centrally without updating apps
 
----
+<a href="http://jsapi.maps.arcgis.com/home/item.html?id=09025acac97146949f71422fcc4dde71" target="_blank">
+  <img width="600" src="images/DataResponseDevTools.png" style="float: left;">
+  <img width="600" src="images/agoassistant.png">
+</a>
 
-## **Demo: ArcGIS Online and Portal 2D Maps & Apps**
 
-<img class="stretch" src="images/Demo1-2dWMApp.png" style="background:none; border:none; box-shadow:none;">
+----
 
 
+## **Access web map/scene in application**
 
----
+<img src="images/Demo1-WebmapCode.png" style="bne; border:none; box-shadow:none; class='stretch'">
 
+----
 
-## **Working with web maps**
+## **Access individual layer items**
 
-<img class="stretch" src="images/Demo1-WebmapCode.png" style="background:none; border:none; box-shadow:none;">
+* 4.x provides support for adding individual portal items into web application
+* Call `Layer.fromPortalItem` and pass in the unique id of the layer portal item
 
+<img src="images/layeritem.png" style="float: bottom;">
 
----
+----
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Demo: Register your app**
+## **Demo**
 
-<img style="middle: left;" src="images/registerapp.png">
+Create web applications referencing <code>portalItem</code>
 
----
+<img class="stretch" src="images/demobyportalitem.png" style="background:none; border:none; box-shadow:none; float: center;">
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Agenda**
-- Types of apps
-- Traditional token-based authentication
-- OAuth2 authentication
-- <span style="color:yellow">User login authentication</span>
-- Application authentication
-- Resource proxy
-- ArcGIS Online hosted proxy
 
----
+----
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: User login authentication**
+## **Portal API**
 
-<img style="float: right;" src="images/UserLoginWorkflowSteps.png">
+<a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/Content_Root/02r300000093000000/" target="_blank">
+<img src="images/PortalAPIDoc.png" style="float: bottom;">
+</a>
 
-- Works with named users
-- Server-side login page
-- Provides single sign-on
-  - If already in active portal session, </br>
-  user is not required to enter credentials again
-  - Approval screen to grant access to the app
+----
 
----
+## **WebMap and Portal classes**
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: Typical user login workflows**
- - Working with browser-based or mobile applications?
-   - 1-step workflow, i.e. Implicit Grant
+<div style="text-align: left">
 
- - Desktop, mobile, or server-side web application?
-  - 2-step workflow, i.e. Authorization Grant
+- [esri/WebMap](https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html)
+- [esri/WebScene](https://developers.arcgis.com/javascript/latest/api-reference/esri-WebScene.html)
+- esri/Portal
+  - [Portal](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html)
+  - [PortalFolder](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalFolder.html)
+  - [PortalGroup](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalGroup.html)
+  - [PortalItem](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalItem.html)
+  - [PortalQueryParams](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryParams.html)
+  - [PortalQueryResult](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryResult.html)
+  - [PortalRating](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalRating.html)
+  - [PortalUser](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalUser.html)
 
----
+----
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: 1 step user-login workflow**
+## **Demo: Portal Rest API via `esriRequest` and API `PortalQueryParams` class**
 
-<img style="float: right;" src="images/UserLoginWorkflowSteps.png">
-  1. App directs user to <span style="color:cyan">`/authorize`</span> endpoint
-  2. Valid user/pass?
-  3. Redirect back to app at provided <span style="color:cyan">`redirect_uri`</span>
-  4. <span style="color:cyan">`access_token`</span> is included with the response
-  5. [App can parse the URL for token use](https://developers.arcgis.com/authentication/browser-based-user-logins/#parse-the-token-from-the-url)
+----
 
----
+## **Access secure content**
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: Identity Manager**
-- Client SDKS provide OAuth2 functionality via the Identity Manager
-- Handles the complexity of calling endpoints and parsing tokens
-- Example: JS API Identity Manager
-  - <span style="color:cyan">`OAuthInfo`</span> class -> pass in registered <span style="color:cyan">`App ID`</span>
-  - Pass this information to the Identity Manager
-<img style="float: bottom;" src="images/IdentityManager.png">
+- Handles security so no need to write a bunch of code
+- Detects private (unshared) data automatically
+- If private, prompts for credentials
+  - log-in via Identity Manager dialog prompt or
+  - use the platform's provided OAuth framework to handle it for you
 
----
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Demo: OAuth2 login**
+----
 
-[![user login](images/userLoginDemo.png)](./demos/UserLogin_OAuth/OAuthUserLoginSecureWebMap.html)
+## **Demo: Access private data in a web application**
 
----
 
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: 2 step user-login workflow**
-<img style="float: center;" src="images/2Step-RequestAsset.png">
+----
 
+## **Demo: Register an application for Oauth use**
 
----
+----
+## **Support for saving web scene**
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Get authorization code**
-<img style="float: center;" src="images/2Step-GetAuthCode.png">
+----
 
+## **Demo: Show save scene sample**
 
----
+----
+## **Configurable apps**
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Auth code sent to Server (redirect uri)**
-<img style="float: center;" src="images/2Step-RedirectURI.png">
+----
 
 
----
+## **Questions ????**
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Request Tokens (Access + Refresh)**
-<img style="float: center;" src="images/2Step-AccessRefresh.png">
 
+----
 
----
+# Please take our survey
+1. Download the Esri Events app and go to DevSummit
+2. Select the session you attended
+3. Scroll down to the "Feedback" section
+4. Complete Answers, add a Comment, and Select "Submit"
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Redirect to Callback with Tokens**
-<img style="float: center;" src="images/2Step-CallbackToken.png">
+![Submit Feedback](images/submit-feedback.png)
 
 
----
+----
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Save Refresh Token on Server**
-<img style="float: center;" src="images/2Step-SaveRefresh.png">
+<!--.slide: data-background="../reveal.js/img/end.png" -->
 
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Trusted Server Connection:**</br>
-## **Obtain info about user**
-<img style="float: center;" src="images/Step2-TrustConnection.png">
-
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: App config based on user/role**
-<img style="float: center;" src="images/2Step-AppConfig.png">
-
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Access secured ArcGIS Server services:**</br>
-## **(based on user/role)**
-<img style="float: center;" src="images/2Step-AccessService.png">
-
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Send Token to Client App**
-<img style="float: center;" src="images/2Step-ClientToken.png">
-
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **2 step: Request Asset Again & Authorize**
-<img style="float: center;" src="images/2Step-RequestAgain.png">
-
-
----
-
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Enterprise logins**
-
-- Login to ArcGIS Online using your enterprise login (Active Directory, LDAP, …)
-- Uses the SAML standard
-- [Setting up Enterprise Logins](http://doc.arcgis.com/en/arcgis-online/administer/enterprise-logins.htm)
-</br>
-- Nothing changes for the App Developer
-  - Use standard OAuth workflow (redirect user to /authorize URL as usual)
-  - Portal detects enterprise login if configured for the organization
-  - Redirects user to their enterprise provider
-  - Enterprise redirects user to portal upon login
-  - Portal generates token and sends it to the app
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Agenda**
- - Types of apps
- - Traditional token-based authentication
- - OAuth2 authentication
- - User login authentication
- - <span style="color:yellow">Application authentication</span>
- - <span style="color:yellow">Resource proxy</span>
- - ArcGIS Online hosted proxy
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: application authentication**
-
-
-- <span style="color:cyan">When would you want to use app authentication?</span>
-</br>Do not want users to have to log in to access application and/or content. 
-- Access the following services:
- - Geocoding
- - Routing and Directions
- - Demographic Data (GeoEnrichment)
- - Esri Geotrigger Service
- - Esri Premium Maps and Layers which require a subscription.
- - Elevation Analysis
-
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: application authentication**
-
-- Users of the App are unknown to the ArcGIS platform
-- No login prompts
-- App logs in to the ArcGIS platform on behalf of itself
-- App must contain valid app credentials
-- Proxy is responsible for keeping the app secret secure
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: app authentication workflow**
-
-<img style="float: right;" src="images/appauthentication.png">
-  1. App makes POST to <span style="color:cyan">`/token`</span> endpoint</br>
-  with <span style="color:cyan">`client_id`</span> </br> and <span style="color:cyan">`/client_secret`</span> </br> with <span style="color:cyan">`grant_type=client_credentials`</span>
-
-  2. <span style="color:cyan">`Access_token`</span> in JSON response
-
-  3. Parse token and use in requests as needed
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Limitations with app authentication**
-
-- Applications can only read or query private data content.
-- Cannot modify, upload, create, or delete content.
-- Cannot list applications in ArcGIS Marketplace. 
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **App logins: proxy steps**
-
-1. Register app
-2. Configure proxy with app credentials
-3. Proxy uses app credentials to get app token from the portal
-4. Front-end app calls into the proxy
-5. Proxy uses app token to call into secured portal resources
-6. Proxy returns results to the app
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
-## **Demo: app authentication**
-<img style="float: center;" src="images/appauthdemo.png">
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **OAuth2: Security with application authentication**
-- Never expose client_secret
-- Keep secure server-side in proxy
-- Rate limiting against server-based misuse
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Updated proxy files**
-
-- [https://github.com/Esri/resource-proxy](https://github.com/Esri/resource-proxy)
-- DotNet, JSP, and PHP
-- Access resources secured with token-based authentication, i.e. premium credit-based services
-- Resource and referer-based rate limiting
-- Access cross domain resources
-- Enabled logging
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Proxies**
-
-- Install proxy based on README.md file
-- Can also use token based authentication in addition to OAuth2
-- Locking it down by referrer: Only requests coming from listed referrers are proxies
-- Rate limits
-  - rateLimitPeriod: The time period (in minutes) which the rateLimit is tracked.
-  - rateLimit: Maximum number of requests for a specific referer over the given rateLimitPeriod.
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Agenda**
- - Types of apps
- - Traditional token-based authentication
- - OAuth2 authentication
- - User login authentication
- - Application authentication
- - Resource proxy
- - <span style="color:yellow">ArcGIS Online hosted proxy</span>
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **ArcGIS Online hosted proxy**
-
-- Esri maintained server-side proxy service
-- Allows access to a secured AGO service 
-- Token is not stored with the client app
-- The proxy service also supports a whitelist based on the HTTP Referer header 
-- Supports service rate limiting
-
----
-
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Configure AGO hosted proxy**
-[![generateToken](images/agoproxy.png)](./demos/AGOProxy/index.html)
-
----
-
- <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## Conclusion
-
-- Use OAuth2 for user logins
-- Benefits include usage tracking, enterprise logins, etc.
-- Identity Manager simplifies login workflow in client SDKs
-- [https://developers.arcgis.com/authentication](https://developers.arcgis.com/authentication) for additional information.
-
----
-
- <!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-# Questions
-
----
+----
