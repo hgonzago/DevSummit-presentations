@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+  <title>Module Order</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.3/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+  </style>
+
+  <script>
+    var populationChange;
+    require([
+        "esri/Map",
+        "esri/layers/Layer",
+        "esri/views/MapView",
+        "dojo/dom",
+        "dojo/number",
+        "dojo/on",
+        "dojo/domReady!"
+      ],
+      function (
+        Map, MapView, Layer,
+        dom, number, on
+      ) {
+        var map = new Map({
+          basemap: "dark-gray"
+        });
+
+        // Create the MapView
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          zoom: 7,
+          center: [-87, 34]
+        });
+
+        Layer.fromPortalItem({
+          portalItem: { // autocast as esri/portal/PortalItem
+            id: "e8f85b4982a24210b9c8aa20ba4e1bf7"
+          }
+        }).then(function (layer) {
+          // add the layer to the map
+          map.add(layer);
+
+          // create a new popupTemplate for the layer
+          // format the numeric field values using out of the box
+          // NumberFormat function. Call populationChange() custom
+          // function to calculate percent change for the county.
+          var popupTemplate = {
+            title: "Population in {NAME}",
+            content: "As of 2010, the population in this area was <b>{POP2010:NumberFormat}</b> " +
+              "and the density was <b>{POP10_SQMI:NumberFormat}</b> sq mi. " +
+              "As of 2013, the population here was <b>{POP2013:NumberFormat}</b> " +
+              "and the density was <b>{POP13_SQMI:NumberFormat}</b> sq mi. <br/> <br/>" +
+              "Percent change is {POP2013:populationChange}"
+          };
+
+          layer.popupTemplate = popupTemplate;
+
+          populationChange = function (value, key, data) {
+            // calculate the population percent change from 2010 to 2013.
+            var diff = data.POP2013 - data.POP2010;
+            var pctChange = (diff * 100) / data.POP2010;
+
+            // add green arrow if the percent change is positive.
+            // red arrow for negatice percent change.
+            return "<span style='color: " +
+              (pctChange < 0 ? "red" : "green") + ";'>" +
+              number.format(pctChange, {
+                places: 3
+              }) +
+              "%</span>";
+          }
+        });
+      });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
