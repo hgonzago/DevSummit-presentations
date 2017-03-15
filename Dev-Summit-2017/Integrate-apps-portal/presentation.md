@@ -20,7 +20,10 @@ Bjorn Svensson and Heather Gonzago
 
 - Sharing and managing secure resources
 - Data hosting
-- Easy to leverage- Less code- Reusable- Organize/Update content centrally without updating apps
+- Easy to leverage
+- Less code
+- Reusable
+- Organize/Update content centrally without updating apps
 
 <img width="600" src="images/PortalIcon.png" style="position: absolute; top: 110px; right:0; background:lightsteelblue; border:none; box-shadow:none; "/>
 
@@ -42,7 +45,7 @@ Bjorn Svensson and Heather Gonzago
 ## **Web Maps**
 
 <a href="http://arcg.is/01f1nO" target="_blank">
-  <img class="stretch" src="images/webMap.png" alt="Webmap">
+  <img class="stretch" src="images/webmap.png" alt="Webmap">
 </a>
 
 ----
@@ -120,17 +123,17 @@ Create web applications referencing <code>portalItem</code>
 
 <div style="text-align: left">
 
-- [esri/WebMap](https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html)
-- [esri/WebScene](https://developers.arcgis.com/javascript/latest/api-reference/esri-WebScene.html)
+- esri/WebMap
+- esri/WebScene
 - esri/Portal
-  - [Portal](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html)
-  - [PortalFolder](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalFolder.html)
-  - [PortalGroup](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalGroup.html)
+  - Portal
+  - PortalFolder
+  - PortalGroup
   - [PortalItem](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalItem.html)
-  - [PortalQueryParams](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryParams.html)
-  - [PortalQueryResult](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryResult.html)
-  - [PortalRating](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalRating.html)
-  - [PortalUser](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalUser.html)
+  - PortalQueryParams
+  - PortalQueryResult
+  - PortalRating
+  - PortalUser
 
 ----
 
@@ -146,26 +149,41 @@ Create web applications referencing <code>portalItem</code>
   - log-in via Identity Manager dialog prompt or
   - use the platform's provided OAuth framework to handle it for you
 
+----
+## **Benefits of using the platform security model**
+
+- The web application does not have direct access to credentials
+- Support for enterprise logins
+- No need to sign in every time calls are made to a secure service
+- Can track how the app is being used
+- Easy to access resources secured with token-based authentication, e.g. premium credit-based services
+
 
 ----
 
 ## **Demo: Access private data in a web application**
-
-
 
 ----
 
 ## **Demo: Register an application for Oauth use**
 
 ----
+
+## **Access credit-based services**
+
+- Let the application handle this for you, no need to sign in to gain access
+- Proxy file with saved credentials
+  - Hosted proxy file provided by Esri OR
+  - Host your own proxy file
+  - One is provided by Esri at https://github.com/Esri/resource-proxy
+  - Provided in DotNet, JSP, and PHP
+  
+----
 ## **Support for saving web scene**
 
 ----
 
-## **Demo: Show save scene sample**
-
-----
-## **Configurable apps**
+## **Demo: Save a web scene**
 
 ----
 
