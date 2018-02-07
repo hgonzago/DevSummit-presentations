@@ -1,0 +1,771 @@
+@font-face {
+  font-family: "Avenir LT W01 65 Medium";
+  src: url("../fonts/212ab03d-5db2-4d6a-b94c-171cc702aa51.eot?#iefix");
+  src: url("../fonts/212ab03d-5db2-4d6a-b94c-171cc702aa51.eot?#iefix") format("eot"), url("../fonts/2cac77ec-9bc0-4ee7-87e4-27650190744f.woff") format("woff"), url("../fonts/aaf11848-aac2-4d09-9a9c-aac5ff7b8ff4.ttf") format("truetype"), url("../fonts/294099f3-8d00-4676-afc5-5e9d8d43ad69.svg#294099f3-8d00-4676-afc5-5e9d8d43ad69") format("svg");
+}
+@font-face {
+  font-family: "Avenir LT W01 85 Heavy";
+  src: url("../fonts/f61bf0f6-c193-4100-b940-12a1a01dcee5.eot?#iefix");
+  src: url("../fonts/f61bf0f6-c193-4100-b940-12a1a01dcee5.eot?#iefix") format("eot"), url("./js/mobile/css/fonts/7147ec3a-8ff8-4ec9-8c5c-bd1571dc6ae6.woff") format("woff"), url("./css/fonts/d1dc54b2-878d-4693-8d6e-b442e99fef68.ttf") format("truetype"), url("./js/mobile/css/fonts/731dd4d3-64da-427d-ba61-01575b3cf3f7.svg#731dd4d3-64da-427d-ba61-01575b3cf3f7") format("svg");
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Avenir LT W01 65 Medium", Verdana, Helvetica, Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #0177bf;
+}
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.logo a {
+  cursor: pointer;
+}
+.logo {
+  max-height: 64px;
+  max-width: 64px;
+  position: absolute;
+  bottom: 20px;
+  right: 5px;
+}
+#mapDiv {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.map-title {
+  font-size: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+.map-details {
+  font-size: 0.9em;
+}
+/*Navigation controls for popup when displayed in drawer*/
+#popupNav {
+  display: none;
+  float: right;
+}
+#nav_count {
+  padding-right: 3px;
+}
+.nav {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 18px;
+  color: #787878;
+}
+.loading-indicator {
+  display: none;
+  height: 100%;
+  width: 100%;
+  z-index: 500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: #fff;
+}
+.app-loading .loading-indicator,
+.app-error .loading-indicator {
+  display: block;
+}
+.app-loading .loading-indicator {
+  background-position: center center;
+  background-image: url("../images/ajax-loader.gif");
+  background-repeat: no-repeat;
+}
+.app-error .loading-message {
+  background-position: top center;
+  background-image: url("../images/error.png");
+  background-repeat: no-repeat;
+  padding-top: 60px;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 0;
+  text-align: center;
+}
+/*Without this style the popup zoom button doesn't display with calcite*/
+.calcite .actionsPane .action {
+  text-indent: 0;
+}
+/*Icon fonts for menu and nav arrows*/
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?-2tvcnr");
+  src: url("../fonts/icomoon.eot?#iefix-2tvcnr") format('embedded-opentype'), url("../fonts/icomoon.woff?-2tvcnr") format('woff'), url("../fonts/icomoon.ttf?-2tvcnr") format('truetype'), url("../fonts/icomoon.svg?-2tvcnr#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="embed-icon-"],
+[class*=" embed-icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.embed-icon-arrow-right {
+  cursor: pointer;
+}
+.embed-icon-arrow-left {
+  cursor: pointer;
+}
+.esriRTL .embed-icon-open:before {
+  content: "\e601";
+}
+.esriRTL .embed-icon-close:before {
+  content: "\e602";
+}
+.embed-icon-open:before {
+  content: "\e602";
+}
+.embed-icon-close:before {
+  content: "\e601";
+}
+.embed-icon-arrow-left:before {
+  content: "\e605";
+}
+.embed-icon-menu-close:before {
+  content: "\e600";
+}
+.embed-icon-arrow-right:before {
+  content: "\e604";
+}
+.embed-icon-menu-close {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  font-weight: 100;
+  font-size: 12px;
+  cursor: pointer;
+  color: #595050;
+}
+.esriRTL .vertical-line {
+  right: 0;
+}
+.esriRTL #toggle_button {
+  right: 0;
+}
+#toggle_button {
+  position: absolute;
+  z-index: 36;
+  top: 0;
+  left: 0;
+}
+.menu-button {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  height: 42px;
+  width: 42px;
+  font-size: 24px;
+  line-height: 42px;
+  border: solid 1px #929497;
+  border-top: none;
+  border-bottom: none;
+  color: #fff;
+  text-align: center;
+}
+.esriRTL .vertical-line {
+  border-right: none;
+  border-left: solid 1px #929497;
+}
+.vertical-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  height: 42px;
+  width: 48px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 42px;
+  color: #fff;
+  text-align: center;
+  border-right: solid 1px #929497;
+}
+.light .menu-button {
+  color: #4c4c4c;
+  background-color: #f7f8f8;
+}
+.dark .menu-button {
+  color: #fff;
+  background-color: #4c4c4c;
+}
+.light .vertical-line {
+  background-color: #f7f8f8;
+}
+.dark .vertical-line {
+  background: #4c4c4c;
+}
+.esriRTL .menu-open-button {
+  float: right;
+}
+.icon-basemap-container {
+  position: relative;
+  top: 155px;
+  left: 10px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #57575a;
+  background-color: #fff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #4c4c4c;
+}
+.esriRTL .icon-basemap-container {
+  top: 110px;
+}
+.esriRTL .no-home .icon-basemap-container {
+  top: 90px;
+}
+.icon-basemap-container.embed-bottom-right,
+.icon-basemap-container.embed-bottom-left,
+.icon-basemap-container.embed-top-right {
+  top: 65px;
+  left: 10px;
+}
+.no-title .icon-basemap-container.embed-bottom-right,
+.no-title .icon-basemap-container.embed-bottom-left,
+.no-title .icon-basemap-container.embed-top-right {
+  top: 20px;
+}
+.no-home .icon-basemap-container {
+  top: 130px;
+}
+.no-title.no-home.no-zoom .icon-basemap-container {
+  top: 10px;
+}
+.no-zoom .icon-basemap-container {
+  top: 55px;
+}
+.no-title .icon-basemap-container {
+  top: 110px;
+}
+.no-title.no-home .icon-basemap-container {
+  top: 85px;
+}
+.icon-basemap {
+  background-image: url("../images/basemap.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 3px;
+  z-index: 40;
+}
+.icon-basemap-container:hover {
+  background-color: #eee;
+}
+.icon-basemap-container:active {
+  background-color: #ddd;
+}
+.icon-basemap-container.active-toggle {
+  background-color: #ddd;
+  color: #4c4c4c;
+}
+/*Esri widgets*/
+.HomeButton {
+  border-bottom: 1px solid #57585a;
+  width: 30px;
+  height: 30px;
+}
+.light .HomeButton .home {
+  background-color: #f7f8f8;
+  background: url("../images/home_locate.png") no-repeat 0 0;
+}
+.HomeButton .home {
+  padding: 0px !important;
+  width: 30px;
+  height: 30px;
+}
+.dark .HomeButton .home {
+  background-color: #6c6d70;
+}
+.HomeButton .home:hover {
+  background-color: #eee;
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.dark .HomeButton {
+  color: #fff;
+}
+.dark .icon-basemap {
+  background-image: url("../images/basemap_light.png");
+}
+.BasemapToggle .basemapTitle {
+  font-family: "Times New Roman", Georgia, "Book Antiqua", serif;
+}
+.light .BasemapToggle .toggleButton {
+  background-color: #f7f8f8;
+}
+.dark .BasemapToggle .toggleButton {
+  background: #6c6d70;
+}
+.dark .HomeButton .home:hover {
+  background-color: #7a7b7f;
+}
+.light .esriSimpleSlider {
+  background-color: #f7f8f8;
+}
+.dark .esriSimpleSlider {
+  background-color: #6c6d70;
+  color: #fff;
+}
+.light .icon-basemap-container {
+  background-color: #f7f8f8;
+}
+.dark .icon-basemap-container {
+  background-color: #6c6d70;
+}
+.dark .icon-basemap-container:hover {
+  background-color: #7a7b7f;
+}
+.light .icon-basemap-container:hover {
+  background-color: #eee;
+}
+.dark .esriSimpleSliderDecrementButton:hover,
+.dark .esriSimpleSliderIncrementButton:hover {
+  background-color: #7a7b7f;
+}
+.esriRTL .esriSimpleSliderTL {
+  top: 10px !important;
+  left: 10px;
+}
+.esriSimpleSliderTL {
+  top: 55px !important;
+  left: 10px;
+}
+.esriSimpleSliderTR {
+  top: 55px !important;
+  right: 20px !important;
+}
+.esriSimpleSliderBR {
+  bottom: 55px !important;
+  right: 20px !important;
+}
+.esriSimpleSliderBL {
+  bottom: 55px !important;
+  left: 20px !important;
+}
+.no-title .esriSimpleSlider.esriSimpleSliderTR {
+  top: 10px !important;
+}
+.no-title .esriSimpleSlider.esriSimpleSliderTL {
+  top: 10px !important;
+}
+.basemap_gallery {
+  position: absolute;
+  top: 155px;
+  left: 65px;
+  z-index: 50;
+}
+.BasemapToggle {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+}
+.BasemapToggle.scale {
+  bottom: 60px;
+}
+/*If the zoom slider is positioned in the br move the toggle a bit to the left*/
+.embed-bottom-left.BasemapToggle {
+  left: 55px;
+}
+.no-home .basemap_gallery {
+  top: 130px;
+}
+.no-title .basemap_gallery {
+  top: 110px;
+}
+.no-title.no-home .basemap_gallery {
+  top: 85px;
+}
+.esriBasemapGalleryNode a:hover {
+  background-color: #e1f0fb;
+}
+.esriBasemapGalleryLabelContainer {
+  font-size: 12px;
+}
+.esriRTL #gallery_container {
+  top: 75px;
+}
+.esriRTL .no-home #gallery_container {
+  top: 75px;
+}
+#gallery_container {
+  position: absolute;
+  top: 110px;
+  left: 55px;
+}
+#gallery_container.embed-bottom-right,
+#gallery_container.embed-bottom-left,
+#gallery_container.embed-top-right {
+  top: 35px;
+  left: 55px;
+}
+.no-title #gallery_container.embed-bottom-right,
+.no-title #gallery_container.embed-bottom-left,
+.no-title #gallery_container.embed-top-right {
+  top: 5px;
+}
+.no-home #gallery_container {
+  top: 90px;
+}
+.no-title #gallery_container {
+  top: 65px;
+}
+.no-title.no-zoom #gallery_container {
+  top: 10px;
+}
+.no-title.no-home #gallery_container {
+  top: 45px;
+}
+#full_gallery {
+  height: 85%;
+  width: 98%;
+  overflow-y: scroll;
+}
+.basemap_title {
+  padding: 5px;
+  font-size: 16px;
+}
+.arrow_box {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+  background: #fff;
+  border: 1px solid #333;
+  width: 395px;
+  height: 265px;
+}
+.arrow_box:after,
+.arrow_box:before {
+  right: 100%;
+  top: 22%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.arrow_box:after {
+  border-color: rgba(255,255,255,0);
+  border-right-color: #fff;
+  border-width: 10px;
+  margin-top: -10px;
+}
+.arrow_box:before {
+  border-color: rgba(51,51,51,0);
+  border-right-color: #333;
+  border-width: 11px;
+  margin-top: -11px;
+}
+.esriRTL .no-title .simpleGeocoder {
+  right: 20px;
+}
+.esriRTL .simpleGeocoder {
+  right: 60px;
+}
+.simpleGeocoder {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 50;
+}
+.simpleGeocoder .esriGeocoder {
+  border: 1px solid #ccc;
+}
+/*.esriPopup.light .contentPane, .esriPopup.light .actionsPane{
+    background-color: $light-base-color;   
+}*/
+.esriPopup.light .titlePane {
+  background-color: #e0e0df;
+}
+.esriPopup.dark .contentPane,
+.esriPopup.dark .actionsPane {
+  background-color: #4c4c4c;
+}
+.esriPopup.dark .pointer.top {
+  background: #323232;
+}
+.esriPopup.dark .pointer {
+  background: #4c4c4c;
+}
+.esriPopup.dark .outerPointer {
+  background: #4c4c4c;
+}
+.esriPopup.dark .titlePane {
+  background-color: #323232;
+}
+.esriPopup.light .pointer.top {
+  background: #e0e0df;
+}
+/*If the screen size is max-width or smaller and the drawer is open hide the geocder.*/
+@media screen and (max-width: 540px) {
+  .drawer-open .simpleGeocoder {
+    display: none !important;
+  }
+  .esriRTL .esriSimpleSliderTL {
+    top: 55px !important;
+    left: 10px;
+  }
+}
+.top-menu-right {
+  margin-right: 5px;
+}
+.esriRTL .top-menu-right {
+  margin-right: 0;
+  margin-left: 5px;
+}
+.hide-toggle {
+  display: none;
+}
+/*Drawer*/
+.border-container-outer {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  overflow: hidden;
+}
+.content-pane-left {
+  width: 0px;
+  max-width: 280px;
+  height: 100%;
+  margin: 0;
+  border: none;
+  overflow: hidden !important;
+  -webkit-transition: width 250ms ease;
+  -moz-transition: width 250ms ease;
+  -o-transition: width 250ms ease;
+  -ms-transition: width 250ms ease;
+  transition: width 250ms ease;
+}
+.app-loading .content-pane-left {
+  width: 280px;
+}
+.drawer-open .content-pane-left {
+  width: 280px;
+  overflow: auto;
+  overflow-x: hidden;
+  border-right: none;
+}
+.esriRTL .drawer-open .content-pane-left {
+  border-right: 0;
+  border-left: none;
+}
+.drawer-open-complete .content-pane-left:before {
+  display: none;
+}
+.drawer-closed .content-pane-left {
+  display: none;
+}
+.pointer-events .drawer-open-complete .content-pane-left:before {
+  -webkit-box-shadow: inset -1px 0 6px 0 rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset -1px 0 6px 0 rgba(0,0,0,0.5);
+  box-shadow: inset -1px 0 6px 0 rgba(0,0,0,0.5);
+  position: fixed;
+  z-index: 450;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  content: '';
+  display: block;
+  pointer-events: none;
+}
+.esriRTL .drawer-open-complete .content-pane-left:before {
+  left: auto;
+  right: 0;
+}
+.content-pane-center {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+@media screen and (max-width: 850px) {
+  .app-loading .content-pane-left {
+    width: 0px;
+  }
+}
+/*Tabs*/
+.tabs {
+  height: 100%;
+  width: 100%;
+}
+:focus {
+  outline: none;
+}
+.dijitHidden {
+  display: none !important;
+}
+.dijitVisible {
+  display: block !important;
+  position: relative;
+}
+.dijitTabContainer {
+  z-index: 0;
+  overflow: visible;
+}
+.dijitTabContainerNoLayout {
+  width: 100%;
+}
+.dijitTabController {
+  z-index: 1;
+}
+.dijitTabContainerTop-container {
+  z-index: 0;
+  overflow: hidden;
+  border: none;
+}
+.nowrapTabStrip {
+  width: 50000px;
+  display: block;
+  position: relative;
+  text-align: left;
+  z-index: 1;
+}
+.esriRTL .nowrapTabStrip {
+  text-align: right;
+  width: -5000px;
+}
+.dijitTabListWrapper {
+  overflow: hidden;
+  z-index: 1;
+}
+.dijitTabContainerTop-tabs {
+  height: 44px;
+  border: none;
+  z-index: 1;
+  overflow: visible !important;
+  background-color: #4c4c4c;
+}
+.dark .dijitTabContainerTop-tabs {
+  background-color: #4c4c4c;
+}
+.light .dijitTabContainerTop-tabs {
+  background-color: #f7f8f8;
+}
+.dijitTab {
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+  z-index: 3;
+}
+.tab_1 .dijitTabContainerTop-tabs .dijitTab {
+  width: 260px;
+}
+.tab_2 .dijitTabContainerTop-tabs .dijitTab {
+  width: 121px;
+}
+.tab_3 .dijitTabContainerTop-tabs .dijitTab {
+  width: 73px;
+}
+.dijitTab * {
+  vertical-align: middle;
+}
+.dijitTabContainerTop-tabs .dijitTab {
+  top: 1px;
+}
+.dijitTabContainerTop-tabs .dijitTab {
+  display: inline-block;
+}
+.dijitTab .tabLabel {
+  font-size: 16px;
+  display: inline-block;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.dijitTabPane {
+  color: #fff;
+}
+.light .dijitTabPane {
+  color: #4c4c4c;
+}
+.dark .dijitTabPane {
+  color: #fff;
+}
+.calcite.light .dijitTabPaneWrapper {
+  background-color: #f7f8f8;
+}
+.calcite.dark .dijitTabPaneWrapper {
+  background-color: #4c4c4c;
+}
+.calcite .dijitTabPaneWrapper {
+  font-size: 14px;
+}
+.calcite .dijitTabSpacer {
+  display: none;
+}
+.calcite .dijitTab {
+  background: #323232;
+  color: #fff;
+}
+.calcite.light .dijitTab {
+  background: #e0e0df;
+  color: #4c4c4c;
+}
+.calcite.dark .dijitTab {
+  background: #323232;
+  color: #fff;
+}
+.calcite .dijitTabChecked {
+  background: #4c4c4c;
+}
+.calcite.dark .dijitTabChecked {
+  background: #4c4c4c;
+}
+.calcite.light .dijitTabChecked {
+  background: #f7f8f8;
+}
+.calcite .dijitTabDisabled {
+  background-color: #949494;
+}
+.calcite.dark .dijitTabDisabled {
+  background-color: #949494;
+}
+.calcite.light .dijitTabDisabled {
+  background-color: #fafbfb;
+}
+.calcite .dijitTabContainerTop-tabs .dijitTab {
+  top: 0;
+  padding: 12px 10px;
+  border-bottom-width: 0;
+  min-width: 60px;
+  text-align: center;
+}

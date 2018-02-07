@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+  <title>Symbol size, outline width based on map scale</title>
+
+  <link rel="stylesheet" href="//js.arcgis.com/3.16/esri/css/esri.css">
+  <link rel="stylesheet" href="../commons/css/style.css">
+  <link rel="stylesheet" href="../commons/libs/codemirror/codemirror.css">
+  <link rel="stylesheet" href="../commons/libs/codemirror/monokai.css">
+
+  <script src="../commons/dojo-config.js"></script>
+  <script src="//js.arcgis.com/3.16/"></script>
+
+  <script>
+    var map, layer;
+
+    require([
+        "esri/Color",
+        "esri/dijit/Legend",
+        "esri/dijit/PopupTemplate",
+        "esri/layers/FeatureLayer",
+
+        "esri/map",
+        "esri/renderers/ClassBreaksRenderer",
+        "esri/symbols/SimpleFillSymbol",
+        "esri/symbols/SimpleMarkerSymbol",
+        "commons/init",
+        "dojo/domReady!"
+      ],
+      function (Color, Legend, PopupTemplate, FeatureLayer,
+        Map, ClassBreaksRenderer, SimpleFillSymbol, SimpleMarkerSymbol){
+
+        map = new Map("viewDiv", {
+          basemap: "dark-gray",
+          center: [-100, 40],
+          zoom: 5,
+          smartNavigation: false
+        });
+
+        var layerUrl = "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/USA_County_Crops_2007/FeatureServer/0";
+        var rendererField = "M050_07";  //Average farm expenses
+
+        //----------------------
+        // Create renderer
+        //----------------------
+
+        var renderer = new ClassBreaksRenderer();
+        renderer.attributeField = rendererField;
+
+        //----------------------
+        // Fill symbol
+        //----------------------
+
+        // (1) Define a FILL symbol used to draw county polygons.
+        var fillSymbol = new SimpleFillSymbol();
+        fillSymbol.setColor(new Color([0, 0, 0, .5]));
+        fillSymbol.outline.setColor(new Color([133, 133, 133, .5]));
+        fillSymbol.outline.setWidth(1);
+
+        renderer.backgroundFillSymbol = fillSymbol;
+
+        //----------------------
+        // Circle marker symbol
+        //----------------------
+
+        // (2.A) Define circle MARKER symbol to be drawn at the centroid
+        // of each polygon.
+        var markerSymbol = new SimpleMarkerSymbol();
+        markerSymbol.setColor(new Color([251, 222, 127, 1]));
+        markerSymbol.setSize(12);
+        markerSymbol.outline.setColor(new Color([51, 51, 51, 1]));
+        markerSymbol.outline.setWidth(1);
+
+        // (2.B) Make sure the MARKER symbol defined above is used to
+        // draw polygons that have valid numeric field value.
+        renderer.addBreak({
+          minValue: -9007199254740991,
+          maxValue: 9007199254740991,
+          symbol: markerSymbol
+        });
+
+        //----------------------
+        // Visual variables
+        //----------------------
+
+        renderer.setVisualVariables([
+          // (3.A) This visual variable determines the size of circle marker
+          // for each polygon based on the value of its attribute field.
+          {
+            type: "sizeInfo",
+            field: rendererField,
+            minDataValue: 0,
+            maxDataValue: 2638797,
+            valueUnit: "unknown",
+
+            // The SMALLEST marker size at any given map scale is determined by
+            // minSize specification.
+
+            minSize: {
+              type: "sizeInfo",
+              expression: "view.scale",
+              stops: [
+                {value: 1128, size: 16},
+                {value: 144447, size: 16},
+                {value: 18489298, size: 4},
+                {value: 147914382, size: 4},
+                {value: 591657528, size: 2}
+              ]
+            },
+
+            // The LARGEST marker size at any given map scale is determined by
+            // maxSize specification.
+
+            maxSize: {
+              type: "sizeInfo",
+              expression: "view.scale",
+              stops: [
+                {value: 1128, size: 80},
+                {value: 144447, size: 80},
+                {value: 18489298, size: 50},
+                {value: 147914382, size: 50},
+                {value: 591657528, size: 25}
+              ]
+            }
+          },
+
+          // (3.B) This visual variable determines the outline width of polygons
+          // based on map scale.
+          {
+            type: "sizeInfo",
+            target: "outline",
+            expression: "view.scale",
+            stops: [
+              {value: 1153765, size: 2},
+              {value: 7211032, size: 1},
+              {value: 28844129, size: 0}
+            ]
+          }
+        ]);
+
+        //----------------------
+        // Create feature layer
+        //----------------------
+
+        layer = new FeatureLayer(layerUrl, {
+          opacity: 0.8,
+          outFields: [rendererField, "COUNTY", "STATE"],
+          definitionExpression: "AREA > 0.1",
+
+          infoTemplate: new PopupTemplate({
+            title: "{COUNTY} County, {STATE}",
+            fieldInfos: [
+              {
+                fieldName: rendererField,
+                label: "Average Farm Expenses",
+                visible: true,
+                format: {places: 0}
+              }
+            ]
+          })
+        });
+
+        layer.setRenderer(renderer);
+        map.addLayer(layer);
+
+        map.on('load', function() {
+
+        //----------------------
+        // Create legend
+        //----------------------
+
+        var legend = new Legend({
+          map: map,
+          layerInfos: [
+            {layer: layer, title: "2007 Crops"}
+          ]
+        }, "legendDiv");
+
+        legend.startup();
+        });
+      });
+  </script>
+  </head>
+<body class="dark">
+  <div class="application" style="overflow: hidden;">
+     <div id="viewDiv" class="view">
+      <div id="code" class="code manual left shadowed" style="height: 600px">
+        <textarea class="codemirror">
+// Define circle MARKER symbol to be drawn at the centroid
+// of each polygon.
+var markerSymbol = new SimpleMarkerSymbol();
+markerSymbol.setColor(new Color([251, 222, 127, 1]));
+markerSymbol.setSize(12);
+markerSymbol.outline.setColor(new Color([51, 51, 51, 1]));
+markerSymbol.outline.setWidth(1);
+
+// Make sure the MARKER symbol defined above is used to
+// draw polygons that have valid numeric field value.
+renderer.addBreak({
+  minValue: -9007199254740991,
+  maxValue: 9007199254740991,
+  symbol: markerSymbol
+});
+
+//----------------------
+// Visual variables
+//----------------------
+
+renderer.setVisualVariables([
+// This visual variable determines the size of circle marker
+// for each polygon based on the value of its attribute field.
+{
+  type: "sizeInfo",
+  field: rendererField,
+  minDataValue: 0,
+  maxDataValue: 2638797,
+  valueUnit: "unknown",
+
+  // The SMALLEST marker size at any given map scale is determined by
+  // minSize specification.
+
+   minSize: {
+     type: "sizeInfo",
+     expression: "view.scale",
+     stops: [
+       {value: 1128, size: 16},
+       {value: 144447, size: 16},
+       {value: 18489298, size: 4},
+       {value: 147914382, size: 4},
+       {value: 591657528, size: 2}
+     ]
+    },
+  // The LARGEST marker size at any given map scale is determined by
+  // maxSize specification.
+
+   maxSize: {
+     type: "sizeInfo",
+     expression: "view.scale",
+     stops: [
+       {value: 1128, size: 80},
+       {value: 144447, size: 80},
+       {value: 18489298, size: 50},
+       {value: 147914382, size: 50},
+       {value: 591657528, size: 25}
+     ]
+   }
+},
+// This visual variable determines the outline width of polygons
+// based on map scale.
+
+{
+    type: "sizeInfo",
+    target: "outline",
+    expression: "view.scale",
+    stops: [
+      {value: 1153765, size: 2},
+      {value: 7211032, size: 1},
+      {value: 28844129, size: 0}
+    ]
+}
+]);
+        </textarea>
+      </div>
+    </div>
+    <div class="applicationBar">
+      <div class="content">
+        <div class="cartouche">
+          <span class="label">3.16</span>
+        </div>
+        <div class="main">
+          <span class="title">Scale-driven sizing</span>
+        </div>
+        <div class="actionBar">
+          <div class="button showcode">
+            <span>code</span>
+          </div>
+        </div>
+     </div>
+   </div>
+   <div class="legend shadowed">
+       <div id="legendDiv"></div>
+     </div>
+  </div>
+</body>
+</html>

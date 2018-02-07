@@ -1,0 +1,17 @@
+<h1>Popup Demo Theater</h1>
+<h4>Please refer to the <a href="https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2016/popups/demos">demos folder</a> for a detailed breakdown of demos used in this session. </h4>
+<p><a href="demos/default_popup.html">Default</a> : This sample shows an info window that displays all the fields in a layer. In general this isn't a good idea because end users will see field that may not have any meaning to them such as OBJECTID and other fields that show the internal name that isn't nicely formatted like DESC_.</p>
+
+<p><a href="demos/format_content.html">Format content</a>: This sample adds a custom description by creating a template with some html formatting and placeholders for the field values. This allows you to nicely format your content. For more details on the various options for formatting content check out the <a href="https://developers.arcgis.com/javascript/jshelp/intro_popuptemplate.html">Format Popup Content</a> help topic. </p>
+
+<p><a href="demos/popup_themes.html">Light and dark themes</a>: The popup has two out of the box themes (light and dark). These can be a nice alternative to the default popup look. </p>
+
+<p><a href="demos/customize_default_theme.html">Customize css</a>: You can tweak the default (light and dark) themes by modifying the css to make changes to the apperance. For example in this demo we set the icons for the light popup to be blue.  You can also use css to modify the background-color, pointer arrows, size of the icons, color of the icons and more. The developer tools are a quick and easy way to find the css class names for various elements and tweak them quickly.</p>
+
+<p><a href="https://developers.arcgis.com/javascript/jssamples/widget_extendInfowindow.html">Custom Popup Window</a> : If you need to make more drastic customizations than are possible by modifying the css you can inherit from the InfoWindowBase class to create an info window with a completely custom look and custom behavior. </p>
+
+<p><a href="demos/custom_action.html">Add new action item to popup</a> : This demo shows how to add a new item to the popup action pane. The action pane is the strip at the bottom of the popup where the zoom-to capability displays. Here we've added a link that shows the elevation profile for the selected feature. </p>
+
+<p><a href="demos/action_40.html">Custom action using 4.0</a> : This demo displays similar functionality as the previous demo but instead of working with version 3.16, we switched it to use beta 4.0. Working with popup actions has been built into the Popup in 4.0 to make it much more straightforward.
+
+<p><a href="demos/Embed/index.html">Popup Content in Side Panel</a>: Here we have some features that have lots of text and several pictures associated with each popup. We can format this content to show up in the poup or if we want we can display the popup content in another node. Here we put it in the side panel.  </p>

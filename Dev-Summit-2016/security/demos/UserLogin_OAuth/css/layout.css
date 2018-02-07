@@ -1,0 +1,66 @@
+   html,body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+  }
+
+  body {
+    background-color:#FFF;
+    overflow:hidden;
+    font-family:"Helvetica";
+  }
+
+  #header {
+    border:solid 1px #A8A8A8;
+    overflow:hidden;
+    background-color:#999;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#C0C0C0));
+    background: -moz-linear-gradient(top,  #fff,  #C0C0C0);
+    height:65px;
+    margin: 5px 5px;
+  }
+
+  .roundedCorners {
+    -o-border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+  }
+
+  .shadow {
+    -webkit-box-shadow:4px 4px 8px #adadad;
+    -moz-box-shadow:4px 4px 8px #adadad;
+    -o-box-shadow:4px 4px 8px #adadad;
+    box-shadow:4px 4px 8px #adadad;
+  }
+  #title{
+    padding-top:2px;
+    padding-left:10px;
+    color:#000;
+    font-size:18pt;
+    text-align:left;
+    text-shadow: 0px 1px 0px #e5e5ee;
+    font-weight:700;
+  }
+  #subtitle {
+    font-size:small;
+    padding-left:40px;
+    text-shadow: 0px 1px 0px #e5e5ee;
+    color:#000;
+  }
+  #rightPane{
+    background-color:#E8E8E8;
+    border:solid 2px #B8B8B8;
+    margin:5px; 
+    width:20%;
+  }
+  #map {
+    background-color:#FFF;
+    border:solid 2px #B8B8B8;
+    margin:5px;
+    padding:0;
+  }
+  .esriLegendServiceLabel{
+    display:none;
+  }
