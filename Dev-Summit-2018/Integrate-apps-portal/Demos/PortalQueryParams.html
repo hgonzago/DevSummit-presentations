@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PortalQueryParams</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <style>
+    body {
+      font-family: "Arial Unicode MS, Arial, sans-serif";
+    }
+    #content {
+      width: 100%;
+      height: 500px;
+    }
+    #content div {
+      padding: 1em;
+    }
+    .title {
+      font-weight: bold;
+    }
+  </style>
+
+  <script src="https://js.arcgis.com/4.3/"></script>
+  <script>
+    require([
+      "esri/portal/Portal",
+      "esri/portal/PortalQueryParams",
+      "dojo/_base/array",
+      "dojo/dom",
+      "dojo/on",
+      "dojo/dom-class",
+      "dojo/_base/json",
+      "esri/config",
+      "esri/request",
+      "dojo/domReady!"
+    ],
+      function (
+        Portal,
+        PortalQueryParams,
+        arrayUtils,
+        dom,
+        on,
+        domClass,
+        dojoJson,
+        esriConfig,
+        esriRequest
+      ) {
+
+        //handle the Go button's click event
+        on(dom.byId("submitRequest"), "click", getContent);
+
+        function getContent() {
+
+          var portal = new Portal();
+          portal.load().then(function () {
+            // Create query parameters for the portal search
+            var queryParams = new PortalQueryParams({
+              query: "owner: Heather_JS9",
+              sortField: "numViews",
+              sortOrder: "desc",
+              num: 20
+            });
+
+            // Query the items based on the queryParams created from portal above
+            var requestHandle = portal.queryItems(queryParams);
+            requestHandle.then(requestSucceeded, requestFailed);
+          });
+        }
+
+        function requestSucceeded(response, io) {
+
+          dom.byId("status").innerHTML = "";
+          dojoJson.toJsonIndentStr = "  ";
+          var items = [];
+          response.results.forEach(function (result) {
+            if (result.title && result.url) {
+              items.push("<div><a href='" + result.url + "'<span class='title'>" + result.title +
+                "</span></a></div>");
+            }
+          });
+          dom.byId("content").innerHTML = items.join(" ");
+        }
+
+        function requestFailed(error, io) {
+
+          domClass.add(dom.byId("content"), "failure");
+          dom.byId("status").innerHTML = "";
+          dojoJson.toJsonIndentStr = " ";
+          dom.byId("content").value = dojoJson.toJson(error, true);
+        }
+      });
+  </script>
+</head>
+
+<body>
+  <input id="submitRequest" type="button" value="Get Items" />
+  <span id="status"></span>
+  </p>
+  <p id="content">
+  </p>
+</body>
+
+</html>

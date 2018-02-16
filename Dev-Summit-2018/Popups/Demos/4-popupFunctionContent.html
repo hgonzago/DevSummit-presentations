@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>4 - Popup content with a function</title>
+  
+  <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  
+  <script src="https://js.arcgis.com/4.2/"></script>
+  <script>
+    var dataName;
+    require([
+      "esri/layers/FeatureLayer",
+      "esri/Map",
+      "esri/views/MapView",
+      "dojo/domReady!"
+    ], function (
+      FeatureLayer,
+      Map,
+      MapView
+    ) {
+
+      // Create the Map
+      var map = new Map({
+        basemap: "topo"
+      });
+
+      // Create the MapView
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-94.33044365000389, 40.743681667448215],
+        zoom: 4
+      });
+
+      // Set the template properties by calling a function within the content property
+
+      var template = {
+        title: "{Name} monster of {Location}",
+        content: "{Name:searchWeb}"
+      };
+
+      // The searchWeb function takes the value of the selected feature and its associated graphic and attribute. The Name field is the key.
+      searchWeb = function (value, key, data) {
+
+        // Set a variable for the Name field's data
+        dataName = data.Name;
+
+        // return some text with href markup that calls another function called 'openPage'
+        return "Click on this <a href = 'javascript:openPage()'>link</a> to search the web for additional information on this monster."
+
+      }
+
+      // openPage function sets the href location for that of a Google search for the selected monster
+      openPage = function () {
+        location.href = "https://www.google.com/search?q=" + dataName;
+      }
+
+      // Create featurelayer of US monsters
+      var featureLayer = new FeatureLayer({
+        url: "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Cryptids/FeatureServer/0",
+        outFields: ["*"],
+        popupTemplate: template
+      });
+
+      map.add(featureLayer);
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
