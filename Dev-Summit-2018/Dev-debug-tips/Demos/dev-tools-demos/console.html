@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="[Get started with MapView - Create a 2D map - 4.2]">
+    <!-- 
+  ArcGIS API for JavaScript, https://js.arcgis.com
+  For more information about the get-started-mapview sample, read the original sample description at developers.arcgis.com.
+  https://developers.arcgis.com/javascript/latest/get-started-mapview/index.html  
+  -->
+    <title>Get started with MapView - Create a 2D map - 4.2</title>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.2/"></script>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "dojo/domReady!"
+        ], function (Map, MapView) {
+
+            var map = new Map({
+                basemap: "streets"
+            });
+
+            this.view = new MapView({
+                container: "viewDiv",
+                map: map,
+                zoom: 4,
+                center: [15, 65]
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>
