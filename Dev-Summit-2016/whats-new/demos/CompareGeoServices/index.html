@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Geometry Service vs. GeometryEngine</title>
+
+<style>
+  html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+  .viewDivBase{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 49.9%;
+  }
+  #viewDivgs{
+    float: right;
+  }
+  #viewDivge{
+    float: left;
+  }
+  .title{
+    top: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+    z-index: 99;
+    background-color: white;
+    padding: 6px;
+    font-weight: bolder;
+    background-color: beige;
+    border-bottom-left-radius: 6px;
+    border-color: black;
+    font-size: 1.7em;
+  }
+  #geTitle{
+    right: 50%;
+  }
+  #legend{
+    background-color: beige;
+    border-top-right-radius: 6px;
+    border-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 84;
+    padding: 6px;
+  }
+    button{
+      font-weight: bolder;
+    }
+</style>
+
+<script>
+  var dojoConfig = {
+    paths: {
+      ViewUtils: location.pathname.replace(/\/[^/]+$/, "") + "./",
+    }
+  };
+</script>
+
+<link rel="stylesheet" href="https://jsdev.arcgis.com/4.0/esri/css/main.css">
+<script src="https://jsdev.arcgis.com/4.0/"></script>
+
+<script>
+var map, geoms, citiesLayer, bufferLayerGE, bufferLayerGS, viewGS, viewGE, gs;
+
+require([
+  "esri/Map",
+  "esri/views/MapView",
+  "esri/layers/GraphicsLayer",
+  "esri/layers/FeatureLayer",
+  "esri/Graphic",
+  "esri/symbols/SimpleLineSymbol",
+  "esri/symbols/SimpleFillSymbol",
+  "esri/geometry/geometryEngineAsync",
+  "esri/tasks/GeometryService",
+  "esri/tasks/support/BufferParameters",
+  "dojo/dom", "dojo/on",
+  "dojo/domReady!"
+],
+function(
+  Map,
+  MapView,
+  GraphicsLayer,
+  FeatureLayer,
+  Graphic,
+  SimpleLineSymbol,
+  SimpleFillSymbol,
+  geometryEngineAsync,
+  GeometryService,
+  BufferParameters,
+  dom, on
+) {
+
+  geResultsNode = dom.byId("resultsGE");
+  gsResultsNode = dom.byId("resultsGS");
+
+  citiesLayer = new FeatureLayer({
+    url: "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/WorldCities/FeatureServer/0"
+  });
+
+  bufferLayerGE = new GraphicsLayer({
+    opacity: 0.5
+  });
+  bufferLayerGS = new GraphicsLayer({
+    opacity: 0.5
+  });
+
+  gs = new GeometryService({
+    url: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Utilities/Geometry/GeometryServer"
+  });
+
+  viewGS = new MapView({
+    container: "viewDivgs",
+    map: new Map({
+      basemap: "streets",
+      layers: [citiesLayer, bufferLayerGS],
+      zoom: 2
+    })
+  });
+
+  viewGE = new MapView({
+    container: "viewDivge",
+    map: new Map({
+      basemap: "streets",
+      layers: [citiesLayer, bufferLayerGE],
+      zoom: 2
+    })
+  });
+
+  function initViews(layer){
+    viewGS.then(function(){
+      viewGS.animateTo({
+        center: layer.fullExtent.center,
+        zoom: 2
+      });
+    });
+    viewGE.then(function(){
+      viewGE.animateTo({
+        center: layer.fullExtent.center,
+        zoom: 2
+      });
+    });
+  }
+
+  citiesLayer.then(initViews);
+
+  var bufferSym = new SimpleFillSymbol({
+    style: "solid",
+    color: "red",
+    outline: new SimpleLineSymbol({
+      width: 0
+    })
+  });
+
+  on(dom.byId("buffBtn"), "click", createBuffers);
+
+  function createBuffers(){
+
+    // viewGE.whenLayerView(citiesLayer)
+    // .then(function(layerView) {
+    //   console.log(layerView.graphics);
+    //   geoms = getGeoms(layerView.graphics);
+    // })
+    geoms = viewGE.graphics;
+    createGEbuffers(geoms);
+    createGSbuffers(geoms);
+  }
+
+  function createGSbuffers(geometries){
+    var startTime = Date.now();
+    timer(gsResultsNode, true);
+    var params = new BufferParameters({
+      distances: [500],
+      unit: 9093,
+      geodesic: true,
+      geometries: geometries,
+      unionResults: false
+    });
+
+    gs.buffer(params).then(function(buffers){
+      buffers.forEach(function(buff, i){
+        var buffGraphic = new Graphic({
+          geometry: buff,
+          symbol: bufferSym
+        });
+        bufferLayerGS.add(buffGraphic);
+      });
+      return Date.now();
+    }).then(function(endTime){
+      timer(gsResultsNode, false);
+      var processTime = (endTime - startTime) / 1000;
+      gsResultsNode.innerHTML = processTime + " seconds";
+      dom.byId("gsTime").style.fontWeight = "bolder";
+    });
+  }
+
+  function createGEbuffers(geometries){
+    var startTime = Date.now();
+    timer(geResultsNode, true);
+    console.log("start time: ", startTime);
+    geometryEngineAsync.geodesicBuffer(geometries, [500], "miles", false).then(function(buffers){
+      buffers.forEach(function(buff, i){
+        var buffGraphic = new Graphic({
+          geometry: buff,
+          symbol: bufferSym
+        });
+        bufferLayerGE.add(buffGraphic);
+      });
+      return Date.now();
+    }).then(function(endTime){
+      timer(geResultsNode, false);
+      var processTime = (endTime - startTime) / 1000;
+      geResultsNode.innerHTML = processTime + " seconds";
+      dom.byId("geTime").style.fontWeight = "bolder";
+    });
+  }
+
+  function getGeoms(graphics){
+     return graphics.map(function(item, i){
+        return item.geometry;
+     }).getAll();
+  }
+
+  function timer(node, start){
+    if(gsResultsNode===node){
+      if(start){
+        i = 0;
+        gsCounter = setInterval(function(){
+          i++;
+          gsResultsNode.innerHTML = i + " seconds";
+        }, 1000);
+      } else{
+        clearInterval(gsCounter);
+      }
+    }
+    else{
+      if(start){
+        j = 0;
+        geCounter = setInterval(function(){
+          j++;
+          geResultsNode.innerHTML = j + " seconds";
+        }, 1000);
+      } else{
+        clearInterval(geCounter);
+      }
+   }
+ }
+
+});
+</script>
+</head>
+
+<body>
+<div class="viewDivBase" id="viewDivgs">
+  <div id="gsTitle" class="title">GeometryService</div>
+  <div id="legend">
+  Click the button below to create 500-mile<br>
+  buffers around 500 world cities using both<br>
+  GeometryService and GeometryEngine. Each<br>
+  method is timed. Note how quickly GeometryEngine<br>
+  finishes compared to GeometryService.<br><br>
+  <button id="buffBtn">Create buffers</button><br><br>
+  <span id="geTime"> GeometryEngine Time: <span id="resultsGE"></span></span><br><br>
+  <span id="gsTime"> GeometryService Time: <span id="resultsGS"></span></span>
+  </div>
+</div>
+<div class="viewDivBase" id="viewDivge">
+  <div id="geTitle" class="title">GeometryEngine</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html dir="ltr">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+   <title>Identity Manager (3.16)</title>
+   <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/themes/calcite/dijit/calcite.css">
+     <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/themes/calcite/esri/esri.css">
+
+   <style>
+      html,
+      body,
+      #map {
+         height: 100%;
+         width: 100%;
+         margin: 0;
+         padding: 0;
+      }
+   </style>
+   <script src="http://js.arcgis.com/3.16"></script>
+   <script>
+
+     var map;
+
+require([
+  "esri/map","esri/layers/FeatureLayer", "esri/arcgis/OAuthInfo", "esri/IdentityManager", "dojo/parser",
+  "dojo/domReady!"
+], function (Map, FeatureLayer, OAuthInfo, esriId,  parser)
+        {
+       parser.parse();
+
+  // Demo - Create OauthInfo and pass in the appId (client_id) of the registered application
+    var info = new OAuthInfo({
+      appId: "6PWiPJo3hQEODTpd",
+      popup: true,
+      showSocialLogins: true
+    });
+    esriId.registerOAuthInfos([info]);
+
+  map = new Map("map", {
+    basemap: "topo",
+    center: [-115, 30], // longitude, latitude
+    zoom: 5
+  });
+
+  //Demo - This is a service on AGO that has not been shared out
+  map.on("load", function (){
+    var layer = new FeatureLayer("http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Breweries/FeatureServer/0",{
+            outFields: ["*"]
+         });
+     map.addLayer(layer);
+  });
+});
+   </script>
+</head>
+
+<body class="calcite">
+   <div id="search"></div>
+   <div id="map"></div>
+</body>
+
+</html>
