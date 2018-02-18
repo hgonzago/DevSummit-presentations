@@ -1,13 +1,16 @@
 <!-- .slide: data-background="../reveal.js/img/title.png" -->
 <!-- .slide: class="title" -->
 ## Getting Started with Web Development and the ArcGIS API for JavaScript
+<br>
+<br>
+<br>
 Noah Sager and Heather Gonzago
 
 ---
 
 <!-- .slide: data-background="../reveal.js/img/bg-5.png" -->
 ## **Agenda**
- - <span style="color:yellow">Setup</span>
+ - Setup
  - First steps
  - Working with layers
  - Symbols and renderers
