@@ -1,6 +1,6 @@
 <!-- .slide: data-background="../reveal.js/img/title.png" -->
 <!-- .slide: class="title" -->
-# Getting Started with Web Development and the ArcGIS API for JavaScript
+## Getting Started with Web Development and the ArcGIS API for JavaScript
 Noah Sager and Heather Gonzago
 
 ---
