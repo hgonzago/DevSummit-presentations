@@ -1,15 +1,16 @@
-<!-- .slide: data-background="../reveal.js/img/title.png" -->
+<!-- .slide: data-background="../reveal.js/img/bg-1.png" -->
 <!-- .slide: class="title" -->
-## Getting Started with Web Development and the ArcGIS API for JavaScript
 <br>
 <br>
+<br>
+### Getting Started with Web Development 
+### and the ArcGIS API for JavaScript
 <br>
 Noah Sager and Heather Gonzago
 
 ---
 
-<!-- .slide: data-background="../reveal.js/img/bg-5.png" -->
-## **Agenda**
+### **Agenda**
  - Setup
  - First steps
  - Working with layers
@@ -19,59 +20,58 @@ Noah Sager and Heather Gonzago
 
 ---
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Types of apps**
-  - Add some info
-    - Additional Info
-      - And some more
-  - Additional info
-    - Some more
-      - And some more
+### **Presentations accessible via GitHub**
+  - This session focuses on version 4.x
+  - Concepts remain similar between versions 3.x and 4.x 
+  - https://github.com/hgonzago/DevSummit-presentations
 
 ---
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Agenda**
- - Types of apps
- - <span style="color:yellow">Traditional token-based authentication</span>
- - OAuth2 authentication
- - User login authentication
- - Application authentication
- - Resource proxy
- - ArcGIS Online hosted proxy
+### **Where do I begin?**
+<a href="https://developers.arcgis.com/javascript/">
+<img src="images/landingPage.png" alt="JavaScript landing page" width="880" height="600">
+</a>
 
 ---
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Traditional server-based token authentication**
- - Classic way to access secured services
- - Username and password sent over https
-<span style="color:cyan">`https://<server>/sharing/rest/generateToken`</span> call
- - Short-lived token response
- - Handled via SDK’s Identity Manager component
- - Token is appended to the request
+### **Which version of the API is best?**
+<a href="https://developers.arcgis.com/javascript/latest/guide/functionality-matrix/index.html">
+<img src="images/apiVersion.png" alt="API functionality matrix" width="700" height="600">
+</a>
 
 ---
 
-<!-- .slide: data-background="../../reveal.js/img/bg-2.png" -->
-## **Demo: Traditional token-based authentication**
-[![generateToken](images/generateTokenDemo.png)](./demos/GenerateToken/DemoGenerateToken.html)
+### **Developer Setup**
+[![IDEs](images/ides.png)](https://www.slant.co/topics/1686/~javascript-ides-or-editors)
 
 ---
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-<!-- .slide: data-notes="ArcGIS Based services. User logins, you write the app, and the application is responsible for accessing the credentials from the user and keeping these credentials safe" -->
-## **generateToken limitations**
- - The web application has access to credentials
- - The application is responsible for recognizing when to prompt for login
- - No enterprise logins
- - Can’t track how the app is being used
- - Can’t list in Marketplace
+### **JSAPI Resources**
+<a href="https://github.com/Esri/jsapi-resources">
+<img style="float: right;" alt="JSAPI resources" src="images/jsapiResources.png" width="790" height="600">
+</a>
+ - Includes
+   - JSHint file
+   - TypeScript definition file
+   - Build tools, e.g. Bower
+   - OAuth popup callback page
 
 ---
 
-<!-- .slide: data-background="../../reveal.js/img/bg-5.png" -->
-## **Agenda**
+### **Get the API**
+ - [CDN](https://developers.arcgis.com/javascript/latest/guide/get-api/index.html)
+ - Custom builds
+ - [Download builds](https://developers.arcgis.com/downloads/)
+</br>
+</br>
+ <pre><code data-trim>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
+&lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+---
+
+### ****
 - Types of apps
 - Traditional token-based authentication
 - <span style="color:yellow">OAuth2 authentication</span>
