@@ -2,8 +2,7 @@
 
 Here you can access the presentations and demos used for the 2018 Developer Summit:
 
-
+* [Getting started with web development using the ArcGIS API for JavaScript](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2018/Getting-started-web-dev/)
 * [Making Popups](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2018/Popups/)
 * [Tips and Tricks for Developing and Debugging Apps](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2018/Dev-debug-tips)
 * [Building Web Apps That Integrate with Your Portal](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2018/Integrate-apps-portal/)
-* [Getting started with web development using the ArcGIS API for JavaScript](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2018/Getting-started-web-dev/)
