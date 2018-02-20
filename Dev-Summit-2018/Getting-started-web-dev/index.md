@@ -42,7 +42,7 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **Developer Setup**
-[![IDEs](images/ides.png)](https://www.slant.co/topics/1686/~javascript-ides-or-editors)
+[![IDEs](Images/ides.png)](https://www.slant.co/topics/1686/~javascript-ides-or-editors)
 
 ---
 
