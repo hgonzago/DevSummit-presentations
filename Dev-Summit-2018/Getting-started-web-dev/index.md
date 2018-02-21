@@ -38,7 +38,7 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **Which version of the API is best?**
-<a href="https://developers.arcgis.com/javascript/latest/guide/functionality-matrix/index.html" target="_blank">
+<a href="https://developers.arcgis.com/javascript/latest/guide/choose-version/index.html" target="_blank">
 <img src="Images/Choose_Your_Own_Version.png" alt="API functionality matrix" width="1000" height="633">
 </a>
 
@@ -68,7 +68,7 @@ Heather Gonzago and Noah Sager
  - <a href="https://developers.arcgis.com/downloads/" target="_blank">Download builds</a>
 </br>
 </br>
- <pre><code data-trim>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
 &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt; 
 &lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
 </code></pre>
