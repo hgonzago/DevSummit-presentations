@@ -349,7 +349,7 @@ Add picture of the demo with link
 
 ### **Additional Sessions (Introduction)**
 
-<a><img style="float:bottom;" src="Images/Introduction_Sessions.png" alt="Introduction_Sessions"</a>
+<a><img style="float:bottom;" src="Images/Intro_Sessions.png" alt="Introduction_Sessions"</a>
 
 ---
 
