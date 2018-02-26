@@ -21,66 +21,64 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **Presentations accessible via GitHub**
-  </br>
-  - This session focuses on version 4.x</br>
-  </br>
-  - Concepts remain similar between versions 3.x and 4.x</br>
-  </br>
-  - <a href="https://github.com/hgonzago/DevSummit-presentations" target="_blank">https://github.com/hgonzago/DevSummit-presentations</a>
+  - This session focuses on version 4.x
+  - Concepts remain similar between versions 3.x and 4.x 
+  - https://github.com/hgonzago/DevSummit-presentations
 
 ---
 
 ### **Where do I begin?**
-<a href="https://developers.arcgis.com/javascript/" target="_blank">
-<img src="Images/landingPage_3.png" alt="JavaScript landing page" width="1200" height="656">
+<a href="https://developers.arcgis.com/javascript/">
+<img src="images/landingPage.png" alt="JavaScript landing page" width="880" height="600">
 </a>
 
 ---
 
 ### **Which version of the API is best?**
-<a href="https://developers.arcgis.com/javascript/latest/guide/choose-version/index.html" target="_blank">
-<img src="Images/Choose_Your_Own_Version.png" alt="API functionality matrix" width="1000" height="633">
+<a href="https://developers.arcgis.com/javascript/latest/guide/functionality-matrix/index.html">
+<img src="images/apiVersion.png" alt="API functionality matrix" width="700" height="600">
 </a>
 
 ---
 
 ### **Developer Setup**
-<a href="https://www.slant.co/topics/1686/~javascript-ides-or-editors" target="_blank">
-<img src="Images/ides.png" alt="IDEs" width="806" height="443">
-</a>
+[![IDEs](images/ides.png)](https://www.slant.co/topics/1686/~javascript-ides-or-editors)
+
 ---
 
 ### **JSAPI Resources**
-<a href="https://github.com/Esri/jsapi-resources" target="_blank">
-<img style="float: right;" alt="JSAPI resources" src="Images/jsapiResources_2.png" width="790" height="577">
+<a href="https://github.com/Esri/jsapi-resources">
+<img style="float: right;" alt="JSAPI resources" src="images/jsapiResources.png" width="790" height="600">
 </a>
  - Includes
    - JSHint file
    - TypeScript definition file
    - Build tools, e.g. Bower
-   - OAuth popup callback
+   - OAuth popup callback page
 
 ---
 
 ### **Get the API**
- - <a href="https://developers.arcgis.com/javascript/latest/guide/get-api/index.html#cdn" target="_blank">CDN</a>
+ - [CDN](https://developers.arcgis.com/javascript/latest/guide/get-api/index.html)
  - Custom builds
- - <a href="https://developers.arcgis.com/downloads/" target="_blank">Download builds</a>
+ - [Download builds](https://developers.arcgis.com/downloads/)
 </br>
 </br>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt; 
+ <pre><code data-trim>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
 &lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
 </code></pre>
 
 ---
 
 ### CSS
-- <a href="https://developers.arcgis.com/javascript/latest/guide/styling/index.html" target="_blank"><b>Main.css</b></a> contains styles for entire API
+- [Main.css](https://developers.arcgis.com/javascript/latest/guide/styling/index.html)
+  - Contains styles for entire API
    <pre><code data-trim>
    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
    </code></pre>
-- <b>View.css</b> is smaller in size but better choice if only needing basic CSS (maps, widgets, etc.)
+- View.css
+  - Smaller in size but better choice if only needing basic CSS (maps, widgets, etc.)
   <pre><code data-trim>
    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/view.css&quot;&gt;
    </code></pre>
@@ -95,7 +93,7 @@ Heather Gonzago and Noah Sager
 ### **First steps**
 - How will app be written?
 - Separate files or one combined file?
-<img style="float: center;" src="Images/Step1_Combined.png">
+<img style="float: center;" src="Images/combinedFile.png">
 
 ---
 
@@ -139,49 +137,40 @@ var view = new SceneView({
 
 ### **Add layers**
 <img style="float:right;" src="Images/add-layers.png">
- - <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-layers" target="_blank">Various layer types</a>
+ - [Various layer types](https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-layers)
 1. Load module </br>
 2. Create layers </br>
 3. Set properties </br>
-4. Add to map or scene</br>
-</br>
+4. Add to map or scene
  - Basic steps remain the same
 
 ---
 
 ### **Properties**
+- [Properties](https://developers.arcgis.com/javascript/latest/guide/working-with-props/index.html) can be set in constructor
 - No need for a bunch of get/set statements
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 50%;"><code data-trim> 
-var map = new Map();
-map.basemap = "streets";
-map.ground = "world-elevation";
-var view = new MapView();
 view.center = [-100, 40];
 view.zoom = 6;
+map.basemap = "streets";
 </code></pre>
-- <a href="https://developers.arcgis.com/javascript/latest/guide/working-with-props/index.html" target="_blank">Properties</a> can be set in constructor
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 50%;"><code data-trim> 
 var map = new Map({
     basemap: "streets",
-    ground: "world-elevation"
+    layers: [cities, roads]
 });
-var view = new MapView({
-    map: map, 
-    center: [-100, 40], 
-    zoom: 6
-  });
+view.zoom = 6;
+map.basemap = "streets";
 </code></pre>
 ---
 
 ### **Watch for property changes**
-- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Accessor.html#watch" target="_blank">Watch</a> for changes </br>
+- [Watch](https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Accessor.html#watch) for changes </br>
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 layer.watch("loadStatus", function(status) {// do something});
 </code></pre></br>
-</br>
-- Can also use <a href="https://developers.arcgis.com/javascript/beta/api-reference/esri-core-watchUtils.html" target="_blank">esri/core/watchUtils</a> utility methods</br>
-</br>
-- See this in action with the <a href="https://developers.arcgis.com/javascript/latest/sample-code/watch-for-changes/index.html" target="_blank">Watch for Changes</a> sample
+- Can also use [esri/core/watchUtils](https://developers.arcgis.com/javascript/beta/api-reference/esri-core-watchUtils.html) utility methods
+- See this in action at [Watch for Changes](https://developers.arcgis.com/javascript/latest/sample-code/watch-for-changes/index.html) sample
 ---
 
 ### **Demo: Add layer to sample app**
@@ -191,10 +180,8 @@ Add pic of demo with layers and link to it
 ---
 
 ### **Renderers**
-- <a href="https://developers.arcgis.com/javascript/latest/sample-code/get-started-visualization/index.html" target="_blank">Define</a> a set of symbols to use for the layer</br>
-</br>
-- Sets the rules on how the symbols are used</br>
-</br>
+- [Define](https://developers.arcgis.com/javascript/latest/sample-code/get-started-visualization/index.html) a set of symbols to use for the layer
+- Sets the rules on how the symbols are used
 - Basic coding pattern
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 var layerRenderer = new UniqueValueRenderer(); // Set the renderer
@@ -207,8 +194,7 @@ var featurelayer = new FeatureLayer({
 ---
 
 ### **Symbols**
-- Renderers use symbology, e.g. points, lines, polygons</br>
-</br>
+- Renderers use symbology, e.g. points, lines, polygons
 - Set the renderer's symbol
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
 var symbol = new SimpleMarkerSymbol({
@@ -225,14 +211,12 @@ var renderer = new UniqueValueRenderer({
 ---
 
 ### **Autocasting**
+- No need to *Require[]* a property
 </br>
-- No need to <b>Require()</b> the module</br>
-</br>
-- Look for the <img style="float: center;" src="Images/autocast-label.png"> label in SDK's API Reference</br>
-</br>
-- <a href="https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=layers-portal" target="_blank">Create a layer from portal item sample </a> shows autocasting in action</br>
-</br>
-- Read more about <a href="https://developers.arcgis.com/javascript/latest/guide/autocasting/index.html" target="_blank">Autocasting</a> in the Guide</br>
+- How do you check if a property supports [autocasting](https://developers.arcgis.com/javascript/latest/guide/autocasting/index.html)? </br>
+   Look for *Autcast* label in SDK's API Reference </br>
+   [Create a layer from portal item](https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=layers-portal) sample shows this
+
 
 ---
 
@@ -257,7 +241,7 @@ Add pic of popup from demo
 
 ### **PopupTemplate**
 - View has associated popup, can set content here
-- FeatureLayer has associated <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html" target="_blank">popupTemplate</a> property
+- FeatureLayer has associated [popupTemplate](https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html) property
 - Position the popup using *dockOptions*
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
 var popupTemplate = new PopupTemplate({
@@ -286,8 +270,7 @@ Add a picture of the demo with the popup
 
 ### **Using web maps**
 
-- Reduces coding effort</br>
-</br>
+- Reduces coding effort
 - Retains all customizations with rendering, popups, etc. 
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 var map = new WebMap({
@@ -340,22 +323,13 @@ Add picture of the demo with link
 - SDK Documentation
 - Esri-related training and webinars
 - JavaScript online training, free and not-so-free
-- User forums, e.g. GeoNet, StackExchange, Spatial Community in Slack, etc.</br>
-</br>
-<a href="https://developers.arcgis.com/javascript/latest/guide/community/index.html" target="_blank">
-<img style="float:bottom;" src="Images/Community.png" alt="Community" width="900" height="395">
+- User forums, e.g. GeoNet, StackExchange, Spatial Community in Slack, etc.
 
 ---
 
-### **Additional Sessions (Introduction)**
+### **Additional Sessions**
 
-<a><img style="float:bottom;" src="Images/Intro_Sessions.png" alt="Introduction_Sessions"</a>
-
----
-
-### **Additional Sessions (Advanced)**
-
-<a><img style="float:bottom;" src="Images/Advanced_Sessions.png" alt="Advanced_Sessions"</a>
+Fill this part in
 
 ---
 
