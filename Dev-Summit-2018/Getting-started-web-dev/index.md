@@ -29,26 +29,26 @@ Heather Gonzago and Noah Sager
 
 ### **Where do I begin?**
 <a href="https://developers.arcgis.com/javascript/">
-<img src="images/landingPage.png" alt="JavaScript landing page" width="880" height="600">
+<img src="Images/landingPage.png" alt="JavaScript landing page" width="880" height="600">
 </a>
 
 ---
 
 ### **Which version of the API is best?**
 <a href="https://developers.arcgis.com/javascript/latest/guide/functionality-matrix/index.html">
-<img src="images/apiVersion.png" alt="API functionality matrix" width="700" height="600">
+<img src="Images/apiVersion.png" alt="API functionality matrix" width="700" height="600">
 </a>
 
 ---
 
 ### **Developer Setup**
-[![IDEs](images/ides.png)](https://www.slant.co/topics/1686/~javascript-ides-or-editors)
+[![IDEs](Images/ides.png)](https://www.slant.co/topics/1686/~javascript-ides-or-editors)
 
 ---
 
 ### **JSAPI Resources**
 <a href="https://github.com/Esri/jsapi-resources">
-<img style="float: right;" alt="JSAPI resources" src="images/jsapiResources.png" width="790" height="600">
+<img style="float: right;" alt="JSAPI resources" src="Images/jsapiResources.png" width="790" height="600">
 </a>
  - Includes
    - JSHint file
