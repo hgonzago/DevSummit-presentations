@@ -2,7 +2,7 @@ require([
   "esri/Map",
   "esri/views/MapView",
   "dojo/domReady!"
-], function (Map, MapView) {
+], function(Map, MapView) {
 
   /******************************************************************
    *
@@ -16,14 +16,14 @@ require([
   // streets-relief-vector, streets-navigation-vector
 
   var map = new Map({
-    basemap: "gray-vector"
+    basemap: "streets-vector"
   });
 
   view = new MapView({
-    container: "viewDiv",
-    map: map,
-    zoom: 3,
-    center: [-116.51131318985159, 33.82694510172852]
-  });
+   container: "viewDiv",
+   map: map,
+   zoom: 12,
+   center: [-116.51131318985159, 33.82694510172852]
+ });
 
 });
