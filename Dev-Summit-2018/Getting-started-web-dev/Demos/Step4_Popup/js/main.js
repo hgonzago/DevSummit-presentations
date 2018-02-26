@@ -1,12 +1,20 @@
+var view;
 require([
     "esri/Map",
     "esri/layers/FeatureLayer",
     "esri/views/MapView",
-    "esri/renderers/UniqueValueRenderer",
     "esri/PopupTemplate",
-    "esri/symbols/SimpleMarkerSymbol",
+    "esri/core/watchUtils",
     "dojo/domReady!"
-], function (Map, FeatureLayer, MapView, UniqueValueRenderer, PopupTemplate, SimpleMarkerSymbol) {
+], function (Map, FeatureLayer, MapView, PopupTemplate, watchUtils) {
+
+  var defaultSym = {
+    type: "simple-fill", // autocasts as new SimpleFillSymbol()
+    outline: { // autocasts as new SimpleLineSymbol()
+      color: "#a3acd1",
+      width: 0.5
+    }
+  };
 
   /******************************************************************
    *
@@ -14,88 +22,65 @@ require([
    *
    ******************************************************************/
 
-  // Symbol for restaurants within 1/2 mile of convention center
-  var halfMileSymbol = new SimpleMarkerSymbol({
-    size: 14,
-    color: "#ff3323",
-    width: 7,
-    outline: { // Autocasts as new SimpleLineSymbol()
-      color: [255, 255, 255, 0.50], // Autocasts as new Color()
-      width: 2
-    }
-  });
 
-  // Symbol for restaurants within 3/4 mile of convention center
-  var threeQuarterMileSymbol = new SimpleMarkerSymbol({
-    size: 14,
-    color: "#ff9222",
-    width: 7,
-    outline: { // Autocasts as new SimpleLineSymbol()
-      color: [255, 255, 255, 0.50], // Autocasts as new Color()
-      width: 2
-    }
-  });
-
-  // Symbol for restaurants within 1 mile of convention center
-  var oneMileSymbol = new SimpleMarkerSymbol({
-    size: 14,
-    color: "#00c725",
-    width: 7,
-    outline: { // Autocasts as new SimpleLineSymbol()
-      color: [255, 255, 255, 0.50], // Autocasts as new Color()
-      width: 2
-    }
-  });
-
-  // Symbol for restaurants within 1 1/4 miles of convention center
-  var oneQuarterMileSymbol = new SimpleMarkerSymbol({
-    size: 14,
-    color: "#0084d8",
-    width: 7,
-    outline: { // Autocasts as new SimpleLineSymbol()
-      color: [255, 255, 255, 0.50], // Autocasts as new Color()
-      width: 2
-    }
-  });
-
-  // Symbol for restaurants within 2 miles of convention center
-  var twoMileSymbol = new SimpleMarkerSymbol({
-    size: 14,
-    color: "#e113e8",
-    width: 7,
-    outline: { // Autocasts as new SimpleLineSymbol()
-      color: [255, 255, 255, 0.50], // Autocasts as new Color()
-      width: 2
-    }
-  });
-
-  // Set symbols on the renderer
-
-  var foodRenderer = new UniqueValueRenderer({
-    defaultSymbol: halfMileSymbol,
-    defaultLabel: "Within 1/2 mile of convention center",
-    field: "Proximity",
-    uniqueValueInfos: [{
-      value: "0.5", //attribute value for features within 1/2 mile of CC
-      symbol: halfMileSymbol,
-      label: "Within 1/2 mile of convention center"
-        }, {
-      value: "0.75", //attribute value for features within 3/4 mile of CC
-      symbol: threeQuarterMileSymbol,
-      label: "Within 3/4 mile of convention center"
-        }, {
-      value: "1", //attribute value for features within 1 mile of CC
-      symbol: oneMileSymbol,
-      label: "Within 1 mile of convention center"
-        }, {
-      value: "1.25", //attribute value for features within 1 1/4 miles of CC
-      symbol: oneQuarterMileSymbol,
-      label: "Within 1 1/4 miles of convention center"
-        }, {
-      value: "2", //attribute value for features within 2 miles of CC
-      symbol: twoMileSymbol,
-      label: "Within 2 miles of convention center"
+  var renderer = {
+    type: "simple", // autocasts as new SimpleRenderer()
+    symbol: defaultSym,
+    label: "Private school enrollment ratio",
+    visualVariables: [{
+      type: "color",
+      field: "PrivateEnr",
+      stops: [
+        {
+          value: 0.044,
+          color: "#edf8fb",
+          label: "< 0.044"
+          },
+        {
+          value: 0.059,
+          color: "#b3cde3"
+          },
+        {
+          value: 0.0748,
+          color: "#8c96c6",
+          label: "0.0748"
+          },
+        {
+          value: 0.0899,
+          color: "#8856a7"
+          },
+        {
+          value: 0.105,
+          color: "#994c99",
+          label: "> 0.105"
+          }]
         }]
+  };
+
+  /***********************************
+   *  Create renderer for centroids
+   ************************************/
+
+  var centroidRenderer = {
+    type: "simple", // autocasts as new SimpleRenderer()
+    symbol: {
+      type: "picture-marker", // autocasts as new SimpleMarkerSymbol()
+      url: "http://static.arcgis.com/images/Symbols/Basic/BlueSphere.png",
+      width: "26",
+      height: "26"
+    }
+  };
+
+  /******************************************************************
+   *
+   * Create feature layers
+   *
+   ******************************************************************/
+
+  var privateSchoolsPoint = new FeatureLayer({
+    // Private Schools centroids
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Centroids/FeatureServer/0",
+    renderer: centroidRenderer
   });
 
   /******************************************************************
@@ -106,74 +91,94 @@ require([
 
   // Step 1: Create the template
   var popupTemplate = new PopupTemplate({
-    title: "<b>Restaurant: {Title}</b>",
-    // Step 2: Specify the first type of popup element to display
+    title: "Private School enrollment",
     content: [{
-        // Step 3: Specify the second type of popup element - fields
+        // Specify the type of popup element - fields
         type: "fields",
         fieldInfos: [{
-          fieldName: "Address",
-          visible: true,
-          label: "Address: "
-                    }, {
-          fieldName: "Hours",
-          visible: true,
-          label: "Hours of operation: "
-                    }, {
-          fieldName: "Short_Desc",
-          visible: true,
-          label: "Description: "
-                    }, {
-          fieldName: "Website",
-          visible: true,
-          label: "Website: "
-                    }]
-                },
+            fieldName: "state_name",
+            visible: true,
+            label: "State name: "
+      },
+          {
+            fieldName: "PrivateMaj",
+            visible: true,
+            label: "Majority grade level for private schools: "
+      },
+          {
+            fieldName: "PrivateSch",
+            visible: true,
+            label: "Private school ration to total number of schools: ",
+            format: {
+              places: 2,
+              digitSeparator: true
+            }
+        },
+          {
+            fieldName: "TotalPriva",
+            visible: true,
+            label: "Total number of private schools: "
+        },
+          {
+            fieldName: "Enrollment",
+            visible: true,
+            label: "Total number students enrolled in private schools: "
+        },
+          {
+            fieldName: "PrivateEnr",
+            visible: true,
+            label: "Total number of private school students enrolled in ratio to total student school enrollment: ",
+            format: {
+              places: 2,
+              digitSeparator: true
+            }
+        }]
+    },
       {
         type: "media",
         mediaInfos: [{
-          type: "image",
-          value: {
-            sourceURL: "{Image_URL}"
-          }
-        }]
-    }
-            ]
+            title: "Ratio private and public school enrollment",
+            type: "pie-chart",
+            caption: "Private school enrollment in comparison to public school",
+            value: {
+              theme: "Grasshopper",
+              fields: ["PrivateEnr", "PublicEnro"]
+            }
+      },
+          {
+            title: "Total number of private schools",
+            type: "bar-chart",
+            caption: "Total number of Private Schools in comparison to public. (Does not pertain to student enrollment.)",
+            value: {
+              fields: ["PrivateSch", "PublicScho"]
+            }
+      }]
+      }
+    ]
   });
 
-  // Set restaurants layer and set renderer on it
-  var foodLayer = new FeatureLayer({
-    //food
-    url: "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Palm_Springs_Restaurant_locations/FeatureServer/0",
-
-    // set the renderer
-    renderer: foodRenderer,
-
-    // Step 4: Specify the outfields for the featurelayer in addition to passing in the template created above
+  var privateSchoolsPoly = new FeatureLayer({
+    // Private schools per state
+    // layer with rendering
+    // url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/OverlaySchools/FeatureServer/0"
+    // layer without rendering
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/PrivateSchoolEnrollmentNoRendering/FeatureServer/0",
     outFields: ["*"],
+    opacity: 0.8,
+    renderer: renderer,
     popupTemplate: popupTemplate
   });
 
-  var hoods = new FeatureLayer({
-    //Neighborhoods
-    url: "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Palm_Springs_Neighborhoods/FeatureServer/0",
-    opacity: 0.50
-  });
-
+  // Set map's basemap
   var map = new Map({
-    basemap: "streets-vector",
-    layers: [hoods, foodLayer]
+    basemap: "gray-vector"
   });
 
-  var view = new MapView({
+  view = new MapView({
     container: "viewDiv",
     map: map,
-    zoom: 15,
-    center: [-116.5403668778997, 33.82106252508553],
-
-    //Step 5: Set the popup property in the MapView so that docking is enabled
-    // and dockoptions are set. In this case, the popup can be docked to the
-    //bottom right of the application.
+    zoom: 3,
+    center: [-99.14725260912257, 36.48617178360141],
     popup: {
       dockEnabled: true,
       dockOptions: {
@@ -182,4 +187,10 @@ require([
       }
     }
   });
+
+  view.when(function () {
+    map.addMany([privateSchoolsPoly, privateSchoolsPoint]);
+    // map.add(privateSchoolsPoly);
+  });
+
 });
