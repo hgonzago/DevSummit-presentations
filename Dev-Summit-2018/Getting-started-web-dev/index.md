@@ -11,6 +11,7 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **Agenda**
+</br>
  - Setup
  - First steps
  - Working with layers
@@ -45,6 +46,7 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **Developer Setup**
+</br>
 <a href="https://www.slant.co/topics/1686/~javascript-ides-or-editors" target="_blank">
 <img src="Images/ides.png" alt="IDEs" width="806" height="443">
 </a>
@@ -52,6 +54,7 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **JSAPI Resources**
+</br>
 <a href="https://github.com/Esri/jsapi-resources" target="_blank">
 <img style="float: right;" alt="JSAPI resources" src="Images/jsapiResources_2.png" width="790" height="577">
 </a>
@@ -64,6 +67,7 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **Get the API**
+</br>
  - <a href="https://developers.arcgis.com/javascript/latest/guide/get-api/index.html#cdn" target="_blank">CDN</a>
  - Custom builds
  - <a href="https://developers.arcgis.com/downloads/" target="_blank">Download builds</a>
@@ -77,6 +81,7 @@ Heather Gonzago and Noah Sager
 ---
 
 ### CSS
+</br>
 - <a href="https://developers.arcgis.com/javascript/latest/guide/styling/index.html" target="_blank"><b>Main.css</b></a> contains styles for entire API
    <pre><code data-trim>
    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
@@ -94,15 +99,18 @@ Heather Gonzago and Noah Sager
 ---
 
 ### **First steps**
+</br>
 - How will app be written?
 - Separate files or one combined file?
+</br>
+</br>
 <img style="float: center;" src="Images/Step1_Combined.png">
 
 ---
 
 ### **Demo: Make a map**
-
-Add picture of adding map
+</br>
+<img style="float: center;" src="Images/Step1_Demo.png">
 
 ---
 
@@ -139,6 +147,7 @@ var view = new SceneView({
 ---
 
 ### **Add layers**
+</br>
 <img style="float:right;" src="Images/add-layers.png">
  - <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-layers" target="_blank">Various layer types</a>
 1. Load module </br>
@@ -175,6 +184,7 @@ var view = new MapView({
 ---
 
 ### **Watch for property changes**
+</br>
 - <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Accessor.html#watch" target="_blank">Watch</a> for changes </br>
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 layer.watch("loadStatus", function(status) {// do something});
@@ -186,12 +196,13 @@ layer.watch("loadStatus", function(status) {// do something});
 ---
 
 ### **Demo: Add layer to sample app**
-
-Add pic of demo with layers and link to it
+</br>
+<img style="float: center;" src="Images/Step2_Demo.png">
 
 ---
 
 ### **Renderers**
+</br>
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/get-started-visualization/index.html" target="_blank">Define</a> a set of symbols to use for the layer</br>
 </br>
 - Sets the rules on how the symbols are used</br>
@@ -208,6 +219,7 @@ var featurelayer = new FeatureLayer({
 ---
 
 ### **Symbols**
+</br>
 - Renderers use symbology, e.g. points, lines, polygons</br>
 </br>
 - Set the renderer's symbol
@@ -238,21 +250,23 @@ var renderer = new UniqueValueRenderer({
 ---
 
 ### **Demo: Update a feature layer's renderer**
-Add picture of demo
-
+</br>
+<img style="float: center;" src="Images/Step3_Demo.png">
 
 ---
 
 ### **Map interaction using popups**
+</br>
+<img style="float: right;" src="Images/expanded_popup.png">
+
 - Responds to mouse clicks
-- Provides info on
+</br></br>
+- Provides info on:
   - feature attributes
   - location
   - search results
+</br></br>
 - Customizable
-
-Add pic of popup from demo
-
 
 ---
 
@@ -280,13 +294,13 @@ var featurelayer = new FeatureLayer({
 ---
 
 ### **Demo: Add a popup to the map**
-
-Add a picture of the demo with the popup
+</br>
+<img style="float: center;" src="Images/Step4_Demo.png">
 
 ---
 
 ### **Using web maps**
-
+</br>
 - Reduces coding effort</br>
 </br>
 - Retains all customizations with rendering, popups, etc. 
@@ -301,13 +315,13 @@ var map = new WebMap({
 ---
 
 ### **Demo: Add a web map to an application**
-
-Show pic of demo app with link to it
+</br>
+<img style="float: center;" src="Images/Step6_Demo.png">
 
 ---
 
 ### **Widgets**
-
+</br>
 - Encapsulates functionality
 - Similar coding pattern
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
@@ -329,10 +343,9 @@ view.when(function){
 
 ---
 
-### **Demo: Add the Search widget to the application**
-
-Add picture of the demo with link
-
+### **Demo: Add widgets to the application**
+</br>
+<img style="float: center;" src="Images/Step7_Demo.png">
 
 ---
 
