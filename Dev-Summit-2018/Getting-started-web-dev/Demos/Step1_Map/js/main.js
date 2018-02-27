@@ -1,3 +1,4 @@
+var view;
 require([
   "esri/Map",
   "esri/views/MapView",
