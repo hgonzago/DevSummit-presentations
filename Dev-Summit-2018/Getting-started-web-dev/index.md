@@ -110,8 +110,9 @@ Heather Gonzago and Noah Sager
 
 ### **Demo: Make a map**
 </br>
-<img style="float: center;" src="Images/Step1_Demo.png">
-
+<a href="Demos/Step1_Map/" target="_blank">
+  <img style="float: center;" src="Images/Step1_Demo.png">
+</a>
 ---
 
 ### **MapView**
@@ -197,7 +198,9 @@ layer.watch("loadStatus", function(status) {// do something});
 
 ### **Demo: Add layer to sample app**
 </br>
-<img style="float: center;" src="Images/Step2_Demo.png">
+<a href="Demos/Step2_Layer/" target="_blank">
+  <img style="float: center;" src="Images/Step2_Demo.png">
+</a>
 
 ---
 
@@ -251,8 +254,9 @@ var renderer = new UniqueValueRenderer({
 
 ### **Demo: Update a feature layer's renderer**
 </br>
-<img style="float: center;" src="Images/Step3_Demo.png">
-
+<a href="Demos/Step3_LayerRenderer/" target="_blank">
+  <img style="float: center;" src="Images/Step3_Demo.png">
+</a>
 ---
 
 ### **Map interaction using popups**
@@ -295,8 +299,9 @@ var featurelayer = new FeatureLayer({
 
 ### **Demo: Add a popup to the map**
 </br>
-<img style="float: center;" src="Images/Step4_Demo.png">
-
+<a href="Demos/Step4_Popup/" target="_blank">
+  <img style="float: center;" src="Images/Step4_Demo.png">
+</a>
 ---
 
 ### **Using web maps**
