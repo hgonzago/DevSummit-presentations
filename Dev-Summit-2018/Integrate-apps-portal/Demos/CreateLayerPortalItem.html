@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>Create a layer from a portal item - 4.3</title>
+  <title>Create a layer from a portal item - 4.6</title>
 
   <style>
     html,
@@ -17,9 +17,9 @@
     }
   </style>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
 
-  <script src="https://js.arcgis.com/4.3/"></script>
+  <script src="https://js.arcgis.com/4.6/"></script>
 
   <script>
   var view;
@@ -33,14 +33,14 @@
     ) {
 
       var map = new Map({
-        basemap: "gray"
+        basemap: "gray-vector"
       });
 
        view = new MapView({
         map: map,
         container: "viewDiv",
-        zoom: 11,
-        center: [-87.73951721191226, 41.88462536750983]
+        zoom: 3,
+        center: [-99.14725260912257, 36.48617178360141]
       });
 
       /************************************************
@@ -51,7 +51,7 @@
        *************************************************/
       Layer.fromPortalItem({
           portalItem: { // autocast as esri/portal/PortalItem
-            id: "a9de61cf03254314a70af28ec3823233"
+            id: "e52e33913cb143c5b24b592575f2e62d"
           }
         }).then(addLayer)
         .otherwise(rejection);

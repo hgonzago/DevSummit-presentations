@@ -1,65 +1,71 @@
-<!-- .slide: data-background="../reveal.js/img/title.png" -->
+<!-- .slide: data-background="../reveal.js/img/bg-1.png" -->
 <!-- .slide: class="title" -->
-# Building Web Apps that Integrate with Your Portal
-Bjorn Svensson and Heather Gonzago
+<br>
+<br>
+<br>
+### Building Web Apps that Integrate with Your Portal
+<br>
+ Heather Gonzago and Kelly Hutchins
 
-----
+---
 
-## **Agenda**
+### **Agenda**
 
 * General AGO/Portal overview
 * Inside web map/scenes
-* Adding AGO content to a JS application
-* Working with secured AGO items in a JS application
+* Adding ArcGIS Online content to a JavaScript application
+* Working with secured ArcGIS Online items in a JavaScript application
 
-----
+---
 
-<div style="text-align: left">
 
-## **Advantages of working with AGO/Portal when building web apps**
+### **Advantages of working with AGO/Portal**
+
+</br>
+<img style="float: right;" alt="ArcGIS Online/Portal" src="images/PortalIcon.png" width="453" height="344"/>
 
 - Sharing and managing secure resources
 - Data hosting
 - Easy to leverage
 - Less code
 - Reusable
-- Organize/Update content centrally without updating apps
-
-<img width="600" src="images/PortalIcon.png" style="position: absolute; top: 110px; right:0; background:lightsteelblue; border:none; box-shadow:none; "/>
+- Organize/Update content centrally 
 
 ----
 
 
-## **Architecture: Apps + Content**
+### **Architecture: Apps + Content**
 
-<img class="stretch" src="images/Architecture.png" alt="Architecture" style="background:none; border:none; box-shadow:none;"/>
-
-----
-
-## **Content: Basic building block for Apps**
-
-<img class="stretch" src="images/Content-diagram.png" alt="Content"style="background:none; border:none; box-shadow:none;"/>
+</br>
+<img src="images/Architecture.png" alt="Architecture"/>
 
 ----
 
-## **Web Maps**
+### **Content: Basic building block for Apps**
+</br>
 
-<a href="http://arcg.is/01f1nO" target="_blank">
-  <img class="stretch" src="images/webmap.png" alt="Webmap">
+<img src="images/Content-diagram.png" alt="Content"/>
+
+----
+
+### **Web Maps**
+
+<a href="http://arcg.is/04qqaW" target="_blank">
+  <img src="images/webmap.png" alt="Webmap">
 </a>
 
 ----
 
-## **Web Scene**
+### **Web Scene**
 
-<a href="http://jsapi.maps.arcgis.com/home/webscene/viewer.html?webscene=bde8e884a5064f48bcf3440964d748e2" target="_blank">
-  <img class="stretch" src="images/webScene.png" alt="Webmap">
+<a href="http://jsapi.maps.arcgis.com/home/webscene/viewer.html?webscene=a5e17e4ff0544ba8adb26617a6e1bbfd" target="_blank">
+  <img src="images/webScene.png" alt="WebScene">
 </a>
 
 ----
 
 
-## **ID: Unique Identifier**
+### **ID: Unique Identifier**
 
 <img style="float: center;" src="images/webmap-id.png">
 
@@ -67,18 +73,21 @@ Bjorn Svensson and Heather Gonzago
 ----
 
 
-## **Web map & scenes: JSON information & data**
-
-<img width="500" src="images/itemdetails.png">
-<img width="500" src="images/iteminfo2.png">
-
+### **Web map & scenes: JSON information & data**
+</br>
+<a href="http://jsapi.maps.arcgis.com/sharing/rest/content/items/c6bac25632d646758823daf07216dda1?f=pjson" target="_blank">
+  <img  src="images/itemdetails.png">
+</a>
+<a href="http://jsapi.maps.arcgis.com/sharing/rest/content/items/c6bac25632d646758823daf07216dda1/data?f=pjson" target="_blank">
+  <img src="images/iteminfo2.png">
+</a>
 
 ----
 
-## **Demo: Inside the web map/scene**
+### **Demo: Inside the web map**
 
 
-<a href="http://jsapi.maps.arcgis.com/home/item.html?id=09025acac97146949f71422fcc4dde71" target="_blank">
+<a href="http://jsapi.maps.arcgis.com/home/item.html?id=c6bac25632d646758823daf07216dda1" target="_blank">
   <img width="600" src="images/DataResponseDevTools.png" style="float: left;">
   <img width="600" src="images/agoassistant.png">
 </a>
@@ -87,31 +96,37 @@ Bjorn Svensson and Heather Gonzago
 ----
 
 
-## **Access web map/scene in application**
+### **Access a web map in an application**
 
-<img src="images/Demo1-WebmapCode.png" style="bne; border:none; box-shadow:none; class='stretch'">
+<br>
+<a href="Demos/LoadWebMap.html">
+  <img src="images/Demo1-WebmapCode.png">
+</a>
 
 ----
 
-## **Access individual layer items**
+### **Access individual layer items**
 
 * 4.x provides support for adding individual portal items into web application
-* Call `Layer.fromPortalItem` and pass in the unique id of the layer portal item
+* Call `Layer.fromPortalItem` and pass in the unique id layer item
 
-<img src="images/layeritem.png" style="float: bottom;">
-
-----
-
-## **Demo**
-
-Create web applications referencing <code>portalItem</code>
-
-<img class="stretch" src="images/demobyportalitem.png" style="background:none; border:none; box-shadow:none; float: center;">
-
+<a href="Demos/CreateLayerPortalItem.html" target="_blank">
+  <img src="images/layeritem.png" style="float: bottom;">
+</a>
 
 ----
 
-## **Portal API**
+### **Demo**
+
+Create application referencing <code>portalItem</code>
+
+<a href="Demos/index.html" target="_blank">
+  <img src="images/demobyportalitem.png">
+</a>
+
+----
+
+### **Portal API**
 
 <a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/Content_Root/02r300000093000000/" target="_blank">
 <img src="images/PortalAPIDoc.png" style="float: bottom;">
@@ -119,7 +134,7 @@ Create web applications referencing <code>portalItem</code>
 
 ----
 
-## **WebMap and Portal classes**
+### **WebMap and Portal classes**
 
 <div style="text-align: left">
 
@@ -137,11 +152,11 @@ Create web applications referencing <code>portalItem</code>
 
 ----
 
-## **Demo: Portal Rest API via `esriRequest` and API `PortalQueryParams` class**
+### **Demo: Portal Rest API via `esriRequest` and API `PortalQueryParams` class**
 
 ----
 
-## **Access secure content**
+### **Access secure content**
 
 - Handles security so no need to write a bunch of code
 - Detects private (unshared) data automatically
@@ -150,7 +165,7 @@ Create web applications referencing <code>portalItem</code>
   - use the platform's provided OAuth framework to handle it for you
 
 ----
-## **Benefits of using the platform security model**
+### **Benefits of using the platform security model**
 
 - The web application does not have direct access to credentials
 - Support for enterprise logins
@@ -161,15 +176,15 @@ Create web applications referencing <code>portalItem</code>
 
 ----
 
-## **Demo: Access private data in a web application**
+### **Demo: Access private data in a web application**
 
 ----
 
-## **Demo: Register an application for Oauth use**
+### **Demo: Register an application for Oauth use**
 
 ----
 
-## **Access credit-based services**
+### **Access credit-based services**
 
 - Let the application handle this for you, no need to sign in to gain access
 - Proxy file with saved credentials
@@ -179,11 +194,11 @@ Create web applications referencing <code>portalItem</code>
   - Provided in DotNet, JSP, and PHP
   
 ----
-## **Support for saving web scene**
+### **Support for saving web scene**
 
 ----
 
-## **Demo: Save a web scene**
+### **Demo: Save a web scene**
 
 ----
 
@@ -193,7 +208,7 @@ Create web applications referencing <code>portalItem</code>
 
 ----
 
-# Please take our survey
+## Please take our survey
 1. Download the Esri Events app and go to DevSummit
 2. Select the session you attended
 3. Scroll down to the "Feedback" section
