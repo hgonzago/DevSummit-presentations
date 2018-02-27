@@ -1,11 +1,6 @@
 require([
     "esri/WebMap",
     "esri/views/MapView",
-    "esri/tasks/support/Query",
-    "esri/core/watchUtils",
-    "dojo/dom-construct",
-    "dojo/on",
-    "dojo/dom",
     "dojo/domReady!"
 ], function (WebMap, MapView) {
 
@@ -25,9 +20,9 @@ require([
   var view = new MapView({
     container: "viewDiv",
     // Step 2: Set the view's map to that of the specified webmap above
-    map: map,
-    zoom: 3,
-    center: [-99.14725260912257, 36.48617178360141]
+    map: map
+    // zoom: 3,
+    // center: [-99.14725260912257, 36.48617178360141]
   });
 
 });

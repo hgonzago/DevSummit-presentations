@@ -1,14 +1,10 @@
 require([
     "esri/WebMap",
     "esri/views/MapView",
-    "esri/core/watchUtils",
     "esri/widgets/Legend",
     "esri/widgets/Search",
-    "dojo/dom-construct",
-    "dojo/on",
-    "dojo/dom",
     "dojo/domReady!"
-], function (WebMap, MapView, watchUtils, Legend, Search, domConstruct, on, dom) {
+], function (WebMap, MapView, Legend, Search) {
 
   var map = new WebMap({
     portalItem: { // autocast
@@ -29,9 +25,8 @@ require([
    *
    ******************************************************************/
 
-  view.then(function () {
+  view.when(function () {
     var privateSchoolsPoly = map.layers.getItemAt(0);
-    var privateSchoolsPoint = map.layers.getItemAt(1);
     // Step 1: Create the widget
     var legend = new Legend({
       // Step 2: Specify any additional properties for the legend. In this case,
@@ -49,9 +44,8 @@ require([
     });
 
     // Step 3: Add the widget to the view's UI, specify the docking position as well
-    view.ui.add(legend, "bottom-left");
 
-    view.ui.add(searchWidget, "top-right");
-
+      view.ui.add(legend, "bottom-left");
+      view.ui.add(searchWidget, "top-right");
   });
 });
