@@ -122,7 +122,7 @@ require([
           {
             fieldName: "Enrollment",
             visible: true,
-            label: "Total number students enrolled in private schools: "
+            label: "Total number students enrolled in private schools: " 
         },
           {
             fieldName: "PrivateEnr",
@@ -141,8 +141,9 @@ require([
             type: "pie-chart",
             caption: "Private school enrollment in comparison to public school",
             value: {
-              theme: "Grasshopper",
-              fields: ["PrivateEnr", "PublicEnro"]
+              theme: "Julie",
+              fields: ["PrivateEnr", "PublicEnro"],
+              tooltipField: "PrivateEnr"
             }
       },
           {
@@ -150,7 +151,9 @@ require([
             type: "bar-chart",
             caption: "Total number of Private Schools in comparison to public. (Does not pertain to student enrollment.)",
             value: {
-              fields: ["PrivateSch", "PublicScho"]
+              theme: "Julie",
+              fields: ["PrivateSch", "PublicScho"],
+              tooltipField: "PrivateSch"
             }
       }]
       }
