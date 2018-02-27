@@ -3,9 +3,8 @@ require([
     "esri/Map",
     "esri/layers/FeatureLayer",
     "esri/views/MapView",
-    "esri/core/watchUtils",
     "dojo/domReady!"
-], function (Map, FeatureLayer, MapView, watchUtils) {
+], function (Map, FeatureLayer, MapView) {
 
   /******************************************************************
    *

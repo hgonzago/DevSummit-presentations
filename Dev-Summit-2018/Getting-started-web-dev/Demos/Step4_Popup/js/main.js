@@ -4,9 +4,8 @@ require([
     "esri/layers/FeatureLayer",
     "esri/views/MapView",
     "esri/PopupTemplate",
-    "esri/core/watchUtils",
     "dojo/domReady!"
-], function (Map, FeatureLayer, MapView, PopupTemplate, watchUtils) {
+], function (Map, FeatureLayer, MapView, PopupTemplate) {
 
   var defaultSym = {
     type: "simple-fill", // autocasts as new SimpleFillSymbol()
@@ -108,7 +107,7 @@ require([
           {
             fieldName: "PrivateSch",
             visible: true,
-            label: "Private school ration to total number of schools: ",
+            label: "Private school ratio to total number of schools: ",
             format: {
               places: 2,
               digitSeparator: true
@@ -122,7 +121,7 @@ require([
           {
             fieldName: "Enrollment",
             visible: true,
-            label: "Total number students enrolled in private schools: " 
+            label: "Total number students enrolled in private schools: "
         },
           {
             fieldName: "PrivateEnr",

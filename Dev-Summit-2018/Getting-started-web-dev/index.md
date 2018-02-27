@@ -321,8 +321,9 @@ var map = new WebMap({
 
 ### **Demo: Add a web map to an application**
 </br>
-<img style="float: center;" src="Images/Step6_Demo.png">
-
+<a href="Demos/Step6_Webmap/" target="_blank">
+  <img style="float: center;" src="Images/Step6_Demo.png">
+</a>
 ---
 
 ### **Widgets**
@@ -350,8 +351,9 @@ view.when(function){
 
 ### **Demo: Add widgets to the application**
 </br>
-<img style="float: center;" src="Images/Step7_Demo.png">
-
+<a href="Demos/Step7_Widgets/" target="_blank">
+  <img style="float: center;" src="Images/Step7_Demo.png">
+</a>
 ---
 
 ### **Where can I get more info?**
