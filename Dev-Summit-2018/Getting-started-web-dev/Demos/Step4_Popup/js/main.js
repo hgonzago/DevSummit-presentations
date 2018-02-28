@@ -1,10 +1,10 @@
 var view;
 require([
-    "esri/Map",
-    "esri/layers/FeatureLayer",
-    "esri/views/MapView",
-    "esri/PopupTemplate",
-    "dojo/domReady!"
+  "esri/Map",
+  "esri/layers/FeatureLayer",
+  "esri/views/MapView",
+  "esri/PopupTemplate",
+  "dojo/domReady!"
 ], function (Map, FeatureLayer, MapView, PopupTemplate) {
 
   var defaultSym = {
@@ -29,31 +29,31 @@ require([
     visualVariables: [{
       type: "color",
       field: "PrivateEnr",
-      stops: [
-        {
+      stops: [{
           value: 0.044,
           color: "#edf8fb",
           label: "< 0.044"
-          },
+        },
         {
           value: 0.059,
           color: "#b3cde3"
-          },
+        },
         {
           value: 0.0748,
           color: "#8c96c6",
           label: "0.0748"
-          },
+        },
         {
           value: 0.0899,
           color: "#8856a7"
-          },
+        },
         {
           value: 0.105,
           color: "#994c99",
           label: "> 0.105"
-          }]
-        }]
+        }
+      ]
+    }]
   };
 
   /***********************************
@@ -98,12 +98,12 @@ require([
             fieldName: "state_name",
             visible: true,
             label: "State name: "
-      },
+          },
           {
             fieldName: "PrivateMaj",
             visible: true,
             label: "Majority grade level for private schools: "
-      },
+          },
           {
             fieldName: "PrivateSch",
             visible: true,
@@ -112,17 +112,17 @@ require([
               places: 2,
               digitSeparator: true
             }
-        },
+          },
           {
             fieldName: "TotalPriva",
             visible: true,
             label: "Total number of private schools: "
-        },
+          },
           {
             fieldName: "Enrollment",
             visible: true,
             label: "Total number students enrolled in private schools: "
-        },
+          },
           {
             fieldName: "PrivateEnr",
             visible: true,
@@ -131,8 +131,9 @@ require([
               places: 2,
               digitSeparator: true
             }
-        }]
-    },
+          }
+        ]
+      },
       {
         type: "media",
         mediaInfos: [{
@@ -144,7 +145,7 @@ require([
               fields: ["PrivateEnr", "PublicEnro"],
               tooltipField: "PrivateEnr"
             }
-      },
+          },
           {
             title: "Total number of private schools",
             type: "bar-chart",
@@ -154,7 +155,8 @@ require([
               fields: ["PrivateSch", "PublicScho"],
               tooltipField: "PrivateSch"
             }
-      }]
+          }
+        ]
       }
     ]
   });
