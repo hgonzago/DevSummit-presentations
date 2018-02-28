@@ -37,7 +37,7 @@ require([
       view: view,
       sources: [{
         featureLayer: {
-          url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/OverlaySchools/FeatureServer/0",
+          url: privateSchoolsPoly.url,
           outFields: ["*"],
           popupTemplate: privateSchoolsPoly.popupTemplate
         },
