@@ -4,7 +4,7 @@
 <head>
     <title>Portal API Calls via esriRequest</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
     <style>
         body {
             font-family: "Arial Unicode MS, Arial, sans-serif";
@@ -12,7 +12,7 @@
 
         #content {
             width: 100%;
-            height: 500px;
+            height: 800px;
         }
 
         #content div {
@@ -24,7 +24,7 @@
         }
     </style>
 
-    <script src="https://js.arcgis.com/4.3/"></script>
+    <script src="https://js.arcgis.com/4.6/"></script>
     <script>
         require([
                 "dojo/dom",
@@ -52,7 +52,11 @@
                     var options = {
                         query: {
                             f: 'json',
-                            q: 'owner: Heather_JS9'
+                            q: 'owner: Heather_JS9 AND ownerfolder: b9339e3720034d19b8ad23d66e3aefc5', //ID of the 'DevSummitsFolder'
+                            num: '50',
+                            sortField: "numViews",
+                            sortOrder: "desc",
+                            
                         },
                         responseType: 'json',
                         callbackParamName: 'callback'
@@ -68,6 +72,8 @@
                     dojoJson.toJsonIndentStr = "  ";
                     var items = [];
                     response.data.results.forEach(function (result) {
+                        console.log(result.title, " title");
+                        console.log(result.url, " url");
                         if (result.title && result.url) {
                             items.push("<div><a href='" + result.url + "'<span class='title'>" + result.title +
                                 "</span></a></div>");
