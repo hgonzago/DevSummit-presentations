@@ -5,101 +5,51 @@
     <title>Portal API Calls via esriRequest</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
-    <style>
-        body {
-            font-family: "Arial Unicode MS, Arial, sans-serif";
-        }
-
-        #content {
-            width: 100%;
-            height: 800px;
-        }
-
-        #content div {
-            padding: 1em;
-        }
-
-        .title {
-            font-weight: bold;
-        }
-    </style>
 
     <script src="https://js.arcgis.com/4.6/"></script>
     <script>
         require([
-                "dojo/dom",
-                "dojo/on",
-                "dojo/dom-class",
-                "dojo/_base/json",
-                "esri/config",
-                "esri/request",
-                "dojo/domReady!"
-            ],
-            function (
-                dom,
-                on,
-                domClass,
-                dojoJson,
-                esriConfig,
-                esriRequest
-            ) {
+          "esri/request",
+          "dojo/domReady!"
+      ],
+      function(
+          esriRequest
+      ) {
 
-                //handle the Go button's click event
-                on(dom.byId("submitRequest"), "click", getContent);
+          //handle the Go button's click event
+          document.getElementById("submitRequest").addEventListener("click", getContent);
 
-                function getContent() {
-                    var url = "https://www.arcgis.com/sharing/rest/search";
-                    var options = {
-                        query: {
-                            f: 'json',
-                            q: 'owner: Heather_JS9 AND ownerfolder: b9339e3720034d19b8ad23d66e3aefc5', //ID of the 'DevSummitsFolder'
-                            num: '50',
-                            sortField: "numViews",
-                            sortOrder: "desc",
-                            
-                        },
-                        responseType: 'json',
-                        callbackParamName: 'callback'
-                    };
+          function getContent() {
 
-                    var requestHandle = esriRequest(url, options);
-                    requestHandle.then(requestSucceeded, requestFailed);
-                }
+              var url = "https://www.arcgis.com/sharing/rest/search";
+              var options = {
+                  query: {
+                      f: 'json',
+                      q: 'owner: Heather_JS9 AND ownerfolder: b9339e3720034d19b8ad23d66e3aefc5', //ID of the 'DevSummitDemos'
+                      num: '10',
+                      sortField: "numViews",
+                      sortOrder: "desc",
 
-                function requestSucceeded(response, io) {
+                  },
+                  responseType: 'json',
+                  callbackParamName: 'callback'
+              };
 
-                    dom.byId("status").innerHTML = "";
-                    dojoJson.toJsonIndentStr = "  ";
-                    var items = [];
-                    response.data.results.forEach(function (result) {
-                        console.log(result.title, " title");
-                        console.log(result.url, " url");
-                        if (result.title && result.url) {
-                            items.push("<div><a href='" + result.url + "'<span class='title'>" + result.title +
-                                "</span></a></div>");
-                        }
-                    });
-                    dom.byId("content").innerHTML = items.join(" ");
-                }
+              esriRequest(url, options).then(function(response) {
+                  document.getElementById("content").innerHTML = response.data.results.map(function(item) {
+                      return `<div><a href="${item.url}">${item.title}</a></div>`
+                  }).join("");
+              });
 
-                function requestFailed(error, io) {
+          }
 
-                    domClass.add(dom.byId("content"), "failure");
-                    dom.byId("status").innerHTML = "";
-
-                    dojoJson.toJsonIndentStr = " ";
-                    dom.byId("content").value = dojoJson.toJson(error, true);
-                }
-            });
+      });
     </script>
 </head>
 
 <body>
-    <input id="submitRequest" type="button" value="Get Items" />
-    <span id="status"></span>
-    </p>
-    <p id="content">
-    </p>
+  <button id="submitRequest">Get Items</button>
+  <div id="content"></div>
 </body>
 
 </html>
