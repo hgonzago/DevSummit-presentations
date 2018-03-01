@@ -4,101 +4,62 @@
 <head>
   <title>PortalQueryParams</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
-  <style>
-    body {
-      font-family: "Arial Unicode MS, Arial, sans-serif";
-    }
-    #content {
-      width: 100%;
-      height: 500px;
-    }
-    #content div {
-      padding: 1em;
-    }
-    .title {
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
 
-  <script src="https://js.arcgis.com/4.3/"></script>
+  <script src="https://js.arcgis.com/4.6/"></script>
   <script>
     require([
-      "esri/portal/Portal",
-      "esri/portal/PortalQueryParams",
-      "dojo/_base/array",
-      "dojo/dom",
-      "dojo/on",
-      "dojo/dom-class",
-      "dojo/_base/json",
-      "esri/config",
-      "esri/request",
-      "dojo/domReady!"
-    ],
-      function (
-        Portal,
-        PortalQueryParams,
-        arrayUtils,
-        dom,
-        on,
-        domClass,
-        dojoJson,
-        esriConfig,
-        esriRequest
-      ) {
+            "esri/portal/Portal",
+            "esri/portal/PortalQueryParams",
+            "esri/portal/PortalFolder",
+            "esri/config",
+            "dojo/domReady!"
+        ],
+        function(
+            Portal,
+            PortalQueryParams,
+            PortalFolder,
+            esriConfig,
+        ) {
 
-        //handle the Go button's click event
-        on(dom.byId("submitRequest"), "click", getContent);
+            //handle the Go button's click event
+            document.getElementById("submitRequest").addEventListener("click", getContent);
+            function getContent() {
 
-        function getContent() {
+                var portal = new Portal();
+                portal.authMode = "immediate";
 
-          var portal = new Portal();
-          portal.load().then(function () {
-            // Create query parameters for the portal search
-            var queryParams = new PortalQueryParams({
-              query: "owner: Heather_JS9",
-              sortField: "numViews",
-              sortOrder: "desc",
-              num: 20
-            });
+                portal.load().then(function() {
 
-            // Query the items based on the queryParams created from portal above
-            var requestHandle = portal.queryItems(queryParams);
-            requestHandle.then(requestSucceeded, requestFailed);
-          });
-        }
+                    portal.user.fetchFolders().then(function(folders) {
 
-        function requestSucceeded(response, io) {
+                        folders.forEach(function(folder) {
+                          console.log(folder.title);
 
-          dom.byId("status").innerHTML = "";
-          dojoJson.toJsonIndentStr = "  ";
-          var items = [];
-          response.results.forEach(function (result) {
-            if (result.title && result.url) {
-              items.push("<div><a href='" + result.url + "'<span class='title'>" + result.title +
-                "</span></a></div>");
+                            if ((folder.title) == "DevSummitDemos") {
+
+                                portal.user.fetchItems().then(function(fetchItemResults) {
+                                  console.log(fetchItemResults.items);
+                                    document.getElementById("content").innerHTML = fetchItemResults.items.map(function(item) {
+                                        return `<div><a href="${item.url}">${item.title}</a></div>`
+                                    }).join("");
+                                });
+
+                            }
+                        });
+
+                    });
+                });
+
             }
-          });
-          dom.byId("content").innerHTML = items.join(" ");
-        }
 
-        function requestFailed(error, io) {
-
-          domClass.add(dom.byId("content"), "failure");
-          dom.byId("status").innerHTML = "";
-          dojoJson.toJsonIndentStr = " ";
-          dom.byId("content").value = dojoJson.toJson(error, true);
-        }
-      });
+        });
   </script>
 </head>
 
 <body>
-  <input id="submitRequest" type="button" value="Get Items" />
-  <span id="status"></span>
-  </p>
-  <p id="content">
-  </p>
+  <button id="submitRequest">Get Items</button>
+  <div id="content"></div>
 </body>
 
 </html>
