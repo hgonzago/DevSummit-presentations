@@ -8,7 +8,7 @@
 <br>
 Heather Gonzago and Noah Sager
 
----
+----
 
 ### **Agenda**
 </br>
@@ -19,7 +19,7 @@ Heather Gonzago and Noah Sager
  - Make the map interactive
  - Widgets
 
----
+----
 
 ### **Presentations accessible via GitHub**
   </br>
@@ -29,21 +29,21 @@ Heather Gonzago and Noah Sager
   </br>
   - <a href="https://github.com/hgonzago/DevSummit-presentations" target="_blank">https://github.com/hgonzago/DevSummit-presentations</a>
 
----
+----
 
 ### **Where do I begin?**
 <a href="https://developers.arcgis.com/javascript/" target="_blank">
 <img src="Images/landingPage_3.png" alt="JavaScript landing page" width="1200" height="656">
 </a>
 
----
+----
 
 ### **Which version of the API is best?**
 <a href="https://developers.arcgis.com/javascript/latest/guide/choose-version/index.html" target="_blank">
 <img src="Images/Choose_Your_Own_Version.png" alt="API functionality matrix" width="1000" height="633">
 </a>
 
----
+----
 
 ### **Developer Setup**
 </br>
@@ -51,7 +51,7 @@ Heather Gonzago and Noah Sager
 <img src="Images/ides.png" alt="IDEs" width="806" height="443">
 </a>
 
----
+----
 
 ### **JSAPI Resources**
 </br>
@@ -64,7 +64,7 @@ Heather Gonzago and Noah Sager
    - Build tools, e.g. Bower
    - OAuth popup callback
 
----
+----
 
 ### **Get the API**
 </br>
@@ -78,7 +78,7 @@ Heather Gonzago and Noah Sager
 &lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
 </code></pre>
 
----
+----
 
 ### CSS
 </br>
@@ -96,7 +96,7 @@ Heather Gonzago and Noah Sager
    </code></pre>
 - Custom CSS (SASS)
 
----
+----
 
 ### **First steps**
 </br>
@@ -106,14 +106,15 @@ Heather Gonzago and Noah Sager
 </br>
 <img style="float: center;" src="Images/Step1_Combined.png">
 
----
+----
 
 ### **Demo: Make a map**
 </br>
 <a href="Demos/Step1_Map/" target="_blank">
   <img style="float: center;" src="Images/Step1_Demo.png">
 </a>
----
+
+----
 
 ### **MapView**
 
@@ -145,7 +146,7 @@ var view = new SceneView({
 });
 </code></pre>
 
----
+----
 
 ### **Add layers**
 </br>
@@ -158,7 +159,7 @@ var view = new SceneView({
 </br>
  - Basic steps remain the same
 
----
+----
 
 ### **Properties**
 - No need for a bunch of get/set statements
@@ -182,7 +183,8 @@ var view = new MapView({
     zoom: 6
   });
 </code></pre>
----
+
+----
 
 ### **Watch for property changes**
 </br>
@@ -194,7 +196,8 @@ layer.watch("loadStatus", function(status) {// do something});
 - Can also use <a href="https://developers.arcgis.com/javascript/beta/api-reference/esri-core-watchUtils.html" target="_blank">esri/core/watchUtils</a> utility methods</br>
 </br>
 - See this in action with the <a href="https://developers.arcgis.com/javascript/latest/sample-code/watch-for-changes/index.html" target="_blank">Watch for Changes</a> sample
----
+
+----
 
 ### **Demo: Add layer to sample app**
 </br>
@@ -202,7 +205,7 @@ layer.watch("loadStatus", function(status) {// do something});
   <img style="float: center;" src="Images/Step2_Demo.png">
 </a>
 
----
+----
 
 ### **Renderers**
 </br>
@@ -219,7 +222,7 @@ var featurelayer = new FeatureLayer({
 })
 </code></pre>
 
----
+----
 
 ### **Symbols**
 </br>
@@ -238,7 +241,7 @@ var renderer = new UniqueValueRenderer({
 });
 </code></pre>
 
----
+----
 
 ### **Autocasting**
 </br>
@@ -250,18 +253,19 @@ var renderer = new UniqueValueRenderer({
 </br>
 - Read more about <a href="https://developers.arcgis.com/javascript/latest/guide/autocasting/index.html" target="_blank">Autocasting</a> in the Guide</br>
 
----
+----
 
 ### **Demo: Update a feature layer's renderer**
 </br>
 <a href="Demos/Step3_LayerRenderer/" target="_blank">
   <img style="float: center;" src="Images/Step3_Demo.png">
 </a>
----
+
+----
 
 ### **Map interaction using popups**
 </br>
-<img style="float: right;" src="Images/expanded_popup.png">
+<img style="float: right;" src="Images/popupcombined.png">
 
 - Responds to mouse clicks
 </br></br>
@@ -272,7 +276,7 @@ var renderer = new UniqueValueRenderer({
 </br></br>
 - Customizable
 
----
+----
 
 ### **PopupTemplate**
 - View has associated popup, can set content here
@@ -295,14 +299,15 @@ var featurelayer = new FeatureLayer({
 });
 </code></pre>
 
----
+----
 
 ### **Demo: Add a popup to the map**
 </br>
 <a href="Demos/Step4_Popup/" target="_blank">
   <img style="float: center;" src="Images/Step4_Demo.png">
 </a>
----
+
+----
 
 ### **Using web maps**
 </br>
@@ -317,19 +322,20 @@ var map = new WebMap({
 });
 </code></pre>
 
----
+----
 
 ### **Demo: Add a web map to an application**
 </br>
 <a href="Demos/Step6_Webmap/" target="_blank">
   <img style="float: center;" src="Images/Step6_Demo.png">
 </a>
----
+
+----
 
 ### **Widgets**
 </br>
-- Encapsulates functionality
-- Similar coding pattern
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-widgets" target="_blank">Encapsulates functionality</a>
+- Similar coding pattern across all widgets
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 view.when(function){
     var featurelayer = map.layers.getItemAt(1);
@@ -347,14 +353,30 @@ view.when(function){
 });
 </code></pre>
 
----
+----
+
+### ** View UI**
+
+- Position widgets
+  - Add
+  - Move
+  - Remove
+  </br>
+
+<pre style="padding: 5px; margin: 10px auto; width: 50%;"><code data-trim>
+view.ui.add(legend, "bottom-left");
+view.ui.add(searchWidget, "top-right");
+</code></pre>
+
+----
 
 ### **Demo: Add widgets to the application**
 </br>
 <a href="Demos/Step7_Widgets/" target="_blank">
   <img style="float: center;" src="Images/Step7_Demo.png">
 </a>
----
+
+----
 
 ### **Where can I get more info?**
 
@@ -366,28 +388,29 @@ view.when(function){
 <a href="https://developers.arcgis.com/javascript/latest/guide/community/index.html" target="_blank">
 <img style="float:bottom;" src="Images/Community.png" alt="Community" width="900" height="395">
 
----
+----
 
 ### **Additional Sessions (Introduction)**
 
 <a><img style="float:bottom;" src="Images/Intro_Sessions.png" alt="Introduction_Sessions"</a>
 
----
+----
 
 ### **Additional Sessions (Advanced)**
 
 <a><img style="float:bottom;" src="Images/Advanced_Sessions.png" alt="Advanced_Sessions"</a>
 
----
+----
 
-### **Survey??**
+### **Survey**
 
-do we have a survey slide?
+ <img style="float: center;" src="Images/survey.png">
 
----
+----
 
- <!-- .slide: data-background="../../reveal.js/img/bg-final.jpg" -->
+ <!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
+ 
 ## Thank you
 
----
+----
 
