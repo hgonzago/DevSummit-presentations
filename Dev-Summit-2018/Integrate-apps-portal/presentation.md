@@ -200,6 +200,6 @@ Create application referencing <code>portalItem</code>
 
 **Help us to improve** by filling out the survey
 
-![Survey](Images/survey-slide.png)
+![Survey](images/survey-slide.png)
 
 ----
