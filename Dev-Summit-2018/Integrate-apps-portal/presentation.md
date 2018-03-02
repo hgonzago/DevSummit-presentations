@@ -7,7 +7,7 @@
 <br>
  Heather Gonzago and Kelly Hutchins
 
----
+----
 
 ### **Agenda**
 
@@ -16,7 +16,7 @@
 * Adding ArcGIS Online content to a JavaScript application
 * Working with secured ArcGIS Online items in a JavaScript application
 
----
+----
 
 
 ### **Advantages of working with AGO/Portal**
@@ -120,7 +120,7 @@
 
 Create application referencing <code>portalItem</code>
 
-<a href="Demos/index.html" target="_blank">
+<a href="Demos/CreateLayerPortalItem.html" target="_blank">
   <img src="images/demobyportalitem.png">
 </a>
 
@@ -128,7 +128,7 @@ Create application referencing <code>portalItem</code>
 
 ### **Portal API**
 
-<a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/Content_Root/02r300000093000000/" target="_blank">
+<a href="https://developers.arcgis.com/rest/users-groups-and-items/working-with-users-groups-and-items.htm" target="_blank">
 <img src="images/PortalAPIDoc.png" style="float: bottom;">
 </a>
 
@@ -136,7 +136,6 @@ Create application referencing <code>portalItem</code>
 
 ### **WebMap and Portal classes**
 
-<div style="text-align: left">
 
 - esri/WebMap
 - esri/WebScene
@@ -170,7 +169,7 @@ Create application referencing <code>portalItem</code>
 - The web application does not have direct access to credentials
 - Support for enterprise logins
 - No need to sign in every time calls are made to a secure service
-- Can track how the app is being used
+- Track app usage
 - Easy to access resources secured with token-based authentication, e.g. premium credit-based services
 
 
@@ -186,39 +185,25 @@ Create application referencing <code>portalItem</code>
 
 ### **Access credit-based services**
 
-- Let the application handle this for you, no need to sign in to gain access
+- Application handles it for you, no need to sign in
 - Proxy file with saved credentials
   - Hosted proxy file provided by Esri OR
   - Host your own proxy file
-  - One is provided by Esri at https://github.com/Esri/resource-proxy
-  - Provided in DotNet, JSP, and PHP
+  - Esri proxy -> https://github.com/Esri/resource-proxy
+    - DotNet, JSP, and PHP
   
 ----
-### **Support for saving web scene**
-
-----
-
-### **Demo: Save a web scene**
-
-----
-
 
 ## **Questions ????**
-
 
 ----
 
 ## Please take our survey
-1. Download the Esri Events app and go to DevSummit
-2. Select the session you attended
-3. Scroll down to the "Feedback" section
-4. Complete Answers, add a Comment, and Select "Submit"
 
-![Submit Feedback](images/submit-feedback.png)
-
+ <img style="float: center;" src="Images/survey.png">
 
 ----
 
-<!--.slide: data-background="../reveal.js/img/end.png" -->
+<!--.slide: data-background="../reveal.js/img/bg-final.jpg" -->
 
 ----
