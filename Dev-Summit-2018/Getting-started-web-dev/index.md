@@ -402,15 +402,13 @@ view.ui.add(searchWidget, "top-right");
 
 ----
 
-### **Survey**
+<!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
 
- <img style="float: center;" src="Images/survey.png">
+## Questions?
 
-----
+**Help us to improve** by filling out the survey
 
- <!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
- 
-## Thank you
+![Survey](Images/survey-slide.png)
 
 ----
 

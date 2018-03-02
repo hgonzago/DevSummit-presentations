@@ -194,16 +194,12 @@ Create application referencing <code>portalItem</code>
   
 ----
 
-## **Questions ????**
+<!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
 
-----
+## Questions?
 
-## Please take our survey
+**Help us to improve** by filling out the survey
 
- <img style="float: center;" src="Images/survey.png">
-
-----
-
-<!--.slide: data-background="../reveal.js/img/bg-final.jpg" -->
+![Survey](Images/survey-slide.png)
 
 ----
