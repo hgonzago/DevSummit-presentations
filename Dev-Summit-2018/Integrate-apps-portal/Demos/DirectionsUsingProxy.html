@@ -10,7 +10,7 @@
   For more information about the tasks-route sample, read the original sample description at developers.arcgis.com.
   https://developers.arcgis.com/javascript/latest/tasks-route/index.html
   -->
-  <title>Simple Routing - RouteTask - 4.3</title>
+  <title>Simple Routing - RouteTask - 4.6</title>
   <style>
     html,
     body,
@@ -29,11 +29,10 @@
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
     }
-
   </style>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.2/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.6/"></script>
 
   <script>
     require([
@@ -58,6 +57,8 @@
       // proxy the route requests to avoid prompt for log in
       urlUtils.addProxyRule({
         urlPrefix: "route.arcgis.com",
+
+
         proxyUrl: "http://heatherg.esri.com/proxy/proxy.php"
 
       });
@@ -129,7 +130,6 @@
         routeLyr.add(routeResult);
       }
     });
-
   </script>
 </head>
 
@@ -141,6 +141,7 @@
         a stop is not reachable, it is removed and the last valid point is set as the starting point.</p>
     </div>
   </div>
+
 </body>
 
 </html>
