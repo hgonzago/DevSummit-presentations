@@ -1,10 +1,8 @@
 var view;
-require([
-  "esri/Map",
-  "esri/views/MapView",
-  "dojo/domReady!"
-], function (Map, MapView) {
-
+require(["esri/Map", "esri/views/MapView", "dojo/domReady!"], function (
+  Map,
+  MapView
+) {
   /******************************************************************
    *
    * Set the initial map and zoom/center example
@@ -26,5 +24,4 @@ require([
     zoom: 3,
     center: [-99.14725260912257, 36.48617178360141]
   });
-
 });
