@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS Devtools</title>
+
+  <link rel="stylesheet" href="//js.arcgis.com/4.6/esri/css/main.css">
+  <script src="//js.arcgis.com/4.6/"></script>
+
+  <script>
+    require({
+      packages: [{
+        name: "arcgis-devtools",
+        location: location.href.substring(0, location.href.lastIndexOf('/') + 1) + "../dist"
+      }]
+    }, [
+      "arcgis-devtools",
+
+      "esri/Map"
+    ], function (
+      arcgisDevtools,
+      Map
+    ) {
+      arcgisDevtools.install();
+
+      var map = new Map({
+        basemap: "dark-gray",
+        ground: "world-elevation"
+      });
+
+      console.log(map);
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv">
+  </div>
+</body>
+
+</html>
