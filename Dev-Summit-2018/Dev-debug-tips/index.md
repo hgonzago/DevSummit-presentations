@@ -157,7 +157,7 @@ Kelly Hutchins and Heather Gonzago
 
 </br>
 <a href="https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports" target="_blank">
-  <img style="float: right;" src="images/mobile.png" width="900" height="395">
+  <img style="float: right;" src="images/mobile.png">
 </a>
 
 - Mobile emulation
