@@ -237,29 +237,6 @@ var dojoConfig = {
 </br>
 Check out our blog -> <a href="https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises" target="_blank>">https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises</a>
 
-
-----
-
-### **Extent changed **
-
-</br> 
-- <a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a> 
-
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-watchUtils.whenFalse(view, 'stationary', function(evt){
-  if(!view.stationary){
-    watchUtils.whenTrueOnce(view, 'stationary', function(evt){
-      console.log(view.extent);
-    });
-   } 
-   else {
-     watchUtils.whenFalseOnce(view, 'interacting', function(evt){
-       console.log(view.extent);
-     });
-   }
-})
-</code></pre>
-
 ----
 
 ### **Ago Assistant**
