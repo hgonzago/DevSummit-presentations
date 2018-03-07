@@ -31,7 +31,7 @@ Kelly Hutchins and Heather Gonzago
 ### **Local web server**
 
 </br>
-<img style="float: right;" src="intellisensemages/localWebServer.png">
+<img style="float: right;" src="images/localWebServer.png">
 
 - Visit [http://localhost](http://localhost)
 - Setup IIS or Apache 
@@ -277,6 +277,6 @@ watchUtils.whenFalse(view, 'stationary', function(evt){
 
 **Help us to improve** by filling out the survey
 
-![Survey](Images/survey-slide.png)
+![Survey](images/survey-slide.png)
 
 ----
