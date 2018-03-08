@@ -125,6 +125,22 @@ Kelly Hutchins and Heather Gonzago
 
 ----
 
+### **Mobile emulation**
+
+</br>
+
+</br>
+<a href="https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports" target="_blank">
+  <img style="float: right;" src="images/mobile.png">
+</a>
+
+- Mobile emulation
+- Throttling 
+- Sensors - geolocation
+
+
+----
+
 ### ** Debugging: Network requests**
 
 </br>
@@ -134,6 +150,18 @@ Kelly Hutchins and Heather Gonzago
 - Helps in troubleshooting, e.g.
   - Printing issues
   - Queries
+
+----
+
+### **Accessibility**
+
+- Audits
+- Color Contrast
+- Extensions
+- Axe Coconut (similar to Chrome Canary or Firefox nightly)
+- Axe a11y extension 
+- ChromeVox screen reader 
+
 
 ----
 
@@ -151,22 +179,6 @@ Kelly Hutchins and Heather Gonzago
 
 ----
 
-### **Mobile emulation**
-
-</br>
-
-</br>
-<a href="https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports" target="_blank">
-  <img style="float: right;" src="images/mobile.png">
-</a>
-
-- Mobile emulation
-- Throttling 
-- Sensors - geolocation
-
-
-----
-
 ### **Custom formatters**
 
 </br>
@@ -176,18 +188,6 @@ Kelly Hutchins and Heather Gonzago
 <a href="https://github.com/ycabon/arcgis-js-api-devtools" target="_blank">
   <img style="float: center;" src="images/formatters.png">
 </a>
-
-----
-
-### **Accessibility**
-
-- Audits
-- Color Contrast
-- Extensions
-- Axe Coconut (similar to Chrome Canary or Firefox nightly)
-- Axe a11y extension 
-- ChromeVox screen reader 
-
 
 ----
 
@@ -236,14 +236,6 @@ var dojoConfig = {
 </code></pre>
 </br>
 Check out our blog -> <a href="https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises" target="_blank>">https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises</a>
-
-----
-
-### **Ago Assistant**
-
-<a href="https://ago-assistant.esri.com/" target="_blank">
- <img style="float:center;" src="images/agoassistant.png">
-</a>
 
 
 ----
