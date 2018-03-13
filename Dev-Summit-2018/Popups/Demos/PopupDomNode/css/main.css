@@ -18,3 +18,9 @@ body,
 .esri-view-height-less-than-medium .esri-popup__main-container {
   max-height: 500px;
 }
+
+.extentDiv {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 2;
+}
