@@ -3,7 +3,7 @@
 <br>
 <br>
 <br>
-### Getting Started with Web Development 
+### Getting Started with Web Development
 ### and the ArcGIS API for JavaScript
 <br>
 Heather Gonzago and Noah Sager
@@ -74,8 +74,8 @@ Heather Gonzago and Noah Sager
 </br>
 </br>
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt; 
-&lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/css/main.css&quot;&gt; 
+&lt;script src=&quot;https://js.arcgis.com/4.10/&quot;&gt;&lt;/script&gt;
 </code></pre>
 
 ----
@@ -84,15 +84,15 @@ Heather Gonzago and Noah Sager
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/guide/styling/index.html" target="_blank"><b>Main.css</b></a> contains styles for entire API
    <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/css/main.css&quot;&gt;
    </code></pre>
 - <b>View.css</b> is smaller in size but better choice if only needing basic CSS (maps, widgets, etc.)
   <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/view.css&quot;&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/css/view.css&quot;&gt;
    </code></pre>
 - Themes
     <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/themes/theme-name/main.css&quot;&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/themes/theme-name/main.css&quot;&gt;
    </code></pre>
 - Custom CSS (SASS)
 
@@ -150,7 +150,7 @@ var view = new SceneView({
 
 ### **Common Gotchas**
 
-- Module order makes a difference 
+- Module order makes a difference
 - Missing module <img style="float:right;" src="Images/requireNotDefined.png">
 - Missing CSS <img style="float:right;" src="Images/missingCSS.png">
 
@@ -187,7 +187,7 @@ var map = new Map({
 });
 var view = new MapView({
     map: map, 
-    center: [-100, 40], 
+    center: [-100, 40],
     zoom: 6
   });
 </code></pre>
@@ -225,7 +225,7 @@ layer.watch("loadStatus", function(status) {// do something});
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 var layerRenderer = new UniqueValueRenderer(); // Set the renderer
 var featurelayer = new FeatureLayer({
-    url: "featurelayer url",
+    url: "<featurelayer url>",
     renderer: layerRenderer // pass in renderer to featurelayer using default properties
 })
 </code></pre>
@@ -444,7 +444,7 @@ view.ui.add(searchWidget, "top-right");
 
 ----
 
-<!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
+<!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
 
 ## Questions?
 
@@ -452,5 +452,4 @@ view.ui.add(searchWidget, "top-right");
 
 ![Survey](Images/survey-slide.png)
 
-----
-
+---

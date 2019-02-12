@@ -195,7 +195,7 @@ Create application referencing <code>portalItem</code>
 ----
 
 
-<!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
+<!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
 
 ## Questions?
 

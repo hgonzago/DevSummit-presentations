@@ -11,15 +11,12 @@ Kelly Hutchins and Heather Gonzago
 </br>
 <img style="float: right;" src="images/introMan.png">
 
-
 - Setting up your dev environment
-- JSAPI resources and tips 
-- Browser tips and tools 
-- … and more 
-
+- JSAPI resources and tips
+- Browser tips and tools
+- … and more
 
 ----
-
 
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
@@ -34,11 +31,11 @@ Kelly Hutchins and Heather Gonzago
 <img style="float: right;" src="images/localWebServer.png">
 
 - Visit [http://localhost](http://localhost)
-- Setup IIS or Apache 
-- Lightweight http server 
-- http-server 
-- Express 
-- Browser extensions 
+- Setup IIS or Apache
+- Lightweight http server
+- http-server
+- Express
+- Browser extensions
 
 ----
 
@@ -51,17 +48,15 @@ Kelly Hutchins and Heather Gonzago
 - TypeScript
 - JS using Babel
 
-
 ----
 
 ### **Emmet**
 </br>
   <img style="float: right;" src="images/emmet.png">
 
-- Save keystrokes 
-- HTML, CSS abbreviations 
-- [Plug-in page](https://emmet.io/download/) 
-
+- Save keystrokes
+- HTML, CSS abbreviations
+- [Plug-in page](https://emmet.io/download/)
 
 ----
 
@@ -70,11 +65,10 @@ Kelly Hutchins and Heather Gonzago
   
 <img style="float: right;" src="images/snippet.png">
 
-- Templates for common code 
-- Generate for VSCode, Sublime, Atom 
+- Templates for common code
+- Generate for VSCode, Sublime, Atom
 - [Snippet generator](https://pawelgrzybek.com/snippet-generator/)
 - Extensions for IDE to simplify
-
 
 ----
 
@@ -89,8 +83,6 @@ Kelly Hutchins and Heather Gonzago
 - TypeScript definition file
 - Build tools, e.g. Bower
 - OAuth Callback
-
-
 
 ----
 
@@ -108,7 +100,6 @@ Kelly Hutchins and Heather Gonzago
 - Awesome autocomplete for GitHub
 - Wappalyzer
 - Quick source viewer
-- The list goes on and on … 
 
 ----
 
@@ -161,7 +152,7 @@ Kelly Hutchins and Heather Gonzago
 </a>
 
 - Mobile emulation
-- Throttling 
+- Throttling
 - Sensors - geolocation
 
 
@@ -185,9 +176,8 @@ Kelly Hutchins and Heather Gonzago
 - Color Contrast
 - Extensions
 - Axe Coconut (similar to Chrome Canary or Firefox nightly)
-- Axe a11y extension 
-- ChromeVox screen reader 
-
+- Axe a11y extension
+- ChromeVox screen reader
 
 ----
 
@@ -237,12 +227,11 @@ var dojoConfig = {
 </br>
 Check out our blog -> <a href="https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises" target="_blank>">https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises</a>
 
-
 ----
 
 ### **Extent changed **
 
-</br> 
+</br>
 - <a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a> 
 
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
@@ -251,7 +240,7 @@ watchUtils.whenFalse(view, 'stationary', function(evt){
     watchUtils.whenTrueOnce(view, 'stationary', function(evt){
       console.log(view.extent);
     });
-   } 
+   }
    else {
      watchUtils.whenFalseOnce(view, 'interacting', function(evt){
        console.log(view.extent);
@@ -262,16 +251,15 @@ watchUtils.whenFalse(view, 'stationary', function(evt){
 
 ----
 
-### **Ago Assistant**
+### **AGO Assistant**
 
 <a href="https://ago-assistant.esri.com/" target="_blank">
  <img style="float:center;" src="images/agoassistant.png">
 </a>
 
-
 ----
 
-<!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
+<!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
 
 ## Questions?
 
