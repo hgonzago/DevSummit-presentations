@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PortalQueryParams</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+
+  <script src="https://js.arcgis.com/4.6/"></script>
+  <script>
+    require([
+            "esri/portal/Portal",
+            "esri/portal/PortalQueryParams",
+            "esri/portal/PortalFolder",
+            "esri/config",
+            "dojo/domReady!"
+        ],
+        function(
+            Portal,
+            PortalQueryParams,
+            PortalFolder,
+            esriConfig,
+        ) {
+
+            //handle the Go button's click event
+            document.getElementById("submitRequest").addEventListener("click", getContent);
+            function getContent() {
+
+                var portal = new Portal();
+                portal.authMode = "immediate";
+
+                portal.load().then(function() {
+
+                    portal.user.fetchFolders().then(function(folders) {
+
+                        folders.forEach(function(folder) {
+                          console.log(folder.title);
+
+                            if ((folder.title) == "DevSummitDemos") {
+
+                                portal.user.fetchItems().then(function(fetchItemResults) {
+                                  console.log(fetchItemResults.items);
+                                    document.getElementById("content").innerHTML = fetchItemResults.items.map(function(item) {
+                                        return `<div><a href="${item.url}">${item.title}</a></div>`
+                                    }).join("");
+                                });
+
+                            }
+                        });
+
+                    });
+                });
+
+            }
+
+        });
+  </script>
+</head>
+
+<body>
+  <button id="submitRequest">Get Items</button>
+  <div id="content"></div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Load a basic web scene - 4.6</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.6/"></script>
+
+  <script>
+    require([
+      "esri/views/SceneView",
+      "esri/WebScene",
+      "dojo/dom",
+      "dojo/domReady!"
+    ], function(
+      SceneView, WebScene, dom
+    ) {
+
+      var titleDiv = dom.byId("titleDiv");
+
+      /************************************************************
+       * Creates a new WebScene instance. A WebScene must reference
+       * a PortalItem ID that represents a WebScene saved to
+       * arcgis.com or an on-premise portal.
+       *
+       * To load a WebScene from an on-premise portal, set the portal
+       * url in esriConfig.portalUrl.
+       ************************************************************/
+      var scene = new WebScene({
+        portalItem: { // autocasts as new PortalItem()
+          id: "a5e17e4ff0544ba8adb26617a6e1bbfd"
+        }
+      });
+
+      /************************************************************
+       * Set the WebScene instance to the map property in a SceneView.
+       ************************************************************/
+      var view = new SceneView({
+        map: scene,
+        container: "viewDiv",
+        padding: {
+          top: 40
+        }
+      });
+
+      view.then(function() {
+        // when the scene and view resolve, display the scene's
+        // title in the DOM
+        var title = scene.portalItem.title;
+        titleDiv.innerHTML = title;
+      });
+    });
+  </script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #titleDiv {
+      background-color: lightgray;
+      color: black;
+      padding: 5px;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      font-size: 20pt;
+      font-weight: bolder;
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      opacity: 0.75;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="viewDiv">
+    <div id="titleDiv"></div>
+  </div>
+</body>
+
+</html>
