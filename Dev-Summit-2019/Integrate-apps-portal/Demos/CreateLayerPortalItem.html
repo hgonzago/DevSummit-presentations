@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Create a layer from a portal item - 4.6</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+
+  <script src="https://js.arcgis.com/4.6/"></script>
+
+  <script>
+  var view;
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/Layer",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, Layer
+    ) {
+
+      var map = new Map({
+        basemap: "gray-vector"
+      });
+
+       view = new MapView({
+        map: map,
+        container: "viewDiv",
+        zoom: 3,
+        center: [-99.14725260912257, 36.48617178360141]
+      });
+
+      /************************************************
+       *
+       * Create a layer from an existing Portal item hosted
+       * in ArcGIS Online using the ID of the item.
+       *
+       *************************************************/
+      Layer.fromPortalItem({
+          portalItem: { // autocast as esri/portal/PortalItem
+            id: "e52e33913cb143c5b24b592575f2e62d"
+          }
+        }).then(addLayer)
+        .otherwise(rejection);
+
+      // Adds the layer to the map once it loads
+      function addLayer(lyr) {
+        map.add(lyr);
+      }
+
+      function rejection(err) {
+        console.log("Layer failed to load: ", err);
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
