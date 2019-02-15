@@ -11,12 +11,15 @@ Kelly Hutchins and Heather Gonzago
 </br>
 <img style="float: right;" src="images/introMan.png">
 
+
 - Setting up your dev environment
 - JSAPI resources and tips
 - Browser tips and tools
 - … and more
 
+
 ----
+
 
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
@@ -48,6 +51,7 @@ Kelly Hutchins and Heather Gonzago
 - TypeScript
 - JS using Babel
 
+
 ----
 
 ### **Emmet**
@@ -58,17 +62,19 @@ Kelly Hutchins and Heather Gonzago
 - HTML, CSS abbreviations
 - [Plug-in page](https://emmet.io/download/)
 
+
 ----
 
 ### **Snippets**
 </br>
-  
+
 <img style="float: right;" src="images/snippet.png">
 
 - Templates for common code
 - Generate for VSCode, Sublime, Atom
 - [Snippet generator](https://pawelgrzybek.com/snippet-generator/)
 - Extensions for IDE to simplify
+
 
 ----
 
@@ -84,8 +90,17 @@ Kelly Hutchins and Heather Gonzago
 - Build tools, e.g. Bower
 - OAuth Callback
 
-----
 
+
+----
+### **Other useful resources**
+
+
+- Rene's blog
+- Raluca's samples
+- Arcade example repo
+
+----
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
 ## **Browser Dev Tools**
@@ -100,9 +115,16 @@ Kelly Hutchins and Heather Gonzago
 - Awesome autocomplete for GitHub
 - Wappalyzer
 - Quick source viewer
+- The list goes on and on …
 
 ----
 
+### **Console:  Messages**
+
+View console messages from JSAPI
+
+
+----
 ### **Debugging:  Breakpoints**
 
 </br>
@@ -110,7 +132,7 @@ Kelly Hutchins and Heather Gonzago
 </br>
   <img style="float: right;" src="images/debugger.png">
 
-- Various ways to pause code
+- Various ways to pause code (XHR, DOM etc)
 - Debugger;
 - Blackboxing
 
@@ -127,22 +149,18 @@ Kelly Hutchins and Heather Gonzago
   - Queries
 
 ----
+### **Debugging:  CSS Inspection**
 
-### **Dev Tool Workspaces**
+Inspect iem to find info about:
 
-- <a href="https://developers.google.com/web/tools/setup/setup-workflow" target="_blank">FileSystem tab</a>
-  - Targets the dev environment directly
-  - Direct access to development project resources
-  - Good if want to build a site
-- Local overrides
-  - Targets remote website = no direct access to dev environment
-  - Overrides network resources
-  - Persists changes of network resources locally
-  - Good for reconstructing websites
+- CSS class names
+- Applied styles
+- Color contrast
+- Toggle pseudo element
 
 ----
 
-### **Mobile emulation**
+### **Other stuff**
 
 </br>
 
@@ -155,19 +173,6 @@ Kelly Hutchins and Heather Gonzago
 - Throttling
 - Sensors - geolocation
 
-
-----
-
-### **Custom formatters**
-
-</br>
-
-- <a href="https://docs.google.com/document/d/1FTascZXT9cxfetuPRT2eXPQKXui4nWFivUnS_335T3U/preview" target="_blank">Controls how object values display</a>
-</br>
-<a href="https://github.com/ycabon/arcgis-js-api-devtools" target="_blank">
-  <img style="float: center;" src="images/formatters.png">
-</a>
-
 ----
 
 ### **Accessibility**
@@ -179,26 +184,30 @@ Kelly Hutchins and Heather Gonzago
 - Axe a11y extension
 - ChromeVox screen reader
 
+
 ----
 
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
-## **JSAPI FAQ**
+## **JSAPI Specific **
 
 ----
+### **Release Notes**
 
-### **Common questions/issues**
+- Release notes and breaking changes
+----
+### **Reading the doc**
 
-- Module Order
-- Mixed content errors
-- CORS enabled servers
-- Use of proxies
+Understanding the API REF
+Deep dive into the api ref and what things mean
 
-- Narrow the problem down
-  - App specific
-  - API specific
-  - Server-side issue
-  - Are any 3rd party resources involved?
+- require statement
+- beta tag  ???
+- Since:
+- Autocast
+- Hide/show inherited properties
+- See also: Samples and additional info
+- For widgets look at scss and view model
 
 ----
 
@@ -211,28 +220,29 @@ Kelly Hutchins and Heather Gonzago
 - 4.x equivalency in 3.x?
 
 ----
+### **Module Order**
 
-### **when/then**
-
-<img style="float:center;" src="images/whenthen.png">
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-<script>
-var dojoConfig = {
-  has: {
-    "esri-promise-compatibility": 1
-  }
-};
-</script>
-</code></pre>
-</br>
-Check out our blog -> <a href="https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises" target="_blank>">https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises</a>
+Order matters - add example here showing module order
 
 ----
 
+### **Mixed Content**
+
+- Mixed content errors http/https
+- CORS/Proxy
+
+----
+
+### **Autocast **
+
+</br>
+When to autocast vs when to load module
+
+----
 ### **Extent changed **
 
 </br>
-- <a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a> 
+- <a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a>
 
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
 watchUtils.whenFalse(view, 'stationary', function(evt){
@@ -250,16 +260,26 @@ watchUtils.whenFalse(view, 'stationary', function(evt){
 </code></pre>
 
 ----
+### **Troubleshooting Tips**
 
-### **AGO Assistant**
+- Narrow the problem down
+  - App specific
+  - API specific
+  - Server-side issue
+  - Are any 3rd party resources involved?
+
+----
+
+### **Ago Assistant**
 
 <a href="https://ago-assistant.esri.com/" target="_blank">
  <img style="float:center;" src="images/agoassistant.png">
 </a>
 
+
 ----
 
-<!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
+<!-- .slide: data-background="../reveal.js/img/bg-final.jpg" -->
 
 ## Questions?
 
