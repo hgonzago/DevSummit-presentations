@@ -9,42 +9,41 @@ Kelly Hutchins and Heather Gonzago
 
 ### **Overview**
 </br>
-<img style="float: right;" src="images/introMan.png">
+<img style="float: right;" width="700px" src="images/developerintro.png">
 
 
-- Setting up your dev environment
-- JSAPI resources and tips
-- Browser tips and tools
-- … and more
+- Developer Setup
+- Browser tools and tricks
+- ArcGIS API for JavaScript tips
+
 
 
 ----
 
 
-<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
+<!-- .slide: data-background="images/computer.jpeg" -->
 </br></br>
-## **Dev environment setup**
+
+<h1 style="text-shadow: 2px 2px #fff;color:#333;">Developer Setup</h1>
 
 ----
 
 
-### **Local web server**
+### **Web Server**
 
 </br>
-<img style="float: right;" src="images/localWebServer.png">
+<img style="float: right;" src="images/liveserver.png">
 
-- Visit [http://localhost](http://localhost)
-- Setup IIS or Apache
+- IIS or Apache
 - Lightweight http server
-- http-server
-- Express
 - Browser extensions
 
+<aside class="notes">You may already have a web server installed visit http://localhost to test. If you don't have a web page setup Apache is pre-installed on mac and IIS is commonly used on windows. Alternatively you can setup a lightweight http server for testing. Lots of examples like http-server, Express and also browser extensions available.</aside>
 ----
 
 ### **Code Assist**
 </br>
-<a href="https://github.com/kellyhutchins/DS2018-TipsAndTricks/blob/master/CodeAssistDemos/javascript-demo/README.md" target="_blank">
+<a href="README.md" target="_blank">
   <img style="float: right;" src="images/intellisense.png">
 </a>
 
