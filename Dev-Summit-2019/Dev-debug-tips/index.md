@@ -48,14 +48,16 @@ Kelly Hutchins and Heather Gonzago
 </a>
 
 - TypeScript
-- JS using Babel
+- JavaScript (Babel)
 
 
 ----
 
 ### **Emmet**
 </br>
-  <img style="float: right;" src="images/emmet.png">
+  <video width="600" height="400" controls>
+   <source src="images/emmetdemo.mp4" type="video/mp4">
+  </video>
 
 - Save keystrokes
 - HTML, CSS abbreviations
@@ -67,7 +69,9 @@ Kelly Hutchins and Heather Gonzago
 ### **Snippets**
 </br>
 
-<img style="float: right;" src="images/snippet.png">
+  <video style="float:right;" width="600" height="400" controls>
+   <source src="images/snippets.mp4" type="video/mp4">
+  </video>
 
 - Templates for common code
 - Generate for VSCode, Sublime, Atom
@@ -92,12 +96,14 @@ Kelly Hutchins and Heather Gonzago
 
 
 ----
-### **Other useful resources**
+### **Additional resources**
 
 
-- Rene's blog
-- Raluca's samples
-- Arcade example repo
+- <a href="https://odoe.net/blog/">odoenet</a>
+- <a href="https://ralucanicola.github.io/code-snippets-arcgis-api-js/index.html">3D Code Snippets cheat sheet</a>
+- <a href="https://github.com/Esri/arcade-expressions">Arcade expressions repo</a>
+
+</div>
 
 ----
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
@@ -119,19 +125,20 @@ Kelly Hutchins and Heather Gonzago
 ----
 
 ### **Console:  Messages**
+</br>
+<a href="https://developers.arcgis.com/javascript/latest/sample-code/layers-featurelayer-collection/live/index.html"><img  width="600" height="400" src="images/console.png"/></a>
+- Log info
+- Messages from JSAPI
 
-View console messages from JSAPI
 
 
 ----
-### **Debugging:  Breakpoints**
-
-</br>
+### **Debugging:  Pause code execution**
 
 </br>
   <img style="float: right;" src="images/debugger.png">
 
-- Various ways to pause code (XHR, DOM etc)
+- Breakpoints
 - Debugger;
 - Blackboxing
 
@@ -139,17 +146,20 @@ View console messages from JSAPI
 
 ### ** Debugging: Network requests**
 
-</br>
-<img style="float: right;" src="images/network.png">
+- Records traffic
+- Inspect headers and response
 
-- Records all network requests
-- Helps in troubleshooting, e.g.
-  - Printing issues
-  - Queries
+</br>
+<a href="https://developers.arcgis.com/javascript/latest/sample-code/geoprocessing-viewshed/live/index.html">
+<img src="images/network.png">
+</a>
+
 
 ----
 ### **Debugging:  CSS Inspection**
-
+<div style="float:right;"><a href="https://developers.arcgis.com/javascript/latest/sample-code/geoprocessing-viewshed/live/index.html">
+<img src="images/css.png">
+</a></div>
 Inspect iem to find info about:
 
 - CSS class names
@@ -188,26 +198,17 @@ Inspect iem to find info about:
 
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
-## **JSAPI Specific **
+## **ArcGIS API for JavaScript FAQ **
 
 ----
 ### **Release Notes**
-
-- Release notes and breaking changes
+<a href="https://developers.arcgis.com/javascript/latest/guide/release-notes/index.html"><img src="images/releaseNotes.png"></a>
 ----
-### **Reading the doc**
+### **Reading the API Reference**
 
-Understanding the API REF
-Deep dive into the api ref and what things mean
+<a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-LayerList.html"><img src="images/api.png"</a>
 
-- require statement
-- beta tag  ???
-- Since:
-- Autocast
-- Hide/show inherited properties
-- See also: Samples and additional info
-- For widgets look at scss and view model
-
+<aside class="notes">Do a deep dive into how to read the api ref here. Point out requires, beta tag?, since, autocast, hide/show inherited properties, samples and additional info. For widgets look at scss and view model links.</aside>
 ----
 
 ### **3.x to 4.x Feature Matrix**
@@ -219,29 +220,50 @@ Deep dive into the api ref and what things mean
 - 4.x equivalency in 3.x?
 
 ----
-### **Module Order**
+### **Module order matters**
 
-Order matters - add example here showing module order
+<img src="images/moduleordercode.png">
+<br>
+<p>Console errors</p>
+<img src="images/moduleordererror.png">
+
 
 ----
 
 ### **Mixed Content**
 
 - Mixed content errors http/https
-- CORS/Proxy
-
+- [Automatically switched](https://developers.arcgis.com/javascript/latest/guide/release-notes/4.8/index.html)
+<aside class="notes">Note: At 4.8 localhost was considered secure. This was changed at 4.9.</aside>
 ----
 
+### **CORS and Proxy Guides **
+
+ [CORS](https://developers.arcgis.com/javascript/latest/guide/cors/)<br>
+ [Proxy](https://developers.arcgis.com/javascript/latest/guide/proxies/index.html)
+----
 ### **Autocast **
 
 </br>
-When to autocast vs when to load module
+<a href="https://developers.arcgis.com/javascript/latest/guide/autocasting/">
+```
+ var diamondSymbol = {
+   type: "simple-marker",
+   style: "diamond",
+   color: [255,128,45],
+   outline:{
+     style: "dash-dot",
+     color: [255,128,45]
+   }
+ };
+```
+</a>
 
 ----
 ### **Extent changed **
 
 </br>
-- <a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a>
+<a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a>
 
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
 watchUtils.whenFalse(view, 'stationary', function(evt){
