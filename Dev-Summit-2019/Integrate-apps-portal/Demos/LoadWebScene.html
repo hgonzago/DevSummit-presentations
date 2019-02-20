@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>Load a basic web scene - 4.6</title>
+  <title>Load a basic web scene</title>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.6/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.10/"></script>
 
   <script>
     require([
@@ -14,7 +15,7 @@
       "esri/WebScene",
       "dojo/dom",
       "dojo/domReady!"
-    ], function(
+    ], function (
       SceneView, WebScene, dom
     ) {
 
@@ -45,13 +46,14 @@
         }
       });
 
-      view.then(function() {
+      view.when(function () {
         // when the scene and view resolve, display the scene's
         // title in the DOM
         var title = scene.portalItem.title;
         titleDiv.innerHTML = title;
       });
     });
+
   </script>
 
   <style>
@@ -79,6 +81,7 @@
       text-align: center;
       opacity: 0.75;
     }
+
   </style>
 
 </head>

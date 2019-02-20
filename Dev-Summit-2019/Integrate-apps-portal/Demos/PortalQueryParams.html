@@ -4,56 +4,59 @@
 <head>
   <title>PortalQueryParams</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
 
-  <script src="https://js.arcgis.com/4.6/"></script>
+  <script src="https://js.arcgis.com/4.10/"></script>
   <script>
     require([
-            "esri/portal/Portal",
-            "esri/portal/PortalQueryParams",
-            "esri/portal/PortalFolder",
-            "esri/config",
-            "dojo/domReady!"
-        ],
-        function(
-            Portal,
-            PortalQueryParams,
-            PortalFolder,
-            esriConfig,
-        ) {
+        "esri/portal/Portal",
+        "esri/portal/PortalQueryParams",
+        "esri/portal/PortalFolder",
+        "esri/config",
+        "dojo/domReady!"
+      ],
+      function (
+        Portal,
+        PortalQueryParams,
+        PortalFolder,
+        esriConfig,
+      ) {
 
-            //handle the Go button's click event
-            document.getElementById("submitRequest").addEventListener("click", getContent);
-            function getContent() {
+        //handle the Go button's click event
+        document.getElementById("submitRequest").addEventListener("click", getContent);
 
-                var portal = new Portal();
-                portal.authMode = "immediate";
+        function getContent() {
 
-                portal.load().then(function() {
+          var portal = new Portal();
+          portal.authMode = "immediate";
 
-                    portal.user.fetchFolders().then(function(folders) {
+          portal.load().then(function () {
 
-                        folders.forEach(function(folder) {
-                          console.log(folder.title);
+            portal.user.fetchFolders().then(function (folders) {
 
-                            if ((folder.title) == "DevSummitDemos") {
+              folders.forEach(function (folder) {
+                console.log(folder.title);
 
-                                portal.user.fetchItems().then(function(fetchItemResults) {
-                                  console.log(fetchItemResults.items);
-                                    document.getElementById("content").innerHTML = fetchItemResults.items.map(function(item) {
-                                        return `<div><a href="${item.url}">${item.title}</a></div>`
-                                    }).join("");
-                                });
+                if ((folder.title) == "DevSummitDemos") {
 
-                            }
-                        });
+                  portal.user.fetchItems().then(function (fetchItemResults) {
+                    console.log(fetchItemResults.items);
+                    document.getElementById("content").innerHTML = fetchItemResults.items.map(
+                      function (item) {
+                        return `<div><a href="${item.url}">${item.title}</a></div>`
+                      }).join("");
+                  });
 
-                    });
-                });
+                }
+              });
 
-            }
+            });
+          });
 
-        });
+        }
+
+      });
+
   </script>
 </head>
 

@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
-  <title>Query Portal Items - 4.3</title>
+  <title>Query Portal Items</title>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
 
-  <script src="https://js.arcgis.com/4.3/"></script>
+  <script src="https://js.arcgis.com/4.10/"></script>
   <style>
     html,
     body {
@@ -24,7 +25,6 @@
       text-align: center;
       padding: 10px;
       width: 204px;
-      display: inline-block;
     }
 
     .esri-item-gallery .esri-image {
@@ -55,6 +55,7 @@
       cursor: pointer;
       text-decoration: underline;
     }
+
   </style>
   <script>
     require([
@@ -68,7 +69,7 @@
       "dojo/on",
       "dojo/_base/array",
       "dojo/domReady!"
-    ], function(Portal, OAuthInfo, esriId, PortalQueryParams,
+    ], function (Portal, OAuthInfo, esriId, PortalQueryParams,
       domStyle, domAttr, dom, on, arrayUtils) {
       var info = new OAuthInfo({
         // Swap this ID out with registered application ID
@@ -82,23 +83,23 @@
       esriId.registerOAuthInfos([info]);
 
       esriId.checkSignInStatus(info.portalUrl + "/sharing").then(
-        function() {
+        function () {
           displayItems();
         }
       ).otherwise(
-        function() {
+        function () {
           // Anonymous view
           domStyle.set("anonymousPanel", "display", "block");
           domStyle.set("personalizedPanel", "display", "none");
         }
       );
 
-      on(dom.byId("sign-in"), "click", function() {
+      on(dom.byId("sign-in"), "click", function () {
         // user will be redirected to OAuth Sign In page
         esriId.getCredential(info.portalUrl + "/sharing");
       });
 
-      on(dom.byId("sign-out"), "click", function() {
+      on(dom.byId("sign-out"), "click", function () {
         esriId.destroyCredentials();
         window.location.reload();
       });
@@ -109,7 +110,7 @@
         // Setting authMode to immediate signs the user in once loaded
         portal.authMode = "immediate";
         // Once loaded, user is signed in
-        portal.load().then(function() {
+        portal.load().then(function () {
           // Create query parameters for the portal search
           var queryParams = new PortalQueryParams({
             query: "owner:" + portal.user.username,
@@ -130,7 +131,7 @@
       function createGallery(items) {
         var htmlFragment = "";
 
-        arrayUtils.forEach(items.results, function(item) {
+        arrayUtils.forEach(items.results, function (item) {
           htmlFragment += (
             "<div class=\"esri-item-container\">" +
             (item.thumbnailUrl ?
@@ -146,6 +147,7 @@
         dom.byId("itemGallery").innerHTML = htmlFragment;
       }
     });
+
   </script>
 </head>
 
