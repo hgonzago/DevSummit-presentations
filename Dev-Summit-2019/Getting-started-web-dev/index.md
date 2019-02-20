@@ -90,10 +90,6 @@ Heather Gonzago and Noah Sager
   <pre><code data-trim>
    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/css/view.css&quot;&gt;
    </code></pre>
-- Themes
-    <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/themes/theme-name/main.css&quot;&gt;
-   </code></pre>
 - Custom CSS (SASS)
 
 ----
@@ -407,7 +403,7 @@ view.when(function){
 
 <pre style="padding: 5px; margin: 10px auto; width: 50%;"><code data-trim>
 view.ui.add(legend, "bottom-left");
-view.ui.add(searchWidget, "top-right");
+view.ui.add(measurementWidget, "top-right");
 </code></pre>
 
 ----
