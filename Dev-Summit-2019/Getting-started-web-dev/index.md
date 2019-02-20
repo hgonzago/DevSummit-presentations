@@ -33,14 +33,14 @@ Heather Gonzago and Noah Sager
 
 ### **Where do I begin?**
 <a href="https://developers.arcgis.com/javascript/" target="_blank">
-<img src="Images/landingPage_3.png" alt="JavaScript landing page" width="1200" height="656">
+<img src="Images/landingPage_3.png" alt="JavaScript landing page" width="1284" height="630">
 </a>
 
 ----
 
 ### **Which version of the API is best?**
 <a href="https://developers.arcgis.com/javascript/latest/guide/choose-version/index.html" target="_blank">
-<img src="Images/Choose_Your_Own_Version.png" alt="API functionality matrix" width="1000" height="633">
+<img src="Images/Choose_Your_Own_Version.png" alt="API functionality matrix" width="1206" height="651">
 </a>
 
 ----
@@ -427,8 +427,8 @@ view.ui.add(searchWidget, "top-right");
 - JavaScript online training, free and not-so-free
 - User forums, e.g. GeoNet, StackExchange, Spatial Community in Slack, etc.</br>
 </br>
-<a href="https://developers.arcgis.com/javascript/latest/guide/community/index.html" target="_blank">
-<img style="float:bottom;" src="Images/Community.png" alt="Community" width="900" height="395">
+<a href="https://developers.arcgis.com/javascript/support/index.html" target="_blank">
+<img style="float:bottom;" src="Images/4dot10_Support.png" alt="4dot10_Support" width="744" height="384">
 
 ----
 
