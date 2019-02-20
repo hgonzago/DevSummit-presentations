@@ -2,9 +2,12 @@ require([
   "esri/WebMap",
   "esri/views/MapView",
   "esri/widgets/Legend",
-  "esri/widgets/Search",
-  "dojo/domReady!"
-], function(WebMap, MapView, Legend, Search) {
+  "esri/widgets/DistanceMeasurement2D",
+  "esri/widgets/AreaMeasurement2D"
+], function(WebMap, MapView, Legend, DistanceMeasurement2D, AreaMeasurement2D) {
+
+  var activeWidget = null;
+
   var map = new WebMap({
     portalItem: {
       // autocast
@@ -36,27 +39,77 @@ require([
         }
       ]
     });
-    var searchWidget = new Search({
-      view: view,
-      sources: [
-        {
-          featureLayer: {
-            url: privateSchoolsPoly.url,
-            outFields: ["*"],
-            popupTemplate: privateSchoolsPoly.popupTemplate
-          },
-          searchFields: ["state_abbr", "state_name"],
-          displayField: "state_name",
-          exactMatch: false,
-          outFields: ["*"],
-          name: "State name",
-          placeholder: "Search by state name",
-          suggestionsEnabled: true
-        }
-      ]
-    });
+    
     // Step 3: Add the widget to the view's UI, specify the docking position as well
     view.ui.add(legend, "bottom-left");
-    view.ui.add(searchWidget, "top-right");
+    view.ui.add("topbar", "top-right");
+
+    // Step 4: Add logic so that users can switch between the distance and area
+    // measurement widgets
+    document.getElementById("distanceButton").addEventListener("click",
+        function () {
+          setActiveWidget(null);
+          if (!this.classList.contains('active')) {
+            setActiveWidget('distance');
+          } else {
+            setActiveButton(null);
+          }
+        });
+
+      document.getElementById("areaButton").addEventListener("click",
+        function () {
+          setActiveWidget(null);
+          if (!this.classList.contains('active')) {
+            setActiveWidget('area');
+          } else {
+            setActiveButton(null);
+          }
+        });
+
+      function setActiveWidget(type) {
+        switch (type) {
+          case "distance":
+            activeWidget = new DistanceMeasurement2D({
+              view: view
+            });
+
+            // skip the initial 'new measurement' button
+            activeWidget.viewModel.newMeasurement();
+
+            view.ui.add(activeWidget, "top-right");
+            setActiveButton(document.getElementById('distanceButton'));
+            break;
+          case "area":
+            activeWidget = new AreaMeasurement2D({
+              view: view
+            });
+
+            // skip the initial 'new measurement' button
+            activeWidget.viewModel.newMeasurement();
+
+            view.ui.add(activeWidget, "top-right");
+            setActiveButton(document.getElementById('areaButton'));
+            break;
+          case null:
+            if (activeWidget) {
+              view.ui.remove(activeWidget);
+              activeWidget.destroy();
+              activeWidget = null;
+            }
+            break;
+        }
+      }
+
+      function setActiveButton(selectedButton) {
+        // focus the view to activate keyboard shortcuts for sketching
+        view.focus();
+        var elements = document.getElementsByClassName("active");
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("active");
+        }
+        if (selectedButton) {
+          selectedButton.classList.add("active");
+        }
+      }
   });
 });

@@ -6,6 +6,32 @@ body,
   height: 100%;
   width: 100%;
 }
+#topbar {
+  background: #fff;
+  padding: 10px;
+}
+
+.action-button {
+  font-size: 16px;
+  background-color: transparent;
+  border: 1px solid #D3D3D3;
+  color: #6e6e6e;
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.action-button:hover,
+.action-button:focus {
+  background: #0079c1;
+  color: #e4e4e4;
+}
+
+.active {
+  background: #0079c1;
+  color: #e4e4e4;
+}
 .custom-dropdown__select{
 	font-size: inherit; /* inherit size from .custom-dropdown */
 	padding: .5em; /* add some space*/
