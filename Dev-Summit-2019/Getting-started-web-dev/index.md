@@ -170,7 +170,6 @@ var view = new SceneView({
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 50%;"><code data-trim> 
 var map = new Map();
 map.basemap = "streets";
-map.ground = "world-elevation";
 var view = new MapView();
 view.center = [-100, 40];
 view.zoom = 6;
@@ -178,8 +177,7 @@ view.zoom = 6;
 - <a href="https://developers.arcgis.com/javascript/latest/guide/working-with-props/index.html" target="_blank">Properties</a> can be set in constructor
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 50%;"><code data-trim> 
 var map = new Map({
-    basemap: "streets",
-    ground: "world-elevation"
+    basemap: "streets"
 });
 var view = new MapView({
     map: map, 
@@ -251,7 +249,7 @@ var renderer = new UniqueValueRenderer({
 </br>
 - No need to <b>Require()</b> the module</br>
 </br>
-- Look for the <img style="float: center;" src="Images/autocast-label.png"> label in SDK's API Reference</br>
+- Look for the <img style="float: center;" src="Images/autocast-label.png"> label in the API Reference</br>
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=layers-portal" target="_blank">Create a layer from portal item sample </a> shows autocasting in action</br>
 </br>
