@@ -1,7 +1,6 @@
 require([
     "esri/WebMap",
-    "esri/views/MapView",
-    "dojo/domReady!"
+    "esri/views/MapView"
 ], function (WebMap, MapView) {
 
   /******************************************************************
