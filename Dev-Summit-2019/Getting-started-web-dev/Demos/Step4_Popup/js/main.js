@@ -3,8 +3,7 @@ require([
   "esri/Map",
   "esri/layers/FeatureLayer",
   "esri/views/MapView",
-  "esri/PopupTemplate",
-  "dojo/domReady!"
+  "esri/PopupTemplate"
 ], function(Map, FeatureLayer, MapView, PopupTemplate) {
   var defaultSym = {
     type: "simple-fill", // autocasts as new SimpleFillSymbol

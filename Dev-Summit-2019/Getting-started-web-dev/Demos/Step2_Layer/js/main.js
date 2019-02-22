@@ -2,8 +2,7 @@ var view;
 require([
   "esri/Map",
   "esri/layers/FeatureLayer",
-  "esri/views/MapView",
-  "dojo/domReady!"
+  "esri/views/MapView"
 ], function(Map, FeatureLayer, MapView) {
   /******************************************************************
    *

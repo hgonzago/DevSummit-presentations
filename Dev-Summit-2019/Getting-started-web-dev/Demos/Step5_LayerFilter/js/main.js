@@ -6,8 +6,7 @@ require([
   "esri/PopupTemplate",
   "dojo/dom-construct",
   "dojo/on",
-  "dojo/dom",
-  "dojo/domReady!"
+  "dojo/dom"
 ], function(Map, FeatureLayer, MapView, PopupTemplate, domConstruct, on, dom) {
   var defaultSym = {
     type: "simple-fill", // autocasts as new SimpleFillSymbol

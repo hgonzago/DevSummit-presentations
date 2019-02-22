@@ -1,5 +1,5 @@
 var view;
-require(["esri/Map", "esri/views/MapView", "dojo/domReady!"], function (
+require(["esri/Map", "esri/views/MapView"], function (
   Map,
   MapView
 ) {
