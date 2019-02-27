@@ -219,9 +219,10 @@ layer.watch("loadStatus", function(status) {// do something});
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 var layerRenderer = new UniqueValueRenderer(); // Set the renderer
 var featurelayer = new FeatureLayer({
-    url: "<featurelayer url>",
+    url: "featurelayer url",
     renderer: layerRenderer // pass in renderer to featurelayer using default properties
 })
+
 </code></pre>
 
 ----
@@ -307,39 +308,6 @@ var featurelayer = new FeatureLayer({
 </br>
 <a href="Demos/Step4_Popup/" target="_blank">
   <img style="float: center;" src="Images/Step4_Demo.png">
-</a>
-
-----
-
-### **Filtering data**
-
-- FeatureLayer definition expressions
-  - Where clause filters features on the client
-  - Use with large datasets
-- FeatureLayer <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#querying" target="_blank">queries</a>
-</br>
-</br>
-
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-var select = dom.byId("selectState");
-on(select, "change", function(e) {
-  var featureId = select.value;
-  var expr = select.value === "" ? "" : "FID = '" + featureId + "'";
-  privateSchoolsPoly.definitionExpression = expr;
-</code></pre>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-privateSchoolsPoly.queryFeatures().then(function(results) {
-  results.features.forEach(function(feature) {
-    var featureId = feature.attributes.FID;
-    ...
-</code></pre>
-
-----
-
-### **Demo: Filter features within a layer**
-
-<a href="Demos/Step5_LayerFilter/" target="_blank">
-  <img style="float: center;" src="Images/Step5_Demo.png">
 </a>
 
 
