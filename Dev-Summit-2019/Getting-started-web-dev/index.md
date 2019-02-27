@@ -48,7 +48,7 @@ Heather Gonzago and Noah Sager
 ### **Developer Setup**
 </br>
 <a href="https://www.slant.co/topics/1686/~javascript-ides-or-editors" target="_blank">
-<img src="Images/ides.png" alt="IDEs" width="806" height="443">
+<img src="Images/ides.png" alt="IDEs" width="860" height="485">
 </a>
 
 ----
