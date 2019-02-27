@@ -11,8 +11,11 @@ import promiseUtils = require("esri/core/promiseUtils");
 
 handleAuthentication();
 
+const map = new WebMap({
+  portalItem: { id: "7761d81ff08e45f2a7f27997e8d3e92d" }
+});
 const view = new SceneView({
-  map: new WebMap({ portalItem: { id: "7761d81ff08e45f2a7f27997e8d3e92d" } }),
+  map,
   zoom: 4,
   center: [-98, 35],
   container: "viewDiv"
@@ -39,6 +42,7 @@ async function queryItems(user: string) {
 
   // Get a few items from the default portal or get a few
   // items from logged in user and display as thumbnails in side panel
+
   const layerTypes = '(type:("Feature Collection" OR "Feature Service" OR "Map Service" ) -typekeywords:"Table")  -type:"Code Attachment" -type:"Featured Items" -type:"Symbol Set" -type:"Color Set" -type:"Windows Viewer Add In" -type:"Windows Viewer Configuration" -type:"Map Area" -typekeywords:"MapAreaPackage"';
 
   const query = user ? `owner:${user} ${layerTypes}` : layerTypes;
@@ -47,6 +51,8 @@ async function queryItems(user: string) {
     portal.queryItems({ extent: view.extent, query }),
     portal.queryGroups({ query: "id:79648f2f03454cc5ba455555f8746257" })
   ]);
+
+
   displayItems(itemResults.value.results);
   displayFeeds(groupResults.value.results);
 
@@ -61,6 +67,7 @@ function addWidgets(portal) {
     view,
     portal
   });
+
   view.ui.add(new Expand({
     content: search,
     view,
@@ -68,7 +75,12 @@ function addWidgets(portal) {
   }), group);
 
 
-  const basemapGallery = new BasemapGallery({ view, source: portal });
+  const basemapGallery = new BasemapGallery({
+    view,
+    source: portal
+  });
+
+
   view.ui.add(new Expand({
     content: basemapGallery,
     view,
@@ -125,6 +137,7 @@ async function displayFeeds(groups: __esri.PortalGroup[]) {
 
 async function addLayerToMap(item) {
   // Add layer to map
+
   const layer = await Layer.fromPortalItem(item);
   layer.watch("loadStatus", (status) => {
     if (status === "loaded") {
@@ -132,6 +145,8 @@ async function addLayerToMap(item) {
     }
   });
   view.map.add(layer);
+
+
 }
 function handleAuthentication() {
   // Switch sign in / sign out links

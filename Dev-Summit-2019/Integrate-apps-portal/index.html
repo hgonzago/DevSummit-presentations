@@ -19,9 +19,23 @@
 
   <!-- Code syntax highlighting -->
   <link rel="stylesheet" href="../reveal.js/css/theme/monokai_sublime.css">
+  <style>
+    .reveal pre {
+      margin: 1em;
+    }
+
+    .reveal pre.small {
+      width: 50%;
+    }
+
+    .reveal pre.med {
+      width: 75%;
+    }
+
+  </style>
   <!-- Printing and PDF exports -->
   <script>
-    var createLink = function(url) {
+    var createLink = function (url) {
       var link = document.createElement('link');
       link.rel = 'stylesheet';
       link.type = 'text/css';
@@ -47,7 +61,8 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
       <!-- Use external markdown resource, separate slides by ---; separate vertical slides by ----- -->
-      <section data-markdown="presentation.md" data-separator="^----$" data-separator-vertical="^---$" data-separator-notes="^Note:" data-background="../reveal.js/img/bg-3.png">
+      <section data-markdown="presentation.md" data-separator="^----$" data-separator-vertical="^---$"
+        data-separator-notes="^Note:" data-background="../reveal.js/img/bg-3.png">
       </section>
     </div>
   </div>
@@ -83,26 +98,26 @@
       // Optional reveal.js plugins
       dependencies: [{
           src: '../reveal.js/lib/js/classList.js',
-          condition: function() {
+          condition: function () {
             return !document.body.classList;
           }
         },
         {
           src: '../reveal.js/plugin/markdown/marked.js',
-          condition: function() {
+          condition: function () {
             return !!document.querySelector('[data-markdown]');
           }
         },
         {
           src: '../reveal.js/plugin/markdown/markdown.js',
-          condition: function() {
+          condition: function () {
             return !!document.querySelector('[data-markdown]');
           }
         },
         {
           src: '../reveal.js/plugin/highlight/highlight.js',
           async: true,
-          callback: function() {
+          callback: function () {
             hljs.initHighlightingOnLoad();
           }
         },
@@ -116,6 +131,17 @@
         }
       ]
     });
+    Reveal.addEventListener("slidechanged", addNotesToConsole);
+
+    function addNotesToConsole(event) {
+      // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+      var notes = event.currentSlide.querySelector(".notes");
+      if (notes) {
+        console.info(notes.innerHTML.replace(/\n\s+/g, '\n'));
+      } else {
+        console.clear();
+      }
+    }
     Reveal.configure({
       slideNumber: 'c/t'
     });

@@ -1,0 +1,64 @@
+What do you think about this for a new outline? It basically covers content in the demo app. If you think it looks ok
+I’ll start building out the slides in reveal tomorrow. I’ll need your help with what to include in the security section
+
+Get rid of general overview assume at this point most users know online
+
+- Quick slide on getting a free account at developers.arcgis.com?
+
+(Portal Url and Id)
+- Create slide showing where to get unique identifier and what portal url is since we'll use these in our apps
+
+- Portal Properties
+General properties: Name, url, Logo
+Basemap: Basemap gallery, default basemap, vector basemaps
+Galleries: Home page content, featured groups, featured items
+Culture (language and country)
+Helper services (https://enterprise.arcgis.com/en/portal/latest/administer/windows/about-utility-services.htm)
+
+
+- Create portal
+esriConfig.portalUrl (test if we set this if I need to pass portal in to bmg and search)
+portal = new Portal();
+portal.authMode (anonymous, immediate, auto)
+portal.load()
+
+- Query for Portal content
+Portal.queryGroups()
+Portal.queryItems()
+Portal.queryUsers()
+PortalGroup.queryItems()
+PortalUser.queryFavorites()
+
+- basic info on web map and scene
+Where to get id
+Symbology, popup, extent etc comes with
+Also slides and bookmarks
+
+- Web Map
+Load web map example
+
+- Web Scene
+Load web scene example
+
+- Access bookmarks and slides
+Code demo (and add to big app)
+
+- Widgets
+Many widgets pull online content
+Pass in portal
+Search, Basemap Gallery etc
+
+- Layer.fromId
+Add layer to map using id from portal
+Premium content (Maybe cover in security instead?)
+
+- Under the hood
+JSON
+Esri Request
+Ago Assistant
+
+- Security
+Identity Manager
+OAuth (register app)
+Premium content
+Show code snippet from app where we registerOauthInfo

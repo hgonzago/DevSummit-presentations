@@ -37,8 +37,11 @@ define(["require", "exports", "esri/WebMap", "esri/views/SceneView", "esri/porta
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     handleAuthentication();
+    var map = new WebMap({
+        portalItem: { id: "7761d81ff08e45f2a7f27997e8d3e92d" }
+    });
     var view = new SceneView({
-        map: new WebMap({ portalItem: { id: "7761d81ff08e45f2a7f27997e8d3e92d" } }),
+        map: map,
         zoom: 4,
         center: [-98, 35],
         container: "viewDiv"
