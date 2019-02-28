@@ -12,44 +12,16 @@
 ### Agenda
 
 - Portal Overview
-- Accessing Portal content
-- Inside web map/scenes
-- Working with portal layers
-- Security
-- Tools
+- Build an app
+  - Handle authentication
+  - Display Web Map or Web Scene
+  - Connect to Portal
+  - Get and display content from Portal
+  - Add layers to map
+  - Add widgets
+- Tools & Resources
 
 ----
-
-
-### Advantages of working with AGO/Portal
-
-</br>
-<img style="float: right;" alt="ArcGIS Online/Portal" src="images/PortalIcon.png" width="453" height="344"/>
-
-- Sharing and managing secure resources
-- Data hosting
-- Easy to leverage
-- Less code
-- Reusable
-- Organize/Update content centrally
-
-----
-
-### **Architecture: Apps + Content**
-
-</br>
-<img src="images/Architecture.png" alt="Architecture"/>
-
-----
-
-### **Content: Basic building block for Apps**
-</br>
-
-<img src="images/Content-diagram.png" alt="Content"/>
-
-----
-
-
 ### SDK Resources
 
 <div style="float:left;">
@@ -60,15 +32,64 @@ Guide topic
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/intro-widgets/index.html?search=Portal">Samples</a>
 </div>
 <img src="images/sdk.png" style="float:right;"/>
-----
 
-### Portal content: Unique identifier
+----
+### Step1: Setup Authentication
+
+  - Register the app
+
+  ![OAuth registration](images/IdentityManager.png)
+
+  - Sign in
+
+  ![Credentials](images/credential.png)
+
+  - Sign out
+
+  ![Destroy Credentials](images/signout.png)
+
+
+----
+### Authentication
+
+ Is user already logged in?
+
+ <pre><code>
+  IdentityManager.checkSignInStatus(portalUrl).always((info) => {
+
+  });
+ </code></pre>
+
+
+----
+###  Unique identifiers
 ![Web Map Id](images/webmap-id.png)
 
 Note: All portal content has a unique identifier
 ----
 
-### Connect to Portal
+### Step 2: Display a map (todo update with new demo link when done)
+- 2D: esri/WebMap
+- 3D: esri/WebScene
+<br>
+<a href="Demos/LoadWebMap.html">
+  <img src="images/webmap.png">
+</a>
+
+----
+
+### Bookmarks and Slides
+<div style="float:left;">
+- [Bookmarks](https://developers.arcgis.com/javascript/latest/sample-code/widgets-bookmarks/index.html)
+- [Slides](https://developers.arcgis.com/javascript/latest/sample-code/webscene-slide-tour/index.html)
+</div>
+<img src="images/bookmarks.png" height=500 style="float:right;">
+
+Note: Web maps and scenes have additional info we can access like bookmarks and slides
+
+----
+
+### Step 3: Connect to Portal
 </br>
 - View of the portal
 - authMode  <pre>anonymous|auto|immediate</pre>
@@ -106,7 +127,7 @@ Note: Get info about the portal including region, culture, name, thumbnail url a
 
 ----
 
-### Query portal content
+### Step 4a: Query portal content
 
 - Portal.queryGroups(
 - [Portal.queryItems()](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#queryItems)
@@ -130,15 +151,15 @@ finish. queryItems takes in extent, owner name and list of layer types to return
 ----
 
 
-### PortalQueryResult
-
+### Step 4b: Display query results
+PortalQueryResult
 [Results](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryResult.html) returned from a portal query
 <center><a href="Demos/DemoApp/app/main.ts"><img  height=500  src="images/appImage.png"></a></center>
 
 Note: Loop through the returned results array and create an item in a select box for each layer
 
 ----
-### Add layer items
+### Step 5: Add layers to map
 
 * Layer.fromPortalItem
 
@@ -146,50 +167,8 @@ Note: Loop through the returned results array and create an item in a select box
 
 ----
 
-### Web content - JSON
 
-</br>
-<div style="float:left;text-align:left;">
-<a href="https://jsapi.maps.arcgis.com/sharing/rest/content/items/7761d81ff08e45f2a7f27997e8d3e92d?f=json">Map information</a>
-<br>
-<a href="https://jsapi.maps.arcgis.com/sharing/rest/content/items/7761d81ff08e45f2a7f27997e8d3e92d/data?f=json">Map details</a>
-</div>
-<img src="images/mapviewer.png" height=600 style="margin-top:-50px;float:right;" />
-
-
-----
-
-### **Demo: Inside the web map**
-
-
-<a href="http://jsapi.maps.arcgis.com/home/item.html?id=c6bac25632d646758823daf07216dda1" target="_blank">
-  <img width="600" src="images/DataResponseDevTools.png" style="float: left;">
-  <img width="600" src="images/agoassistant.png">
-</a>
-
-
-----
-### Access a web map in an application
-- esri/WebMap
-- esri/WebScene
-<br>
-<a href="Demos/LoadWebMap.html">
-  <img src="images/webmap.png">
-</a>
-
-----
-
-### Web map and scene : additional info
-<div style="float:left;">
-- [Bookmarks](https://developers.arcgis.com/javascript/latest/sample-code/widgets-bookmarks/index.html)
-- [Slides](https://developers.arcgis.com/javascript/latest/sample-code/webscene-slide-tour/index.html)
-</div>
-<img src="images/bookmarks.png" height=500 style="float:right;">
-
-Note: Web maps and scenes have additional info we can access like bookmarks and slides
-
-----
-### Widgets : Specify portal
+### Step 6: Add widgets
 
 - Basemap Gallery
 <br>
@@ -199,45 +178,19 @@ Note: Web maps and scenes have additional info we can access like bookmarks and 
 <br>
 <img src="images/search.png">
 
+Note: Pass in portal to some widgets to get portal defaults. In this example we'll get search locators and the basemap group
 ----
 
 
-### Demo: Portal Rest API via `esriRequest`
+### MISC: Portal Rest API via `esriRequest`
 
 [ArcGIS REST API](https://developers.arcgis.com/rest/users-groups-and-items/working-with-users-groups-and-items.htm)
 
 [DEMO](Demos/PortalAPISample.html)
 ----
 
-### Access secure content
 
-- Handles security so no need to write a bunch of code
-- Detects private (unshared) data automatically
-- If private, prompts for credentials
-  - log-in via Identity Manager dialog prompt or
-  - use the platform's provided OAuth framework to handle it for you
-
-----
-### **Benefits of using the platform security model**
-
-- The web application does not have direct access to credentials
-- Support for enterprise logins
-- No need to sign in every time calls are made to a secure service
-- Track app usage
-- Easy to access resources secured with token-based authentication, e.g. premium credit-based services
-
-
-----
-
-### Demo: Access private data in a web application
-
-----
-
-### Demo: Register an application for Oauth use
-
-----
-
-### Access credit-based services
+### MISC: Access credit-based services
 
 - Application handles it for you, no need to sign in
 - Proxy file with saved credentials
@@ -248,6 +201,16 @@ Note: Web maps and scenes have additional info we can access like bookmarks and 
 
 ----
 
+### **Tools: AGO Assistant**
+
+
+<a href="http://jsapi.maps.arcgis.com/home/item.html?id=c6bac25632d646758823daf07216dda1" target="_blank">
+  <img width="600" src="images/DataResponseDevTools.png" style="float: left;">
+  <img width="600" src="images/agoassistant.png">
+</a>
+
+
+----
 
 <!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
 
