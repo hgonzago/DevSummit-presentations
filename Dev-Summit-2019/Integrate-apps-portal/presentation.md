@@ -159,9 +159,16 @@ PortalQueryResult
 Note: Loop through the returned results array and create an item in a select box for each layer
 
 ----
-### Step 5: Add layers to map
+### Step 5a: Setup add layer click handler
+
+![Add layer button](images/addlayerButton.png)
+
+----
+
+### Step 5b: Add layer to map
 
 * Layer.fromPortalItem
+* Zoom to layer when ready
 
 ![Add layer item](images/fromportalitem.png)
 
