@@ -62,6 +62,12 @@ Guide topic
 <img src="images/sdk.png" style="float:right;"/>
 ----
 
+### Portal content: Unique identifier
+![Web Map Id](images/webmap-id.png)
+
+Note: All portal content has a unique identifier
+----
+
 ### Connect to Portal
 </br>
 - View of the portal
@@ -132,12 +138,13 @@ finish. queryItems takes in extent, owner name and list of layer types to return
 Note: Loop through the returned results array and create an item in a select box for each layer
 
 ----
+### Add layer items
 
-### Web Map & Web Scene: Unique identifier
-![Web Map Id](images/webmap-id.png)
+* Layer.fromPortalItem
+
+![Add layer item](images/fromportalitem.png)
 
 ----
-
 
 ### Web content - JSON
 
@@ -191,13 +198,6 @@ Note: Web maps and scenes have additional info we can access like bookmarks and 
 - Search
 <br>
 <img src="images/search.png">
-
-----
-### Add layer items
-
-* Layer.fromPortalItem
-
-![Add layer item](images/fromportalitem.png)
 
 ----
 

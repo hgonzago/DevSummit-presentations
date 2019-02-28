@@ -1,18 +1,22 @@
-import WebMap = require("esri/WebMap");
-import SceneView = require("esri/views/SceneView");
-import Portal = require("esri/portal/Portal");
-import OAuthInfo = require("esri/identity/OAuthInfo");
-import IdentityManager = require("esri/identity/IdentityManager");
-import Layer = require("esri/layers/Layer");
-import Expand = require("esri/widgets/Expand");
-import BasemapGallery = require("esri/widgets/BasemapGallery");
-import Search = require("esri/widgets/Search");
-import promiseUtils = require("esri/core/promiseUtils");
+import WebMap from "esri/WebMap";
+import SceneView from "esri/views/SceneView";
+import Portal from "esri/portal/Portal";
+import OAuthInfo from "esri/identity/OAuthInfo";
+import IdentityManager from "esri/identity/IdentityManager";
+import Layer from "esri/layers/Layer";
+import Expand from "esri/widgets/Expand";
+import BasemapGallery from "esri/widgets/BasemapGallery";
+import Search from "esri/widgets/Search";
 
+
+// Step 1 handle authentication
 handleAuthentication();
 
+// Step 2 create simple 3d (or 2d map)
 const map = new WebMap({
-  portalItem: { id: "7761d81ff08e45f2a7f27997e8d3e92d" }
+  portalItem: {
+    id: "7761d81ff08e45f2a7f27997e8d3e92d"
+  }
 });
 const view = new SceneView({
   map,
@@ -21,22 +25,26 @@ const view = new SceneView({
   container: "viewDiv"
 });
 
+// Step 3 Connect to portal
 const portalUrl = "https://www.arcgis.com/sharing";
 view.when(() => {
+  // Step 1a: See if user is already signed-in
   IdentityManager.checkSignInStatus(portalUrl).always((info) => {
     // If user is logged-in update sign-in button and query items
     const user = info && info.userId ? info.userId : null;
     if (user) {
       getCredentials(info);
     } else {
+      // Step 4a Query Items from portal
       queryItems(user);
     }
   });
 });
 
-async function queryItems(user: string) {
+async function queryItems(user) {
   const portal = new Portal();
   await portal.load();
+
 
   addWidgets(portal);
 
@@ -47,22 +55,24 @@ async function queryItems(user: string) {
 
   const query = user ? `owner:${user} ${layerTypes}` : layerTypes;
 
-  const [itemResults, groupResults] = await promiseUtils.eachAlways([
-    portal.queryItems({ extent: view.extent, query }),
-    portal.queryGroups({ query: "id:79648f2f03454cc5ba455555f8746257" })
-  ]);
+
+  const itemResults = await portal.queryItems({
+    extent: view.extent,
+    query
+  });
 
 
-  displayItems(itemResults.value.results);
-  displayFeeds(groupResults.value.results);
+  // Step 4b: Deal with results
+  displayItems(itemResults.results);
 
 }
 
 function addWidgets(portal) {
   // Specify portal when creating basemap gallery and search to use portal content
-  document.getElementById("title").innerHTML = `Explore ${portal.name ? portal.name : 'Portal'}`;
+  document.getElementById("title").innerHTML = `Explore ${portal.name ? portal.name : "Portal"}`;
   const group = "top-right";
 
+  // Step 6 add widgets and additional functionality
   const search = new Search({
     view,
     portal
@@ -88,7 +98,8 @@ function addWidgets(portal) {
   }), group);
 
 }
-function displayItems(items: __esri.PortalItem[]) {
+
+function displayItems(items) {
   const cardContainer = document.getElementById("cardContainer");
   cardContainer.innerHTML = `
     ${items.map(item => `<div class="card leader-1">
@@ -101,38 +112,12 @@ function displayItems(items: __esri.PortalItem[]) {
   </div>
 </div>`).join("")}`;
   // Add click event handler for buttons on the item cards
-  Array.from(document.getElementsByClassName("add-btn")).forEach(function(element) {
-    element.addEventListener("click", () => addLayerToMap({ id: element.getAttribute("data-item") }));
+  // Step 5 : Hook up button that adds portal layer to map
+  Array.from(document.getElementsByClassName("add-btn")).forEach(function (element) {
+    element.addEventListener("click", () => addLayerToMap({
+      id: element.getAttribute("data-item")
+    }));
   });
-}
-async function displayFeeds(groups: __esri.PortalGroup[]) {
-  // Create a  list of feeds and add it to the map in an expand widget
-  // Get the items from the group
-
-  const group: __esri.PortalGroup = groups && groups.length && groups.length > 0 ? groups[0] : null;
-  if (group) {
-    const items = await group.queryItems();
-    const feedContainer = document.createElement("select");
-    feedContainer.innerHTML = `${items.results.map(item => `
-    <option value=${item.id}>${item.title}</option>
-  `).join("")}`
-    const defaultOption = document.createElement("option");
-    defaultOption.innerHTML = "Select Feed";
-    defaultOption.selected = true;
-    feedContainer.options.add(defaultOption, 0);
-    feedContainer.addEventListener("change", () => {
-      if (feedContainer.value) {
-        addLayerToMap({ id: feedContainer.value });
-      }
-    });
-    view.ui.add(new Expand({
-      content: feedContainer,
-      expandIconClass: "icon-social-rss",
-      expandTooltip: "Add Live Feed",
-      view
-    }), "top-left");
-  }
-
 }
 
 async function addLayerToMap(item) {
@@ -148,6 +133,7 @@ async function addLayerToMap(item) {
 
 
 }
+// Step 5 bring in authentication
 function handleAuthentication() {
   // Switch sign in / sign out links
   const signInButton = document.getElementById("signIn");
@@ -156,11 +142,15 @@ function handleAuthentication() {
   IdentityManager.registerOAuthInfos([new OAuthInfo({
     appId: "b3S1dvKs0rI5WJuU"
   })]);
-  signInButton.addEventListener("click", () => { getCredentials(); });
-  signOutButton.addEventListener("click", () => { destroyCredentials(); });
+  signInButton.addEventListener("click", () => {
+    getCredentials();
+  });
+  signOutButton.addEventListener("click", () => {
+    destroyCredentials();
+  });
 }
 
-async function getCredentials(credential?: __esri.Credential) {
+async function getCredentials(credential = null) {
 
   // If the user isn't already logged-in use getCredential
   // to kick-off the login process
@@ -174,6 +164,7 @@ async function getCredentials(credential?: __esri.Credential) {
   document.getElementById("userName").innerHTML = credential.userId;
 
 }
+
 function destroyCredentials() {
   IdentityManager.destroyCredentials();
   window.location.reload();
