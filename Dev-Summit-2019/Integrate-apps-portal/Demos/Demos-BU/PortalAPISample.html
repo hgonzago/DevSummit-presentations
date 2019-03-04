@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Portal API Calls via esriRequest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+
+  <script src="https://js.arcgis.com/4.10/"></script>
+  <script>
+    require([
+        "esri/request",
+        "dojo/domReady!"
+      ],
+      function (
+        esriRequest
+      ) {
+
+        //handle the Go button's click event
+        document.getElementById("submitRequest").addEventListener("click", getContent);
+
+        function getContent() {
+
+          var url = "https://www.arcgis.com/sharing/rest/search";
+          var options = {
+            query: {
+              f: 'json',
+              q: 'owner: Heather_JS9 AND ownerfolder: b9339e3720034d19b8ad23d66e3aefc5', //ID of the 'DevSummitDemos'
+              num: '10',
+              sortField: "numViews",
+              sortOrder: "desc",
+
+            },
+            responseType: 'json',
+            callbackParamName: 'callback'
+          };
+
+          esriRequest(url, options).then(function (response) {
+            document.getElementById("content").innerHTML = response.data.results.map(function (item) {
+              return `<div><a href="${item.url}">${item.title}</a></div>`
+            }).join("");
+          });
+
+        }
+
+      });
+
+  </script>
+</head>
+
+<body>
+  <button id="submitRequest">Get Items</button>
+  <div id="content"></div>
+</body>
+
+</html>

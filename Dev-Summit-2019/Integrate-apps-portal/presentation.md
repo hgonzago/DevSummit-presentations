@@ -18,7 +18,6 @@
 
 ----
 
-
 ### **Advantages of working with AGO/Portal**
 
 </br>
@@ -47,12 +46,116 @@
 <img src="images/Content-diagram.png" alt="Content"/>
 
 ----
+### **Advantages of working with AGO/Portal**
+
+</br>
+<img style="float: right;" alt="ArcGIS Online/Portal" src="images/PortalIcon.png" width="453" height="344"/>
+
+- Sharing and managing secure resources
+- Data hosting
+- Easy to leverage
+- Less code
+- Reusable
+- Organize/Update content centrally 
+
+----
+### **Architecture: Apps + Content**
+
+</br>
+<img src="images/Architecture.png" alt="Architecture"/>
+
+----
+### SDK Resources
+
+<div style="float:left;">
+- <a href="https://developers.arcgis.com/javascript/latest/guide/working-with-platform/index.html" target="_blank">
+Guide topic
+</a>
+<br>
+- <a href="https://developers.arcgis.com/javascript/latest/sample-code/intro-widgets/index.html?search=Portal">Samples</a>
+</div>
+<img src="images/sdk.png" style="float:right;"/>
+
+----
+### Step 1: Setup Authentication
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#registerOAuthInfos" target="_blank">Register the app</a>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+// Create OAuthInfo
+  var oauthInfo = new OAuthInfo({
+    appId: "enterAppIdHere" // registered app id on AGO
+  });
+esriId.registerOAuthInfos([oauthInfo]); 
+</code></pre>
+</br>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#getCredential" target="_blank">Sign in and get credential</a>
+</br>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+  credential = await IdentityManager.getCredential(portalUrl);
+</code></pre>
+</br>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#getCredential" target="_blank">Sign out and destroy credentials</a>
+</br>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+IdentityManager.destroyCredentials();
+</code></pre>
+
+----
+
+### Register an app
+- <a href="https://www.arcgis.com" target="_blank">ArcGIS Online</a>
+- <a href="https://developers.arcgis.com/applications" target="_blank">ArcGIS for Developers site</a>
+</br>
+<a href="https://developers.arcgis.com/documentation/core-concepts/security-and-authentication" target="_blank">
+  <img style="float: center;" src="images/developersauthentication.png">
+</a>
+
+----
+### **OAuth2: Identity Manager**
+- Authentication functionality provided via the Identity Manager
+- Handles the complexity of calling endpoints and parsing tokens
+- Example: JS API Identity Manager
+  - <span style="color:cyan">`OAuthInfo`</span> class -> pass in registered <span style="color:cyan">`App ID`</span>
+  - Pass this information to the Identity Manager
+<img style="float: bottom;" src="images/IdentityManager.png">
+
+----
+### Authentication
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#checkSignInStatus">checkSignInStatus</a>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+//  Is the user already logged in?
+IdentityManager.checkSignInStatus(portalUrl).always((info) => {
+  ..  
+});
+</code></pre>
+* returns <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-Credential.html#">Credential</a>
+
+----
 
 ### **Web Maps**
 
+<<<<<<< HEAD
 <a href="http://arcg.is/04qqaW" target="_blank">
   <img src="images/webmap.png" alt="Webmap">
 </a>
+
+----
+### Step 2: Display a map
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html" target="_blank">2D:esri/WebMap</a>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-WebScene.html" target="_blank">3D:esri/WebScene</a>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
+// Step 2 create simple 3d (or 2d map)
+const map = new WebMap({
+  portalItem: {
+    id: "7761d81ff08e45f2a7f27997e8d3e92d"
+  }
+});
+const view = new SceneView({
+  map,
+  zoom: 4,
+  center: [-98, 35],
+  container: "viewDiv"
+});
+</pre></code>
 
 ----
 
