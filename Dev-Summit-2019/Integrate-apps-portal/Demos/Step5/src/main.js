@@ -101,7 +101,7 @@ function handleAuthentication() {
   const signOutButton = document.getElementById("signOut");
 
   IdentityManager.registerOAuthInfos([new OAuthInfo({
-    appId: "b3S1dvKs0rI5WJuU"
+    appId: "Nrt2ESvH1cqQzSYa"
   })]);
   signInButton.addEventListener("click", () => {
     getCredentials();

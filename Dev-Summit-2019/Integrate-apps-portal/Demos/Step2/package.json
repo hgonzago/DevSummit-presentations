@@ -18,12 +18,15 @@
     "@types/arcgis-js-api": "^4.10.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.2.5"
+    "@babel/polyfill": "^7.2.5",
+    "eslint": "^5.15.0"
   },
   "babel": {
     "presets": [
       "@babel/preset-env"
     ],
-    "plugins": ["@babel/plugin-transform-modules-amd"]
+    "plugins": [
+      "@babel/plugin-transform-modules-amd"
+    ]
   }
 }

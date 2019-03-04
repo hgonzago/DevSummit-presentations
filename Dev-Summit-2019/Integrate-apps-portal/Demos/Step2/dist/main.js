@@ -44,7 +44,7 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/identity/OAuthInfo", "esri/
     var signOutButton = document.getElementById("signOut");
 
     _IdentityManager.default.registerOAuthInfos([new _OAuthInfo.default({
-      appId: "b3S1dvKs0rI5WJuU"
+      appId: "Nrt2ESvH1cqQzSYa"
     })]);
 
     signInButton.addEventListener("click", function () {

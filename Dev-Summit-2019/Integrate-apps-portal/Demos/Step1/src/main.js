@@ -10,6 +10,8 @@ handleAuthentication();
 const portalUrl = "https://www.arcgis.com/sharing";
 
 // Step 1a: See if user is already signed-in
+// Registers a callback that will always be called when the promise's operation ended
+// no matter of its success
 IdentityManager.checkSignInStatus(portalUrl).always((info) => {
   const user = info && info.userId ? info.userId : null;
   if (user) {
@@ -20,8 +22,8 @@ IdentityManager.checkSignInStatus(portalUrl).always((info) => {
 });
 
 /* Handle Authentication
-  Registers the app with identity manager
-  Sets up click event handlers for sign in and sign out button
+  Registers the app with Identity Manager
+  Sets up click event handlers for sign-in and sign-out button
 
 */
 function handleAuthentication() {
@@ -29,7 +31,7 @@ function handleAuthentication() {
   const signOutButton = document.getElementById("signOut");
 
   IdentityManager.registerOAuthInfos([new OAuthInfo({
-    appId: "b3S1dvKs0rI5WJuU"
+    appId: "Nrt2ESvH1cqQzSYa"
   })]);
   signInButton.addEventListener("click", () => {
     getCredentials();
@@ -39,7 +41,7 @@ function handleAuthentication() {
   });
 }
 /* Get Credentials is called when user clicks the Sign in link.
-It switches from sign-in to sign out*/
+   It switches from sign-in to sign out*/
 async function getCredentials(credential = null) {
   // Toggle sign-in links (signin/signout)
   document.getElementById("signInNav").classList.add("hide");

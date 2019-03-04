@@ -4,11 +4,45 @@ define(["esri/identity/OAuthInfo", "esri/identity/IdentityManager"], function (_
   _OAuthInfo = _interopRequireDefault(_OAuthInfo);
   _IdentityManager = _interopRequireDefault(_IdentityManager);
 
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
 
-  function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+  function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+    try {
+      var info = gen[key](arg);
+      var value = info.value;
+    } catch (error) {
+      reject(error);
+      return;
+    }
+    if (info.done) {
+      resolve(value);
+    } else {
+      Promise.resolve(value).then(_next, _throw);
+    }
+  }
 
-  function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+  function _asyncToGenerator(fn) {
+    return function () {
+      var self = this,
+        args = arguments;
+      return new Promise(function (resolve, reject) {
+        var gen = fn.apply(self, args);
+
+        function _next(value) {
+          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+        }
+
+        function _throw(err) {
+          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+        }
+        _next(undefined);
+      });
+    };
+  }
 
   // Step 1 handle authentication
   handleAuthentication();
@@ -19,7 +53,7 @@ define(["esri/identity/OAuthInfo", "esri/identity/IdentityManager"], function (_
 
     if (user) {
       getCredentials(info);
-    } else {// No one is logged in so we'll get anonymous content from portal
+    } else { // No one is logged in so we'll get anonymous content from portal
     }
   });
   /* Handle Authentication
@@ -34,7 +68,7 @@ define(["esri/identity/OAuthInfo", "esri/identity/IdentityManager"], function (_
     var signOutButton = document.getElementById("signOut");
 
     _IdentityManager.default.registerOAuthInfos([new _OAuthInfo.default({
-      appId: "b3S1dvKs0rI5WJuU"
+      appId: "Nrt2ESvH1cqQzSYa"
     })]);
 
     signInButton.addEventListener("click", function () {
@@ -54,41 +88,40 @@ define(["esri/identity/OAuthInfo", "esri/identity/IdentityManager"], function (_
 
   function _getCredentials() {
     _getCredentials = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee() {
-      var credential,
+      regeneratorRuntime.mark(function _callee() {
+        var credential,
           _args = arguments;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              credential = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
-              // Toggle sign-in links (signin/signout)
-              document.getElementById("signInNav").classList.add("hide");
-              document.getElementById("userNav").classList.remove("hide");
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                credential = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
+                // Toggle sign-in links (signin/signout)
+                document.getElementById("signInNav").classList.add("hide");
+                document.getElementById("userNav").classList.remove("hide");
 
-              if (credential) {
-                _context.next = 7;
-                break;
-              }
+                if (credential) {
+                  _context.next = 7;
+                  break;
+                }
 
-              _context.next = 6;
-              return _IdentityManager.default.getCredential(portalUrl);
+                _context.next = 6;
+                return _IdentityManager.default.getCredential(portalUrl);
 
-            case 6:
-              credential = _context.sent;
+              case 6:
+                credential = _context.sent;
 
-            case 7:
-              // Update the sign-in link to include logged in users name
-              document.getElementById("userName").innerHTML = credential.userId;
+              case 7:
+                // Update the sign-in link to include logged in users name
+                document.getElementById("userName").innerHTML = credential.userId;
 
-            case 8:
-            case "end":
-              return _context.stop();
+              case 8:
+              case "end":
+                return _context.stop();
+            }
           }
-        }
-      }, _callee);
-    }));
+        }, _callee);
+      }));
     return _getCredentials.apply(this, arguments);
   }
 

@@ -3,8 +3,6 @@ import SceneView from "esri/views/SceneView";
 import OAuthInfo from "esri/identity/OAuthInfo";
 import IdentityManager from "esri/identity/IdentityManager";
 
-
-
 // Step 1 handle authentication
 handleAuthentication();
 
@@ -38,7 +36,7 @@ function handleAuthentication() {
   const signOutButton = document.getElementById("signOut");
 
   IdentityManager.registerOAuthInfos([new OAuthInfo({
-    appId: "b3S1dvKs0rI5WJuU"
+    appId: "Nrt2ESvH1cqQzSYa"
   })]);
   signInButton.addEventListener("click", () => {
     getCredentials();
