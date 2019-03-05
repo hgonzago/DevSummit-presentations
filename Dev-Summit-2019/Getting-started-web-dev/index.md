@@ -321,7 +321,7 @@ var featurelayer = new FeatureLayer({
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
 var map = new WebMap({
     portalItem: {
-      id: "8444e275037549c1acab02d2626daaee" // Remember portalItem is autocasted
+      id: "b45ec95aeeb743399dd4b557abd20ee2" // Remember portalItem is autocasted
     }
 });
 </code></pre>
@@ -330,7 +330,7 @@ var map = new WebMap({
 
 ### **Demo: Add a web map to an application**
 </br>
-<a href="Demos/Step6_Webmap/" target="_blank">
+<a href="Demos/Step5_Webmap/" target="_blank">
   <img style="float: center;" src="Images/Step6_Demo.png">
 </a>
 
@@ -376,7 +376,7 @@ view.ui.add(measurementWidget, "top-right");
 
 ### **Demo: Add widgets to the application**
 </br>
-<a href="Demos/Step7_Widgets/" target="_blank">
+<a href="Demos/Step6_Widgets/" target="_blank">
   <img style="float: center;" src="Images/Step7_Demo.png">
 </a>
 
