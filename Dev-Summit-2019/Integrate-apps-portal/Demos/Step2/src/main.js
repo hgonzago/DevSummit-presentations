@@ -9,7 +9,7 @@ handleAuthentication();
 // Step 2 create simple 3d (or 2d map)
 const map = new WebMap({
   portalItem: {
-    id: "7761d81ff08e45f2a7f27997e8d3e92d"
+    id: ""
   }
 });
 const view = new SceneView({

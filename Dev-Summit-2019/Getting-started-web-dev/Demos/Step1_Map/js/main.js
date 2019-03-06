@@ -20,6 +20,8 @@ require(["esri/Map", "esri/views/MapView"], function (
 
   view = new MapView({
     container: "viewDiv",
-    map: map
+    map: map,
+    zoom: 3,
+      center: [-99.14725260912257, 36.48617178360141]
   });
 });

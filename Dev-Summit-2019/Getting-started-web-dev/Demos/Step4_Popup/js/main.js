@@ -96,6 +96,7 @@ require([
     content: [
       {
         // Specify the type of popup element - fields
+        //fieldInfos autocasts
         type: "fields",
         fieldInfos: [
           {
@@ -141,6 +142,7 @@ require([
       },
       {
         type: "media",
+        // mediainfos autocasts
         mediaInfos: [
           {
             title: "Ratio private and public school enrollment",
@@ -158,7 +160,6 @@ require([
             caption:
               "Total number of Private Schools in comparison to public. (Does not pertain to student enrollment.)",
             value: {
-              theme: "Julie",
               fields: ["PrivateSch", "PublicScho"],
               tooltipField: "PrivateSch"
             }
