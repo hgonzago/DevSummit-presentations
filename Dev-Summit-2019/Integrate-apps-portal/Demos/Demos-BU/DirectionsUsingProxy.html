@@ -45,7 +45,7 @@
       "esri/core/urlUtils",
       "dojo/on",
       "dojo/domReady!"
-    ], function (
+    ], function(
       Map, MapView, Graphic, GraphicsLayer, RouteTask, RouteParameters,
       FeatureSet, SimpleMarkerSymbol, SimpleLineSymbol, Color, urlUtils, on
     ) {
@@ -53,12 +53,8 @@
       // proxy the route requests to avoid prompt for log in
       urlUtils.addProxyRule({
         urlPrefix: "route.arcgis.com",
-
-
-        proxyUrl: "http://heatherg.esri.com/proxy/proxy.php"
-
+        proxyUrl: "http://heatherg-2.esri.com/proxy/proxy.php"
       });
-
       // Point the URL to a valid route service
       var routeTask = new RouteTask({
         url: "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World"
@@ -134,9 +130,7 @@
   <div id="viewDiv"></div>
   <div id="paneDiv">
     <div>
-      <p>Click on the map to add stops to the route. The route from the last stop to the newly added stop is
-        calculated. If
-        a stop is not reachable, it is removed and the last valid point is set as the starting point.</p>
+      <p>Click on the map to add stops to the route. The route from the last stop to the newly added stop is calculated. If a stop is not reachable, it is removed and the last valid point is set as the starting point.</p>
     </div>
   </div>
 

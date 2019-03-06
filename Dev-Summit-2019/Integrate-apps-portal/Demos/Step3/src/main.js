@@ -37,14 +37,15 @@ view.when(() => {
 // Step 3 Connect to portal
 async function loadPortal() {
   const portal = new Portal();
+  //portal.authMode = "immediate"; // This automaticaly prompts the user to sign in
+  //portal.authMode is automatically 
   await portal.load();
   /* Once portal is loaded set the app title to "Explore Portal" if anonymous
-    or set to Explore <portal name> if logged in
+     or set to Explore <portal name> if logged in
   */
   document.getElementById("title").innerHTML = `Explore ${portal.name ? portal.name : "Portal"}`;
 
 }
-
 
 function handleAuthentication() {
   // Switch sign in / sign out links

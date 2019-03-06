@@ -1,18 +1,17 @@
 import OAuthInfo from "esri/identity/OAuthInfo";
 import IdentityManager from "esri/identity/IdentityManager";
 
-
-
 // Step 1 handle authentication
 handleAuthentication();
-
 
 const portalUrl = "https://www.arcgis.com/sharing";
 
 // Step 1a: See if user is already signed-in
 // Registers a callback that will always be called when the promise's operation ended
-// no matter of its success
+// no matter of its success. Pass in portalURL and it returns a promise with a credential.
 IdentityManager.checkSignInStatus(portalUrl).always((info) => {
+  // If info(credential) is not null and has a userId than set user to info.userId otherwise
+  // set the user to null
   const user = info && info.userId ? info.userId : null;
   if (user) {
     getCredentials(info);

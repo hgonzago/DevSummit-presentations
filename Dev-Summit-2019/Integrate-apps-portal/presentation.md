@@ -49,8 +49,16 @@ Guide topic
 </a>
 <br>
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/intro-widgets/index.html?search=Portal">Samples</a>
+- <a href="https://developers.arcgis.com/documentation/core-concepts/security-and-authentication">Developers site</a>
 </div>
 <img src="images/sdk.png" style="float:right;"/>
+
+----
+### Build a portal app from scratch
+
+<a href="Demos/Step6" target="_blank">
+  <img style="float: center;" src="images/finalapp.png">
+</a>
 
 ----
 ### Step 1: Setup Authentication
@@ -82,7 +90,7 @@ IdentityManager.destroyCredentials();
 - <a href="https://developers.arcgis.com/applications" target="_blank">ArcGIS for Developers site</a>
 </br>
 <a href="https://developers.arcgis.com/documentation/core-concepts/security-and-authentication" target="_blank">
-  <img style="float: center;" src="images/developersauthentication.png">
+  <img style="float: center;" src="images/registerapp.png">
 </a>
 
 ----
@@ -95,23 +103,14 @@ IdentityManager.destroyCredentials();
 <img style="float: bottom;" src="images/IdentityManager.png">
 
 ----
-### Authentication
-* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#checkSignInStatus">checkSignInStatus</a>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
-//  Is the user already logged in?
-IdentityManager.checkSignInStatus(portalUrl).always((info) => {
-  ..  
-});
-</code></pre>
-* returns <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-Credential.html#">Credential</a>
-----
-###  Unique identifiers
-![Web Map Id](images/webmap-id.png)
+### **Demo: Add Authentication to app**
+</br>
+<a href="Demos/Step1" target="_blank">
+  <img style="float: center;" src="images/userLoginDemo.png">
+</a>
 
-Note: All portal content has a unique identifier
 ----
-
-### Step 2: Display a map (todo update with new demo link when done)
+### Step 2: Display a map
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html" target="_blank">2D:esri/WebMap</a>
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-WebScene.html" target="_blank">3D:esri/WebScene</a>
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
@@ -130,33 +129,48 @@ const view = new SceneView({
 </pre></code>
 
 ----
+###  Unique identifiers
+
+![Web Map Id](images/webmap-id.png)
+
+Note: All portal content has a unique identifier
+
+----
+
 
 ### Bookmarks and Slides
 <div style="float:left;">
-- [Bookmarks](https://developers.arcgis.com/javascript/latest/sample-code/widgets-bookmarks/index.html)
-- [Slides](https://developers.arcgis.com/javascript/latest/sample-code/webscene-slide-tour/index.html)
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Bookmarks.html" target="_blank">Bookmarks widget</a>
+* <a href="https://developers.arcgis.com/javascript/latest/sample-code/webscene-slide-tour/index.html" target="_blank">WebScene slides</a>
 </div>
 <img src="images/bookmarks.png" height=500 style="float:right;">
 
 Note: Web maps and scenes have additional info we can access like bookmarks and slides
 
 ----
+### **Demo: Display the map**
+</br>
+<a href="Demos/Step2" target="_blank">
+  <img style="float: center;" src="images/step2demo.png">
+</a>
+
+----
 
 ### Step 3: Connect to Portal
 </br>
-- View of the portal
-- authMode  <pre>anonymous|auto|immediate</pre>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html" target="_blank">View of the Portal</a>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#load" target="_blank">Load the Portal's resources</a>
 
-<pre class="small" style="float:right;">
-<code>
-const portal = new Portal();
-portal.authMode = "immediate";
-portal.load().then(function(){});
-
+<pre class="small" style="display:inline-block; padding: 5px; margin: 10px auto; float:right;"><code data-trim>
+// Step 3 Connect to portal
+async function loadPortal() {
+  const portal = new Portal();
+  await portal.load();
+}
 </code></pre>
 
 
-Note:Connect to the portal to get a view of the portal from the current users perspective. If anonymous you['ll get the default view of theportal. If logged in the info will be specific to the organization the user is a member of.
+Note:Connect to the portal to get a view of the portal from the current users perspective. If anonymous you will get the default view of the portal. If logged in, the info will be specific to the organization the user is a member of.
 
 ----
 
@@ -165,11 +179,12 @@ Note:Connect to the portal to get a view of the portal from the current users pe
 </br>
 
  - Details about the [portal](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html)
+ - <a href="https://developers.arcgis.com/rest/users-groups-and-items/portal-self.htm" target="_blank">Portal <code>Self</code> call</a>
  - Custom groups
  - Portal defaults like basemap, extent
  - [Helper services](https://jsapi.maps.arcgis.com/sharing/rest/portals/self?culture=en)
 
-<center><pre class="med"><code>
+<center><pre class="med" style="padding: 5px; margin: 10px auto;"><code data-trim>
    portal.load().then(function(){
      const orgName = portal.name;
      const basemapGallery = portal.basemapGalleryGroupQuery
@@ -179,14 +194,21 @@ Note:Connect to the portal to get a view of the portal from the current users pe
 Note: Get info about the portal including region, culture, name, thumbnail url and default properties like the basemap, extent and galleries
 
 ----
+### **Demo: Connect to Portal**
+</br>
+<a href="Demos/Step3" target="_blank">
+  <img style="float: center;" src="images/step3demo.png">
+</a>
+
+----
 
 ### Step 4a: Query portal content
 
-- Portal.queryGroups(
-- [Portal.queryItems()](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#queryItems)
-- Portal.queryUsers()
-- PortalGroup.queryItems()
-- PortalUser.queryFavorites()
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#queryGroups" target="_blank">Portal.queryGroups()</a>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#queryItems" target="_blank">Portal.queryItems()</a>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#queryUsers" target="_blank">Portal.queryUsers()</a>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalGroup.html#queryItems" target="_blank">PortalGroup.queryItems()</a>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalUser.html#queryFavorites" target="_blank">PortalUser.queryFavorites()</a>
 
 
 Note: Lots of methods available to easily query portal content. Get items, groups, users, favorites and more
@@ -195,8 +217,19 @@ Note: Lots of methods available to easily query portal content. Get items, group
 
 ### [PortalQueryParams](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryParams.html)
 </br>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+// Get a few items from the default portal or get a few
+// items from logged in user and display as thumbnails in side panel
 
-![Query portal items](images/queryitem.png)
+const layerTypes = '(type:("Feature Collection" OR "Feature Service" OR "Map Service" ) -typekeywords:"Table")  -type:"Code Attachment" -type:"Featured Items" -type:"Symbol Set" -type:"Color Set" -type:"Windows Viewer Add In" -type:"Windows Viewer Configuration" -type:"Map Area" -typekeywords:"MapAreaPackage"';
+
+const query = user ? `owner:${user} ${layerTypes}` : layerTypes;
+
+const itemResults = await portal.queryItems({
+  extent: view.extent,
+  query
+});
+</code></pre>
 
 Note: Use portalQueryParams to refine the query. Code sample performs two queries and waits for results of both to
 finish. queryItems takes in extent, owner name and list of layer types to return
@@ -207,38 +240,84 @@ finish. queryItems takes in extent, owner name and list of layer types to return
 ### Step 4b: Display query results
 PortalQueryResult
 [Results](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryResult.html) returned from a portal query
-<center><a href="Demos/DemoApp/app/main.ts"><img  height=500  src="images/appImage.png"></a></center>
+<center><img height=500  src="images/appImage.png"></a></center>
 
 Note: Loop through the returned results array and create an item in a select box for each layer
 
 ----
-### Step 5a: Setup add layer click handler
-
-![Add layer button](images/addlayerButton.png)
+### **Demo: Get and display content from Portal**
+</br>
+<a href="Demos/Step4" target="_blank">
+  <img style="float: center;" src="images/step4demo.png">
+</a>
 
 ----
+### Step 5a: Setup add layer click handler
+</br>
+</br>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+Array.from(document.getElementsByClassName("add-btn")).forEach(function (element) {
+  element.addEventListener("click", () => addLayerToMap({
+    id: element.getAttribute("data-item")
+  }));
+});
+</code></pre>
 
+----
 ### Step 5b: Add layer to map
 
-* Layer.fromPortalItem
-* Zoom to layer when ready
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#fromPortalItem" target="_blank">Layer.fromPortalItem</a>
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html#goTo" target="_blank">Zoom to layer when ready</a>
 
-![Add layer item](images/fromportalitem.png)
+<p></p>
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+const layer = await Layer.fromPortalItem(item);
+layer.watch("loadStatus", (status) => {
+  if (status === "loaded") {
+    view.goTo(layer.fullExtent);
+  }
+});
+view.map.add(layer);
+}
+</code></pre>
 
 ----
+### **Demo: Add layer to map**
+</br>
+<a href="Demos/Step5" target="_blank">
+  <img style="float: center;" src="images/step5demo.png">
+</a>
 
-
+----
 ### Step 6: Add widgets
 
-- Basemap Gallery
-<br>
-<img src="images/bmg.png" >
-<br>
-- Search
-<br>
-<img src="images/search.png">
+<a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapGallery.html" target="_blank">Basemap Gallery</a>
+
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+const basemapGallery = new BasemapGallery({
+  view,
+  source: portal
+});
+</code></pre>
+<a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Search.html" target="_blank">Search</a>
+
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+const search = new Search({
+  view,
+  portal
+});
+</code></pre>
+
 
 Note: Pass in portal to some widgets to get portal defaults. In this example we'll get search locators and the basemap group
+
+----
+### **Demo: Add widgets**
+</br>
+<a href="Demos/Step6" target="_blank">
+  <img style="float: center;" src="images/step6demo.png">
+</a>
+
 ----
 
 
@@ -246,10 +325,9 @@ Note: Pass in portal to some widgets to get portal defaults. In this example we'
 
 [ArcGIS REST API](https://developers.arcgis.com/rest/users-groups-and-items/working-with-users-groups-and-items.htm)
 
-[DEMO](Demos/PortalAPISample.html)
+[DEMO](demos/Demos-BU/PortalAPISample.html)
+
 ----
-
-
 ### MISC: Access credit-based services
 
 - Application handles it for you, no need to sign in
@@ -269,15 +347,11 @@ Note: Pass in portal to some widgets to get portal defaults. In this example we'
   <img width="600" src="images/agoassistant.png">
 </a>
 
-
 ----
 
 <!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
 
 ## Questions?
 
-**Help us to improve** by filling out the survey
-
-![Survey](images/survey-slide.png)
-
+![Survey](Images/bg-rating.png)
 ----

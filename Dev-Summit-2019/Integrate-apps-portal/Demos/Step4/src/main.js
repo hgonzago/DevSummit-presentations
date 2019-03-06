@@ -60,8 +60,6 @@ async function loadPortal(user) {
 
 }
 
-
-
 function displayItems(items) {
   const cardContainer = document.getElementById("cardContainer");
   cardContainer.innerHTML = `${items.map(item => `<div class="card leader-1">

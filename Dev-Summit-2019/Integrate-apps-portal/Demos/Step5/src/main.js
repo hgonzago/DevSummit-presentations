@@ -93,7 +93,6 @@ async function addLayerToMap(item) {
     }
   });
   view.map.add(layer);
-
 }
 
 function handleAuthentication() {
