@@ -1,0 +1,32 @@
+{
+  "name": "javascript-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "jshintConfig": {
+    "esversion": 6
+  },
+  "scripts": {
+    "dev": "babel src --watch --out-dir dist",
+    "build": "babel src --out-dir dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "@types/arcgis-js-api": "^4.10.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "transform-es2015-modules-amd"
+    ]
+  }
+}

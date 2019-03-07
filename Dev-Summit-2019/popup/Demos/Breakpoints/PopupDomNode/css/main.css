@@ -1,0 +1,26 @@
+html,
+body,
+#sceneViewDiv {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.esri-popup.esri-widget {
+  max-height: 100%;
+}
+
+.esri-view-width-xlarge .esri-popup__main-container {
+  width: 540px;
+}
+
+.esri-view-height-less-than-medium .esri-popup__main-container {
+  max-height: 500px;
+}
+
+.extentDiv {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 2;
+}

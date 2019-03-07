@@ -5,6 +5,7 @@
   },
   "rules": {
     "indent": "off",
-    "quotes": "off"
+    "quotes": "off",
+    "no-console": "off"
   }
 }

@@ -1,0 +1,31 @@
+{
+  "name": "arcgis-js-api-devtools",
+  "version": "1.0.0",
+  "description": "Chrome Devtools custom formatter for objects from ArcGIS JS API 4 for JavaScript",
+  "main": "dist/main",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ycabon/arcgis-js-api-devtools.git"
+  },
+  "keywords": [
+    "chrome",
+    "devtools",
+    "formatter",
+    "arcgis",
+    "arcgis-js-api"
+  ],
+  "author": "Yann Cabon",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ycabon/arcgis-js-api-devtools/issues"
+  },
+  "homepage": "https://github.com/ycabon/arcgis-js-api-devtools#readme",
+  "devDependencies": {
+    "tslint": "^3.7.4",
+    "typescript": "^1.8.10"
+  }
+}
