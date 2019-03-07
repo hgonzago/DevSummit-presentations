@@ -43,13 +43,6 @@ Heather Gonzago and Kelly Hutchins
 * <a href="demos/Fields.html" target="_blank">Fields popup sample</a>
 
 ----
-
-### Popup Template : Attachments
-* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-support-ContentElement-Attachments.html" target="_blank">API Reference</a>
-* <a href="demos/Attachments.html" target="_blank">Attachments popup sample</a>
-
-
-----
 ### Popup Template: Formatting
 
 - [Formatting](https://developers.arcgis.com/javascript/latest/api-reference/esri-support-FieldInfo-Format.html)
@@ -70,12 +63,19 @@ Heather Gonzago and Kelly Hutchins
 ```
 
 ----
+
+### Popup Template : Attachments
+* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-support-ContentElement-Attachments.html" target="_blank">API Reference</a>
+* <a href="demos/Attachments.html" target="_blank">Attachments popup sample</a>
+
+
+----
 ### Popup widget
 
-- [API Reference](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html)
-- [Responsive](https://developers.arcgis.com/javascript/latest/guide/styling/index.html#view-size-css-classes)
+- [API Reference - Popup](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html)
+- [Responsive SDK info](https://developers.arcgis.com/javascript/latest/guide/styling/index.html#view-size-css-classes)
 * <a href="demos/Responsive.html" target="_blank">Responsive sample</a>
-[Actions](https://developers.arcgis.com/javascript/latest/sample-code/popup-custom-action/index.html)
+- [Actions SDK info](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html#actions)
 * <a href="demos/CustomPopupActions.html" target="_blank">Custom actions sample</a>
 ----
 
@@ -122,6 +122,7 @@ Heather Gonzago and Kelly Hutchins
 
 **Help us to improve** by filling out the survey
 
-![Survey](images/survey-slide.png)
+![Survey](bg-rating.png)
+
 
 ----
