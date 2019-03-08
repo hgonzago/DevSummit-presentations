@@ -96,6 +96,15 @@ Kelly Hutchins and Heather Gonzago
 
 
 ----
+
+### **Demo: Working with multiple files **
+
+- CSS & JS in html
+- Separate files
+- [Web Map](https://developers.arcgis.com/javascript/latest/sample-code/webmap-basic/index.html)
+
+----
+
 ### **Additional resources**
 
 
@@ -257,27 +266,29 @@ Inspect iem to find info about:
 </a>
 
 ----
-### **Extent changed **
+### **Where did all the events go? **
 
 </br>
-<a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a>
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-watchUtils.whenFalse(view, 'stationary', function(evt){
-  if(!view.stationary){
-    watchUtils.whenTrueOnce(view, 'stationary', function(evt){
-      console.log(view.extent);
-    });
-   }
-   else {
-     watchUtils.whenFalseOnce(view, 'interacting', function(evt){
-       console.log(view.extent);
-     });
-   }
-})
-</code></pre>
+- Watch properties
+    ```
+    .watch(property, callback)
+    ```
+- Works with nested properties
+    ```
+    .watch("basemap.title",function(){})
+    ```
+- [Sample](https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=watch-for-changes)
+- [watchUtils](https://developers.arcgis.com/javascript/latest/api-reference/esri-core-watchUtils.html)
 
 ----
+
+### ** Geolocation **
+
+![Search Sample](images/httpssearch.png)
+
+----
+
 ### **Troubleshooting Tips**
 
 - Narrow the problem down
@@ -287,6 +298,7 @@ watchUtils.whenFalse(view, 'stationary', function(evt){
   - Are any 3rd party resources involved?
 
 ----
+
 
 ### **Ago Assistant**
 
