@@ -140,7 +140,6 @@ Kelly Hutchins and Heather Gonzago
 
 - Breakpoints
 - Debugger;
-- Blackboxing
 
 ----
 
@@ -170,8 +169,6 @@ Inspect iem to find info about:
 ----
 
 ### **Other stuff**
-
-</br>
 
 </br>
 <a href="https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports" target="_blank">
@@ -233,7 +230,7 @@ Inspect iem to find info about:
 ### **Mixed Content**
 
 - Mixed content errors http/https
-- [Automatically switched](https://developers.arcgis.com/javascript/latest/guide/release-notes/4.8/index.html)
+- [Automatically switched](https://developers.arcgis.com/javascript/latest/guide/release-notes/4.8/index.html#promote-secured-services)
 <aside class="notes">Note: At 4.8 localhost was considered secure. This was changed at 4.9.</aside>
 ----
 
