@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Custom popup actions per feature attribute - 4.10</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    #viewDiv {
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.10/"></script>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer"
+    ], function (
+      Map, MapView, FeatureLayer
+    ) {
+
+      var map = new Map({
+        basemap: "streets-navigation-vector"
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-101.94981250000075, 41.20977753557709],
+        zoom: 5
+      });
+
+      /********************
+       * Add feature layer
+       ********************/
+      // sampling of breweries
+      var featureLayer = new FeatureLayer({
+        url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/OpenBeerDatabase/FeatureServer/0",
+        outFields: ["*"],
+        definitionExpression: "country = 'United States'",
+        popupTemplate: {
+          title: "{name}",
+          actions: [{
+            id: "find-brewery",
+            image: "beer.png",
+            title: "Brewery Info"
+          }],
+          content: [{
+            type: "fields",
+            fieldInfos: [{
+              fieldName: "name"
+            }, {
+              fieldName: "address1",
+              label: "address"
+            }, {
+              fieldName: "city"
+            }, {
+              fieldName: "state"
+            }, {
+              fieldName: "phone"
+            }, {
+              fieldName: "website"
+            }]
+          }]
+        }
+      });
+
+      map.add(featureLayer);
+
+      view.when(function () {
+        // Watch for when features are selected
+        view.popup.watch("selectedFeature", function (graphic) {
+          if (graphic) {
+            // Set the action's visible property to true if the 'website' field value is not null, 
+            // otherwise set it to false.
+            var graphicTemplate = graphic.getEffectivePopupTemplate();
+            graphicTemplate.actions.items[0].visible = graphic.attributes
+              .website ? true : false;
+          }
+        });
+      });
+      view.when(function () {
+        var popup = view.popup;
+        popup.viewModel.on("trigger-action", function (event) {
+          if (event.action.id === "find-brewery") {
+            var attributes = popup.viewModel.selectedFeature.attributes;
+            // Get the 'website' field attribute
+            var info = attributes.website;
+            // Make sure the 'website' field value is not null
+            if (info) {
+              // Open up a new browser using the URL value in the 'website' field
+              window.open(info.trim());
+            }
+          }
+        });
+      });
+    });
+  </script>
+
+</head>
+
+<body class="light">
+  <div id="viewDiv">
+  </div>
+</body>
+
+</html>
