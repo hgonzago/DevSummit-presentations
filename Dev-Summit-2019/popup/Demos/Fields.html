@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Attachments - popup</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.10/"></script>
+
+</head>
+<style>
+  html,
+  body,
+  #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+<script>
+  require([
+    "esri/Map",
+    "esri/layers/FeatureLayer",
+    "esri/views/MapView",
+    "esri/PopupTemplate"
+  ], function (Map, FeatureLayer, MapView, PopupTemplate) {
+    const defaultSym = {
+      type: "simple-fill", // autocasts as new SimpleFillSymbol
+      outline: {
+        // autocasts as new SimpleLineSymbol
+        color: "#a3acd1",
+        width: 0.5
+      }
+    };
+
+    /******************************************************************
+     *
+     * LayerRenderer example
+     *
+     ******************************************************************/
+
+    const renderer = {
+      type: "simple", // autocasts as new SimpleRenderer
+      symbol: defaultSym,
+      label: "Private school enrollment ratio",
+      visualVariables: [{
+        type: "color",
+        field: "PrivateEnr",
+        stops: [{
+          value: 0.044,
+          color: "#edf8fb",
+          label: "< 0.044"
+        }, {
+          value: 0.059,
+          color: "#b3cde3"
+        }, {
+          value: 0.0748,
+          color: "#8c96c6",
+          label: "0.0748"
+        }, {
+          value: 0.0899,
+          color: "#8856a7"
+        }, {
+          value: 0.105,
+          color: "#994c99",
+          label: "> 0.105"
+        }]
+      }]
+    };
+
+    const centroidRenderer = {
+      type: "simple", // autocasts as new SimpleRenderer
+      symbol: {
+        type: "picture-marker", // autocasts as new SimpleMarkerSymbol
+        url: "http://static.arcgis.com/images/Symbols/Basic/BlueSphere.png",
+        width: "26",
+        height: "26"
+      }
+    };
+
+
+    const privateSchoolsPoint = new FeatureLayer({
+      url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Centroids/FeatureServer/0",
+      renderer: centroidRenderer
+    });
+    // Popup example
+    // Step 1: Create the template 
+    const popupTemplate = new PopupTemplate({
+      title: "Private School enrollment",
+      content: [{
+        // Specify the type of popup element - fields
+        //fieldInfos autocasts
+        type: "fields",
+        fieldInfos: [{
+            fieldName: "state_name",
+            visible: true,
+            label: "State name: "
+          },
+          {
+            fieldName: "PrivateMaj",
+            visible: true,
+            label: "Majority grade level for private schools: "
+          },
+          {
+            fieldName: "PrivateSch",
+            visible: true,
+            label: "Private school ratio to total number of schools: ",
+            format: {
+              places: 2,
+              digitSeparator: true
+            }
+          },
+          {
+            fieldName: "TotalPriva",
+            visible: true,
+            label: "Total number of private schools: "
+          },
+          {
+            fieldName: "Enrollment",
+            visible: true,
+            label: "Total number students enrolled in private schools: "
+          },
+          {
+            fieldName: "PrivateEnr",
+            visible: true,
+            label: "Total number of private school students enrolled in ratio to total student school enrollment: "
+            // format: {
+            //   places: 2,
+            //   digitSeparator: true
+            // }
+          }
+        ]
+      }]
+    });
+
+    const privateSchoolsPoly = new FeatureLayer({
+      url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/PrivateSchoolEnrollmentNoRendering/FeatureServer/0",
+      outFields: ["*"],
+      opacity: 0.8,
+      renderer: renderer,
+      popupTemplate: popupTemplate
+    }); // Set map's basemap 
+    const map = new Map({
+      basemap: "gray-vector",
+      layers: [privateSchoolsPoly, privateSchoolsPoint]
+    });
+
+    const view = new MapView({
+      container: "viewDiv",
+      map: map,
+      zoom: 3,
+      center: [-99.14725260912257, 36.48617178360141],
+      popup: {
+        dockEnabled: true,
+        dockOptions: {
+          buttonEnabled: false,
+          breakpoint: false
+        }
+      }
+    });
+  });
+</script>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
