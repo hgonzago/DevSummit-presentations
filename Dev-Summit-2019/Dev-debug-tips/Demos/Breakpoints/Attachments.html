@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Attachments - popup</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.10/"></script>
+
+</head>
+<style>
+  html,
+  body,
+  #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+<script>
+  require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/support/ContentElement/Attachments",
+      "esri/support/ContentElement/Text"
+    ],
+    function (
+      Map, MapView,
+      FeatureLayer,
+      AttachmentsContentElement,
+      TextContentElement
+    ) {
+      const url =
+        "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Interesting_Places/FeatureServer";
+      const map = new Map({
+        basemap: "hybrid"
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 4,
+        popup: {
+          dockEnabled: true,
+          dockOptions: {
+            // Disables the dock button from the popup
+            buttonEnabled: false,
+            // Ignore the default sizes that trigger responsive docking
+            breakpoint: false,
+          }
+        },
+        center: [-99.14725260912257, 36.48617178360141]
+      });
+      const attachments = new AttachmentsContentElement({
+        displayType: "list"
+      });
+      const text = new TextContentElement();
+      text.text = "{Details}";
+
+      const template = {
+title: "{Name}",
+        content: [text, attachments],
+        lastEditInfoEnabled: false
+      }
+      const featureLayer = new FeatureLayer({
+        url: url,
+        popupTemplate: template
+      });
+
+      map.add(featureLayer);
+
+    });
+</script>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

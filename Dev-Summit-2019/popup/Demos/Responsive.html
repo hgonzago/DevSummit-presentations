@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Responsive widgets - 4.10</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.10/"></script>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/SceneView"
+    ], function (
+      Map,
+      SceneView
+    ) {
+
+      // Create the Map
+      var map = new Map({
+        basemap: "hybrid"
+      });
+
+      // Create the view set the view padding to be 320 px from the right
+      var view = new SceneView({
+        container: "viewDiv",
+        map: map,
+        center: [-74.045459, 40.690083],
+        zoom: 16
+      });
+
+      // clear the view's default UI components if
+      // app is used on a small device
+      view.watch("heightBreakpoint, widthBreakpoint", function () {
+        var ui = view.ui;
+
+        if (view.heightBreakpoint === "xsmall" || view.widthBreakpoint ===
+          "xsmall") {
+          ui.components = [
+            "attribution"
+          ];
+        } else {
+          ui.components = [
+            "attribution",
+            "navigation-toggle",
+            "compass",
+            "zoom"
+          ];
+        }
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
