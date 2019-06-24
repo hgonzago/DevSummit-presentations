@@ -8,7 +8,6 @@ import Expand from "esri/widgets/Expand";
 import BasemapGallery from "esri/widgets/BasemapGallery";
 import Search from "esri/widgets/Search";
 
-
 handleAuthentication();
 
 const map = new WebMap({

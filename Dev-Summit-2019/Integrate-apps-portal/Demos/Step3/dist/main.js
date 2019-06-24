@@ -1,8 +1,8 @@
-define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/identity/OAuthInfo", "esri/identity/IdentityManager"], function (_WebMap, _SceneView, _Portal, _OAuthInfo, _IdentityManager) {
+define(["esri/WebMap", "esri/views/MapView", "esri/portal/Portal", "esri/identity/OAuthInfo", "esri/identity/IdentityManager"], function (_WebMap, _MapView, _Portal, _OAuthInfo, _IdentityManager) {
   "use strict";
 
   _WebMap = _interopRequireDefault(_WebMap);
-  _SceneView = _interopRequireDefault(_SceneView);
+  _MapView = _interopRequireDefault(_MapView);
   _Portal = _interopRequireDefault(_Portal);
   _OAuthInfo = _interopRequireDefault(_OAuthInfo);
   _IdentityManager = _interopRequireDefault(_IdentityManager);
@@ -21,7 +21,7 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/ident
       id: "7761d81ff08e45f2a7f27997e8d3e92d"
     }
   });
-  var view = new _SceneView.default({
+  var view = new _MapView.default({
     map: map,
     zoom: 4,
     center: [-98, 35],
@@ -56,7 +56,7 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/ident
           switch (_context.prev = _context.next) {
             case 0:
               portal = new _Portal.default(); //portal.authMode = "immediate"; // This automaticaly prompts the user to sign in
-              //portal.authMode is automatically 
+              //portal.authMode is automatically
 
               _context.next = 3;
               return portal.load();

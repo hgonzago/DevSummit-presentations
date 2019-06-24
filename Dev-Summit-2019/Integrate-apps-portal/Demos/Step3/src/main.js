@@ -1,5 +1,5 @@
 import WebMap from "esri/WebMap";
-import SceneView from "esri/views/SceneView";
+import SceneView from "esri/views/MapView";
 import Portal from "esri/portal/Portal";
 import OAuthInfo from "esri/identity/OAuthInfo";
 import IdentityManager from "esri/identity/IdentityManager";
@@ -38,7 +38,7 @@ view.when(() => {
 async function loadPortal() {
   const portal = new Portal();
   //portal.authMode = "immediate"; // This automaticaly prompts the user to sign in
-  //portal.authMode is automatically 
+  //portal.authMode is automatically
   await portal.load();
   /* Once portal is loaded set the app title to "Explore Portal" if anonymous
      or set to Explore <portal name> if logged in

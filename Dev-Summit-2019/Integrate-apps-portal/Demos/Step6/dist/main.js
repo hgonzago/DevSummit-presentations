@@ -1,4 +1,4 @@
-define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/identity/OAuthInfo", "esri/identity/IdentityManager", "esri/layers/Layer", "esri/widgets/Expand", "esri/widgets/BasemapGallery", "esri/widgets/Search"], function (_WebMap, _SceneView, _Portal, _OAuthInfo, _IdentityManager, _Layer, _Expand, _BasemapGallery, _Search) {
+define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/identity/OAuthInfo", "esri/identity/IdentityManager", "esri/layers/Layer", "esri/widgets/Expand", "esri/widgets/BasemapGallery", "esri/widgets/Search", "esri/core/urlUtils"], function (_WebMap, _SceneView, _Portal, _OAuthInfo, _IdentityManager, _Layer, _Expand, _BasemapGallery, _Search, urlUtils) {
   "use strict";
 
   _WebMap = _interopRequireDefault(_WebMap);
@@ -10,46 +10,15 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/ident
   _Expand = _interopRequireDefault(_Expand);
   _BasemapGallery = _interopRequireDefault(_BasemapGallery);
   _Search = _interopRequireDefault(_Search);
+  urlUtils = _interopRequireWildcard(urlUtils);
 
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  }
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-  function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-    try {
-      var info = gen[key](arg);
-      var value = info.value;
-    } catch (error) {
-      reject(error);
-      return;
-    }
-    if (info.done) {
-      resolve(value);
-    } else {
-      Promise.resolve(value).then(_next, _throw);
-    }
-  }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  function _asyncToGenerator(fn) {
-    return function () {
-      var self = this,
-        args = arguments;
-      return new Promise(function (resolve, reject) {
-        var gen = fn.apply(self, args);
+  function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-        function _next(value) {
-          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-        }
-
-        function _throw(err) {
-          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-        }
-        _next(undefined);
-      });
-    };
-  }
+  function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
   handleAuthentication();
   var map = new _WebMap.default({
@@ -57,6 +26,7 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/ident
       id: "7761d81ff08e45f2a7f27997e8d3e92d"
     }
   });
+  console.log("loc", urlUtils.urlToObject(document.location.href));
   var view = new _SceneView.default({
     map: map,
     zoom: 4,
@@ -82,42 +52,42 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/ident
 
   function _loadPortal() {
     _loadPortal = _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee(user) {
+      var portal, layerTypes, query, itemResults;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              portal = new _Portal.default();
+              _context.next = 3;
+              return portal.load();
 
-      regeneratorRuntime.mark(function _callee(user) {
-        var portal, layerTypes, query, itemResults;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                portal = new _Portal.default();
-                _context.next = 3;
-                return portal.load();
+            case 3:
+              document.getElementById("title").innerHTML = "Explore ".concat(portal.name ? portal.name : "Portal");
+              addWidgets(portal); // Get a few items from the default portal or get a few
+              // items from logged in user and display as thumbnails in side panel
 
-              case 3:
-                document.getElementById("title").innerHTML = "Explore ".concat(portal.name ? portal.name : "Portal");
-                addWidgets(portal); // Get a few items from the default portal or get a few
-                // items from logged in user and display as thumbnails in side panel
+              layerTypes = '(type:("Feature Collection" OR "Feature Service" OR "Map Service" ) -typekeywords:"Table")  -type:"Code Attachment" -type:"Featured Items" -type:"Symbol Set" -type:"Color Set" -type:"Windows Viewer Add In" -type:"Windows Viewer Configuration" -type:"Map Area" -typekeywords:"MapAreaPackage"';
+              query = user ? "owner:".concat(user, " ").concat(layerTypes) : layerTypes;
+              _context.next = 9;
+              return portal.queryItems({
+                extent: view.extent,
+                query: query
+              });
 
-                layerTypes = '(type:("Feature Collection" OR "Feature Service" OR "Map Service" ) -typekeywords:"Table")  -type:"Code Attachment" -type:"Featured Items" -type:"Symbol Set" -type:"Color Set" -type:"Windows Viewer Add In" -type:"Windows Viewer Configuration" -type:"Map Area" -typekeywords:"MapAreaPackage"';
-                query = user ? "owner:".concat(user, " ").concat(layerTypes) : layerTypes;
-                _context.next = 9;
-                return portal.queryItems({
-                  extent: view.extent,
-                  query: query
-                });
+            case 9:
+              itemResults = _context.sent;
+              // Step 4b: Deal with results
+              displayItems(itemResults.results);
 
-              case 9:
-                itemResults = _context.sent;
-                // Step 4b: Deal with results
-                displayItems(itemResults.results);
-
-              case 11:
-              case "end":
-                return _context.stop();
-            }
+            case 11:
+            case "end":
+              return _context.stop();
           }
-        }, _callee);
-      }));
+        }
+      }, _callee);
+    }));
     return _loadPortal.apply(this, arguments);
   }
 
@@ -164,32 +134,32 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/ident
 
   function _addLayerToMap() {
     _addLayerToMap = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(item) {
-        var layer;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return _Layer.default.fromPortalItem(item);
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee2(item) {
+      var layer;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _Layer.default.fromPortalItem(item);
 
-              case 2:
-                layer = _context2.sent;
-                layer.watch("loadStatus", function (status) {
-                  if (status === "loaded") {
-                    view.goTo(layer.fullExtent);
-                  }
-                });
-                view.map.add(layer);
+            case 2:
+              layer = _context2.sent;
+              layer.watch("loadStatus", function (status) {
+                if (status === "loaded") {
+                  view.goTo(layer.fullExtent);
+                }
+              });
+              view.map.add(layer);
 
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
+            case 5:
+            case "end":
+              return _context2.stop();
           }
-        }, _callee2);
-      }));
+        }
+      }, _callee2);
+    }));
     return _addLayerToMap.apply(this, arguments);
   }
 
@@ -216,40 +186,40 @@ define(["esri/WebMap", "esri/views/SceneView", "esri/portal/Portal", "esri/ident
 
   function _getCredentials() {
     _getCredentials = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3() {
-        var credential,
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee3() {
+      var credential,
           _args3 = arguments;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                credential = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : null;
-                document.getElementById("signInNav").classList.add("hide");
-                document.getElementById("userNav").classList.remove("hide");
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              credential = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : null;
+              document.getElementById("signInNav").classList.add("hide");
+              document.getElementById("userNav").classList.remove("hide");
 
-                if (credential) {
-                  _context3.next = 7;
-                  break;
-                }
+              if (credential) {
+                _context3.next = 7;
+                break;
+              }
 
-                _context3.next = 6;
-                return _IdentityManager.default.getCredential(portalUrl);
+              _context3.next = 6;
+              return _IdentityManager.default.getCredential(portalUrl);
 
-              case 6:
-                credential = _context3.sent;
+            case 6:
+              credential = _context3.sent;
 
-              case 7:
-                loadPortal(credential.userId);
-                document.getElementById("userName").innerHTML = credential.userId;
+            case 7:
+              loadPortal(credential.userId);
+              document.getElementById("userName").innerHTML = credential.userId;
 
-              case 9:
-              case "end":
-                return _context3.stop();
-            }
+            case 9:
+            case "end":
+              return _context3.stop();
           }
-        }, _callee3);
-      }));
+        }
+      }, _callee3);
+    }));
     return _getCredentials.apply(this, arguments);
   }
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script>
+    // configure loader to get modules from (non-CDN) from the correct location
+    var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+    window.dojoConfig = {
+      packages: [{
+        name: "app",
+        location: locationPath + "/app"
+      }]
+    }
+
+  </script>
+  <script src="https://js.arcgis.com/4.10"></script>
+</head>
+
+<body>
+
+</body>
+
+</html>

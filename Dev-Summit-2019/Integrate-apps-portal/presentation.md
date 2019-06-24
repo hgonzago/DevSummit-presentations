@@ -7,6 +7,7 @@
 <br>
  Heather Gonzago and Kelly Hutchins
 
+[https://tinyurl.com/y4krmo4c](https://tinyurl.com/y4krmo4c)
 ----
 
 ### Agenda
@@ -28,7 +29,7 @@
 - Easy to leverage
 - Less code
 - Reusable
-- Organize/Update content centrally 
+- Organize/Update content centrally
 
 ----
 
@@ -40,31 +41,6 @@
 
 ----
 
-### Content: Basic building block for Apps
-</br>
-
-<img src="images/Content-diagram.png" alt="Content"/>
-
-----
-### Advantages of working with AGO/Portal
-
-</br>
-<img style="float: right;" alt="ArcGIS Online/Portal" src="images/PortalIcon.png" width="453" height="344"/>
-
-- Sharing and managing secure resources
-- Data hosting
-- Easy to leverage
-- Less code
-- Reusable
-- Organize/Update content centrally 
-
-----
-### Architecture: Apps + Content
-
-</br>
-<img src="images/Architecture.png" alt="Architecture"/>
-
-----
 ### SDK Resources
 
 <div style="float:left;">
@@ -87,23 +63,23 @@ Guide topic
 ----
 ### Step 1: Setup Authentication
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#registerOAuthInfos" target="_blank">Register the app</a>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 // Create OAuthInfo
   var oauthInfo = new OAuthInfo({
     appId: "enterAppIdHere" // registered app id on AGO
   });
-esriId.registerOAuthInfos([oauthInfo]); 
+esriId.registerOAuthInfos([oauthInfo]);
 </code></pre>
 </br>
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#getCredential" target="_blank">Sign in and get credential</a>
 </br>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
   credential = await IdentityManager.getCredential(portalUrl);
 </code></pre>
 </br>
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#getCredential" target="_blank">Sign out and destroy credentials</a>
 </br>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 IdentityManager.destroyCredentials();
 </code></pre>
 
@@ -227,9 +203,9 @@ Note: Get info about the portal including region, culture, name, thumbnail url a
 ----
 ### [PortalQueryParams](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryParams.html)
 </br>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 // Get a few items from the default portal or get a few
-// items from logged in user and display as thumbnails in side panelconst 
+// items from logged in user and display as thumbnails in side panelconst
 
 const layerTypes = '(type:("Feature Collection" OR "Feature Service" OR "Map Service" )
 -typekeywords:"Table")  -type:"Code Attachment" -type:"Featured Items" -type:"Symbol Set"
@@ -244,7 +220,7 @@ const query = user ? `owner:${user} ${layerTypes}` : layerTypes;
 PortalQueryResult
 [Results](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryResult.html) returned from a portal query
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 const itemResults = await portal.queryItems({
   extent: view.extent,
   query
@@ -261,7 +237,7 @@ const itemResults = await portal.queryItems({
 ----
 ### Step 5a: Setup add layer click handler
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 Array.from(document.getElementsByClassName("add-btn")).forEach(function (element) {
   element.addEventListener("click", () => addLayerToMap({
     id: element.getAttribute("data-item")
@@ -276,7 +252,7 @@ Array.from(document.getElementsByClassName("add-btn")).forEach(function (element
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html#goTo" target="_blank">Zoom to layer when ready</a>
 
 <p></p>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 const layer = await Layer.fromPortalItem(item);
 layer.watch("loadStatus", (status) => {
   if (status === "loaded") {
@@ -299,7 +275,7 @@ view.map.add(layer);
 
 <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapGallery.html" target="_blank">Basemap Gallery</a>
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 const basemapGallery = new BasemapGallery({
   view,
   source: portal
@@ -307,7 +283,7 @@ const basemapGallery = new BasemapGallery({
 </code></pre>
 <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Search.html" target="_blank">Search</a>
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim>
 const search = new Search({
   view,
   portal
@@ -340,7 +316,7 @@ Note: Pass in portal to some widgets to get portal defaults. In this example we'
   - Host your own proxy file
   - Esri proxy -> https://github.com/Esri/resource-proxy
     - DotNet, JSP, and PHP
-  
+
 ----
 
 ### **Tools: AGO Assistant**
