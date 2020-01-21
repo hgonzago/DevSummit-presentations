@@ -1,0 +1,101 @@
+<!doctype html>
+<!-- Copyright (c) 2018 Environmental Systems Research Institute, Inc.
+     Apache-2.0 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/fed-2020.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="img/2020/fed/bg-1.png" data-background-size="cover" style="padding-left: 80px;">
+					<h1 style="text-align: left; font-size: 80px;">Presentation Title</h1>
+					<p style="text-align: left; font-size: 30px;">Name(s)</p>
+					<p style="text-align: left; font-size: 30px;"><a href="https://github.com/handle">@handle</a></p>
+					<p style="text-align: left; font-size: 30px;">slides: <a href="http://bit.ly/abc123"><code>http://bit.ly/abc123</code></a></p>
+					
+					<!-- Add these rows to push your text up so it is not interfering with the event name. Test on your actual projector! -->
+					<p>&nbsp;</p> 
+					<p>&nbsp;</p>
+					<!-- /end spacer rows -->
+				</section>
+				<section data-markdown data-background="img/2020/fed/bg-2.png">
+					<textarea data-template>
+						## Headline Here 2
+
+						* Bullet [points here](http://hakim.se).
+					</textarea>
+				</section>
+
+				<section data-markdown data-background="img/2020/fed/bg-3.png">
+					<textarea data-template>
+						## Headline Here 3
+
+						* Bullet [points here](http://hakim.se).
+					</textarea>
+				</section>
+
+				<section data-markdown data-background="img/2020/fed/bg-4.png">
+					<textarea data-template>
+						## Headline Here 4
+
+						* Bullet [points here](http://hakim.se).
+					</textarea>
+				</section>
+
+				<!-- ESRI LOGO SLIDE: -->
+				<section data-background="img/2020/fed/bg-3.png">
+					<img src="img/esri-science-logo-white.png" class="plain" style="background: none;" />
+				</section>
+
+				<!-- SURVEY SLIDE: -->
+				<section data-markdown data-background="img/2020/fed/bg-rating.png">
+				</section>
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				// This height and width are here for the left-aligned title slide.
+				// If you do not want that, you can remove these two settings and
+				// the presentation will be closer to OOTB-Reveal.js:
+				width: '100%',
+				height: '100%',
+
+				history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Lato', sans-serif;
+$mainColor: #fff;
+$headingFont: 'Lato', sans-serif;
+$headingColor: #fff;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #fff;
+
+@mixin gradient-bg() {
+  /* https://colorzilla.com/gradient-editor/#68c9f9+0,197fcf+34,0a5baf+73,113684+100 */
+  background: #68c9f9; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #68c9f9 0%, #197fcf 34%, #0a5baf 73%, #113684 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  #68c9f9 0%,#197fcf 34%,#0a5baf 73%,#113684 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  #68c9f9 0%,#197fcf 34%,#0a5baf 73%,#113684 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68c9f9', endColorstr='#113684',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+// Background generator
+@mixin bodyBackground() {
+  @include gradient-bg()
+}
+
+
+$linkColor: rgba(192, 232, 255, 1);
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.5);
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
