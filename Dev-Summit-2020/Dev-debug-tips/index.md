@@ -259,12 +259,6 @@ watchUtils.whenFalse(view, 'stationary', function(evt){
 
 ----
 
-<!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
-
-## Questions?
-
-**Help us to improve** by filling out the survey
-
-![Survey](images/survey-slide.png)
+<!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
 
 ----

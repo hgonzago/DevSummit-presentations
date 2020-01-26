@@ -403,8 +403,6 @@ view.ui.add(measurementWidget, "top-right");
 
 ----
 
-<!-- .slide: data-background="../reveal.js/img/bg-rating.jpg" -->
-
-![Survey](Images/bg-rating.png)
+<!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
 
 ---
