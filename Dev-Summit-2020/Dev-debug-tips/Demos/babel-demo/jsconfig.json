@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+  },
+  "typeAcquisition": {
+    "include": ["arcgis-js-api"]
+  },
+  "include": [
+    "./app/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -7,258 +7,275 @@ Kelly Hutchins and Heather Gonzago
 
 ----
 
-### **Overview**
-</br>
-<img style="float: right;" src="images/introMan.png">
+Ever have one of those days where nothing seems to work?
+<img style="height: 625px;" src="images/frustrated.jpeg">
 
-- Setting up your dev environment
-- JSAPI resources and tips
-- Browser tips and tools
-- … and more
+----
+
+You keep staring at the same code, but you have nothing...
+<img src="images/code-flying.jpeg">
+
+----
+
+Debugging tools === Productive programmers
+</br></br>
+<img src="images/debug-happy.png">
+
+----
+
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+</br>
+
+### **Slides and demos can be accessed at:**
+
+## <a href="https://github.com/hgonzago/tips-tricks-webinar" target="_blank">https://github.com/hgonzago/tips-tricks-webinar</a>
+
+----
+
+### **Things we'll discuss**
+</br>
+- Setting up your development environment
+- Troubleshoot web application
+- Popular browser developer tools
+- Give us your questions
 
 ----
 
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
-## **Dev environment setup**
+## **Setting up your development environment**
+
+----
+
+### **JavaScript IDE/Source code editor**
+</br>
+- Lots of choices
+  - Atom, Brackets, WebStorm, Sublime, VSCode
+- Debugging support
+- Extensions
+
+----
+
+### Extensions
+ - Beautify, Prettier 
+ - EsLint
+ - Bracket colorizer
+ - Themes,
+ - GitLens
+    
+
+----
+
+### Extension Demo
+
+<img src="./images/pretty.gif" />
+
+----
+
+
+### Programming font
+</br>
+  - Ligatures
+  - Fira Code, Hasklig, Cascadia  
+
+  <img src="images/ligatures.png"/>
+
+----
+
+### **Code snippets**
+</br>
+<img style="float:right" src="https://github.com/Esri/arcgis-js-vscode-snippets/raw/master/./images/code-snippets.gif" alt="example">
+- Templates for reuseable code
+- [ArcGIS API for JavaScript snippets](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets&ssr=false#overview)
+- [Snippet generator](https://pawelgrzybek.com/snippet-generator/)
+
+----
+
+### ** Emmet**
+- Emmet
+ - Save keystrokes
+ - HTML, CSS abbreviations
+ - [Plug-in page](https://emmet.io/download/)
+
+
+----
+
+### **TypeScript/Babel**
+</br>
+<a href="./Demos/babel-demo/readme.md" target="_blank">
+  <img style="float: right; width:761px; height:447px" src="images/intellisense.png">
+</a>
+- Code assist
+- ES6
+- <a href="https://developers.arcgis.com/javascript/latest/guide/typescript-setup/" target="_blank">TypeScript setup</a>
 
 ----
 
 
 ### **Local web server**
-
 </br>
-<img style="float: right;" src="images/localWebServer.png">
-
-- Visit [http://localhost](http://localhost)
 - Setup IIS or Apache
-- Lightweight http server
-- http-server
-- Express
-- Browser extensions
-
+  - Visit [http://localhost](http://localhost)
+- Local dev server with live reload:
+ - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+ - [local-web-server](https://www.npmjs.com/package/local-web-server)
+ - [http-server](https://www.npmjs.com/package/http-server)
+<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 ----
 
-### **Code Assist**
+### ** Starter App **
 </br>
-<a href="https://github.com/kellyhutchins/DS2018-TipsAndTricks/blob/master/CodeAssistDemos/javascript-demo/README.md" target="_blank">
-  <img style="float: right;" src="images/intellisense.png">
-</a>
 
+<a target="_blank" href="https://jsapi-414-template-app.surge.sh/"><img style="float: right; width:761px; height:447px" src="images/cliapp.png">
+</a>
 - TypeScript
-- JS using Babel
-
-----
-
-### **Emmet**
-</br>
-  <img style="float: right;" src="images/emmet.png">
-
-- Save keystrokes
-- HTML, CSS abbreviations
-- [Plug-in page](https://emmet.io/download/)
-
-----
-
-### **Snippets**
-</br>
-  
-<img style="float: right;" src="images/snippet.png">
-
-- Templates for common code
-- Generate for VSCode, Sublime, Atom
-- [Snippet generator](https://pawelgrzybek.com/snippet-generator/)
-- Extensions for IDE to simplify
-
-----
-
-### **JSAPI Resources**
-
-</br>
-<a href="https://github.com/Esri/jsapi-resources" target="_blank">
-  <img style="float: right;" src="images/jsapiResources.png">
-</a>
-
-- JSHint file
-- TypeScript definition file
-- Build tools, e.g. Bower
-- OAuth Callback
+- WebPack
+- [ArcGIS API JS Template App](https://github.com/odoe/jsapi-cli-template-app)
 
 ----
 
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
-## **Browser Dev Tools**
+## **Troubleshooting your web application**
 
 ----
 
-### **Browser Extensions **
+### **Narrow down the problem**
+</br>
+<img style="float: right"; src="images/onion.jpg">
 
-- WhatFont
-- JSON Viewer
-- JavaScript and CSS Code Beautifier
-- Awesome autocomplete for GitHub
-- Wappalyzer
-- Quick source viewer
+- Is the problem with how the code is written?
+- Is the issue on the client (API) or server?
+- Is there a performance issue?
+- Is the issue with the data?
 
 ----
 
-### **Debugging:  Breakpoints**
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+## **Browser developer tools**
 
+<img style="width: 60%; margin: none; background: none; border: none" src="images/chrome-dev-tools.png">
+
+----
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+### **Debugging: Code issues**
 </br>
+- Common examples of application-level problems:
+  - Modules out of order
+  - View, Map, Layer not ready
+  - Typos (yes, it happens quite often)
 
-</br>
-  <img style="float: right;" src="images/debugger.png">
+----
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+### Modules out of order
 
-- Various ways to pause code
-- Debugger;
-- Blackboxing
+Multiple errors can stem from wrong module order
+<img src="images/module-order.png">
+<img src="images/module-order-2.png">
+
+----
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+### Not getting the results you expect
+
+- Has the view containing the map fully loaded before executing code?
+- Has the <a href= "https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=intro-layers" target="_blank">layer</a> fully loaded before performing specific functions?
+- Wrap problem areas in <code>try/catch</code> statements for troubleshooting
+
+<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+// Create a MapView instance (for 2D viewing)
+var view = new MapView({
+  map: myMap,  // References a Map instance
+  container: "viewDiv"  // References the ID of a DOM element
+});
+
+view.when(function(){
+ // All the resources in the MapView and the map have loaded. Now execute additional processes
+}, function(error){
+ // Use the errback function to handle when the view doesn't load properly
+ console.log("The view's resources failed to load: ", error);
+});
+
+</code></pre>
+
+----
+<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
+### Demo: Debugging code using breakpoints
+
+<img src="images/breakpoints.gif">
 
 ----
 
 ### ** Debugging: Network requests**
 
 </br>
-<img style="float: right;" src="images/network.png">
+<img style="float: right; border: none;" src="images/network.png">
 
 - Records all network requests
-- Helps in troubleshooting, e.g.
-  - Printing issues
-  - Queries
-
+- Inspect network traffic, e.g. 
+  - Search widget not displaying properly
+  - GP task not executing as expected
+  - Querying layer features
+  
 ----
-
-### **Dev Tool Workspaces**
-
-- <a href="https://developers.google.com/web/tools/setup/setup-workflow" target="_blank">FileSystem tab</a>
-  - Targets the dev environment directly
-  - Direct access to development project resources
-  - Good if want to build a site
-- Local overrides
-  - Targets remote website = no direct access to dev environment
-  - Overrides network resources
-  - Persists changes of network resources locally
-  - Good for reconstructing websites
-
-----
-
-### **Mobile emulation**
-
-</br>
-
-</br>
-<a href="https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports" target="_blank">
-  <img style="float: right;" src="images/mobile.png">
-</a>
-
-- Mobile emulation
-- Throttling
-- Sensors - geolocation
-
-
-----
-
-### **Custom formatters**
-
-</br>
-
-- <a href="https://docs.google.com/document/d/1FTascZXT9cxfetuPRT2eXPQKXui4nWFivUnS_335T3U/preview" target="_blank">Controls how object values display</a>
-</br>
-<a href="https://github.com/ycabon/arcgis-js-api-devtools" target="_blank">
-  <img style="float: center;" src="images/formatters.png">
-</a>
-
-----
-
-### **Accessibility**
-
-- Audits
-- Color Contrast
-- Extensions
-- Axe Coconut (similar to Chrome Canary or Firefox nightly)
-- Axe a11y extension
-- ChromeVox screen reader
-
-----
-
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
-</br></br>
-## **JSAPI FAQ**
-
-----
-
-### **Common questions/issues**
-
-- Module Order
-- Mixed content errors
-- CORS enabled servers
-- Use of proxies
-
-- Narrow the problem down
-  - App specific
-  - API specific
-  - Server-side issue
-  - Are any 3rd party resources involved?
-
-----
-
-### **3.x to 4.x Feature Matrix**
-
-<a href="https://developers.arcgis.com/javascript/latest/guide/functionality-matrix/index.html" target="_blank">
- <img style="float:right;" src="images/featurematrix.png">
-</a>
-- Is this functionality in 4.x?
-- 4.x equivalency in 3.x?
-
-----
-
-### **when/then**
-
-<img style="float:center;" src="images/whenthen.png">
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-<script>
-var dojoConfig = {
-  has: {
-    "esri-promise-compatibility": 1
-  }
-};
-</script>
-</code></pre>
 </br>
-Check out our blog -> <a href="https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises" target="_blank>">https://blogs.esri.com/esri/arcgis/2017/12/14/making-better-promises</a>
-
-----
-
-### **Extent changed **
-
 </br>
-- <a href="https://community.esri.com/thread/207901-in-4x-how-to-catch-extent-change-event" target="_blank">4.x extent changed event</a> 
+### Demo: Network requests
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-watchUtils.whenFalse(view, 'stationary', function(evt){
-  if(!view.stationary){
-    watchUtils.whenTrueOnce(view, 'stationary', function(evt){
-      console.log(view.extent);
-    });
-   }
-   else {
-     watchUtils.whenFalseOnce(view, 'interacting', function(evt){
-       console.log(view.extent);
-     });
-   }
-})
-</code></pre>
+----
+<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
+### Console and CSS 
 
 ----
 
-### **AGO Assistant**
 
-<a href="https://ago-assistant.esri.com/" target="_blank">
- <img style="float:center;" src="images/agoassistant.png">
-</a>
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+### Console: Log Messages 
+  - Log your own messages
+  - Warning message logged by JSAPI
+  <a href="./Demos/js-demo/index.html"><img src="images/consoleerror.png"/></a>
+
+
+----
+
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+### Console: Run JavaScript 
+
+ - Execute JavaScript
+ - Check values of objects at an app breakpoint 
+  
+  <a target="_blank" href="https://developers.arcgis.com/javascript/latest/sample-code/webmap-basic/live/index.html"><img src="images/latlong.png"/></a>
 
 ----
 
-<!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
+
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+### CSS: Color Themes 
+</br>
+- Detect user color scheme preferences 
+  - CSS media feature (light, dark, no-preference)
+- Emulate via dev tools
+  
+  <a href="./Demos/js-demo/index.html"><img src="./images/theme-prefs.png" style="float:right;"> </a>
+----
+<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
+#### CSS: Inspect Styles  
+</br>
+- Inspect element css 
+- View classes applied to selected element
+<img src="./images/computed-css.png">
+- <a target="_blank" href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Search.html">View widget styles</a>
 
 ----
+
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+## Questions?
+</br>
+</br>
+- [https://github.com/hgonzago/tips-tricks-webinar](https://github.com/hgonzago/tips-tricks-webinar)
+- [ArcGIS API for JavaScript Snippets](https://github.com/hgonzago/tips-tricks-webinar)
+- [ArcGIS API for JavaScript Guide topic - TypeScript setup](https://developers.arcgis.com/javascript/latest/guide/typescript-setup/)
+
+

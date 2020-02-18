@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Webinar Demo</title>
+  <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+  <!-- apply light or dark color -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/themes/dark/main.css"
+    media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/themes/light/main.css"
+    media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
+  <link rel="stylesheet" href="css/main.css">
+  <script>
+    const locale = "en";
+    const locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+    window.dojoConfig = {
+      locale,
+      packages: [{
+        name: "app",
+        location: locationPath + "/app"
+      }]
+    };
+    // Handle RTL 
+    const htmlNode = document.getElementsByTagName("html")[0];
+    htmlNode.setAttribute("lang", locale);
+    if (locale === "he" || locale === "ar") {
+      htmlNode.setAttribute("dir", "rtl");
+    }
+
+  </script>
+  <script src="https://js.arcgis.com/4.14/"></script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <script>
+    require(["app/main"]);
+
+  </script>
+</body>
+
+</html>

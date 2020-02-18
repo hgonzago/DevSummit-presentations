@@ -1,0 +1,28 @@
+{
+  "name": "babel-demo",
+  "version": "1.0.0",
+  "description": "Demo App",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-modules-amd": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@types/arcgis-js-api": "^4.14.0"
+  },
+  "scripts": {
+    "dev": "babel app --watch --out-dir dist",
+    "build": "babel app --out-dir dist"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-modules-amd"
+    ]
+  },
+  "author": "",
+  "license": "ISC"
+}

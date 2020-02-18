@@ -1,0 +1,13 @@
+html,
+body,
+#viewDiv {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.esri-search__input::-webkit-input-placeholder {
+  color: #bf1c34;
+}
