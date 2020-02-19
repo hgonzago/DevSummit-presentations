@@ -71,8 +71,8 @@ Heather Gonzago and Anne Fitz
 </br>
 </br>
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/css/main.css&quot;&gt; 
-&lt;script src=&quot;https://js.arcgis.com/4.10/&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.15/esri/css/main.css&quot;&gt; 
+&lt;script src=&quot;https://js.arcgis.com/4.15/&quot;&gt;&lt;/script&gt;
 </code></pre>
 
 ----
@@ -81,11 +81,11 @@ Heather Gonzago and Anne Fitz
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/guide/styling/index.html" target="_blank"><b>Main.css</b></a> contains styles for entire API
    <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/css/main.css&quot;&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.15/esri/css/main.css&quot;&gt;
    </code></pre>
 - <b>View.css</b> is smaller in size but better choice if only needing basic CSS (maps, widgets, etc.)
   <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.10/esri/css/view.css&quot;&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.15/esri/css/view.css&quot;&gt;
    </code></pre>
 - Custom CSS (SASS)
 
