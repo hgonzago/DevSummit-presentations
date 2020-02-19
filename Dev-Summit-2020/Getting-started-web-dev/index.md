@@ -30,14 +30,14 @@ Heather Gonzago and Anne Fitz
 
 ### **Where do I begin?**
 <a href="https://developers.arcgis.com/javascript/" target="_blank">
-<img src="Images/landingPage_3.png" alt="JavaScript landing page" width="1284" height="630">
+<img src="Images/landingPage_414.png" alt="JavaScript landing page" width="1284" height="630">
 </a>
 
 ----
 
 ### **Which version of the API is best?**
 <a href="https://developers.arcgis.com/javascript/latest/guide/choose-version/index.html" target="_blank">
-<img src="Images/Choose_Your_Own_Version.png" alt="API functionality matrix" width="1206" height="651">
+<img src="Images/Choose_Your_Own_Version_414.png" alt="API functionality matrix" width="1206" height="651">
 </a>
 
 ----
