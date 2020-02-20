@@ -66,7 +66,7 @@ Heather Gonzago and Anne Fitz
 ### **Get the API**
 </br>
  - <a href="https://developers.arcgis.com/javascript/latest/guide/get-api/index.html#cdn" target="_blank">CDN</a>
- - Custom builds
+ - <a href="https://developers.arcgis.com/javascript/latest/guide/get-api/index.html#using-npm-for-custom-builds" target="_blank">Custom builds</a>
  - <a href="https://developers.arcgis.com/downloads/" target="_blank">Download builds</a>
 </br>
 </br>
@@ -97,7 +97,7 @@ Heather Gonzago and Anne Fitz
 - Separate files or one combined file?
 </br>
 </br>
-<img style="float: center;" src="Images/Step1_Combined.png">
+<img style="float: center;" src="Images/Step1_Combined_414.png">
 
 ----
 
@@ -171,7 +171,7 @@ var view = new MapView();
 view.center = [-100, 40];
 view.zoom = 6;
 </code></pre>
-- <a href="https://developers.arcgis.com/javascript/latest/guide/working-with-props/index.html" target="_blank">Properties</a> can be set in constructor
+- <a href="https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties" target="_blank">Properties</a> can be set in constructor
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 50%;"><code data-trim> 
 var map = new Map({
     basemap: "streets"
@@ -251,7 +251,7 @@ var renderer = new UniqueValueRenderer({
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=layers-portal" target="_blank">Create a layer from portal item sample </a> shows autocasting in action</br>
 </br>
-- Read more about <a href="https://developers.arcgis.com/javascript/latest/guide/autocasting/index.html" target="_blank">Autocasting</a> in the Guide</br>
+- Read more about <a href="https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#autocasting" target="_blank">Autocasting</a> in the Guide</br>
 
 ----
 
