@@ -383,10 +383,9 @@ view.ui.add(measurementWidget, "top-right");
 - SDK Documentation
 - Esri-related training and webinars
 - JavaScript online training, free and not-so-free
-- User forums, e.g. GeoNet, StackExchange, Spatial Community in Slack, etc.</br>
-</br>
+- User forums, e.g. GeoNet, StackExchange, Spatial Community in Slack, etc.
 <a href="https://developers.arcgis.com/javascript/support/index.html" target="_blank">
-<img style="float:center;" src="Images/4dot14_Support.png" alt="4dot10_Support" width="749" height="415"></a>
+<img style="display: block; margin-left: auto; margin-right: auto;" src="Images/4dot14_Support.png" alt="4dot10_Support" width="749" height="415"></a>
 
 ----
 
