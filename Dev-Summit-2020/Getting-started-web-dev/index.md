@@ -58,8 +58,8 @@ Heather Gonzago and Anne Fitz
  - Includes
    - JSHint file
    - TypeScript definition file
-   - Build tools, e.g. Bower
-   - OAuth popup callback
+   - Build tools, e.g. Webpack, npm
+   - <a href="https://developers.arcgis.com/javascript/latest/guide/using-frameworks/" target="_blank">Working with frameworks</a>
 
 ----
 
@@ -93,9 +93,8 @@ Heather Gonzago and Anne Fitz
 
 ### **First steps**
 </br>
-- How will app be written?
+- How will your app be written?
 - Separate files or one combined file?
-</br>
 </br>
 <img style="float: center;" src="Images/Step1_Combined_414.png">
 
@@ -387,7 +386,7 @@ view.ui.add(measurementWidget, "top-right");
 - User forums, e.g. GeoNet, StackExchange, Spatial Community in Slack, etc.</br>
 </br>
 <a href="https://developers.arcgis.com/javascript/support/index.html" target="_blank">
-<img style="float:bottom;" src="Images/4dot10_Support.png" alt="4dot10_Support" width="744" height="384">
+<img style="float:center;" src="Images/4dot14_Support.png" alt="4dot10_Support" width="749" height="415"></a>
 
 ----
 
