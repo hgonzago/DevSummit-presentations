@@ -42,6 +42,7 @@ Debugging tools === Productive programmers
 
 ----
 
+
 <!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
 </br></br>
 ## **Setting up your development environment**
@@ -268,6 +269,24 @@ view.when(function(){
 - <a target="_blank" href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Search.html">View widget styles</a>
 
 ----
+
+<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
+## **ArcGIS API for JavaScript - next **
+
+<a alt="Github repo for feedback-js-api-next" href="https://github.com/Esri/feedback-js-api-next">Esri/feedback-js-api-next</a>
+
+NPM
+```
+ npm install --save arcgis-js-api@next
+```
+CDN 
+```
+<link rel="stylesheet" href="https://js.arcgis.com/next/esri/themes/light/main.css">
+<script src="https://js.arcgis.com/next/"></script>
+
+```
+----
+
 
 <!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
 </br>

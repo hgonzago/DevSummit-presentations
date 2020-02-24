@@ -1,0 +1,12 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "indent": "off",
+    "quotes": "off",
+    "no-console": "off",
+    "no-debugger": "off"
+  }
+}

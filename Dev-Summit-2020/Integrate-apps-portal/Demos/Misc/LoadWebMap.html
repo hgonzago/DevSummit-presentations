@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Demo: Load a WebMap</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/next/esri/css/main.css">
+
+  <script src="https://js.arcgis.com/next/"></script>
+
+  <script>
+    require([
+      "esri/views/MapView",
+      "esri/WebMap",
+      "esri/core/urlUtils",
+      "dojo/domReady!"
+    ], function (
+      MapView, WebMap, urlUtils
+    ) {
+      // Get web map id as url param
+      var id = "c6bac25632d646758823daf07216dda1";
+      var urlObject = urlUtils.urlToObject(document.location.href);
+      if (urlObject && urlObject.query && urlObject.query.webmap) {
+        id = urlObject.query.webmap;
+      }
+
+      var webmap = new WebMap({
+        portalItem: {
+          id: id
+        }
+      });
+
+      var view = new MapView({
+        map: webmap,
+        container: "viewDiv"
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

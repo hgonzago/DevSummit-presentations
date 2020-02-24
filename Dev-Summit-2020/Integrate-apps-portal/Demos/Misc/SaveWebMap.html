@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Save a web map - 4.14</title>
+
+  <!-- Claro theme is used for initial dialog prompting OAuth sign-in-->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/dijit/themes/claro/claro.css" />
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.14/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #sidebarDiv {
+      width: 240px;
+      padding: 10px;
+      height: 200px;
+    }
+
+    #overlayDiv {
+      z-index: 1;
+      position: absolute;
+      margin: auto auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 280px;
+      height: 180px;
+      padding: 10px;
+      background-color: white;
+      border: 1px solid grey;
+      visibility: hidden;
+    }
+
+    input[type="text"] {
+      width: 100%;
+    }
+
+  </style>
+
+  <script>
+    require([
+      "esri/identity/OAuthInfo",
+      "esri/identity/IdentityManager",
+      "esri/views/MapView",
+      "esri/WebMap",
+      "esri/widgets/LayerList",
+      "esri/widgets/BasemapGallery",
+      "esri/widgets/Legend",
+      "esri/widgets/Expand"
+    ], function (
+      OAuthInfo,
+      esriId,
+      MapView,
+      WebMap,
+      LayerList,
+      BasemapGallery,
+      Legend,
+      Expand
+    ) {
+      let webmapId = "06ca49d0ddb447e7817cfc343ca30df9";
+      if (window.location.href.indexOf("?id=") > 0) {
+        webmapId = window.location.href.split("?id=")[1];
+      }
+
+      var info = new OAuthInfo({
+        // Swap this ID out with a registered application ID
+        appId: "q244Lb8gDRgWQ8hM", //"zGdHIKswBSKahg18",
+        // Uncomment the next line and update if using your own portal
+        // portalUrl: "https://<host>:<port>/arcgis"
+        // Uncomment the next line to prevent the user's signed in state from being shared with other apps on the same domain with the same authNamespace value.
+        // authNamespace: "portal_oauth_inline",
+        popup: true
+      });
+      esriId.registerOAuthInfos([info]);
+
+      /************************************************************
+       * Creates a new webmap instance. A WebMap can reference
+       * a PortalItem ID that represents a WebMap saved to
+       * arcgis.com or an on-premise portal.
+       * To load a WebMap from an on-premise portal, set the portal
+       * url with esriConfig.portalUrl (see above).
+       ************************************************************/
+      var map = new WebMap({
+        portalItem: {
+          id: webmapId
+        }
+      });
+
+      var view = new MapView({
+        map: map,
+        container: "viewDiv"
+      });
+
+      // add legend, layerlist and basemapGallery widgets
+      view.ui.add(
+        [
+          new Expand({
+            content: new Legend({
+              view: view
+            }),
+            view: view,
+            group: "top-left"
+          }),
+          new Expand({
+            content: new LayerList({
+              view: view
+            }),
+            view: view,
+            group: "top-left"
+          }),
+          new Expand({
+            content: new BasemapGallery({
+              view: view
+            }),
+            view: view,
+            expandIconClass: "esri-icon-basemap",
+            group: "top-left"
+          })
+        ],
+        "top-left"
+      );
+
+      view.when(function () {
+        // When the webmap and view resolve, display the webmap's
+        // new title in the Div
+        var title = document.getElementById("webMapTitle");
+        var save = document.getElementById("saveWebMap");
+        save.disabled = false;
+        save.addEventListener("click", function () {
+          // item automatically casts to a PortalItem instance by saveAs
+          var item = {
+            title: title.value
+          };
+
+          // Update properties of the WebMap related to the view.
+          // This should be called just before saving a webmap.
+          map.updateFrom(view);
+
+          map
+            .saveAs(item)
+            // Saved successfully
+            .then(function (item) {
+              // link to the newly-created web scene item
+              var itemPageUrl =
+                item.portal.url + "/home/item.html?id=" + item.id;
+              var link =
+                '<a target="_blank" href="' +
+                itemPageUrl +
+                '">' +
+                title.value +
+                "</a>";
+
+              statusMessage(
+                "Save WebMap",
+                "<br> Successfully saved as <i>" + link + "</i>"
+              );
+            })
+            // Save didn't work correctly
+            .catch(function (error) {
+              statusMessage("Save WebMap", "<br> Error " + error);
+            });
+        });
+
+        var overlay = document.getElementById("overlayDiv");
+        var ok = overlay.getElementsByTagName("input")[0];
+
+        function statusMessage(head, info) {
+          document.getElementById("head").innerHTML = head;
+          document.getElementById("info").innerHTML = info;
+          overlay.style.visibility = "visible";
+        }
+
+        ok.addEventListener("click", function () {
+          overlay.style.visibility = "hidden";
+        });
+
+        view.ui.add("sidebarDiv", "top-right");
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <div id="sidebarDiv" class="esri-widget">
+    <h4 class="esri-heading">Save WebMap</h4>
+    <label class="esri-feature-form__label">Title</label>
+    <input id="webMapTitle" type="text" class="esri-input" value="WebMap Title1" /><br /><br />
+    <input id="saveWebMap" type="button" value="Save" disabled class="esri-button" />
+  </div>
+  <div id="overlayDiv" class="esri-widget">
+    <h4 class="esri-heading" id="head"></h4>
+    <label id="info"></label><br /><br />
+    <input type="button" value="OK" class="esri-button" />
+  </div>
+</body>
+
+</html>

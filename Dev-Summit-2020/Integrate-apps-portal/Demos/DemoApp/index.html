@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Explore Portal</title>
+  <link rel="stylesheet"
+    href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.4/css/calcite-web.min.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/next/esri/css/main.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <script>
+    var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+    window.dojoConfig = {
+      packages: [{
+        name: "app",
+        location: locationPath + "/app"
+      }]
+    }
+
+  </script>
+  <script src="https://js.arcgis.com/next"></script>
+</head>
+
+<body>
+  <header class="top-nav fade-in">
+    <div class="grid-container">
+      <div class="column-24">
+        <span id="title" class="top-nav-title"></span>
+        <nav id="signInNav" class="class-top-nav-list right" role="navigation">
+          <button id="signIn" class="top-nav-link margin-left-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon">
+              <path
+                d="M16.005 15.871a5.872 5.872 0 0 0 0-11.742 5.87 5.87 0 1 0 0 11.742zm11.567 7.188C27.27 19.036 20.023 18 16 18c-4.012 0-11.271 1.039-11.573 5.059C4.203 26.11 4.068 28.18 4.02 30h23.96c-.047-1.82-.184-3.891-.407-6.941z" />
+              </svg>
+            Sign In
+          </button>
+        </nav>
+        <!-- User Nav Pattern (after sign-in) -->
+        <nav id="userNav" class="class-top-nav-list right hide" role="navigation">
+          <button id="signOut" class="svg-icon-green top-nav-link margin-left-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon">
+              <path
+                d="M16.005 15.871a5.872 5.872 0 0 0 0-11.742 5.87 5.87 0 1 0 0 11.742zm11.567 7.188C27.27 19.036 20.023 18 16 18c-4.012 0-11.271 1.039-11.573 5.059C4.203 26.11 4.068 28.18 4.02 30h23.96c-.047-1.82-.184-3.891-.407-6.941z" />
+              </svg>
+            <span id="userName" class="username-title"></span>
+          </button>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+  <div class="grid-container view-container">
+    <div id="cardContainer" class="column-8 card-container"></div>
+    <div class="column-16 last-column padding-0">
+      <div id="viewDiv"></div>
+    </div>
+  </div>
+  <script>
+    require(["app/main"]);
+
+  </script>
+</body>
+
+</html>

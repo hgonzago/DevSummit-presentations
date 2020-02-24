@@ -10,7 +10,6 @@ Heather Gonzago and Kelly Hutchins
 ----
 
 ### Agenda
-
 * General AGO/Portal overview
 * Inside web map/scenes
 * Adding ArcGIS Online content to a JavaScript application
@@ -180,13 +179,15 @@ Note: All portal content has a unique identifier
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html" target="_blank">View of the Portal</a>
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#load" target="_blank">Load the Portal's resources</a>
 
-<pre class="small" style="display:inline-block; padding: 5px; margin: 10px auto; float:right;"><code data-trim>
+```
 // Step 3 Connect to portal
 async function loadPortal() {
+
   const portal = new Portal();
   await portal.load();
+
 }
-</code></pre>
+```
 
 Note:Connect to the portal to get a view of the portal from the current users perspective. If anonymous you will get the default view of the portal. If logged in, the info will be specific to the organization the user is a member of.
 
@@ -199,13 +200,13 @@ Note:Connect to the portal to get a view of the portal from the current users pe
  - Portal defaults like basemap, extent
  - [Helper services](https://jsapi.maps.arcgis.com/sharing/rest/portals/self?culture=en)
 
-<center><pre class="med" style="padding: 5px; margin: 10px auto;"><code data-trim>
+```
    portal.load().then(function(){
      const orgName = portal.name;
      const basemapGallery = portal.basemapGalleryGroupQuery
      const defaultExtent = portal.defaultExtent;
   });
-</code></pre></center>
+```
 Note: Get info about the portal including region, culture, name, thumbnail url and default properties like the basemap, extent and galleries
 
 ----
@@ -227,7 +228,8 @@ Note: Get info about the portal including region, culture, name, thumbnail url a
 ----
 ### [PortalQueryParams](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryParams.html)
 </br>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+
+```
 // Get a few items from the default portal or get a few
 // items from logged in user and display as thumbnails in side panelconst 
 
@@ -237,19 +239,19 @@ const layerTypes = '(type:("Feature Collection" OR "Feature Service" OR "Map Ser
 -type:"Map Area" -typekeywords:"MapAreaPackage"';
 
 const query = user ? `owner:${user} ${layerTypes}` : layerTypes;
-</code></pre>
+```
 
 ----
 ### Step 4b: Display query results
 PortalQueryResult
 [Results](https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-PortalQueryResult.html) returned from a portal query
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+```
 const itemResults = await portal.queryItems({
   extent: view.extent,
   query
 });
-</code></pre>
+```
 
 ----
 ### **Demo: Get and display content from Portal**
@@ -261,13 +263,13 @@ const itemResults = await portal.queryItems({
 ----
 ### Step 5a: Setup add layer click handler
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+```
 Array.from(document.getElementsByClassName("add-btn")).forEach(function (element) {
   element.addEventListener("click", () => addLayerToMap({
     id: element.getAttribute("data-item")
   }));
 });
-</code></pre>
+```
 
 ----
 ### Step 5b: Add layer to map
@@ -275,8 +277,7 @@ Array.from(document.getElementsByClassName("add-btn")).forEach(function (element
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#fromPortalItem" target="_blank">Layer.fromPortalItem</a>
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html#goTo" target="_blank">Zoom to layer when ready</a>
 
-<p></p>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+```
 const layer = await Layer.fromPortalItem(item);
 layer.watch("loadStatus", (status) => {
   if (status === "loaded") {
@@ -285,7 +286,7 @@ layer.watch("loadStatus", (status) => {
 });
 view.map.add(layer);
 }
-</code></pre>
+```
 
 ----
 ### **Demo: Add layer to map**
@@ -299,32 +300,70 @@ view.map.add(layer);
 
 <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapGallery.html" target="_blank">Basemap Gallery</a>
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+```
 const basemapGallery = new BasemapGallery({
   view,
   source: portal
 });
-</code></pre>
+```
+
 <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Search.html" target="_blank">Search</a>
 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
+```
 const search = new Search({
   view,
   portal
 });
-</code></pre>
 
+```
 
 Note: Pass in portal to some widgets to get portal defaults. In this example we'll get search locators and the basemap group
 
 ----
-### **Demo: Add widgets**
+
+## More widgets 
+// TODO 
+
+* Scalebar : Use units from portal 
+* TimeSlider: Read web map properties 
+
+
+----
+
+### Demo: Add widgets
 </br>
 <a href="Demos/Step6" target="_blank">
   <img style="float: center;" src="images/step6demo.png">
 </a>
 
 ----
+
+##  Save Content
+
+* <a target="_blank" alt="View Save a web scene sample" href="https://developers.arcgis.com/javascript/latest/sample-code/webscene-save/index.html">Save web scene</a>
+* <a target="_blank" alt="View Save a web map sample" href="https://developers.arcgis.com/javascript/latest/sample-code/webmap-save/index.html">Save web map</a>
+
+
+```
+// Save new 
+  scene.updateFrom(view);
+  scene.saveAs({
+    title: "MyMap",
+    portal:portal
+  });
+```
+
+```
+// overwrite existing 
+scene.updateFrom(view);
+scene.portalItem.title = "Modified WebScene";
+scene.portalItem.portal = portal;
+scene.save();
+
+```
+
+----
+
 ### MISC: Portal API via esriRequest
 
 [Portal REST API](https://developers.arcgis.com/rest/users-groups-and-items/portal.htm)
