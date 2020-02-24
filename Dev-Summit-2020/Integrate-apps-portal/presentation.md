@@ -363,6 +363,15 @@ scene.save();
 
 ----
 
+### Theming 
+
+Apply organization defined branding
+// TODO update app to use org theming in header 
+
+<img src="./images/../Demos/Misc/SharedTheme.png"/>
+
+----
+
 ### MISC: Portal API via esriRequest
 
 [Portal REST API](https://developers.arcgis.com/rest/users-groups-and-items/portal.htm)
