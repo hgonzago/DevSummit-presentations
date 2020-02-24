@@ -322,10 +322,9 @@ Note: Pass in portal to some widgets to get portal defaults. In this example we'
 ----
 
 ## More widgets 
-// TODO 
 
 * Scalebar : Use units from portal 
-* TimeSlider: Read web map properties 
+* <a target="_blank" href="Demos/Misc/TimeSliderWebMap.html">TimeSlider</a>: Read web map properties 
 
 
 ----

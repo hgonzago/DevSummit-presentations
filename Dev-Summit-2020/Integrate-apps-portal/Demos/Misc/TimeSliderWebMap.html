@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Time Slider with web map props</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .time {
+      width: 100vw;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/next/esri/themes/light/main.css" />
+
+  <script src="https://jsdev.arcgis.com/next/"></script>
+
+  <script>
+    require(["esri/views/MapView", "esri/config", "esri/widgets/TimeSlider", "esri/WebMap"], function (MapView,
+      esriConfig, TimeSlider, WebMap) {
+      esriConfig.portalUrl = "https://devext.arcgis.com";
+      const map = new WebMap({
+        portalItem: {
+          id: "592ff4f15f3547539078655e92619556"
+        }
+      });
+      const view = new MapView({
+        map,
+        container: "viewDiv"
+      });
+
+      view.when(() => {
+        // Get the time slider info from the web map 
+        const {
+          fullTimeExtent,
+          currentTimeExtent,
+          numStops,
+          numThumbs,
+          stopDelay,
+          stopInterval
+        } = map.widgets.timeSlider
+
+        // Create a container and add a class for styling 
+        const container = document.createElement("div");
+        container.classList.add("time");
+
+        // Define the stops based on web map settings
+        let stops = null;
+        if (numStops) {
+          stops = {
+            count: numStops
+          }
+        } else if (stopInterval) {
+          stops = {
+            interval: {
+              unit: stopInterval.unit,
+              value: stopInterval.value
+            }
+          }
+        }
+        const mode = "time-window";
+
+        // Create the time slider 
+        const timeSlider = new TimeSlider({
+          fullTimeExtent,
+          view,
+          mode,
+          stops,
+          timeVisible: true,
+          loop: true,
+          container
+        });
+
+        view.ui.add(timeSlider, "bottom-right");
+      });
+
+
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
