@@ -58,7 +58,7 @@ Heather Gonzago and Anne Fitz
  - Includes
    - JSHint file
    - TypeScript definition file
-   - Build tools, e.g. Webpack, npm
+   - Build tools (Webpack, npm)
    - <a href="https://developers.arcgis.com/javascript/latest/guide/using-frameworks/" target="_blank">Working with frameworks</a>
 
 ----
@@ -278,7 +278,7 @@ var renderer = new UniqueValueRenderer({
 ----
 
 ### **PopupTemplate**
-- View has associated popup, can set content here
+- View has a default instance of <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-View.html#popup" target="_blank">popup</a>
 - FeatureLayer has associated <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html" target="_blank">popupTemplate</a> property
 - Position the popup using *dockOptions*
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
@@ -365,7 +365,7 @@ view.when(function){
 
 <pre style="padding: 5px; margin: 10px auto; width: 50%;"><code data-trim>
 view.ui.add(legend, "bottom-left");
-view.ui.add(measurementWidget, "top-right");
+view.ui.add(swipe);
 </code></pre>
 
 ----
@@ -383,7 +383,7 @@ view.ui.add(measurementWidget, "top-right");
 - SDK Documentation
 - Esri-related training and webinars
 - JavaScript online training, free and not-so-free
-- User forums, e.g. GeoNet, StackExchange, Spatial Community in Slack, etc.
+- User forums, e.g. <a href="https://community.esri.com/community/developers/web-developers/arcgis-api-for-javascript/" target="_blank">GeoNet</a>, <a href="https://gis.stackexchange.com/questions/tagged/arcgis-javascript-api-4" target="_blank">StackExchange</a>, <a href="https://thespatialcommunity.org/" target="_blank">Spatial Community in Slack</a>, etc.
 <a href="https://developers.arcgis.com/javascript/support/index.html" target="_blank">
 <img style="display: block; margin-left: auto; margin-right: auto;" src="Images/4dot14_Support.png" alt="4dot10_Support" width="749" height="415"></a>
 
