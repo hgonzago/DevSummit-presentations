@@ -10,16 +10,13 @@ require([
    *
    ******************************************************************/
 
-  var privateSchoolsPoint = new FeatureLayer({
-    // Private Schools centroids
-    url:
-      "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Centroids/FeatureServer/0"
-    // url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/PrivateSchools/FeatureServer/0"
+  // Create the layer
+  var chicagoCrime = new FeatureLayer({
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1"
   });
-
-  var privateSchoolsPoly = new FeatureLayer({
-    url:
-      "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/PrivateSchoolEnrollmentNoRendering/FeatureServer/0"
+  
+  var vehicleThefts = new FeatureLayer({
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/0"
   });
 
   // Set map's basemap
@@ -30,12 +27,13 @@ require([
   view = new MapView({
     container: "viewDiv",
     map: map,
-    zoom: 3,
-    center: [-99.14725260912257, 36.48617178360141]
+    zoom: 10,
+    center: [-87.66453728281347, 41.840392306471315]
   });
 
   view.when(function() {
-    // map.addMany([privateSchoolsPoly, privateSchoolsPoint]);
-    map.add(privateSchoolsPoly);
+    // Add the layer
+    map.add(chicagoCrime);
+    // map.addMany([chicagoCrime, vehicleThefts]);
   });
 });

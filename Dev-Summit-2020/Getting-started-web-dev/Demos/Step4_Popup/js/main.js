@@ -5,84 +5,71 @@ require([
   "esri/views/MapView",
   "esri/PopupTemplate"
 ], function(Map, FeatureLayer, MapView, PopupTemplate) {
-  var defaultSym = {
-    type: "simple-fill", // autocasts as new SimpleFillSymbol
-    outline: {
-      // autocasts as new SimpleLineSymbol
-      color: "#a3acd1",
-      width: 0.5
-    }
-  };
+  // var defaultSym = {
+  //   type: "simple-fill", // autocasts as new SimpleFillSymbol
+  //   outline: {
+  //     // autocasts as new SimpleLineSymbol
+  //     color: "#a3acd1",
+  //     width: 0.5
+  //   }
+  // };
 
-  /******************************************************************
-   *
-   * LayerRenderer example
-   *
-   ******************************************************************/
+  // /******************************************************************
+  //  *
+  //  * LayerRenderer example
+  //  *
+  //  ******************************************************************/
 
-  var renderer = {
-    type: "simple", // autocasts as new SimpleRenderer
-    symbol: defaultSym,
-    label: "Private school enrollment ratio",
-    visualVariables: [
-      {
-        type: "color",
-        field: "PrivateEnr",
-        stops: [
-          {
-            value: 0.044,
-            color: "#edf8fb",
-            label: "< 0.044"
-          },
-          {
-            value: 0.059,
-            color: "#b3cde3"
-          },
-          {
-            value: 0.0748,
-            color: "#8c96c6",
-            label: "0.0748"
-          },
-          {
-            value: 0.0899,
-            color: "#8856a7"
-          },
-          {
-            value: 0.105,
-            color: "#994c99",
-            label: "> 0.105"
-          }
-        ]
-      }
-    ]
-  };
+  // var renderer = {
+  //   type: "simple", // autocasts as new SimpleRenderer
+  //   symbol: defaultSym,
+  //   label: "Private school enrollment ratio",
+  //   visualVariables: [
+  //     {
+  //       type: "color",
+  //       field: "PrivateEnr",
+  //       stops: [
+  //         {
+  //           value: 0.044,
+  //           color: "#edf8fb",
+  //           label: "< 0.044"
+  //         },
+  //         {
+  //           value: 0.059,
+  //           color: "#b3cde3"
+  //         },
+  //         {
+  //           value: 0.0748,
+  //           color: "#8c96c6",
+  //           label: "0.0748"
+  //         },
+  //         {
+  //           value: 0.0899,
+  //           color: "#8856a7"
+  //         },
+  //         {
+  //           value: 0.105,
+  //           color: "#994c99",
+  //           label: "> 0.105"
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // };
 
-  /***********************************
-   *  Create renderer for centroids
-   ************************************/
+  // /***********************************
+  //  *  Create renderer for centroids
+  //  ************************************/
 
-  var centroidRenderer = {
-    type: "simple", // autocasts as new SimpleRenderer
-    symbol: {
-      type: "picture-marker", // autocasts as new SimpleMarkerSymbol
-      url: "http://static.arcgis.com/images/Symbols/Basic/BlueSphere.png",
-      width: "26",
-      height: "26"
-    }
-  };
-
-  /******************************************************************
-   *
-   * Create feature layers
-   *
-   ******************************************************************/
-
-  var privateSchoolsPoint = new FeatureLayer({
-    // Private Schools centroids
-    url:
-      "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Centroids/FeatureServer/0",
-    renderer: centroidRenderer
-  });
+  // var centroidRenderer = {
+  //   type: "simple", // autocasts as new SimpleRenderer
+  //   symbol: {
+  //     type: "picture-marker", // autocasts as new SimpleMarkerSymbol
+  //     url: "http://static.arcgis.com/images/Symbols/Basic/BlueSphere.png",
+  //     width: "26",
+  //     height: "26"
+  //   }
+  // };
 
   /******************************************************************
    *
@@ -92,7 +79,7 @@ require([
 
   // Step 1: Create the template
   var popupTemplate = new PopupTemplate({
-    title: "Private School enrollment",
+    title: "Crime in Tract {NAME}",
     content: [
       {
         // Specify the type of popup element - fields
@@ -100,44 +87,15 @@ require([
         type: "fields",
         fieldInfos: [
           {
-            fieldName: "state_name",
+            fieldName: "CrimeCnt",
             visible: true,
-            label: "State name: "
+            label: "Number of crimes: "
           },
           {
-            fieldName: "PrivateMaj",
+            fieldName: "NarcoticsCnt",
             visible: true,
-            label: "Majority grade level for private schools: "
+            label: "Number of narcotics crimes: "
           },
-          {
-            fieldName: "PrivateSch",
-            visible: true,
-            label: "Private school ratio to total number of schools: ",
-            format: {
-              places: 2,
-              digitSeparator: true
-            }
-          },
-          {
-            fieldName: "TotalPriva",
-            visible: true,
-            label: "Total number of private schools: "
-          },
-          {
-            fieldName: "Enrollment",
-            visible: true,
-            label: "Total number students enrolled in private schools: "
-          },
-          {
-            fieldName: "PrivateEnr",
-            visible: true,
-            label:
-              "Total number of private school students enrolled in ratio to total student school enrollment: ",
-            format: {
-              places: 2,
-              digitSeparator: true
-            }
-          }
         ]
       },
       {
@@ -145,23 +103,12 @@ require([
         // mediainfos autocasts
         mediaInfos: [
           {
-            title: "Ratio private and public school enrollment",
-            type: "pie-chart",
-            caption: "Private school enrollment in comparison to public school",
+            title: "Chicago Crime and Narcotics Rates",
+            type: "column-chart",
+            caption: "Crime rate in comparison to narcotics rate",
             value: {
               theme: "Julie",
-              fields: ["PrivateEnr", "PublicEnro"],
-              tooltipField: "PrivateEnr"
-            }
-          },
-          {
-            title: "Total number of private schools",
-            type: "bar-chart",
-            caption:
-              "Total number of Private Schools in comparison to public. (Does not pertain to student enrollment.)",
-            value: {
-              fields: ["PrivateSch", "PublicScho"],
-              tooltipField: "PrivateSch"
+              fields: ["CrimeRate", "NarcoticsRate"],
             }
           }
         ]
@@ -169,26 +116,33 @@ require([
     ]
   });
 
-  var privateSchoolsPoly = new FeatureLayer({
-    url:
-      "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/PrivateSchoolEnrollmentNoRendering/FeatureServer/0",
-    outFields: ["*"],
-    opacity: 0.8,
-    renderer: renderer,
+  /******************************************************************
+   *
+   * Create feature layers
+   *
+   ******************************************************************/
+
+  var chicagoCrime = new FeatureLayer({
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1",
     popupTemplate: popupTemplate
+  });
+
+  var vehicleThefts = new FeatureLayer({
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/0"
   });
 
   // Set map's basemap
   var map = new Map({
     basemap: "gray-vector",
-    layers: [privateSchoolsPoly, privateSchoolsPoint]
+    // layers: [chicagoCrime, vehicleThefts]
+    layers: [chicagoCrime]
   });
 
   view = new MapView({
     container: "viewDiv",
     map: map,
-    zoom: 3,
-    center: [-99.14725260912257, 36.48617178360141],
+    zoom: 10,
+    center: [-87.66453728281347, 41.840392306471315],
     popup: {
       dockEnabled: true,
       dockOptions: {

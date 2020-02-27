@@ -12,7 +12,7 @@ require([
   // Step 1: Pass a webmap instance to the map and specify the id for the webmap item
   var map = new WebMap({
     portalItem: { // autocast (no need to specifically require it above)
-      id: "b45ec95aeeb743399dd4b557abd20ee2"
+      id: "f9a9a7e3857d4d51b2c801cf8c399add"
     }
   });
 
