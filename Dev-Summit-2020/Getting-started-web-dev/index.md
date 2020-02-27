@@ -70,23 +70,28 @@ Heather Gonzago and Anne Fitz
  - <a href="https://developers.arcgis.com/downloads/" target="_blank">Download builds</a>
 </br>
 </br>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.15/esri/css/main.css&quot;&gt; 
-&lt;script src=&quot;https://js.arcgis.com/4.15/&quot;&gt;&lt;/script&gt;
-</code></pre>
-
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252Fesri%252Fcss%252Fmain.css%2522%253E%2520%250A%253Cscript%2520src%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252F%2522%253E%253C%252Fscript%253E"
+  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 ----
 
 ### CSS
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/guide/styling/index.html" target="_blank"><b>Main.css</b></a> contains styles for entire API
-   <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.15/esri/css/main.css&quot;&gt;
-   </code></pre>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252Fesri%252Fcss%252Fmain.css%2522%253E"
+  style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 - <b>View.css</b> is smaller in size but better choice if only needing basic CSS (maps, widgets, etc.)
-  <pre><code data-trim>
-   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.15/esri/css/view.css&quot;&gt;
-   </code></pre>
+</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252Fesri%252Fcss%252Fview.css%2522%253E"
+  style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 - Custom CSS (SASS)
 
 ----
@@ -111,32 +116,16 @@ Heather Gonzago and Anne Fitz
 ### **MapView**
 
 Visualize data within Map or Scene
-<pre><code data-trim>
-var view = new MapView({
-  container: "viewDiv",
-  map: map,
-  zoom: 12,
-  center: [-117.168, 32.776]
-});
-</code></pre>
-<pre><code data-trim>
-var view = new SceneView({
-  container: "viewDiv",
-  map: map,
-  camera: {
-    heading: 210,
-    tilt: 78,
-    position: {
-      x: -8249335,
-      y: 4832005,
-      z: 50.7,
-      spatialReference: {
-        wkid: 3857
-      }
-    }
-  }
-});
-</code></pre>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520zoom%253A%252012%252C%250A%2520%2520center%253A%2520%255B-117.168%252C%252032.776%255D%250A%257D)%253B"
+  style="transform:scale(1); width:524px; height:573px; border:0; overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520SceneView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520camera%253A%2520%257B%250A%2520%2520%2520%2520heading%253A%2520210%252C%250A%2520%2520%2520%2520tilt%253A%252078%252C%250A%2520%2520%2520%2520position%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520x%253A%2520-8249335%252C%250A%2520%2520%2520%2520%2520%2520y%253A%25204832005%252C%250A%2520%2520%2520%2520%2520%2520z%253A%252050.7%252C%250A%2520%2520%2520%2520%2520%2520spatialReference%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520wkid%253A%25203857%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%250A%2520%2520%257D%250A%257D)%253B"
+  style="transform:scale(1); width:524px; height:573px; border:0; overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
@@ -163,34 +152,28 @@ var view = new SceneView({
 
 ### **Properties**
 - No need for a bunch of get/set statements
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 50%;"><code data-trim> 
-var map = new Map();
-map.basemap = "streets";
-var view = new MapView();
-view.center = [-100, 40];
-view.zoom = 6;
-</code></pre>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520map%2520%253D%2520new%2520Map()%253B%250Amap.basemap%2520%253D%2520%2522streets%2522%253B%250Avar%2520view%2520%253D%2520new%2520MapView()%253B%250Aview.center%2520%253D%2520%255B-100%252C%252040%255D%253B%250Aview.zoom%2520%253D%25206%253B"
+  style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 - <a href="https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties" target="_blank">Properties</a> can be set in constructor
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 50%;"><code data-trim> 
-var map = new Map({
-    basemap: "streets"
-});
-var view = new MapView({
-    map: map, 
-    center: [-100, 40],
-    zoom: 6
-  });
-</code></pre>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520map%2520%253D%2520new%2520Map(%257B%250A%2520%2520basemap%253A%2520%2522streets%2522%250A%257D)%253B%250Avar%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520map%253A%2520map%252C%2520%250A%2520%2520center%253A%2520%255B-100%252C%252040%255D%252C%250A%2520%2520zoom%253A%25206%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
 ### **Watch for property changes**
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Accessor.html#watch" target="_blank">Watch</a> for changes </br>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
-layer.watch("loadStatus", function(status) {// do something});
-</code></pre></br>
-</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=layer.watch(%2522loadStatus%2522%252C%2520function(status)%2520%257B%252F%252F%2520do%2520something%257D)%253B"
+  style="transform:scale(1); width:1024px; height:173px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 - Can also use <a href="https://developers.arcgis.com/javascript/beta/api-reference/esri-core-watchUtils.html" target="_blank">esri/core/watchUtils</a> utility methods</br>
 </br>
 - See this in action with the <a href="https://developers.arcgis.com/javascript/latest/sample-code/watch-for-changes/index.html" target="_blank">Watch for Changes</a> sample
@@ -212,33 +195,30 @@ layer.watch("loadStatus", function(status) {// do something});
 - Sets the rules on how the symbols are used</br>
 </br>
 - Basic coding pattern
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
-var layerRenderer = new UniqueValueRenderer(); // Set the renderer
-var featurelayer = new FeatureLayer({
-    url: "featurelayer url",
-    renderer: layerRenderer // pass in renderer to featurelayer using default properties
-})
-
-</code></pre>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520layerRenderer%2520%253D%2520new%2520UniqueValueRenderer()%253B%2520%252F%252F%2520Set%2520the%2520renderer%250Avar%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522featurelayer%2520url%2522%252C%250A%2520%2520renderer%253A%2520layerRenderer%2520%252F%252F%2520pass%2520in%2520renderer%2520to%2520featurelayer%2520using%2520default%2520properties%250A%257D)"
+  style="transform:scale(1); width:924px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
 ### **Symbols**
 </br>
 - Renderers use symbology, e.g. points, lines, polygons</br>
-</br>
 - Set the renderer's symbol
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-var symbol = new SimpleMarkerSymbol({
-    // set the properties
-});
-</code></pre>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-var renderer = new UniqueValueRenderer({
-    defaultSymbol: symbol, // set symbol for renderer
-    // provide anymore properties necessary
-});
-</code></pre>
+</br>
+</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520symbol%2520%253D%2520new%2520SimpleMarkerSymbol(%257B%250A%2520%2520%252F%252F%2520set%2520the%2520properties%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:220px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520renderer%2520%253D%2520new%2520UniqueValueRenderer(%257B%250A%2520%2520defaultSymbol%253A%2520symbol%252C%2520%252F%252F%2520set%2520symbol%2520for%2520renderer%250A%2520%2520%252F%252F%2520provide%2520anymore%2520properties%2520necessary%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
@@ -281,22 +261,16 @@ var renderer = new UniqueValueRenderer({
 - View has a default instance of <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-View.html#popup" target="_blank">popup</a>
 - FeatureLayer has associated <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html" target="_blank">popupTemplate</a> property
 - Position the popup using *dockOptions*
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-var popupTemplate = new PopupTemplate({
-    title: "Title of the popup",
-    content: [{
-      // Set the content here
-    }]
-});
-</code></pre>
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 75%;"><code data-trim>
-var featurelayer = new FeatureLayer({
-    url: "url to the feature layer",
-    outFields: ["*"],
-    popupTemplate: popupTemplate,
-    renderer: renderer
-});
-</code></pre>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520popupTemplate%2520%253D%2520new%2520PopupTemplate(%257B%250A%2520%2520title%253A%2520%2522Title%2520of%2520the%2520popup%2522%252C%250A%2520%2520content%253A%2520%255B%257B%250A%2520%2520%2520%2520%252F%252F%2520Set%2520the%2520content%2520here%250A%2520%2520%257D%255D%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522url%2520to%2520the%2520feature%2520layer%2522%252C%250A%2520%2520outFields%253A%2520%255B%2522*%2522%255D%252C%250A%2520%2520popupTemplate%253A%2520popupTemplate%252C%250A%2520%2520renderer%253A%2520renderer%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
@@ -313,14 +287,14 @@ var featurelayer = new FeatureLayer({
 </br>
 - Reduces coding effort</br>
 </br>
-- Retains all customizations with rendering, popups, etc. 
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
-var map = new WebMap({
-    portalItem: {
-      id: "b45ec95aeeb743399dd4b557abd20ee2" // Remember portalItem is autocasted
-    }
-});
-</code></pre>
+- Retains all customizations with rendering, popups, etc.
+</br>
+</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520map%2520%253D%2520new%2520WebMap(%257B%250A%2520%2520portalItem%253A%2520%257B%250A%2520%2520%2520%2520id%253A%2520%2522b45ec95aeeb743399dd4b557abd20ee2%2522%2520%252F%252F%2520Remember%2520portalItem%2520is%2520autocasted%250A%2520%2520%257D%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
@@ -336,22 +310,13 @@ var map = new WebMap({
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-widgets" target="_blank">Encapsulates functionality</a>
 - Similar coding pattern across all widgets
-<pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 99%;"><code data-trim>
-view.when(function){
-    var featurelayer = map.layers.getItemAt(1);
-    // 1. Create the widget
-    var legend = new Legend({
-      // 2. Specify properties for widget
-      view: view,
-      layerInfos: [{
-          layer: featurelayer,
-          title: "Name"
-      }]
-  });
-    // 3. Add widget to the view UI
-    view.ui.add(legend, "bottom-left");
-});
-</code></pre>
+</br>
+</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520var%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520var%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250A%257D)%253B"
+  style="transform:scale(1); width:675px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
@@ -361,12 +326,13 @@ view.when(function){
   - Add
   - Move
   - Remove
-  </br>
-
-<pre style="padding: 5px; margin: 10px auto; width: 50%;"><code data-trim>
-view.ui.add(legend, "bottom-left");
-view.ui.add(swipe);
-</code></pre>
+</br>
+</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250Aview.ui.add(swipe)%253B"
+  style="transform:scale(1); width:624px; height:273px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 ----
 
