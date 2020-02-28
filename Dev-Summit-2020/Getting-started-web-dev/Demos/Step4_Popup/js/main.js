@@ -1,75 +1,171 @@
-var view;
 require([
   "esri/Map",
   "esri/layers/FeatureLayer",
   "esri/views/MapView",
   "esri/PopupTemplate"
-], function(Map, FeatureLayer, MapView, PopupTemplate) {
-  // var defaultSym = {
-  //   type: "simple-fill", // autocasts as new SimpleFillSymbol
-  //   outline: {
-  //     // autocasts as new SimpleLineSymbol
-  //     color: "#a3acd1",
-  //     width: 0.5
-  //   }
-  // };
+], function (Map, FeatureLayer, MapView, PopupTemplate) {
 
-  // /******************************************************************
-  //  *
-  //  * LayerRenderer example
-  //  *
-  //  ******************************************************************/
+  /******************************************************************
+   *
+   * LayerRenderer example
+   *
+   ******************************************************************/
 
-  // var renderer = {
-  //   type: "simple", // autocasts as new SimpleRenderer
-  //   symbol: defaultSym,
-  //   label: "Private school enrollment ratio",
-  //   visualVariables: [
-  //     {
-  //       type: "color",
-  //       field: "PrivateEnr",
-  //       stops: [
-  //         {
-  //           value: 0.044,
-  //           color: "#edf8fb",
-  //           label: "< 0.044"
-  //         },
-  //         {
-  //           value: 0.059,
-  //           color: "#b3cde3"
-  //         },
-  //         {
-  //           value: 0.0748,
-  //           color: "#8c96c6",
-  //           label: "0.0748"
-  //         },
-  //         {
-  //           value: 0.0899,
-  //           color: "#8856a7"
-  //         },
-  //         {
-  //           value: 0.105,
-  //           color: "#994c99",
-  //           label: "> 0.105"
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // };
+  /***********************************************************************
+   * Set the visual variables.
+   *
+   * Here we define two visual variables - color and size.
+   * The color visual variable will use color to show the
+   * crime counts per tract. A dark
+   * purple color shows areas of higher amounts of crime. The pale yellow 
+   * areas show areas with a smaller amount of crime.
+   ***********************************************************************/
 
-  // /***********************************
-  //  *  Create renderer for centroids
-  //  ************************************/
+  const colorVisVar = {
+    "type": "color",
+    "field": "CrimeCnt",
+    "valueExpression": null,
+    "stops": [{
+        "value": 0,
+        "color": [
+          255,
+          252,
+          212,
+          255
+        ],
+        "label": "< 0"
+      },
+      {
+        "value": 25,
+        "color": [
+          224,
+          178,
+          193,
+          255
+        ],
+        "label": null
+      },
+      {
+        "value": 50.8,
+        "color": [
+          193,
+          104,
+          173,
+          255
+        ],
+        "label": "50.8"
+      },
+      {
+        "value": 75.9,
+        "color": [
+          123,
+          53,
+          120,
+          255
+        ],
+        "label": null
+      },
+      {
+        "value": 101,
+        "color": [
+          53,
+          2,
+          66,
+          255
+        ],
+        "label": "> 101"
+      }
+    ]
+  };
 
-  // var centroidRenderer = {
-  //   type: "simple", // autocasts as new SimpleRenderer
-  //   symbol: {
-  //     type: "picture-marker", // autocasts as new SimpleMarkerSymbol
-  //     url: "http://static.arcgis.com/images/Symbols/Basic/BlueSphere.png",
-  //     width: "26",
-  //     height: "26"
-  //   }
-  // };
+  /***********************************************************************
+   * The size visual variable will be defined based on the narcotic counts
+   * within this tract.
+   ***********************************************************************/
+
+  const sizeVisVar = {
+    "type": "size",
+    "field": "NarcoticsCnt",
+    "valueExpression": null,
+    "valueUnit": "unknown",
+    "minSize": {
+      "type": "size",
+      "valueExpression": "$view.scale",
+      "stops": [{
+          "value": 1128,
+          "size": 12
+        },
+        {
+          "value": 2256,
+          "size": 12
+        },
+        {
+          "value": 288896,
+          "size": 3
+        },
+        {
+          "value": 2311162,
+          "size": 3
+        },
+        {
+          "value": 97989703,
+          "size": 1.5
+        }
+      ]
+    },
+    "maxSize": {
+      "type": "size",
+      "valueExpression": "$view.scale",
+      "stops": [{
+          "value": 1128,
+          "size": 60
+        },
+        {
+          "value": 2256,
+          "size": 60
+        },
+        {
+          "value": 288896,
+          "size": 37.5
+        },
+        {
+          "value": 2311162,
+          "size": 37.5
+        },
+        {
+          "value": 97989703,
+          "size": 18.75
+        }
+      ]
+    },
+    "minDataValue": 0,
+    "maxDataValue": 378
+  };
+
+  /***********************************************************************
+   * Define a simple renderer and set the visual variables.
+   *
+   * Even though the features in this layer are polygons, we will use a
+   * SimpleMarkerSymbol to symbolize them. This will allow us to use the
+   * size visual variable in the renderer.
+   ***********************************************************************/
+
+  const renderer = {
+    type: "simple", // autocasts as new SimpleRenderer()
+    // Define a default marker symbol with a small outline
+    symbol: {
+      type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
+      outline: {
+        // autocasts as new SimpleLineSymbol()
+        color: [128, 128, 128],
+        width: 0.5
+      }
+    },
+    label: "test",
+    // Set the color and size visual variables on the renderer
+    visualVariables: [colorVisVar, sizeVisVar]
+  };
+
 
   /******************************************************************
    *
@@ -80,13 +176,11 @@ require([
   // Step 1: Create the template
   var popupTemplate = new PopupTemplate({
     title: "Crime in Tract {NAME}",
-    content: [
-      {
+    content: [{
         // Specify the type of popup element - fields
         //fieldInfos autocasts
         type: "fields",
-        fieldInfos: [
-          {
+        fieldInfos: [{
             fieldName: "CrimeCnt",
             visible: true,
             label: "Number of crimes: "
@@ -101,17 +195,15 @@ require([
       {
         type: "media",
         // mediainfos autocasts
-        mediaInfos: [
-          {
-            title: "Chicago Crime and Narcotics Rates",
-            type: "column-chart",
-            caption: "Crime rate in comparison to narcotics rate",
-            value: {
-              theme: "Julie",
-              fields: ["CrimeRate", "NarcoticsRate"],
-            }
+        mediaInfos: [{
+          title: "Chicago Crime and Narcotics Rates",
+          type: "column-chart",
+          caption: "Crime rate in comparison to narcotics rate",
+          value: {
+            theme: "Julie",
+            fields: ["CrimeRate", "NarcoticsRate"],
           }
-        ]
+        }]
       }
     ]
   });
@@ -124,7 +216,9 @@ require([
 
   var chicagoCrime = new FeatureLayer({
     url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1",
-    popupTemplate: popupTemplate
+    popupTemplate: popupTemplate,
+    outFields: ["*"],
+    renderer: renderer
   });
 
   var vehicleThefts = new FeatureLayer({
@@ -138,7 +232,7 @@ require([
     layers: [chicagoCrime]
   });
 
-  view = new MapView({
+  const view = new MapView({
     container: "viewDiv",
     map: map,
     zoom: 10,
