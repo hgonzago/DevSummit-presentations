@@ -1,17 +1,8 @@
-var view;
 require([
   "esri/Map",
   "esri/layers/FeatureLayer",
   "esri/views/MapView"
-], function(Map, FeatureLayer, MapView) {
-  var defaultSym = {
-    type: "simple-fill", // autocasts as new SimpleFillSymbol()
-    outline: {
-      // autocasts as new SimpleLineSymbol()
-      color: "#a3acd1",
-      width: 0.5
-    }
-  };
+], function (Map, FeatureLayer, MapView) {
 
   /******************************************************************
    *
@@ -19,98 +10,190 @@ require([
    *
    ******************************************************************/
 
-  // Step 1: Create individual symbols to represent each unique value
+  /***********************************************************************
+   * Set the visual variables.
+   *
+   * Here we define two visual variables - color and size.
+   * The color visual variable will use color to show the
+   * crime counts per tract. A dark
+   * purple color shows areas of higher amounts of crime. The pale yellow 
+   * areas show areas with a smaller amount of crime.
+   ***********************************************************************/
 
-  var renderer = {
-    type: "simple", // autocasts as new SimpleRenderer()
-    symbol: defaultSym,
-    label: "Private school enrollment ratio",
-    visualVariables: [
+  const colorVisVar = {
+    "type": "color",
+    "field": "CrimeCnt",
+    "valueExpression": null,
+    "stops": [{
+        "value": 0,
+        "color": [
+          255,
+          252,
+          212,
+          255
+        ],
+        "label": "< 0"
+      },
       {
-        type: "color",
-        field: "PrivateEnr",
-        stops: [
-          {
-            value: 0.044,
-            color: "#edf8fb",
-            label: "< 0.044"
-          },
-          {
-            value: 0.059,
-            color: "#b3cde3"
-          },
-          {
-            value: 0.0748,
-            color: "#8c96c6",
-            label: "0.0748"
-          },
-          {
-            value: 0.0899,
-            color: "#8856a7"
-          },
-          {
-            value: 0.105,
-            color: "#994c99",
-            label: "> 0.105"
-          }
-        ]
+        "value": 25,
+        "color": [
+          224,
+          178,
+          193,
+          255
+        ],
+        "label": null
+      },
+      {
+        "value": 50.8,
+        "color": [
+          193,
+          104,
+          173,
+          255
+        ],
+        "label": "50.8"
+      },
+      {
+        "value": 75.9,
+        "color": [
+          123,
+          53,
+          120,
+          255
+        ],
+        "label": null
+      },
+      {
+        "value": 101,
+        "color": [
+          53,
+          2,
+          66,
+          255
+        ],
+        "label": "> 101"
       }
     ]
   };
 
-  /***********************************
-   *  Create renderer for centroids
-   ************************************/
+  /***********************************************************************
+   * The size visual variable will be defined based on the narcotic counts
+   * within this tract.
+   ***********************************************************************/
 
-  var centroidRenderer = {
-    type: "simple", // autocasts as new SimpleRenderer()
-    symbol: {
-      type: "picture-marker", // autocasts as new SimpleMarkerSymbol()
-      url: "http://static.arcgis.com/images/Symbols/Basic/BlueSphere.png",
-      width: "26",
-      height: "26"
-    }
+  const sizeVisVar = {
+    "type": "size",
+    "field": "NarcoticsCnt",
+    "valueExpression": null,
+    "valueUnit": "unknown",
+    "minSize": {
+      "type": "size",
+      "valueExpression": "$view.scale",
+      "stops": [{
+          "value": 1128,
+          "size": 12
+        },
+        {
+          "value": 2256,
+          "size": 12
+        },
+        {
+          "value": 288896,
+          "size": 3
+        },
+        {
+          "value": 2311162,
+          "size": 3
+        },
+        {
+          "value": 97989703,
+          "size": 1.5
+        }
+      ]
+    },
+    "maxSize": {
+      "type": "size",
+      "valueExpression": "$view.scale",
+      "stops": [{
+          "value": 1128,
+          "size": 60
+        },
+        {
+          "value": 2256,
+          "size": 60
+        },
+        {
+          "value": 288896,
+          "size": 37.5
+        },
+        {
+          "value": 2311162,
+          "size": 37.5
+        },
+        {
+          "value": 97989703,
+          "size": 18.75
+        }
+      ]
+    },
+    "minDataValue": 0,
+    "maxDataValue": 378
   };
+
+  /***********************************************************************
+   * Define a simple renderer and set the visual variables.
+   *
+   * Even though the features in this layer are polygons, we will use a
+   * SimpleMarkerSymbol to symbolize them. This will allow us to use the
+   * size visual variable in the renderer.
+   ***********************************************************************/
+
+  const renderer = {
+    type: "simple", // autocasts as new SimpleRenderer()
+    // Define a default marker symbol with a small outline
+    symbol: {
+      type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
+      outline: {
+        // autocasts as new SimpleLineSymbol()
+        color: [128, 128, 128],
+        width: 0.5
+      }
+    },
+    label: "test",
+    // Set the color and size visual variables on the renderer
+    visualVariables: [colorVisVar, sizeVisVar]
+  };
+
 
   /******************************************************************
    *
-   * Create feature layers
+   * Add featurelayers to the map example
    *
    ******************************************************************/
 
-  var privateSchoolsPoint = new FeatureLayer({
-    // Private Schools centroids
-    url:
-      "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Centroids/FeatureServer/0",
-    renderer: centroidRenderer
-  });
-
-  var privateSchoolsPoly = new FeatureLayer({
-    // Private schools per state
-    // layer with rendering
-    // url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/OverlaySchools/FeatureServer/0"
-    // layer without rendering
-    url:
-      "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/PrivateSchoolEnrollmentNoRendering/FeatureServer/0",
+  // Create the layer
+  const chicagoCrime = new FeatureLayer({
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1",
     outFields: ["*"],
-    opacity: 0.8,
-    renderer: renderer
+    renderer: renderer // Add the renderer to the feature layer
   });
 
   // Set map's basemap
-  var map = new Map({
+  const map = new Map({
     basemap: "gray-vector"
   });
 
-  view = new MapView({
+  const view = new MapView({
     container: "viewDiv",
     map: map,
-    zoom: 3,
-    center: [-99.14725260912257, 36.48617178360141]
+    zoom: 10,
+    center: [-87.66453728281347, 41.840392306471315]
   });
 
-  view.when(function() {
-    map.addMany([privateSchoolsPoly, privateSchoolsPoint]);
-    // map.add(privateSchoolsPoly);
+  view.when(function () {
+    // Add the layer
+    map.add(chicagoCrime);
+    // map.addMany([chicagoCrime, vehicleThefts]);
   });
 });
