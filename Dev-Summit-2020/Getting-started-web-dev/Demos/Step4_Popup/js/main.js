@@ -214,19 +214,19 @@ require([
    *
    ******************************************************************/
 
-  var chicagoCrime = new FeatureLayer({
+  const chicagoCrime = new FeatureLayer({
     url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1",
     popupTemplate: popupTemplate,
     outFields: ["*"],
     renderer: renderer
   });
 
-  var vehicleThefts = new FeatureLayer({
-    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/0"
-  });
+  // const vehicleThefts = new FeatureLayer({
+  //   url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/0"
+  // });
 
   // Set map's basemap
-  var map = new Map({
+  const map = new Map({
     basemap: "gray-vector",
     // layers: [chicagoCrime, vehicleThefts]
     layers: [chicagoCrime]
