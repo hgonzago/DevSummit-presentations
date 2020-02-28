@@ -5,8 +5,6 @@ require([
   "esri/widgets/Swipe",
 ], function(WebMap, MapView, Legend, Swipe) {
 
-  var activeWidget = null;
-
   var map = new WebMap({
     portalItem: {
       // autocast
@@ -25,6 +23,7 @@ require([
   view.when(function() {
     var chicagoCrime = map.layers.getItemAt(0);
     var vehicles = map.layers.getItemAt(1);
+    vehicles.visible = true;
     // Step 1: Create the widget
     var legend = new Legend({
       // Step 2: Specify any additional properties for the legend. In this case,
@@ -34,14 +33,19 @@ require([
         {
           layer: chicagoCrime,
           title: "Chicago Crime Tracts"
+        },
+        {
+          layer: vehicles,
+          title: "Vehicle Thefts"
         }
       ]
     });
 
     var swipe = new Swipe({
       view: view,
-      leadingLayers: [vehicles],
-      position: 55
+      leadingLayers: [chicagoCrime],
+      trailingLayers: [vehicles],
+      position: 45
     });
     
     // Step 3: Add the widget to the view's UI, specify the docking position as well

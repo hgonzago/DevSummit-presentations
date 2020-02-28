@@ -244,7 +244,7 @@ Visualize data within Map or Scene
 
 ### **Map interaction using popups**
 </br>
-<img style="float: right;" src="Images/popupcombined.png">
+<img style="float: right;" src="Images/popup.png">
 
 - Responds to mouse clicks
 </br></br>
@@ -301,7 +301,7 @@ Visualize data within Map or Scene
 ### **Demo: Add a web map to an application**
 </br>
 <a href="Demos/Step5_Webmap/" target="_blank">
-  <img style="float: center;" src="Images/Step6_Demo.png">
+  <img style="float: center;" src="Images/Step5_Demo.png">
 </a>
 
 ----
@@ -339,7 +339,7 @@ Visualize data within Map or Scene
 ### **Demo: Add widgets to the application**
 </br>
 <a href="Demos/Step6_Widgets/" target="_blank">
-  <img style="float: center;" src="Images/Step7_Demo.png">
+  <img style="float: center;" src="Images/Step6_Demo.png">
 </a>
 
 ----
