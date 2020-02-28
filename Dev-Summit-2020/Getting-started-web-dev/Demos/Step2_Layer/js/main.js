@@ -1,4 +1,3 @@
-var view;
 require([
   "esri/Map",
   "esri/layers/FeatureLayer",
@@ -11,20 +10,22 @@ require([
    ******************************************************************/
 
   // Create the layer
-  var chicagoCrime = new FeatureLayer({
+  const chicagoCrime = new FeatureLayer({
     url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1"
   });
   
-  var vehicleThefts = new FeatureLayer({
-    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/0"
-  });
+  // 2 - This additional point layer shows time aware data used for the
+  //     TimeSlider
+  // var vehicleThefts = new FeatureLayer({
+  //   url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/0"
+  // });
 
   // Set map's basemap
-  var map = new Map({
+  const map = new Map({
     basemap: "gray-vector"
   });
 
-  view = new MapView({
+  const view = new MapView({
     container: "viewDiv",
     map: map,
     zoom: 10,

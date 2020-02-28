@@ -1,4 +1,3 @@
-var view;
 require(["esri/Map", "esri/views/MapView"], function (
   Map,
   MapView
@@ -14,7 +13,7 @@ require(["esri/Map", "esri/views/MapView"], function (
   // osm, dark-gray-vector, gray-vector, streets-vector, topo-vector, streets-night-vector
   // streets-relief-vector, streets-navigation-vector
 
-  var map = new Map({
+  const map = new Map({
     basemap: "gray-vector"
   });
 
