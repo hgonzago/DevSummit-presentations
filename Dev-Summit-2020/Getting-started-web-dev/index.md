@@ -105,27 +105,32 @@ Heather Gonzago and Anne Fitz
 
 ----
 
+### **MapView**
+
+Visualize data within Map or Scene
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=24px&ph=34px&ln=false&fl=1&fm=Hack&fs=18px&lh=133%25&si=false&es=4x&wm=false&code=%2520%2520const%2520map%2520%253D%2520new%2520Map(%257B%250A%2520%2520%2520%2520basemap%253A%2520%2522gray-vector%2522%250A%2520%2520%257D)%253B"
+  style="transform:scale(1); width:524px; height:230px; border:0; overflow:hidden; display:block; margin-left:150px;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520zoom%253A%252012%252C%250A%2520%2520center%253A%2520%255B-117.168%252C%252032.776%255D%250A%257D)%253B"
+  style="transform:scale(1); width:524px; height:286px; border:0; overflow:hidden; display:block; margin-left:150px;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520SceneView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520camera%253A%2520%257B%250A%2520%2520%2520%2520heading%253A%2520210%252C%250A%2520%2520%2520%2520tilt%253A%252078%252C%250A%2520%2520%2520%2520position%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520x%253A%2520-8249335%252C%250A%2520%2520%2520%2520%2520%2520y%253A%25204832005%252C%250A%2520%2520%2520%2520%2520%2520z%253A%252050.7%252C%250A%2520%2520%2520%2520%2520%2520spatialReference%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520wkid%253A%25203857%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%250A%2520%2520%257D%250A%257D)%253B"
+  style="transform:scale(1); width:524px; height:573px; border:0; overflow:hidden; float: right; margin-top:-515px; margin-right:150px;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+----
+
 ### **Demo: Make a map**
 </br>
 <a href="Demos/Step1_Map/" target="_blank">
   <img style="float: center;" src="Images/Step1_Demo.png">
 </a>
-
-----
-
-### **MapView**
-
-Visualize data within Map or Scene
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520zoom%253A%252012%252C%250A%2520%2520center%253A%2520%255B-117.168%252C%252032.776%255D%250A%257D)%253B"
-  style="transform:scale(1); width:524px; height:573px; border:0; overflow:hidden;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520SceneView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520camera%253A%2520%257B%250A%2520%2520%2520%2520heading%253A%2520210%252C%250A%2520%2520%2520%2520tilt%253A%252078%252C%250A%2520%2520%2520%2520position%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520x%253A%2520-8249335%252C%250A%2520%2520%2520%2520%2520%2520y%253A%25204832005%252C%250A%2520%2520%2520%2520%2520%2520z%253A%252050.7%252C%250A%2520%2520%2520%2520%2520%2520spatialReference%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520wkid%253A%25203857%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%250A%2520%2520%257D%250A%257D)%253B"
-  style="transform:scale(1); width:524px; height:573px; border:0; overflow:hidden;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
 
 ----
 
@@ -357,13 +362,13 @@ Visualize data within Map or Scene
 
 ### **Additional Sessions (Introduction)**
 
-<a><img style="float:bottom;" src="Images/Intro_Sessions_2019.png" alt="Introduction_Sessions"</a>
+<a><img style="float:bottom;" src="Images/Intro_Sessions_2020.png" alt="Introduction_Sessions"</a>
 
 ----
 
 ### **Additional Sessions (Visualization)**
 
-<a><img style="float:bottom;" src="Images/Advanced_Sessions_2019.png" alt="Advanced_Sessions"</a>
+<a><img style="float:bottom;" src="Images/Advanced_Sessions_2020.png" alt="Advanced_Sessions"</a>
 
 ----
 
