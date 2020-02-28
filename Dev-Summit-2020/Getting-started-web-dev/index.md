@@ -368,7 +368,7 @@ Visualize data within Map or Scene
 
 ### **Additional Sessions (Visualization)**
 
-<a><img style="float:bottom;" src="Images/Advanced_Sessions_2020.png" alt="Advanced_Sessions"</a>
+<a><img style="float:bottom;" src="Images/Advanced_sessions_2020.png" alt="Advanced_Sessions"</a>
 
 ----
 
