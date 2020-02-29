@@ -10,13 +10,13 @@ require([
    ******************************************************************/
 
   // Step 1: Pass a webmap instance to the map and specify the id for the webmap item
-  var map = new WebMap({
+  const map = new WebMap({
     portalItem: { // autocast (no need to specifically require it above)
       id: "f9a9a7e3857d4d51b2c801cf8c399add"
     }
   });
 
-  var view = new MapView({
+  const view = new MapView({
     container: "viewDiv",
     // Step 2: Set the view's map to that of the specified webmap above
     map: map
