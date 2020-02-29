@@ -85,7 +85,7 @@ require([
 
   const sizeVisVar = {
     "type": "size",
-    "field": "NarcoticsCnt",
+    "field": "NarcoticsC",
     "valueExpression": null,
     "valueUnit": "unknown",
     "minSize": {
@@ -186,7 +186,7 @@ require([
             label: "Number of crimes: "
           },
           {
-            fieldName: "NarcoticsCnt",
+            fieldName: "NarcoticsC",
             visible: true,
             label: "Number of narcotics crimes: "
           },
@@ -215,7 +215,7 @@ require([
    ******************************************************************/
 
   const chicagoCrime = new FeatureLayer({
-    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1",
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Chicago_Crime_Tracts/FeatureServer/0",
     popupTemplate: popupTemplate,
     outFields: ["*"],
     renderer: renderer

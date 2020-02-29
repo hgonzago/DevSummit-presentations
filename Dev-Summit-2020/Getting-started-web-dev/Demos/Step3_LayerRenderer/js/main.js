@@ -84,7 +84,7 @@ require([
 
   const sizeVisVar = {
     "type": "size",
-    "field": "NarcoticsCnt",
+    "field": "NarcoticsC",
     "valueExpression": null,
     "valueUnit": "unknown",
     "minSize": {
@@ -174,7 +174,7 @@ require([
 
   // Create the layer
   const chicagoCrime = new FeatureLayer({
-    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1",
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Chicago_Crime_Tracts/FeatureServer/0",
     outFields: ["*"],
     renderer: renderer // Add the renderer to the feature layer
   });

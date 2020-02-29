@@ -218,7 +218,7 @@ require([
    ******************************************************************/
 
   const chicagoCrime = new FeatureLayer({
-    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/ChicagoCrime/FeatureServer/1",
+    url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Chicago_Crime_Tracts/FeatureServer/0",
     popupTemplate: popupTemplate,
     outFields: ["*"],
     renderer: renderer
