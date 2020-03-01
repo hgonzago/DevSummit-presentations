@@ -363,10 +363,9 @@ scene.save();
 
 ----
 
-### Theming 
+### Step 7: Theming 
 
 Apply organization defined branding
-// TODO update app to use org theming in header 
 
 <img src="./images/../Demos/Misc/SharedTheme.png"/>
 
