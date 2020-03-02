@@ -174,7 +174,7 @@ require([
    ******************************************************************/
 
   // Step 1: Create the template
-  var popupTemplate = new PopupTemplate({
+  const popupTemplate = new PopupTemplate({
     title: "Crime in Tract {NAME}",
     content: [{
         // Specify the type of popup element - fields

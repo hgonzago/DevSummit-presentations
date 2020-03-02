@@ -92,7 +92,7 @@ Heather Gonzago and Anne Fitz
   style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
-- Custom CSS (SASS)
+- <a href="https://developers.arcgis.com/javascript/latest/guide/styling/#custom-css-using-sass" target="_blank">Custom CSS (SASS)</a>
 
 ----
 
@@ -114,12 +114,12 @@ Visualize data within Map or Scene
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520zoom%253A%252012%252C%250A%2520%2520center%253A%2520%255B-117.168%252C%252032.776%255D%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520zoom%253A%252012%252C%250A%2520%2520center%253A%2520%255B-117.168%252C%252032.776%255D%250A%257D)%253B"
   style="transform:scale(1); width:524px; height:286px; border:0; overflow:hidden; display:block; margin-left:150px;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520view%2520%253D%2520new%2520SceneView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520camera%253A%2520%257B%250A%2520%2520%2520%2520heading%253A%2520210%252C%250A%2520%2520%2520%2520tilt%253A%252078%252C%250A%2520%2520%2520%2520position%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520x%253A%2520-8249335%252C%250A%2520%2520%2520%2520%2520%2520y%253A%25204832005%252C%250A%2520%2520%2520%2520%2520%2520z%253A%252050.7%252C%250A%2520%2520%2520%2520%2520%2520spatialReference%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520wkid%253A%25203857%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%250A%2520%2520%257D%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520view%2520%253D%2520new%2520SceneView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520camera%253A%2520%257B%250A%2520%2520%2520%2520heading%253A%2520210%252C%250A%2520%2520%2520%2520tilt%253A%252078%252C%250A%2520%2520%2520%2520position%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520x%253A%2520-8249335%252C%250A%2520%2520%2520%2520%2520%2520y%253A%25204832005%252C%250A%2520%2520%2520%2520%2520%2520z%253A%252050.7%252C%250A%2520%2520%2520%2520%2520%2520spatialReference%253A%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520wkid%253A%25203857%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%250A%2520%2520%257D%250A%257D)%253B"
   style="transform:scale(1); width:524px; height:573px; border:0; overflow:hidden; float: right; margin-top:-515px; margin-right:150px;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -160,13 +160,13 @@ Visualize data within Map or Scene
 ### **Properties**
 - No need for a bunch of get/set statements
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520map%2520%253D%2520new%2520Map()%253B%250Amap.basemap%2520%253D%2520%2522streets%2522%253B%250Avar%2520view%2520%253D%2520new%2520MapView()%253B%250Aview.center%2520%253D%2520%255B-100%252C%252040%255D%253B%250Aview.zoom%2520%253D%25206%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520map%2520%253D%2520new%2520Map()%253B%250Amap.basemap%2520%253D%2520%2522streets%2522%253B%250Aconst%2520view%2520%253D%2520new%2520MapView()%253B%250Aview.center%2520%253D%2520%255B-100%252C%252040%255D%253B%250Aview.zoom%2520%253D%25206%253B"
   style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 - <a href="https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties" target="_blank">Properties</a> can be set in constructor
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520map%2520%253D%2520new%2520Map(%257B%250A%2520%2520basemap%253A%2520%2522streets%2522%250A%257D)%253B%250Avar%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520map%253A%2520map%252C%2520%250A%2520%2520center%253A%2520%255B-100%252C%252040%255D%252C%250A%2520%2520zoom%253A%25206%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520map%2520%253D%2520new%2520Map(%257B%250A%2520%2520basemap%253A%2520%2522streets%2522%250A%257D)%253B%250Aconst%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520map%253A%2520map%252C%2520%250A%2520%2520center%253A%2520%255B-100%252C%252040%255D%252C%250A%2520%2520zoom%253A%25206%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -203,7 +203,7 @@ Visualize data within Map or Scene
 </br>
 - Basic coding pattern
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520layerRenderer%2520%253D%2520new%2520UniqueValueRenderer()%253B%2520%252F%252F%2520Set%2520the%2520renderer%250Avar%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522featurelayer%2520url%2522%252C%250A%2520%2520renderer%253A%2520layerRenderer%2520%252F%252F%2520pass%2520in%2520renderer%2520to%2520featurelayer%2520using%2520default%2520properties%250A%257D)"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520layerRenderer%2520%253D%2520new%2520UniqueValueRenderer()%253B%2520%252F%252F%2520Set%2520the%2520renderer%250Aconst%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522featurelayer%2520url%2522%252C%250A%2520%2520renderer%253A%2520layerRenderer%2520%252F%252F%2520pass%2520in%2520renderer%2520to%2520featurelayer%2520using%2520default%2520properties%250A%257D)"
   style="transform:scale(1); width:924px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -217,12 +217,12 @@ Visualize data within Map or Scene
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520symbol%2520%253D%2520new%2520SimpleMarkerSymbol(%257B%250A%2520%2520%252F%252F%2520set%2520the%2520properties%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520symbol%2520%253D%2520new%2520SimpleMarkerSymbol(%257B%250A%2520%2520%252F%252F%2520set%2520the%2520properties%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:220px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520renderer%2520%253D%2520new%2520UniqueValueRenderer(%257B%250A%2520%2520defaultSymbol%253A%2520symbol%252C%2520%252F%252F%2520set%2520symbol%2520for%2520renderer%250A%2520%2520%252F%252F%2520provide%2520anymore%2520properties%2520necessary%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520renderer%2520%253D%2520new%2520UniqueValueRenderer(%257B%250A%2520%2520defaultSymbol%253A%2520symbol%252C%2520%252F%252F%2520set%2520symbol%2520for%2520renderer%250A%2520%2520%252F%252F%2520provide%2520anymore%2520properties%2520necessary%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -269,12 +269,12 @@ Visualize data within Map or Scene
 - FeatureLayer has associated <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html" target="_blank">popupTemplate</a> property
 - Position the popup using *dockOptions*
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520popupTemplate%2520%253D%2520new%2520PopupTemplate(%257B%250A%2520%2520title%253A%2520%2522Title%2520of%2520the%2520popup%2522%252C%250A%2520%2520content%253A%2520%255B%257B%250A%2520%2520%2520%2520%252F%252F%2520Set%2520the%2520content%2520here%250A%2520%2520%257D%255D%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520popupTemplate%2520%253D%2520new%2520PopupTemplate(%257B%250A%2520%2520title%253A%2520%2522Title%2520of%2520the%2520popup%2522%252C%250A%2520%2520content%253A%2520%255B%257B%250A%2520%2520%2520%2520%252F%252F%2520Set%2520the%2520content%2520here%250A%2520%2520%257D%255D%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522url%2520to%2520the%2520feature%2520layer%2522%252C%250A%2520%2520outFields%253A%2520%255B%2522*%2522%255D%252C%250A%2520%2520popupTemplate%253A%2520popupTemplate%252C%250A%2520%2520renderer%253A%2520renderer%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522url%2520to%2520the%2520feature%2520layer%2522%252C%250A%2520%2520outFields%253A%2520%255B%2522*%2522%255D%252C%250A%2520%2520popupTemplate%253A%2520popupTemplate%252C%250A%2520%2520renderer%253A%2520renderer%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -298,7 +298,7 @@ Visualize data within Map or Scene
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=var%2520map%2520%253D%2520new%2520WebMap(%257B%250A%2520%2520portalItem%253A%2520%257B%250A%2520%2520%2520%2520id%253A%2520%2522b45ec95aeeb743399dd4b557abd20ee2%2522%2520%252F%252F%2520Remember%2520portalItem%2520is%2520autocasted%250A%2520%2520%257D%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520map%2520%253D%2520new%2520WebMap(%257B%250A%2520%2520portalItem%253A%2520%257B%250A%2520%2520%2520%2520id%253A%2520%2522b45ec95aeeb743399dd4b557abd20ee2%2522%2520%252F%252F%2520Remember%2520portalItem%2520is%2520autocasted%250A%2520%2520%257D%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -320,7 +320,7 @@ Visualize data within Map or Scene
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520var%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520var%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520const%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520const%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250A%257D)%253B"
   style="transform:scale(1); width:675px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
