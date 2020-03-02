@@ -201,7 +201,7 @@ require([
           caption: "Crime rate in comparison to narcotics rate",
           value: {
             theme: "Julie",
-            fields: ["CrimeRate", "NarcoticsRate"],
+            fields: ["CrimeRate", "NarcoticsR"],
           }
         }]
       }

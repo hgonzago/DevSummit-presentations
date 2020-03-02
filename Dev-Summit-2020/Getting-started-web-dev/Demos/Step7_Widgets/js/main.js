@@ -23,7 +23,9 @@ require([
   view.when(function () {
     const chicagoCrime = map.layers.getItemAt(0); // bottom
     const vehicles = map.layers.getItemAt(1); // top of TOC
-    vehicles.visible = true;
+    const homicides = map.layers.getItemAt(2);
+
+    homicides.visible = true;
     // Step 1: Create the widget
     const legend = new Legend({
       // Step 2: Specify any additional properties for the legend. In this case,
@@ -34,8 +36,8 @@ require([
           title: "Chicago Crime Tracts"
         },
         {
-          layer: vehicles,
-          title: "Vehicle Thefts"
+          layer: homicides,
+          title: "Chicago Homicide Data"
         }
       ]
     });
@@ -43,7 +45,7 @@ require([
     const swipe = new Swipe({
       view: view,
       leadingLayers: [chicagoCrime],
-      trailingLayers: [vehicles],
+      trailingLayers: [homicides],
       position: 45
     });
 

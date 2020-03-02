@@ -298,7 +298,7 @@ Visualize data within Map or Scene
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520map%2520%253D%2520new%2520WebMap(%257B%250A%2520%2520portalItem%253A%2520%257B%250A%2520%2520%2520%2520id%253A%2520%2522b45ec95aeeb743399dd4b557abd20ee2%2522%2520%252F%252F%2520Remember%2520portalItem%2520is%2520autocasted%250A%2520%2520%257D%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520map%2520%253D%2520new%2520WebMap(%257B%250A%2520%2520portalItem%253A%2520%257B%250A%2520%2520%2520%2520id%253A%2520%2522f9a9a7e3857d4d51b2c801cf8c399add%2522%2520%252F%252F%2520Remember%2520portalItem%2520is%2520autocasted%250A%2520%2520%257D%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -307,8 +307,8 @@ Visualize data within Map or Scene
 
 ### **Demo: Add a web map to an application**
 </br>
-<a href="Demos/Step5_Webmap/" target="_blank">
-  <img style="float: center;" src="Images/Step5_Demo.png">
+<a href="Demos/Step6_Webmap/" target="_blank">
+  <img style="float: center;" src="Images/Step6_Demo.png">
 </a>
 
 ----
@@ -345,8 +345,8 @@ Visualize data within Map or Scene
 
 ### **Demo: Add widgets to the application**
 </br>
-<a href="Demos/Step6_Widgets/" target="_blank">
-  <img style="float: center;" src="Images/Step6_Demo.png">
+<a href="Demos/Step7_Widgets/" target="_blank">
+  <img style="float: center;" src="Images/Step7_Demo.png">
 </a>
 
 ----
