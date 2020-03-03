@@ -1,32 +1,149 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <h1>Getting Started with Web Development and the ArcGIS API for JavaScript</h1>
-  <h2>All demos can be found at <a href="https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2019">https://github.com/hgonzago/DevSummit-presentations
-</a></h2>
-  <title>2D Web App Demos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo Templates</title>
+  <link rel="stylesheet"
+    href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/themes/light/main.css">
+  <link rel="stylesheet" href="./main.css">
+  <link href="./prism/prism.css" rel="stylesheet" />
+  <script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/js/calcite-web.min.js">
+  </script>
 </head>
 
 <body>
-  <p>Map and Layers</p>
-  <ul>
-    <li><a href="Step1_Map" target="_blank">Build your first map</a></li>
-    <li><a href="Step2_Layer" target="_blank">Add a layer to the map</a></li>
-    <li><a href="Step3_LayerRenderer" target="_blank">Update layer symbology</a></li>
-  </ul>
-  <p>Map interaction</p>
-  <ul>
-    <li><a href="Step4_Popup" target="_blank">Add a popup</a></li>
-  </ul>
-  <p>Webmaps</p>
-  <ul>
-    <li><a href="Step5_Webmap" target="_blank">Add a webmap to your application</a></li>
-  </ul>
-  <p>Widgets</p>
-  <ul>
-    <li><a href="Step6_Widgets" target="_blank">Add the Legend and Measurement widgets</a></li>
-  </ul>
+  <header class="top-nav fade-in" role="banner">
+    <div class="grid-container">
+      <div class="column-24">
+        <div class="tablet-hide">
+          <span class="header-title">ArcGIS API for JavaScript</span>
+          <nav class="top-nav-list right" role="navigation" aria-labelledby="topnav">
+            <span class="demo-name" href="#">DevSummit 2020</span>
+          </nav>
+        </div>
 
+        <div class="tablet-show top-nav-flex">
+          <header class="top-nav-flex-title">
+            <a href="/" class="top-nav-link">ArcGIS <span class="phone-hide">API for JavaScript</span></a>
+          </header>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div id="contentDiv">
+    <!-- Card samples -->
+    <div class="demo block-group block-group-3-up tablet-block-group-2-up phone-block-group-1-up">
+      <!-- Add the map -->
+
+      <div class="card block trailer-1">
+        <figure class="card-image-wrap">
+          <img src="./Step1_Map/thumbnail.png" alt="Add the map" class="card-image">
+          <figcaption class="card-image-caption">
+           
+          </figcaption>
+        </figure>
+        <div class="card-content">
+          <p class="font-size--1 card-last">Add the map</p>
+          <a href="./Step1_Map/index.html" class="btn btn-clear btn-fill leader-1" target="_blank">View Demo</a>
+        </div>
+      </div>
+
+      <!-- Add the layer to the map -->
+      <div class="card block trailer-1">
+        <figure class="card-image-wrap">
+          <img src="./Step2_Layer/thumbnail.png" alt="Add a layer to the map" class="card-image">
+          <figcaption class="card-image-caption">
+           
+          </figcaption>
+        </figure>
+        <div class="card-content">
+          <p class="font-size--1 card-last">Add a layer to the map</p>
+          <a href="./Step2_Layer/index.html" class="btn btn-clear btn-fill leader-1" target="_blank">View Demo</a>
+        </div>
+      </div>
+
+      <!-- Add the renderer -->
+      <div class="card block trailer-1">
+        <figure class="card-image-wrap">
+          <img src="./Step3_LayerRenderer/thumbnail.png" alt="Add the renderer to the feature layer"
+            class="card-image">
+          <figcaption class="card-image-caption">
+          
+          </figcaption>
+        </figure>
+        <div class="card-content">
+          <p class="font-size--1 card-last">Add the renderer to the feature layer</p>
+          <a href="./Step3_LayerRenderer/index.html" class="btn btn-clear btn-fill leader-1" target="_blank">View
+            Demo</a>
+        </div>
+      </div>
+
+      <!-- Add a popup -->
+      <div class="card block trailer-1">
+        <figure class="card-image-wrap">
+          <img src="./Step4_Popup/thumbnail.png" alt="Add a popup" class="card-image">
+          <figcaption class="card-image-caption">
+            
+          </figcaption>
+        </figure>
+        <div class="card-content">
+          <p class="font-size--1 card-last">Add a popup</p>
+          <a href="./Step4_Popup/index.html" class="btn btn-clear btn-fill leader-1" target="_blank">View
+            Demo</a>
+        </div>
+      </div>
+
+      <!-- Filter the layer -->
+      <div class="card block trailer-1">
+        <figure class="card-image-wrap">
+          <img src="./Step5_LayerFilter/thumbnail.png" alt="Filter the layer" class="card-image">
+          <figcaption class="card-image-caption">
+            
+          </figcaption>
+        </figure>
+        <div class="card-content">
+          <p class="font-size--1 card-last">Filter the layer</p>
+          <a href="./Step5_LayerFilter/index.html" class="btn btn-clear btn-fill leader-1" target="_blank">View
+            Demo</a>
+        </div>
+      </div>
+
+      <!--  Use a webmap -->
+      <div class="card block trailer-1">
+        <figure class="card-image-wrap">
+          <img src="./Step6_Webmap/thumbnail.png" alt="Use a webmap" class="card-image">
+          <figcaption class="card-image-caption">
+            
+          </figcaption>
+        </figure>
+        <div class="card-content">
+          <p class="font-size--1 card-last">Use a webmap</p>
+          <a href="./Step6_Webmap/index.html" class="btn btn-clear btn-fill leader-1" target="_blank">View
+            Demo</a>
+        </div>
+      </div>
+
+      <!--  Add some widgets -->
+      <div class="card block trailer-1">
+        <figure class="card-image-wrap">
+          <img src="./Step8_Widgets/thumbnail.png" alt="Add some widgets" class="card-image">
+          <figcaption class="card-image-caption">
+            
+          </figcaption>
+        </figure>
+        <div class="card-content">
+          <p class="font-size--1 card-last">Add some widgets</p>
+          <a href="./Step8_Widgets/index.html" class="btn btn-clear btn-fill leader-1" target="_blank">View
+            Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </body>
 
 </html>

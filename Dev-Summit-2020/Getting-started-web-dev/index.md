@@ -138,7 +138,7 @@ Visualize data within Map or Scene
 
 - Module order makes a difference
 - Missing module <img style="float:right;" src="Images/requireNotDefined.png">
-- Missing CSS <img style="float:right; width:80%" src="Images/merged-css.jpg">
+- Missing CSS <img style="float:right; width:80%" src="Images/merged-css.png">
 
 
 
