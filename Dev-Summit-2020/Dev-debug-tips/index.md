@@ -1,9 +1,11 @@
 <!-- .slide: data-background="../reveal.js/img/bg-1.png" -->
 <!-- .slide: class="title" -->
 </br>
-</br>
 ## Tips and Tricks for Developing and Debugging Apps
 Kelly Hutchins and Heather Gonzago
+</br>
+
+#### 👉 <small>Slides & demos: http://bit.ly/2vDZXnj </small>👈
 
 ----
 
@@ -29,7 +31,7 @@ Debugging tools === Productive programmers
 
 ### **Slides and demos can be accessed at:**
 
-## <a href="https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips" target="_blank">https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips</a>
+## 👉 https://bit.ly/2vDZXnj 👈
 
 ----
 
@@ -230,13 +232,11 @@ view.when(function(){
 
 ----
 
-
 <!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
 ### Console: Log Messages 
   - Log your own messages
   - Warning message logged by JSAPI
   <a href="./Demos/js-demo/index.html"><img src="images/consoleerror.png"/></a>
-
 
 ----
 
@@ -293,7 +293,7 @@ CDN
 ## Questions?
 </br>
 </br>
-- [https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips](https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips)
+- 👉Slides & demos: https://bit.ly/2vDZXnj 👈
 - [ArcGIS API for JavaScript Snippets](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
 - [ArcGIS API for JavaScript Guide topic - TypeScript setup](https://developers.arcgis.com/javascript/latest/guide/typescript-setup/)
 
