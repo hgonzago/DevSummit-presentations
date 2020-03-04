@@ -5,6 +5,8 @@
 ### and the ArcGIS API for JavaScript
 Heather Gonzago and Anne Fitz
 
+### 👉 <small>Slides & demos: https://bit.ly/3cnPptf </small>👈
+
 ----
 
 ### **Agenda**
@@ -24,7 +26,7 @@ Heather Gonzago and Anne Fitz
   </br>
   - Concepts remain similar between versions 3.x and 4.x</br>
   </br>
-  - <a href="https://github.com/hgonzago/DevSummit-presentations" target="_blank">https://github.com/hgonzago/DevSummit-presentations</a>
+  - 👉 <small>Slides & demos: https://bit.ly/3cnPptf </small>👈
 
 ----
 
@@ -374,6 +376,15 @@ Visualize data within Map or Scene
 
 ----
 
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+## Questions?
+</br>
+</br>
+
+### 👉 <small>Slides & demos: https://bit.ly/3cnPptf </small> 👈
+ 
+----
 <!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
 
----
+----

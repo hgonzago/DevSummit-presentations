@@ -285,8 +285,8 @@ CDN
 <script src="https://js.arcgis.com/next/"></script>
 
 ```
-----
 
+----
 
 <!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
 </br>
@@ -297,4 +297,6 @@ CDN
 - [ArcGIS API for JavaScript Snippets](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
 - [ArcGIS API for JavaScript Guide topic - TypeScript setup](https://developers.arcgis.com/javascript/latest/guide/typescript-setup/)
 
+----
 
+<!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->

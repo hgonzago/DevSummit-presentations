@@ -2,10 +2,12 @@
 <!-- .slide: class="title" -->
 <br>
 <br>
-<br>
 ### Building Web Apps that Integrate with Your Portal
 <br>
 Heather Gonzago and Kelly Hutchins
+</br>
+
+#### 👉 <small>Slides & demos: https://bit.ly/38k80TQ </small>👈
 
 ----
 
@@ -363,7 +365,7 @@ scene.save();
 
 ----
 
-### Step 7: Theming 
+### Step 7: Theming
 
 Apply organization defined branding
 
@@ -395,6 +397,14 @@ Apply organization defined branding
   <img width="600" src="images/DataResponseDevTools.png" style="float: left;">
   <img width="600" src="images/agoassistant.png">
 </a>
+
+----
+
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+## Questions?
+</br>
+### 👉 <small>Slides & demos: https://bit.ly/38k80TQ </small> 👈
 
 ----
 
