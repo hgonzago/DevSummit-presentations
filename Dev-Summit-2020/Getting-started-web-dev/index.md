@@ -5,7 +5,7 @@
 ### and the ArcGIS API for JavaScript
 Heather Gonzago and Anne Fitz
 
-### 👉 <small>Slides & demos: https://bit.ly/3cnPptf </small>👈
+<small>👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈</small>
 
 ----
 
@@ -26,7 +26,7 @@ Heather Gonzago and Anne Fitz
   </br>
   - Concepts remain similar between versions 3.x and 4.x</br>
   </br>
-  - 👉 <small>Slides & demos: https://bit.ly/3cnPptf </small>👈
+  - 👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈
 
 ----
 
@@ -235,7 +235,7 @@ Visualize data within Map or Scene
 </br>
 - No need to <b>Require()</b> the module</br>
 </br>
-- Look for the <img style="float: center;" src="Images/autocast-label.png"> label in the API Reference</br>
+- Look for the <img style="margin:0px;" src="Images/autocast-label.png"> label in the API Reference</br>
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=layers-portal" target="_blank">Create a layer from portal item sample </a> shows autocasting in action</br>
 </br>
@@ -269,7 +269,7 @@ Visualize data within Map or Scene
 ### **PopupTemplate**
 - View has a default instance of <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-View.html#popup" target="_blank">popup</a>
 - FeatureLayer has associated <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html" target="_blank">popupTemplate</a> property
-- Position the popup using *dockOptions*
+- Position the popup using <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html#dockOptions" target="_blank"><code>dockOptions</code></a>
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520popupTemplate%2520%253D%2520new%2520PopupTemplate(%257B%250A%2520%2520title%253A%2520%2522Title%2520of%2520the%2520popup%2522%252C%250A%2520%2520content%253A%2520%255B%257B%250A%2520%2520%2520%2520%252F%252F%2520Set%2520the%2520content%2520here%250A%2520%2520%257D%255D%250A%257D)%253B"
   style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
@@ -378,13 +378,11 @@ Visualize data within Map or Scene
 
 <!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
 </br>
+</br>
 ## Questions?
 </br>
-</br>
 
-### 👉 <small>Slides & demos: https://bit.ly/3cnPptf </small> 👈
+👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈
  
 ----
 <!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
-
-----
