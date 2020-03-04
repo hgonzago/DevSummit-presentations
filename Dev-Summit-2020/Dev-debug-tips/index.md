@@ -29,7 +29,7 @@ Debugging tools === Productive programmers
 
 ### **Slides and demos can be accessed at:**
 
-## <a href="https://github.com/hgonzago/tips-tricks-webinar" target="_blank">https://github.com/hgonzago/tips-tricks-webinar</a>
+## <a href="https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips" target="_blank">https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips</a>
 
 ----
 
@@ -293,8 +293,8 @@ CDN
 ## Questions?
 </br>
 </br>
-- [https://github.com/hgonzago/tips-tricks-webinar](https://github.com/hgonzago/tips-tricks-webinar)
-- [ArcGIS API for JavaScript Snippets](https://github.com/hgonzago/tips-tricks-webinar)
+- [https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips](https://github.com/hgonzago/DevSummit-presentations/tree/gh-pages/Dev-Summit-2020/Dev-debug-tips)
+- [ArcGIS API for JavaScript Snippets](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
 - [ArcGIS API for JavaScript Guide topic - TypeScript setup](https://developers.arcgis.com/javascript/latest/guide/typescript-setup/)
 
 
