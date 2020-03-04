@@ -386,3 +386,5 @@ Visualize data within Map or Scene
  
 ----
 <!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
+
+----
