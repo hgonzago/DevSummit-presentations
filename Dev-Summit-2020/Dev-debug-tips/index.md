@@ -9,73 +9,6 @@ Kelly Hutchins and Heather Gonzago
 
 ----
 
-Ever have one of those days where nothing seems to work?
-<img style="height: 625px;" src="images/frustrated.jpeg">
-
-----
-
-You keep staring at the same code, but you have nothing...
-<img src="images/code-flying.jpeg">
-
-----
-
-Debugging tools === Productive programmers
-</br></br>
-<img src="images/debug-happy.png">
-
-----
-
-<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
-</br>
-</br>
-
-### **Slides and demos can be accessed at:**
-
-## 👉 https://bit.ly/2vDZXnj 👈
-
-----
-
-### **Things we'll discuss**
-</br>
-- Setting up your development environment
-- Troubleshoot web application
-- Popular browser developer tools
-- Give us your questions
-
-----
-
-
-<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
-</br></br>
-## **Setting up your development environment**
-
-----
-
-### **JavaScript IDE/Source code editor**
-</br>
-- Lots of choices
-  - Atom, Brackets, WebStorm, Sublime, VSCode
-- Debugging support
-- Extensions
-
-----
-
-### Extensions
- - Beautify, Prettier 
- - EsLint
- - Bracket colorizer
- - Themes,
- - GitLens
-    
-
-----
-
-### Extension Demo
-
-<img src="./images/pretty.gif" />
-
-----
-
 
 ### Programming font
 </br>
@@ -115,18 +48,6 @@ Debugging tools === Productive programmers
 
 ----
 
-
-### **Local web server**
-</br>
-- Setup IIS or Apache
-  - Visit [http://localhost](http://localhost)
-- Local dev server with live reload:
- - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
- - [local-web-server](https://www.npmjs.com/package/local-web-server)
- - [http-server](https://www.npmjs.com/package/http-server)
-<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
-----
-
 ### ** Starter App **
 </br>
 
@@ -138,38 +59,6 @@ Debugging tools === Productive programmers
 
 ----
 
-<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
-</br></br>
-## **Troubleshooting your web application**
-
-----
-
-### **Narrow down the problem**
-</br>
-<img style="float: right"; src="images/onion.jpg">
-
-- Is the problem with how the code is written?
-- Is the issue on the client (API) or server?
-- Is there a performance issue?
-- Is the issue with the data?
-
-----
-
-<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
-## **Browser developer tools**
-
-<img style="width: 60%; margin: none; background: none; border: none" src="images/chrome-dev-tools.png">
-
-----
-<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
-### **Debugging: Code issues**
-</br>
-- Common examples of application-level problems:
-  - Modules out of order
-  - View, Map, Layer not ready
-  - Typos (yes, it happens quite often)
-
-----
 <!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
 ### Modules out of order
 
@@ -227,18 +116,6 @@ view.when(function(){
 ### Demo: Network requests
 
 ----
-<!-- .slide: data-background="../reveal.js/img/bg-3.png" -->
-### Console and CSS 
-
-----
-
-<!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
-### Console: Log Messages 
-  - Log your own messages
-  - Warning message logged by JSAPI
-  <a href="./Demos/js-demo/index.html"><img src="images/consoleerror.png"/></a>
-
-----
 
 <!-- .slide: data-background="../reveal.js/img/bg-2.png" -->
 ### Console: Run JavaScript 
@@ -291,7 +168,6 @@ CDN
 <!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
 </br>
 ## Questions?
-</br>
 </br>
 - 👉Slides & demos: https://bit.ly/2vDZXnj 👈
 - [ArcGIS API for JavaScript Snippets](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
