@@ -322,7 +322,7 @@ Visualize data within Map or Scene
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520const%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520const%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250A%257D)%253B"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520const%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520const%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522top-right%2522)%253B%250A%257D)%253B"
   style="transform:scale(1); width:675px; height:473px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -361,30 +361,5 @@ Visualize data within Map or Scene
 - User forums, e.g. <a href="https://community.esri.com/community/developers/web-developers/arcgis-api-for-javascript/" target="_blank">GeoNet</a>, <a href="https://gis.stackexchange.com/questions/tagged/arcgis-javascript-api-4" target="_blank">StackExchange</a>, <a href="https://thespatialcommunity.org/" target="_blank">Spatial Community in Slack</a>, etc.
 <a href="https://developers.arcgis.com/javascript/support/index.html" target="_blank">
 <img style="display: block; margin-left: auto; margin-right: auto;" src="Images/4dot14_Support.png" alt="4dot10_Support" width="749" height="415"></a>
-
-----
-
-### **Additional Sessions (Introduction)**
-
-<a><img style="float:bottom;" src="Images/Intro_Sessions_2020.png" alt="Introduction_Sessions"</a>
-
-----
-
-### **Additional Sessions (Visualization)**
-
-<a><img style="float:bottom;" src="Images/Advanced_sessions_2020.png" alt="Advanced_Sessions"</a>
-
-----
-
-<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
-</br>
-</br>
-## Questions?
-</br>
-
-👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈
- 
-----
-<!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
 
 ----
