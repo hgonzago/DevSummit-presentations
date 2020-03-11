@@ -20,7 +20,7 @@ require(["esri/Map", "esri/views/MapView"], function (
   view = new MapView({
     container: "viewDiv",
     map: map,
-    zoom: 3,
-    center: [-99.14725260912257, 36.48617178360141]
+    zoom: 10,
+    center: [-87.68914385791143, 41.85978190876079] // longitude, latitude
   });
 });
