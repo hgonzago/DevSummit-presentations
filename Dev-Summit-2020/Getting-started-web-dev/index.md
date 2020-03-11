@@ -289,13 +289,33 @@ Visualize data within Map or Scene
   <img style="float: center;" src="Images/Step4_Demo.png">
 </a>
 
+----
+
+### **Filtering data**
+
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-layers-support-FeatureFilter.html" target="_blank"><code>FeatureFilter</code></a>
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-layers-FeatureLayerView.html" target="_blank"><code>FeatureLayerView</code></a>
+- All data is filtered on the client = better performance
+
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(171%2C%20184%2C%20195%2C%201)&t=one-light&wt=sharp&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=147%25&si=false&es=4x&wm=false&code=switch%2520(selectedCrimeAmount)%2520%257B%250A%2520%2520case%2520'100'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253E%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'50-99'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520'(CrimeCnt%2520%253E%253D%252050)'%2520%252B%2520'AND'%2520%252B%2520'(CrimeCnt%2520%253C%253D%252099)'%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'49'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253C%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%257D%250A"
+  style="transform:scale(1); width:2048px; height:946px; border:0; overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+----
+
+### **Demo: Filter features within a layer**
+
+<a href="Demos/Step5_LayerFilter/" target="_blank">
+  <img style="float: center;" src="Images/Step5_Demo.png">
+</a>
 
 ----
 
 ### **Using web maps**
 </br>
 - Reduces coding effort</br>
-</br>
 - Retains all customizations with rendering, popups, etc.
 </br>
 </br>
@@ -316,7 +336,7 @@ Visualize data within Map or Scene
 ----
 
 ### **Widgets**
-</br>
+
 - <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-widgets" target="_blank">Encapsulates functionality</a>
 - Similar coding pattern across all widgets
 </br>
