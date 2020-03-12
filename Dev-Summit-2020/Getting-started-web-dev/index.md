@@ -16,6 +16,7 @@ Heather Gonzago and Anne Fitz
  - Working with layers
  - Symbols and renderers
  - Make the map interactive
+ - Filtering data
  - Widgets
 
 ----
@@ -41,6 +42,14 @@ Heather Gonzago and Anne Fitz
 <a href="https://developers.arcgis.com/javascript/latest/guide/choose-version/index.html" target="_blank">
 <img src="Images/Choose_Your_Own_Version_414.png" alt="API functionality matrix" width="1206" height="651">
 </a>
+
+----
+
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+</br>
+</br>
+### Anne Fitz
 
 ----
 
@@ -142,7 +151,13 @@ Visualize data within Map or Scene
 - Missing module <img style="float:right;" src="Images/requireNotDefined.png">
 - Missing CSS <img style="float:right; width:80%" src="Images/merged-css.png">
 
+----
 
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+</br>
+</br>
+### Heather Gonzago
 
 ----
 
@@ -251,6 +266,14 @@ Visualize data within Map or Scene
 
 ----
 
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+</br>
+</br>
+### Anne Fitz
+
+----
+
 ### **Map interaction using popups**
 </br>
 <img style="float: right;" src="Images/popup.png">
@@ -291,6 +314,14 @@ Visualize data within Map or Scene
 
 ----
 
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+</br>
+</br>
+### Heather Gonzago
+
+----
+
 ### **Filtering data**
 
 - <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-layers-support-FeatureFilter.html" target="_blank"><code>FeatureFilter</code></a>
@@ -310,6 +341,14 @@ Visualize data within Map or Scene
 <a href="Demos/Step5_LayerFilter/" target="_blank">
   <img style="float: center;" src="Images/Step5_Demo.png">
 </a>
+
+----
+
+<!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
+</br>
+</br>
+</br>
+### Anne Fitz
 
 ----
 
