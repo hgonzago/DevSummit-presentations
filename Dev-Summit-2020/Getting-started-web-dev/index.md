@@ -213,19 +213,12 @@ Visualize data within Map or Scene
 ----
 
 ### **Symbols**
-</br>
 - Renderers use symbology, e.g. points, lines, polygons</br>
-- Set the renderer's symbol
-</br>
+- Can set symbology via a renderer's <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-visualVariables-VisualVariable.html" _blank>visual variables</a>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520symbol%2520%253D%2520new%2520SimpleMarkerSymbol(%257B%250A%2520%2520%252F%252F%2520set%2520the%2520properties%250A%257D)%253B"
-  style="transform:scale(1); width:1024px; height:220px; border:0; overflow:hidden; display:block;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520renderer%2520%253D%2520new%2520UniqueValueRenderer(%257B%250A%2520%2520defaultSymbol%253A%2520symbol%252C%2520%252F%252F%2520set%2520symbol%2520for%2520renderer%250A%2520%2520%252F%252F%2520provide%2520anymore%2520properties%2520necessary%250A%257D)%253B"
-  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
+  src="https://carbon.now.sh/embed?bg=rgba(171%2C%20184%2C%20195%2C%201)&t=one-light&wt=sharp&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=14px&ph=13px&ln=false&fl=1&fm=Hack&fs=17px&lh=133%25&si=false&es=4x&wm=false&code=const%2520sizeVisualVariable%2520%253D%2520%257B%250A%2520%2520type%253A%2520'size'%252C%250A%2520%2520field%253A%2520'WIND_SPEED'%252C%250A%2520%2520minDataValue%253A%25200%252C%250A%2520%2520maxDataValue%253A%252060%252C%250A%2520%2520minSize%253A%25208%252C%250A%2520%2520maxSize%253A%252040%250A%257D%250A%252F%252F%2520Apply%2520visual%2520variable%2520to%2520renderer%250Arenderer.visualVariables%2520%253D%2520%255BsizeVisualVariable%255D%250A%250A%252F%252F%2520Create%2520the%2520layer%250Aconst%2520featureLayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520'%253CURL%2520to%2520feature%2520layer'%252C%250A%2520%2520outFields%253A%2520%255B'*'%255D%252C%250A%2520%2520renderer%253A%2520renderer%2520%252F%252F%2520Add%2520the%2520renderer%2520to%2520the%2520feature%2520layer%250A%257D)%250A"
+  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 
@@ -298,8 +291,8 @@ Visualize data within Map or Scene
 - All data is filtered on the client = better performance
 
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(171%2C%20184%2C%20195%2C%201)&t=one-light&wt=sharp&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=147%25&si=false&es=4x&wm=false&code=switch%2520(selectedCrimeAmount)%2520%257B%250A%2520%2520case%2520'100'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253E%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'50-99'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520'(CrimeCnt%2520%253E%253D%252050)'%2520%252B%2520'AND'%2520%252B%2520'(CrimeCnt%2520%253C%253D%252099)'%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'49'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253C%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%257D%250A"
-  style="transform:scale(1); width:2048px; height:946px; border:0; overflow:hidden;"
+  src="https://carbon.now.sh/embed?bg=rgba(171%2C%20184%2C%20195%2C%201)&t=one-light&wt=sharp&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=14px&ph=13px&ln=false&fl=1&fm=Hack&fs=17px&lh=133%25&si=false&es=4x&wm=false&code=switch%2520(selectedCrimeAmount)%2520%257B%250A%2520%2520case%2520'100'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253E%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'50-99'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520'(CrimeCnt%2520%253E%253D%252050)'%2520%252B%2520'AND'%2520%252B%2520'(CrimeCnt%2520%253C%253D%252099)'%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'49'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253C%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%257D"
+  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 
