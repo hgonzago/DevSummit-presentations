@@ -86,6 +86,15 @@ Guide topic
 </a>
 
 ----
+
+</br>
+</br>
+### Heather Gonzago
+</br>
+</br>
+
+----
+
 ### Step 1: Setup Authentication
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-identity-IdentityManager.html#registerOAuthInfos" target="_blank">Register the app</a>
 <pre style="display:inline-block; padding: 5px; margin: 10px auto; width: 100%;"><code data-trim> 
@@ -135,6 +144,15 @@ IdentityManager.destroyCredentials();
 </a>
 
 ----
+
+</br>
+</br>
+### Kelly Hutchins
+</br>
+</br>
+
+----
+
 ### Step 2: Display a map
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html" target="_blank">2D:esri/WebMap</a>
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-WebScene.html" target="_blank">3D:esri/WebScene</a>
@@ -176,6 +194,15 @@ Note: All portal content has a unique identifier
 </a>
 
 ----
+
+</br>
+</br>
+### Heather Gonzago
+</br>
+</br>
+
+----
+
 ### Step 3: Connect to Portal
 
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html" target="_blank">View of the Portal</a>
@@ -219,6 +246,15 @@ Note: Get info about the portal including region, culture, name, thumbnail url a
 </a>
 
 ----
+
+</br>
+</br>
+### Kelly Hutchins
+</br>
+</br>
+
+----
+
 ### Step 4a: Query portal content
 
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#queryGroups" target="_blank">Portal.queryGroups()</a>
@@ -263,6 +299,15 @@ const itemResults = await portal.queryItems({
 </a>
 
 ----
+
+</br>
+</br>
+### Heather Gonzago
+</br>
+</br>
+
+----
+
 ### Step 5a: Setup add layer click handler
 
 ```
@@ -298,6 +343,15 @@ view.map.add(layer);
 </a>
 
 ----
+
+</br>
+</br>
+### Kelly Hutchins
+</br>
+</br>
+
+----
+
 ### Step 6: Add widgets
 
 <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapGallery.html" target="_blank">Basemap Gallery</a>
@@ -373,41 +427,9 @@ Apply organization defined branding
 
 ----
 
-### MISC: Portal API via esriRequest
-
-[Portal REST API](https://developers.arcgis.com/rest/users-groups-and-items/portal.htm)
-
-[DEMO](demos/Demos-BU/PortalAPISample.html)
-
-----
-### MISC: Access credit-based services
-
-- Application handles it for you, no need to sign in
-- Proxy file with saved credentials
-  - Hosted proxy file provided by Esri OR
-  - Host your own proxy file
-  - Esri proxy -> https://github.com/Esri/resource-proxy
-    - DotNet, JSP, and PHP
-  
-----
-
-### **Tools: AGO Assistant**
-
-<a href="http://jsapi.maps.arcgis.com/home/item.html?id=c6bac25632d646758823daf07216dda1" target="_blank">
-  <img width="600" src="images/DataResponseDevTools.png" style="float: left;">
-  <img width="600" src="images/agoassistant.png">
-</a>
-
-----
-
 <!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
 </br>
-## Questions?
 </br>
 ### 👉 <small>Slides & demos: https://bit.ly/38k80TQ </small> 👈
-
-----
-
-<!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
 
 ----
