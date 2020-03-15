@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>SketchViewModel with apply edits (create polygon only)</title>
+  <style>
+
+    html,
+    body,
+    #viewDiv {
+      font-family: verdana;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #button-container {
+      background: #fff;
+      border: 1px solid #d3d3d3;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+
+    .action-button {
+      background-color: transparent;
+      border: none;
+      color: #6e6e6e;
+      font-size: 16px;
+      height: 32px;
+      text-align: center;
+      width: 32px;
+    }
+
+    .action-button:hover {
+      background: #6e6e6e;
+      color: #e4e4e4;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.14/"></script>
+
+  <script>
+    require([
+      "esri/Graphic",
+      "esri/Map",
+
+      "esri/layers/FeatureLayer",
+      "esri/layers/GraphicsLayer",
+
+      "esri/views/MapView",
+      "esri/widgets/Sketch/SketchViewModel",
+
+      "dojo/domReady!"
+    ], function(
+      Graphic, Map,
+      FeatureLayer, GraphicsLayer,
+      MapView, SketchViewModel
+    ) {
+
+      const polygonLayer = new FeatureLayer({
+        url: "https://servicesdev1.arcgis.com/5uh3wwYLNzBuU0Eu/arcgis/rest/services/DevSummit_Polygons_Layer/FeatureServer/0",
+        outFields: ["*"],
+        popupEnabled: false,
+        id: "polygonLayer"
+      });
+
+      // Used by SketchViewModel to display newly created graphics
+      const gLayer = new GraphicsLayer();
+
+      // Create the map; add both layers
+      const map = new Map({
+        basemap: "gray-vector",
+        layers: [gLayer, polygonLayer]
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 12,
+        center: [-77.615193, 43.151888]
+      });
+
+      view.when(function(evt) {
+        // Set up the view model
+        const sketchVM = new SketchViewModel({
+          layer: gLayer,
+          view: view
+        });
+
+        // After creation is finished, we need to update the FeatureLayer.
+        // We also want to remove the graphic from the GraphicsLayer
+        // because the new feature will show up after a successful layer refresh.
+        sketchVM.on("create", function(event) {
+          if (event.state === "complete") {
+            gLayer.remove(event.graphic);
+            polygonLayer.applyEdits({ addFeatures: [event.graphic] });
+          }
+        });
+
+        // Activate the 'polygon' tool on button click
+        polygonBtn.onclick = function(){
+          sketchVM.create("polygon");
+          view.focus();
+        };
+
+        // Remove features when targetted by a ctrl+click combination
+        view.on("click", ["Control"], function(event) {
+          // Check if any graphics are in the clicked location
+          view.hitTest(event).then(function(response) {
+            // Found a graphic; remove from the FeatureLayer
+            if (response.results.length) {
+              polygonLayer.applyEdits({
+                deleteFeatures: [response.results[0].graphic]
+              });
+            }
+          });
+        })
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv">
+    <div id="button-container">
+      <button class="action-button esri-icon-polygon" id="polygonBtn" type="button" title="Draw Polygon"></button>
+    </div>
+  </div>
+</body>
+</html>

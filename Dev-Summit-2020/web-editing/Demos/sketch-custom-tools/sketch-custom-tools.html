@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Sketch - custom cut tool</title>
+  <style>
+
+    html,
+    body,
+    #viewDiv {
+      font-family: verdana;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    .action-button {
+      background-color: white;
+      border: none;
+      color: #6e6e6e;
+      font-size: 16px;
+      height: 32px;
+      text-align: center;
+      width: 32px;
+    }
+
+    .action-button:hover,
+    .action-button:focus {
+      background: #6e6e6e;
+      color: #e4e4e4;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.14/"></script>
+
+  <script>
+    require([
+      "esri/Graphic",
+      "esri/Map",
+      "esri/geometry/geometryEngine",
+      "esri/layers/GraphicsLayer",
+      "esri/views/MapView",
+      "esri/widgets/Sketch",
+
+      "dojo/domReady!"
+    ], function(
+      Graphic, Map, geometryEngine, GraphicsLayer, MapView, Sketch
+    ) {
+
+      const layer = new GraphicsLayer();
+
+      // Create the map; add GraphicsLayer
+      const map = new Map({
+        basemap: "gray",
+        layers: [layer]
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 4,
+        center: [15, 65]
+      });
+
+      // Stores state of the cut tool
+      let cutActive = false;
+
+      view.when((evt) => {
+
+        // Add containers to view
+        view.ui.add("sketch-container", "top-right");
+        view.ui.add("cut-container", "top-right");
+
+        const sketch = new Sketch({
+          layer: layer,
+          view: view
+        }, "sketch-container");
+
+        sketch.on("create", (event) => {
+          // Cut operation finished
+          if (event.state === "complete" && cutActive) {
+            const cutGraphic = event.graphic;
+
+            // Update cut tool state
+            cutActive = false;
+
+            // Remove the cut graphic from view
+            layer.remove(cutGraphic);
+
+            // Shallow clone for preserving original geometries
+            // in the following loop.
+            const layerGraphics = layer.graphics.items.slice(0);
+
+            // Loop through all graphics on the GraphicsLayer and
+            // attempt to cut each graphic using the geometry of
+            // the cut graphic.
+            // Only valid cuts are acknowleged
+            layerGraphics.forEach((graphic) => {
+              // Get cut geometries
+              const cutGeometries = geometryEngine.cut(graphic.geometry, cutGraphic.geometry);
+
+                // Found valid geometries
+                if (cutGeometries.length) {
+                  // Create new graphics from the geometries
+                  const graphics = cutGeometries.map((geometry) =>
+                    new Graphic({ geometry, symbol: graphic.symbol })
+                  );
+
+                  // Remove the graphic that was cut from the view
+                  layer.remove(graphic);
+
+                  // Add the newly created graphics to the view
+                  layer.addMany(graphics);
+                }
+            });
+          }
+        });
+
+        document.getElementById("cutBtn").onclick = () => {
+          cutActive = true;
+          sketch.create("polyline");
+          view.focus();
+        };
+
+        document.getElementById("flipBtn").onclick = () => {
+          const tool = sketch.activeTool;
+
+          // Check if an update operation is active
+          if (tool === "transform" || tool === "reshape" || tool === "move") {
+            // Shallow clone graphics currently being updated
+            const graphics = sketch.updateGraphics.items.slice(0);
+
+            // Update the geometry of each graphic individually
+            graphics.forEach((graphic) => {
+              graphic.geometry = geometryEngine.flipVertical(graphic.geometry);
+            });
+
+            // Reactivate current workflow to sync Sketch UI
+            sketch.update(graphics, { tool: sketch.activeTool });
+          }
+
+          view.focus();
+        };
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv">
+    <div id="sketch-container"></div>
+    <div id="cut-container">
+      <button class="action-button esri-icon-edit" id="cutBtn" type="button" title="Cut"></button>
+      <button class="action-button esri-icon-refresh" id="flipBtn" type="button" title="Flip"></button>
+    </div>
+  </div>
+</body>
+</html>

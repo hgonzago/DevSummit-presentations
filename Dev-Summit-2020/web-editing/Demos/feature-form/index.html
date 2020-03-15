@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>FeatureForm</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/css/main.css">
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #update {
+      padding: 6px;
+    }
+
+    #form{
+      background: #fff;
+    }
+
+    /* replaces esri-widget--panel */
+    .scroller {
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 99vh;
+    }
+  </style>
+  <script>
+    var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+    window.dojoConfig = {
+      packages: [
+        {
+          name: "app",
+          location: locationPath + "/app"
+        }
+      ]
+    };
+  </script>
+  <script src="https://js.arcgis.com/4.14"></script>
+  <script>
+    require(["app"]);
+  </script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+  <div id="update" class="esri-widget esri-hidden">
+    <div id="form" class="scroller esri-component"></div>
+    <input type="button" class="esri-button" value="Update" id="btnUpdate">
+  </div>
+</body>
+
+</html>
