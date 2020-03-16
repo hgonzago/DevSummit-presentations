@@ -16,7 +16,6 @@
 * API widget editing
 * 2d editing workflows
 * 3d editing workflows
-* Q&A
 
 ----
 
