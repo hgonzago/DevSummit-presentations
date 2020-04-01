@@ -1,160 +1,248 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>Sketch - custom cut tool</title>
-  <style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>SketchViewModel - custom tools</title>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        font-family: verdana;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
 
-    html,
-    body,
-    #viewDiv {
-      font-family: verdana;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
-    .action-button {
-      background-color: white;
-      border: none;
-      color: #6e6e6e;
-      font-size: 16px;
-      height: 32px;
-      text-align: center;
-      width: 32px;
-    }
+      #draw-container {
+        background: #fff;
+        border: 1px solid #d3d3d3;
+      }
 
-    .action-button:hover,
-    .action-button:focus {
-      background: #6e6e6e;
-      color: #e4e4e4;
-    }
-  </style>
+      .button-container:first-child {
+        border-right: 1px solid #d3d3d3;
+      }
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.14/"></script>
+      .button-container {
+        float: left;
+        height: 100%;
+        margin: 3px;
+        padding-right: 5px;
+      }
 
-  <script>
-    require([
-      "esri/Graphic",
-      "esri/Map",
-      "esri/geometry/geometryEngine",
-      "esri/layers/GraphicsLayer",
-      "esri/views/MapView",
-      "esri/widgets/Sketch",
+      .action-button {
+        background-color: transparent;
+        border: none;
+        color: #6e6e6e;
+        font-size: 16px;
+        height: 32px;
+        text-align: center;
+        width: 32px;
+      }
 
-      "dojo/domReady!"
-    ], function(
-      Graphic, Map, geometryEngine, GraphicsLayer, MapView, Sketch
-    ) {
+      .action-button:hover,
+      .action-button:focus {
+        background: #6e6e6e;
+        color: #e4e4e4;
+      }
+    </style>
 
-      const layer = new GraphicsLayer();
+    <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css" />
+    <script src="https://js.arcgis.com/4.15/"></script>
 
-      // Create the map; add GraphicsLayer
-      const map = new Map({
-        basemap: "gray",
-        layers: [layer]
-      });
+    <script>
+      require([
+        "esri/Graphic",
+        "esri/Map",
+        "esri/geometry/geometryEngine",
+        "esri/layers/GraphicsLayer",
+        "esri/views/MapView",
+        "esri/widgets/Sketch/SketchViewModel",
+        "dojo/domReady!"
+      ], function(Graphic, Map, geometryEngine, GraphicsLayer, MapView, SketchViewModel) {
+        const layer = new GraphicsLayer();
 
-      const view = new MapView({
-        container: "viewDiv",
-        map: map,
-        zoom: 4,
-        center: [15, 65]
-      });
-
-      // Stores state of the cut tool
-      let cutActive = false;
-
-      view.when((evt) => {
-
-        // Add containers to view
-        view.ui.add("sketch-container", "top-right");
-        view.ui.add("cut-container", "top-right");
-
-        const sketch = new Sketch({
-          layer: layer,
-          view: view
-        }, "sketch-container");
-
-        sketch.on("create", (event) => {
-          // Cut operation finished
-          if (event.state === "complete" && cutActive) {
-            const cutGraphic = event.graphic;
-
-            // Update cut tool state
-            cutActive = false;
-
-            // Remove the cut graphic from view
-            layer.remove(cutGraphic);
-
-            // Shallow clone for preserving original geometries
-            // in the following loop.
-            const layerGraphics = layer.graphics.items.slice(0);
-
-            // Loop through all graphics on the GraphicsLayer and
-            // attempt to cut each graphic using the geometry of
-            // the cut graphic.
-            // Only valid cuts are acknowleged
-            layerGraphics.forEach((graphic) => {
-              // Get cut geometries
-              const cutGeometries = geometryEngine.cut(graphic.geometry, cutGraphic.geometry);
-
-                // Found valid geometries
-                if (cutGeometries.length) {
-                  // Create new graphics from the geometries
-                  const graphics = cutGeometries.map((geometry) =>
-                    new Graphic({ geometry, symbol: graphic.symbol })
-                  );
-
-                  // Remove the graphic that was cut from the view
-                  layer.remove(graphic);
-
-                  // Add the newly created graphics to the view
-                  layer.addMany(graphics);
-                }
-            });
-          }
+        const map = new Map({
+          basemap: "gray", // dark-grey, streets
+          layers: [layer]
         });
 
-        document.getElementById("cutBtn").onclick = () => {
-          cutActive = true;
-          sketch.create("polyline");
-          view.focus();
-        };
+        const view = new MapView({
+          container: "viewDiv",
+          map: map,
+          zoom: 13,
+          center: [-77.676313, 43.084908]
+        });
 
-        document.getElementById("flipBtn").onclick = () => {
-          const tool = sketch.activeTool;
+        // Store current active operation; "cut" or "union"
+        let activeCustomOperation = null;
 
-          // Check if an update operation is active
-          if (tool === "transform" || tool === "reshape" || tool === "move") {
-            // Shallow clone graphics currently being updated
-            const graphics = sketch.updateGraphics.items.slice(0);
+        view.ui.add("draw-container", "top-right");
 
-            // Update the geometry of each graphic individually
-            graphics.forEach((graphic) => {
-              graphic.geometry = geometryEngine.flipVertical(graphic.geometry);
-            });
+        view.when(function(evt) {
+          const sketchVM = new SketchViewModel({
+            layer: layer,
+            view: view
+          });
 
-            // Reactivate current workflow to sync Sketch UI
-            sketch.update(graphics, { tool: sketch.activeTool });
+          // Polygon creation tools
+          document.getElementById("polygonBtn").onclick = () => {
+            activeCustomOperation = null;
+            sketchVM.create("polygon");
+          };
+          document.getElementById("rectangleBtn").onclick = () => {
+            activeCustomOperation = null;
+            sketchVM.create("rectangle");
+          };
+          document.getElementById("circleBtn").onclick = () => {
+            activeCustomOperation = null;
+            sketchVM.create("circle");
+          };
+
+          document.getElementById("cutBtn").onclick = () => {
+            activeCustomOperation = "cut";
+            sketchVM.create("polyline");
+          };
+
+          document.getElementById("unionBtn").onclick = () => {
+            activeCustomOperation = "union";
+            sketchVM.create("rectangle");
+          };
+
+          sketchVM.on("create", (event) => {
+            // Create operation has successfully finished
+            if (event.state === "complete") {
+              // Check if a custom operation was used
+              if (activeCustomOperation === "cut") {
+                onCutOperationComplete(event.graphic);
+              } else if (activeCustomOperation === "union") {
+                onUnionOperationComplete(event.graphic);
+              }
+
+              activeCustomOperation = null;
+            }
+          });
+        });
+
+        function onCutOperationComplete(cutterGraphic) {
+          // Remove the cut graphic from view
+          layer.remove(cutterGraphic);
+
+          // Shallow clone for preserving original geometries
+          // in the following loop.
+          const layerGraphics = layer.graphics.items.slice(0);
+
+          // Loop through all graphics on the GraphicsLayer and
+          // attempt to cut each graphic using the geometry of
+          // the cut graphic.
+          // Only valid cuts are acknowleged
+          layerGraphics.forEach((graphic) => {
+            // Get cut geometries
+            const cutGeometries = geometryEngine.cut(graphic.geometry, cutterGraphic.geometry);
+
+            // Found valid geometries
+            if (cutGeometries.length) {
+              // Create new graphics from the geometries
+              const graphics = cutGeometries.map(
+                (geometry) => new Graphic({ geometry, symbol: graphic.symbol })
+              );
+
+              // Remove the graphic that was cut from the view
+              layer.remove(graphic);
+
+              // Add the newly created graphics to the view
+              layer.addMany(graphics);
+            }
+          });
+        }
+
+        function onUnionOperationComplete(unionGraphic) {
+          // Remove the union graphic from view
+          layer.remove(unionGraphic);
+
+          // Shallow clone for preserving original geometries
+          // in the following loop.
+          const layerGraphics = layer.graphics.items.slice(0);
+
+          // Array for storing union candidates
+          const targetGraphics = [];
+
+          console.log("layerGraphics.length: ", layerGraphics.length);
+
+          layerGraphics.forEach((graphic) => {
+            // Look for valid union candidates
+            if (geometryEngine.contains(unionGraphic.geometry, graphic.geometry)) {
+              // Save reference to candidate
+              targetGraphics.push(graphic);
+            }
+          });
+
+          if (targetGraphics.length > 1) {
+            // Get geometries from the target graphics
+            const geometries = targetGraphics.map((graphic) => graphic.geometry);
+
+            // Combine the geometries
+            const unionedGeometry = geometryEngine.union(geometries);
+
+            // Check validity
+            if (unionedGeometry) {
+              // Create a graphic with the new geometry
+              const unionedGraphic = new Graphic({
+                geometry: unionedGeometry,
+                symbol: targetGraphics[0].symbol
+              });
+
+              // Remove target graphics from the view
+              layer.removeMany(targetGraphics);
+
+              // Add the graphic to the view
+              layer.add(unionedGraphic);
+            }
           }
-
-          view.focus();
-        };
+        }
       });
-    });
-  </script>
-</head>
+    </script>
+  </head>
 
-<body>
-  <div id="viewDiv">
-    <div id="sketch-container"></div>
-    <div id="cut-container">
-      <button class="action-button esri-icon-edit" id="cutBtn" type="button" title="Cut"></button>
-      <button class="action-button esri-icon-refresh" id="flipBtn" type="button" title="Flip"></button>
+  <body>
+    <div id="viewDiv">
+      <div id="draw-container">
+        <div class="button-container">
+          <button
+            class="action-button esri-icon-polygon"
+            id="polygonBtn"
+            type="button"
+            title="Draw Polygon"
+          ></button>
+          <button
+            class="action-button esri-icon-checkbox-unchecked"
+            id="rectangleBtn"
+            type="button"
+            title="Draw Rectangle"
+          ></button>
+          <button
+            class="action-button esri-icon-radio-unchecked"
+            id="circleBtn"
+            type="button"
+            title="Draw Circle"
+          ></button>
+        </div>
+        <div class="button-container">
+          <button
+            class="action-button esri-icon-edit"
+            id="cutBtn"
+            type="button"
+            title="Cut geometries"
+          ></button>
+          <button
+            class="action-button esri-icon-sketch-rectangle"
+            id="unionBtn"
+            type="button"
+            title="Union geometries"
+          ></button>
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

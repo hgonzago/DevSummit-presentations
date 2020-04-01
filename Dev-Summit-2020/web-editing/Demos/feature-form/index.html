@@ -1,60 +1,251 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>FeatureForm</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>FeatureForm</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css" />
+    <script src="https://js.arcgis.com/4.15"></script>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/css/main.css">
+    <style>
+      html,
+      body,
+      #viewDiv {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-  <style>
-    html,
-    body,
-    #viewDiv {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
+      #update {
+        padding: 6px;
+      }
 
-    #update {
-      padding: 6px;
-    }
+      #form {
+        background: #fff;
+      }
 
-    #form{
-      background: #fff;
-    }
+      /* replaces esri-widget--panel */
+      .scroller {
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 99vh;
+      }
+    </style>
 
-    /* replaces esri-widget--panel */
-    .scroller {
-      overflow-x: hidden;
-      overflow-y: auto;
-      max-height: 99vh;
-    }
-  </style>
-  <script>
-    var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
-    window.dojoConfig = {
-      packages: [
-        {
-          name: "app",
-          location: locationPath + "/app"
+    <script>
+      require([
+        "esri/Graphic",
+        "esri/Map",
+
+        "esri/core/watchUtils",
+        "esri/layers/FeatureLayer",
+        "esri/layers/GraphicsLayer",
+
+        "esri/views/MapView",
+        "esri/widgets/FeatureForm",
+
+        "dojo/domReady!"
+      ], function(Graphic, Map, watchUtils, FeatureLayer, GraphicsLayer, MapView, FeatureForm) {
+        const updateContainer = document.getElementById("update");
+        const updateButton = document.getElementById("btnUpdate");
+
+        // State management
+        let highlight = null;
+        let editFeature = null;
+
+        //----------------------------------
+        //  set up map
+        //----------------------------------
+
+        const featureLayer = new FeatureLayer({
+          portalItem: {
+            id: "d66f506b84d84512b4f9e7e6ca820116"
+          }
+        });
+
+        const map = new Map({
+          basemap: "dark-gray",
+          layers: [featureLayer]
+        });
+
+        let view = new MapView({
+          map,
+          container: "viewDiv",
+          center: [-79.681652, 43.441544],
+          zoom: 12
+        });
+
+        // disable popup
+        view.popup.autoOpenEnabled = false;
+
+        view.on("click", (event) => {
+          unselectFeature();
+
+          // check if click has features underneath
+          view.hitTest(event).then((hitTest) => {
+            const [first] = hitTest.results;
+
+            if (first) {
+              selectFeature(first.graphic.attributes[featureLayer.objectIdField]);
+              return;
+            }
+
+            updateContainer.classList.add("esri-hidden");
+          });
+        });
+
+        function selectFeature(objectId) {
+          featureLayer
+            .queryFeatures({
+              objectIds: [objectId],
+              outFields: ["*"]
+            })
+            .then(({ features }) => {
+              if (features.length === 0) {
+                return;
+              }
+
+              [editFeature] = features;
+
+              // display the attributes of selected feature in the form
+              form.feature = editFeature;
+
+              // highlight selected feature
+              view.whenLayerView(editFeature.layer).then((layerView) => {
+                highlight = layerView.highlight(editFeature);
+              });
+
+              // show form
+              updateContainer.classList.remove("esri-hidden");
+            });
         }
-      ]
-    };
-  </script>
-  <script src="https://js.arcgis.com/4.14"></script>
-  <script>
-    require(["app"]);
-  </script>
-</head>
-<body>
-  <div id="viewDiv"></div>
-  <div id="update" class="esri-widget esri-hidden">
-    <div id="form" class="scroller esri-component"></div>
-    <input type="button" class="esri-button" value="Update" id="btnUpdate">
-  </div>
-</body>
 
+        function unselectFeature() {
+          if (highlight) {
+            highlight.remove();
+          }
+        }
+
+        function selectFirstOnLoad() {
+          view
+            .whenLayerView(featureLayer)
+            .then((lv) =>
+              watchUtils.whenFalseOnce(lv, "updating", () =>
+                lv
+                  .queryFeatures({ geometry: view.extent })
+                  .then(({ features }) =>
+                    selectFeature(features[0].attributes[featureLayer.objectIdField])
+                  )
+              )
+            );
+        }
+
+        //----------------------------------
+        //  set up form
+        //----------------------------------
+
+        const form = new FeatureForm({
+          container: "form",
+          fieldConfig: [
+            {
+              label: "General Information",
+              description: "Specifics about the encounter.",
+              fieldConfig: [
+                {
+                  name: "ENCOUNTER",
+                  label: "Type",
+                  domain: {
+                    type: "coded-value",
+                    name: "encounter-types",
+                    codedValues: [
+                      { name: "Encounter", code: "Encounter" },
+                      { name: "Sighting", code: "Sighting" },
+                      { name: "Garbage", code: "Garbage" },
+                      { name: "Feeding", code: "Feeding" }
+                    ]
+                  }
+                },
+                {
+                  name: "LOCATION",
+                  label: "Location",
+                  visibilityExpression: "$feature.ENCOUNTER == 'Garbage'"
+                },
+                {
+                  name: "DATE_OF_EN",
+                  label: "Date of Encounter"
+                }
+              ]
+            },
+            {
+              label: "Status",
+              description: "Track progress on this event.",
+              fieldConfig: [
+                { name: "Verified", editable: false },
+                { name: "Reviewer", editable: false }
+              ]
+            },
+            { name: "LOCATION", label: "Location" },
+            { name: "DATE_OF_EN", label: "Date of Encounter" }
+          ]
+        });
+
+        // Listen to the feature form's submit event.
+        form.on("submit", () => {
+          if (!editFeature) {
+            return;
+          }
+
+          editFeature.attributes = form.getValues();
+          applyAttributeUpdates(editFeature);
+        });
+
+        //----------------------------------
+        //  set up form submit
+        //----------------------------------
+
+        updateButton.onclick = () => {
+          // fires feature form's submit event.
+          form.submit();
+        };
+
+        // call FeatureLayer.applyEdits()
+        function applyAttributeUpdates(updatedFeature) {
+          updateButton.style.cursor = "progress";
+
+          featureLayer
+            .applyEdits({ updateFeatures: [updatedFeature] })
+            .then(({ updateFeatureResults }) => {
+              const [first] = updateFeatureResults;
+
+              if (first) {
+                selectFeature(first.objectId);
+              }
+
+              updateButton.style.cursor = "pointer";
+            })
+            .catch((error) => {
+              console.error(
+                `===============================================
+        [ applyEdits ] FAILURE: ${error}`
+              );
+
+              updateButton.style.cursor = "pointer";
+            });
+        }
+
+        selectFirstOnLoad();
+
+        view.ui.add("update", "top-right");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+    <div id="update" class="esri-widget esri-hidden">
+      <div id="form" class="scroller esri-component"></div>
+      <input type="button" class="esri-button" value="Update" id="btnUpdate" />
+    </div>
+  </body>
 </html>
