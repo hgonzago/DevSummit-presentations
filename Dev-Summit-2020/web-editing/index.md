@@ -6,50 +6,54 @@
 ### Web Editing in 2D and 3D
 
 #### Jonathan Uihlein, Heather Gonzago, and David Koerner
+
 ### <small>Slides & demos: https://bit.ly/2PKX5Mx </small>
 
-----
+---
 
 ### **Overview**
 
-* Web Editing
-* API widget editing
-* 2d editing workflows
-* 3d editing workflows
+- Web Editing
+- API widget editing
+- 2d editing workflows
+- 3d editing workflows
 
-----
+---
 
 ### **Editing in a feature service**
+
 </br>
 
-* <a href="https://developers.arcgis.com/rest/services-reference/feature-service.htm" target="_blank">Editable</a>
-* One or more feature layers
-* Users can draw, update, and/or create features
+- <a href="https://developers.arcgis.com/rest/services-reference/feature-service.htm" target="_blank">Editable</a>
+- One or more feature layers
+- Users can draw, update, and/or create features
 
-----
+---
 
 ### 👉 **Set constraints at the service level** 👈
+
 </br>
 
-* Can be set **but not enforced** in web clients
-* Consistent behavior across all clients
+- Can be set **but not enforced** in web clients
+- Consistent behavior across all clients
 
-----
+---
 
 ### **Setting the feature layer's editable settings in AGO/Portal**
 
 <img src="./images/feature-layer-settings.png" height="600" style="margin-left:10px; margin-right: 10px;"/>
 
-----
+---
 
 ### **Edit a feature layer**
+
 </br>
 * <a href="https://developers.arcgis.com/rest/services-reference/feature-service.htm" target="_blank">ArcGIS REST API</a>
 * <a href="https://doc.arcgis.com/en/arcgis-online/manage-data/edit-features.htm" target="_blank">ArcGIS Online</a>
 * <a href="https://developers.arcgis.com/python/guide/editing-features/" target="_blank">ArcGIS API for Python</a>
 * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html" target="_blank">ArcGIS API for JavaScript</a>
 
-----
+---
 
 ### **ArcGIS API for JavaScript**
 
@@ -61,57 +65,64 @@
 
 ⌨️ Granular APIs
 
-----
+---
 
 ### **Configurable Widgets**
+
 </br>
 
-* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html" target="_blank">Editor</a>
-  * Geometry: <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html" target="_blank">Sketch</a>
-  * Fields/attributes: <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html" target="_blank">FeatureForm</a>
-  * <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html" target="_blank">FeatureTemplates</a>
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html" target="_blank">Editor</a>
+  - Geometry: <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html" target="_blank">Sketch</a>
+  - Fields/attributes: <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html" target="_blank">FeatureForm</a>
+  - <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html" target="_blank">FeatureTemplates</a>
 
-----
+---
 
 ### **Granular APIs**
+
 </br>
 
-* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch-SketchViewModel.html" target="_blank">SketchViewModel</a>
-* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GraphicsLayer.html" target="_blank">GraphicsLayer</a>
-* <a href="http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits" target="_blank">FeatureLayer.applyEdits</a>
-* <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-geometry-geometryEngine.html" target="_blank">GeometryEngine</a>
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch-SketchViewModel.html" target="_blank">SketchViewModel</a>
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GraphicsLayer.html" target="_blank">GraphicsLayer</a>
+- <a href="http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits" target="_blank">FeatureLayer.applyEdits</a>
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-geometry-geometryEngine.html" target="_blank">GeometryEngine</a>
 
-----
+---
 
 ### **[Editor](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html) widget**
-    
 
 <a href="https://developers.arcgis.com/javascript/latest/sample-code/widgets-editor-basic/index.html" target="_blank">
   <img style="float: center;" src="images/editor-in-action.gif">
 </a>
 
-----
+---
+
 </br>
 </br>
 ## **2d editing workflows**
 
+---
 
-----
+### **Recap: Configurable Widgets**
 
+</br>
 
-## Jonathan Uihlein
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html" target="_blank">Editor</a>
+  - Comprised of other widgets
+    - <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html" target="_blank">FeatureForm</a> - Form based editing
+    - <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html" target="_blank">Sketch</a> - Geometry based editing
+  - Responsible for applying updates to the FeatureLayer
+    - FeatureForm and Sketch are _client-side_
 
-----
-
+---
 
 ### **Form-based**
-
 
 [<img src="images/ff-in-action.gif" height="600" style="margin-left:10px; margin-right: 10px;"/>](https://developers.arcgis.com/javascript/latest/sample-code/editing-groupedfeatureform/index.html)
 
 ☝ `FeatureForm`
 
-----
+---
 
 ## [FeatureForm](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
 
@@ -123,23 +134,13 @@
   * Groups
   * Visibility expression
 
-
-----
+---
 
 ### **FeatureForm demo**
 
-
 [<img src="images/ff-demo.png" height="600" style="margin-left:10px; margin-right: 10px;"/>](Demos/feature-form/index.html)
 
-
-----
-
-### **Advanced FeatureForm Demo**
-
-[<img src="images/form-based-editing.gif" height="600" style="margin-left:10px; margin-right: 10px;"/>](https://jcfranco.github.io/dev-summit-2019-plenary-demos/form-based-editing/)
-
-
-----
+---
 
 ### **Geometry-based**
 
@@ -147,54 +148,53 @@
 
 ☝ `Sketch`
 
-----
+---
 
 ### [Sketch](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html)
 
-* Provides ability to manipulate geometries
-* Configurable
-  * Tool options (create and update)
-  * Internal view listener for activating update workflow
+- Used to modify feature geometries
+- Provides two major workflows (or operations)
+  - create
+  - update (includes delete)
+- Configurable options for both workflows
+- Manages user interactions with the view internally
+  - Can be disabled to provide more control directly to developers
 
-----
+---
 
 ### **Geometry-based Demos**
 
-* [Sketch](https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/index.html)
-* [SketchViewModel with applyEdits](Demos/sketch-applyEdits-create-polygon/applyEdits-create-polygon.html)
-* [Sketch with applyEdits](Demos/sketch-applyEdits/applyEdits.html)
-* [Sketch with custom tools](Demos/sketch-custom-tools/sketch-custom-tools.html)
-* [Sketch with custom snapping and validation](Demos/sketch-validation/sketch-validation.html)
+- [Hello Sketch](https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/index.html)
+- [Using applyEdits with SketchViewModel](Demos/sketch-applyEdits-create-polygon/applyEdits-create-polygon.html)
+- [Creating custom tools using SketchViewModel](Demos/sketch-custom-tools/sketch-custom-tools.html)
 
-----
+---
 
 </br>
 </br>
 ## **3d editing workflows**
 
-
-----
-
+---
 
 ## David Koerner
 
-----
+---
 
-### *** David adds his section specific to 3d stuff**
+### **\* David adds his section specific to 3d stuff**
 
-----
-
+---
 
 <!-- .slide: data-background="../reveal.js/img/bg-4.png" -->
 </br>
 
 ## Questions?
+
 </br>
 </br>
 👉Slides & demos: https://bit.ly/2PKX5Mx 👈
 
-----
+---
 
-----
+---
 
 <!-- .slide: data-background="../reveal.js/img/bg-rating.png" -->
