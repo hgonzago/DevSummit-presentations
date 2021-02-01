@@ -1,3 +1,3 @@
-Presentation - http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2020/Getting-started-web-dev/
+Presentation - http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2021/Getting-started-web-dev/
 
-Demos - http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2020/Getting-started-web-dev/Demos
+Demos - http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2021/Getting-started-web-dev/Demos
