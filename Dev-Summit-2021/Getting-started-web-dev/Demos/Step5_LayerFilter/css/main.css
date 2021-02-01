@@ -1,0 +1,32 @@
+html,
+body,
+#viewDiv {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#crime-amount-filter {
+	height: 160px;
+	width: 100%;
+	visibility: hidden;
+}
+
+.crime-item {
+	width: 100%;
+	padding: 12px;
+	text-align: center;
+	vertical-align: baseline;
+	cursor: pointer;
+	height: 55px;
+	width: 100px;
+}
+
+.crime-item:focus {
+	background-color: dimgrey;
+}
+
+.crime-item:hover {
+	background-color: dimgrey;
+}

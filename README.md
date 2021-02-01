@@ -2,6 +2,15 @@
 
 Here you can access the presentations and demos used in past years' Developer Summits.
 
+## 2021
+
+* [Getting Started with Web Development
+and the ArcGIS API for JavaScript](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2021/Getting-started-web-dev)
+* [Tips and Tricks for Developing and Debugging Apps](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2021/Dev-debug-tips)
+* [Building Web Apps That Integrate with Your Portal](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2021/Integrate-apps-portal/)
+* [ArcGIS API for JavaScript: Better UX with Popups](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2021/Better-ux-popups/)
+* [ArcGIS API for JavaScript: Web editing in 2D and 3D](http://hgonzago.github.io/DevSummit-presentations/Dev-Summit-2021/web-editing/)
+
 ## 2020
 
 * [Getting Started with Web Development
