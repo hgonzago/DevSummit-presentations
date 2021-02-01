@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dev-summit-2021.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="img/2021/dev-summit/bg-1.png" data-background-size="cover">
+					<h1 style="text-align: left; font-size: 80px;">Presentation Title</h1>
+					<p style="text-align: left; font-size: 30px;">Name(s)</p>
+					<p style="text-align: left; font-size: 30px;"><a href="https://github.com/handle">@handle</a></p>
+					<p style="text-align: left; font-size: 30px;">slides: <a href="http://bit.ly/abc123"><code>http://bit.ly/abc123</code></a></p>
+        </section>
+
+        <section data-markdown data-background="img/2021/dev-summit/bg-2.png">
+					<textarea data-template>
+						## Headline Here 2
+
+						* Bullet [points here](http://hakim.se).
+					</textarea>
+        </section>
+        
+        <section data-auto-animate data-background="img/2021/dev-summit/bg-2.png">
+					<h2 data-id="code-title">Code Example</h2>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						import React, { useState } from 'react';
+
+						function Example() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    ...
+						  );
+						}
+					</code></pre>
+				</section>
+
+				<section data-markdown data-background="img/2021/dev-summit/bg-3.png">
+					<textarea data-template>
+						## Headline Here 3
+
+						* Bullet [points here](http://hakim.se).
+					</textarea>
+        </section>
+        
+        <section data-markdown data-background="img/2021/dev-summit/bg-4.png">
+					<textarea data-template>
+						## Headline Here 3
+
+						* Bullet [points here](http://hakim.se).
+					</textarea>
+				</section>
+
+				
+
+				<!-- ESRI LOGO SLIDE: -->
+        <section data-background="img/2021/dev-summit/bg-5.png">
+          <img src="img/esri-science-logo-white.png" />
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

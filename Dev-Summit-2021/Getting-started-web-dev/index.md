@@ -1,16 +1,18 @@
-<!-- .slide: data-background="../reveal.js/img/bg-1.png" -->
+<!-- .slide: data-background="../reveal.js/img/2021/dev-summit/bg-1.png" -->
 <!-- .slide: class="title" -->
-<br></br>
 ### Getting Started with Web Development
 ### and the ArcGIS API for JavaScript
 Jose Banuelos and Heather Gonzago
 
-<small>👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈</small>
+----
+
+### **Presentations accessible via GitHub**
+👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈
 
 ----
 
 ### **Agenda**
-</br>
+
  - Setup
  - First steps
  - Working with layers
@@ -21,26 +23,9 @@ Jose Banuelos and Heather Gonzago
 
 ----
 
-### **Presentations accessible via GitHub**
-  </br>
-  - This session focuses on version 4.x</br>
-  </br>
-  - Concepts remain similar between versions 3.x and 4.x</br>
-  </br>
-  - 👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈
-
-----
-
 ### **Where do I begin?**
 <a href="https://developers.arcgis.com/javascript/" target="_blank">
 <img src="Images/landingPage_414.png" alt="JavaScript landing page" width="1284" height="630">
-</a>
-
-----
-
-### **Which version of the API is best?**
-<a href="https://developers.arcgis.com/javascript/latest/guide/choose-version/index.html" target="_blank">
-<img src="Images/Choose_Your_Own_Version_414.png" alt="API functionality matrix" width="1206" height="651">
 </a>
 
 ----
@@ -126,6 +111,12 @@ Visualize data within Map or Scene
   style="transform:scale(1); width:524px; height:573px; border:0; overflow:hidden; float: right; margin-top:-515px; margin-right:150px;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
+
+----
+
+### API Keys section
+
+Have a blurb in here about working with the API keys
 
 ----
 
