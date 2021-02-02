@@ -1,0 +1,29 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+#viewDiv {
+  height: 60%;
+  width: 100%;
+}
+#infoDiv {
+  padding: 10px;
+}
+a {
+  color: #ff642e;
+}
+h4 {
+  margin: 0px;
+}
+.container {
+  height: 40%;
+  width: 100%;
+}
+
+.esri-feature-table__title {
+  font-weight: bold;
+  font-size: large;
+}
