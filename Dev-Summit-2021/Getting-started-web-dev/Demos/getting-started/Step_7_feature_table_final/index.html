@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+
+    <title>
+      Black-Owned Business Tracker
+    </title>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.18/esri/themes/dark-red/main.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <dom-module id="my-grid-styles" theme-for="vaadin-grid">
+      <template>
+        <style>
+          
+
+          /* Styles that affect all grid cells, including header, body and footer cells */
+          [part~="cell"] {
+            background: #303030;
+            color: #ff642e;
+          }
+
+          /* Styles that only affect all header cells */
+          [part~="header-cell"] {
+            background-color: #303030;
+            color: #ffffff;
+            font-weight: bold;
+          }
+        </style>
+      </template>
+    </dom-module>
+    <dom-module id="my-sorter-styles" theme-for="vaadin-checkbox">
+      <template>
+        <style>
+          [part="checkbox"] {
+            background: #ff642e;
+          }
+    
+          :host(:not([checked]):not([indeterminate]):not([disabled]):hover) [part="checkbox"] {
+            background: #ffffff;
+          }
+        </style>
+      </template>
+    </dom-module>
+    <script src="https://js.arcgis.com/4.18/"></script>
+    <script src="js/main.js"></script>
+
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+    <div id="infoDiv" class="esri-widget">
+      <h3>Data provided by <a href="https://bgmapp.org/">Black Girls M.A.P.P</a></h3>
+      <h4>Filter by Industry:</h4>
+      <select id="filter" class="esri-select">
+        <option value="1=1">All</option>
+        <option value="accessories_&_clothing">Accessories & Clothing</option>
+        <option value="arts_&_culture">Arts & Culture</option>
+        <option value="auto">Auto</option>
+        <option value="food_+_beverage">Food + Beverage</option>
+        <option value="hair_body_&_beauty">Hair, Body & Beauty</option>
+        <option value="health_&_medicine">Health & Medicine</option>
+        <option value="it_&_tech_hardware+software_">IT & Tech</option>
+        <option value="legal">Legal</option>
+        <option value="management">Management</option>
+        <option value="non_profit_organization">Non Profit Organization</option>
+        <option value="religious">Religious</option>
+        <option value="other">Other</option>
+      </select>
+      <br />
+      <div id="legendDiv"></div>
+    </div>
+    <div class="container">
+      <div id="tableDiv"></div>
+    </div>
+  </body>
+</html>
