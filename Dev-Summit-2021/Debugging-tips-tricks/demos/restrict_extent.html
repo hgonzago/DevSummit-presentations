@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.18</title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
+
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+        require(["esri/views/MapView", "esri/WebMap", "esri/core/watchUtils", "esri/geometry/support/jsonUtils", "esri/widgets/Search"], function (MapView, WebMap, watchUtils, jsonUtils, Search) {
+
+            const map = new WebMap({
+                portalItem: {
+                    id: "e02e594d2c3241be87cf532824328e5e"
+                }
+            });
+            const geometry = jsonUtils.fromJSON({
+                spatialReference: {
+                    latestWkid: 3857,
+                    wkid: 102100
+                },
+                rings: [[[-13242565.585139044, 4026083.4353708853],
+                [-13242565.585139044, 4053773.047449283
+                ],
+                [
+                    -13188711.817144379,
+                    4053773.047449283
+                ],
+                [
+                    -13188711.817144379,
+                    4026083.4353708853
+                ],
+                [
+                    -13242565.585139044,
+                    4026083.4353708853
+                ]
+                ]
+                ]
+            });
+            const view = new MapView({
+                map,
+                constraints: {
+                    geometry,
+                    minScale: 150289,
+                    maxScale: 100
+                },
+                container: "viewDiv"
+            });
+
+            const search = new Search({
+                view
+            });
+            // TODO ask Matt D if this is best approach
+            search.viewModel.includeDefaultSources = function (sources) {
+                sources.defaultSources.forEach(source => {
+                    source.filter = {
+                        geometry
+                    }
+                })
+                return sources.defaultSources;
+            };
+
+            view.ui.add(search, "top-right");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>
