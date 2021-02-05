@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.18</title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <link id="esriStylesheet" rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
+
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+        require(["esri/views/MapView", "esri/WebMap"], function (MapView, WebMap) {
+            if (window.matchMedia) {
+                // light or dark theme
+                const esriStyle = document.getElementById("esriStylesheet");
+                window.matchMedia("(prefers-color-scheme:dark").addEventListener("change", event => {
+                    const theme = event.matches ? "dark" : "light";
+                    esriStyle.href = `https://js.arcgis.com/4.18/esri/themes/${theme}/main.css`;
+                });
+            }
+
+            const map = new WebMap({
+                portalItem: {
+                    id: "f2e9b762544945f390ca4ac3671cfa72"
+                }
+            });
+
+            const view = new MapView({
+                map,
+                container: "viewDiv"
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>
