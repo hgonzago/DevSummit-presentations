@@ -75,7 +75,11 @@ Tips on common questions people ask
 
 ### Constrain visible extent 
 
-  // TODO sample with search and view constrained
+ - Use constraint geometry to 
+  - Restrict map area
+  - Limit search results 
+
+  [Demo](demos/restrict_extent.html)
 
 
 ----
