@@ -23,7 +23,6 @@
 
     <script>
         require(["esri/views/MapView", "esri/WebMap", "esri/core/watchUtils", "esri/geometry/support/jsonUtils", "esri/widgets/Search"], function (MapView, WebMap, watchUtils, jsonUtils, Search) {
-
             const map = new WebMap({
                 portalItem: {
                     id: "e02e594d2c3241be87cf532824328e5e"
@@ -65,7 +64,6 @@
             const search = new Search({
                 view
             });
-            // TODO ask Matt D if this is best approach
             search.viewModel.includeDefaultSources = function (sources) {
                 sources.defaultSources.forEach(source => {
                     source.filter = {
