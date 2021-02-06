@@ -84,6 +84,18 @@ Tips on common questions people ask
 
 ----
 
+### Request interceptor 
+
+  - [RequestInterceptor](https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#RequestInterceptor)
+    - Add headers
+    - Changes before request is sent
+    - Changes after request is sent but before returned to caller
+    - Log error info for specfic layer errors
+
+    [Real World Example](https://community.esri.com/t5/arcgis-api-for-javascript/how-to-use-a-key-in-an-esrirequest-call/m-p/298401)
+
+----
+
 ## Developer Tools
 
 
