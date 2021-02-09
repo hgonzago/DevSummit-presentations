@@ -114,16 +114,17 @@ Visualize data within Map or Scene
 
 ----
 
-### API Keys section
+### API Keys
 
-Have a blurb in here about working with the API keys
+- For use with <a href="https://developers.arcgis.com/documentation/mapping-apis-and-location-services/arcgis-location-services/" target="_blank"> Basemaps and Location services</a>
+<img src="Images/api-keys.png" style="float: center;" alt="api-keys" width="650" height="500"> 
 
 ----
 
-### **Demo: Make a map**
+### **Demo: Create a Map with an API-Key basemap**
 </br>
-<a href="Demos/Step1_Map/" target="_blank">
-  <img style="float: center;" src="Images/Step1_Demo.png">
+<a href="Demos/getting-started/Step_1_map/" target="_blank">
+  <img style="float: center;" src="Images/demo-step-1.png">
 </a>
 
 ----
@@ -179,10 +180,95 @@ Have a blurb in here about working with the API keys
 
 ----
 
-### **Demo: Add layer to sample app**
+### **Demo: Add a FeatureLayer**
 </br>
-<a href="Demos/Step2_Layer/" target="_blank">
-  <img style="float: center;" src="Images/Step2_Demo.png">
+<a href="Demos/getting-started/Step_2_layer/" target="_blank">
+  <img style="float: center;" src="Images/demo-step-2.png" height="463" width="658">
+</a>
+
+----
+
+### **Data provided by BLACK GIRLS M.A.P.P.**
+ <a href="https://bgmapp" target="_blank">
+  BGMAPP.org
+</a>
+
+----
+
+### **Map interaction using popups**
+</br>
+<img style="float: right;" src="Images/popup.png">
+
+- Responds to mouse clicks
+</br></br>
+- Provides info on:
+  - feature attributes
+  - location
+  - search results
+</br></br>
+- Customizable
+
+----
+
+### **PopupTemplate**
+- View has a default instance of <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-View.html#popup" target="_blank">popup</a>
+- FeatureLayer has associated <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html" target="_blank">popupTemplate</a> property
+- Position the popup using <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html#dockOptions" target="_blank"><code>dockOptions</code></a>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520popupTemplate%2520%253D%2520new%2520PopupTemplate(%257B%250A%2520%2520title%253A%2520%2522Title%2520of%2520the%2520popup%2522%252C%250A%2520%2520content%253A%2520%255B%257B%250A%2520%2520%2520%2520%252F%252F%2520Set%2520the%2520content%2520here%250A%2520%2520%257D%255D%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522url%2520to%2520the%2520feature%2520layer%2522%252C%250A%2520%2520outFields%253A%2520%255B%2522*%2522%255D%252C%250A%2520%2520popupTemplate%253A%2520popupTemplate%252C%250A%2520%2520renderer%253A%2520renderer%250A%257D)%253B"
+  style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+----
+
+### **Demo: Add a popup to the map**
+</br>
+<a href="Demos/getting-started/Step_3_popup/" target="_blank">
+  <img style="float: center;" src="Images/demo-step-3.png">
+</a>
+
+----
+
+### **Widgets**
+
+- <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-widgets" target="_blank">Encapsulates functionality</a>
+- Similar coding pattern across all widgets
+</br>
+</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520const%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520const%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522top-right%2522)%253B%250A%257D)%253B"
+  style="transform:scale(1); width:675px; height:473px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+----
+
+### ** View UI**
+
+- Position widgets
+  - Add
+  - Move
+  - Remove
+</br>
+</br>
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250Aview.ui.add(swipe)%253B"
+  style="transform:scale(1); width:624px; height:273px; border:0; overflow:hidden; display:block;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+----
+
+### **Demo: Add widgets to the application**
+</br>
+<a href="Demos/getting-started/Step_4_widgets/" target="_blank">
+  <img style="float: center;" src="Images/demo-step-4.png">
 </a>
 
 ----
@@ -227,50 +313,10 @@ Have a blurb in here about working with the API keys
 
 ----
 
-### **Demo: Update a feature layer's renderer**
+### **Demo: Update a FeatureLayer's renderer**
 </br>
-<a href="Demos/Step3_LayerRenderer/" target="_blank">
-  <img style="float: center;" src="Images/Step3_Demo.png">
-</a>
-
-----
-
-### **Map interaction using popups**
-</br>
-<img style="float: right;" src="Images/popup.png">
-
-- Responds to mouse clicks
-</br></br>
-- Provides info on:
-  - feature attributes
-  - location
-  - search results
-</br></br>
-- Customizable
-
-----
-
-### **PopupTemplate**
-- View has a default instance of <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-views-View.html#popup" target="_blank">popup</a>
-- FeatureLayer has associated <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html" target="_blank">popupTemplate</a> property
-- Position the popup using <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html#dockOptions" target="_blank"><code>dockOptions</code></a>
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520popupTemplate%2520%253D%2520new%2520PopupTemplate(%257B%250A%2520%2520title%253A%2520%2522Title%2520of%2520the%2520popup%2522%252C%250A%2520%2520content%253A%2520%255B%257B%250A%2520%2520%2520%2520%252F%252F%2520Set%2520the%2520content%2520here%250A%2520%2520%257D%255D%250A%257D)%253B"
-  style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522url%2520to%2520the%2520feature%2520layer%2522%252C%250A%2520%2520outFields%253A%2520%255B%2522*%2522%255D%252C%250A%2520%2520popupTemplate%253A%2520popupTemplate%252C%250A%2520%2520renderer%253A%2520renderer%250A%257D)%253B"
-  style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-
-----
-
-### **Demo: Add a popup to the map**
-</br>
-<a href="Demos/Step4_Popup/" target="_blank">
-  <img style="float: center;" src="Images/Step4_Demo.png">
+<a href="Demos/getting-started/Step_5_renderer/" target="_blank">
+  <img style="float: center;" src="Images/demo-step-5.png">
 </a>
 
 ----
@@ -289,70 +335,18 @@ Have a blurb in here about working with the API keys
 
 ----
 
-### **Demo: Filter features within a layer**
+### **Demo: Client-side feature filtering**
 
-<a href="Demos/Step5_LayerFilter/" target="_blank">
-  <img style="float: center;" src="Images/Step5_Demo.png">
+<a href="Demos/getting-started/Step_6_client-side_filter/" target="_blank">
+  <img style="float: center;" src="Images/demo-step-6.png">
 </a>
 
 ----
 
-### **Using web maps**
-</br>
-- Reduces coding effort</br>
-- Retains all customizations with rendering, popups, etc.
-</br>
-</br>
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520map%2520%253D%2520new%2520WebMap(%257B%250A%2520%2520portalItem%253A%2520%257B%250A%2520%2520%2520%2520id%253A%2520%2522f9a9a7e3857d4d51b2c801cf8c399add%2522%2520%252F%252F%2520Remember%2520portalItem%2520is%2520autocasted%250A%2520%2520%257D%250A%257D)%253B"
-  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden; display:block;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
+### **Demo: More widgets (FeatureTable)**
 
-----
-
-### **Demo: Add a web map to an application**
-</br>
-<a href="Demos/Step6_Webmap/" target="_blank">
-  <img style="float: center;" src="Images/Step6_Demo.png">
-</a>
-
-----
-
-### **Widgets**
-
-- <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-widgets" target="_blank">Encapsulates functionality</a>
-- Similar coding pattern across all widgets
-</br>
-</br>
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520const%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520const%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522top-right%2522)%253B%250A%257D)%253B"
-  style="transform:scale(1); width:675px; height:473px; border:0; overflow:hidden; display:block;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-
-----
-
-### ** View UI**
-
-- Position widgets
-  - Add
-  - Move
-  - Remove
-</br>
-</br>
-<iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250Aview.ui.add(swipe)%253B"
-  style="transform:scale(1); width:624px; height:273px; border:0; overflow:hidden; display:block;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-
-----
-
-### **Demo: Add widgets to the application**
-</br>
-<a href="Demos/Step7_Widgets/" target="_blank">
-  <img style="float: center;" src="Images/Step7_Demo.png">
+<a href="Demos/getting-started/Step_7_feature_table_final/" target="_blank">
+  <img style="float: center;" src="Images/demo-step-7.png">
 </a>
 
 ----
