@@ -15,11 +15,12 @@ Jose Banuelos and Heather Gonzago
 
  - Setup
  - First steps
+ - API keys
  - Working with layers
- - Symbols and renderers
- - Make the map interactive
- - Filtering data
  - Widgets
+ - Symbols and renderers
+ - Client-side filtering
+ - Widgets Part 2 (FeatureTable)
 
 ----
 
