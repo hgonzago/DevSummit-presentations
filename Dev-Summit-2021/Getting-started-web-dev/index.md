@@ -99,12 +99,12 @@ Jose Banuelos and Heather Gonzago
 Visualize data within Map or Scene
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=24px&ph=34px&ln=false&fl=1&fm=Hack&fs=18px&lh=133%25&si=false&es=4x&wm=false&code=%2520%2520const%2520map%2520%253D%2520new%2520Map(%257B%250A%2520%2520%2520%2520basemap%253A%2520%2522gray-vector%2522%250A%2520%2520%257D)%253B"
-  style="transform:scale(1); width:524px; height:230px; border:0; overflow:hidden; display:block; margin-left:150px;"
+  style="transform:scale(1); width:524px; height:230px; border:0; overflow:hidden; display:block; margin-left:50px;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520view%2520%253D%2520new%2520MapView(%257B%250A%2520%2520container%253A%2520%2522viewDiv%2522%252C%250A%2520%2520map%253A%2520map%252C%250A%2520%2520zoom%253A%252012%252C%250A%2520%2520center%253A%2520%255B-117.168%252C%252032.776%255D%250A%257D)%253B"
-  style="transform:scale(1); width:524px; height:286px; border:0; overflow:hidden; display:block; margin-left:150px;"
+  style="transform:scale(1); width:524px; height:286px; border:0; overflow:hidden; display:block; margin-left:50px;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 <iframe
