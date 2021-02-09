@@ -15,11 +15,12 @@ Jose Banuelos and Heather Gonzago
 
  - Setup
  - First steps
+ - API keys
  - Working with layers
- - Symbols and renderers
- - Make the map interactive
- - Filtering data
  - Widgets
+ - Symbols and renderers
+ - Client-side filtering
+ - Widgets Part 2 (FeatureTable)
 
 ----
 
@@ -59,7 +60,7 @@ Jose Banuelos and Heather Gonzago
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=htmlmixed&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252Fesri%252Fcss%252Fmain.css%2522%253E%2520%250A%253Cscript%2520src%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252F%2522%253E%253C%252Fscript%253E"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=htmlmixed&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fmain.css%2522%253E%2520%250A%253Cscript%2520src%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252F%2522%253E%253C%252Fscript%253E"
   style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
@@ -69,14 +70,14 @@ Jose Banuelos and Heather Gonzago
 </br>
 - <a href="https://developers.arcgis.com/javascript/latest/guide/styling/index.html" target="_blank"><b>Main.css</b></a> contains styles for entire API
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252Fesri%252Fcss%252Fmain.css%2522%253E"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fmain.css%2522%253E"
   style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 - <b>View.css</b> is smaller in size but better choice if only needing basic CSS (maps, widgets, etc.)
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.15%252Fesri%252Fcss%252Fview.css%2522%253E"
+  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fview.css%2522%253E"
   style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
