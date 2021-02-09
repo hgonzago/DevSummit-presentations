@@ -7,7 +7,7 @@ Jose Banuelos and Heather Gonzago
 ----
 
 ### **Presentations accessible via GitHub**
-👉 Slides & demos: <code>https://bit.ly/3cnPptf</code> 👈
+👉 Slides & demos: <code>https://bit.ly/3rDUUdQ</code> 👈
 
 ----
 
@@ -25,7 +25,7 @@ Jose Banuelos and Heather Gonzago
 
 ### **Where do I begin?**
 <a href="https://developers.arcgis.com/javascript/" target="_blank">
-<img src="Images/landingPage_414.png" alt="JavaScript landing page" width="1284" height="630">
+<img src="Images/landingPage.png" alt="JavaScript landing page" width="1284" height="560">
 </a>
 
 ----
