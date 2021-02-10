@@ -74,13 +74,13 @@ Jose Banuelos and Heather Gonzago
 
 ### CSS
 </br>
-- <a style="float: left;"  href="https://developers.arcgis.com/javascript/latest/styling/" target="_blank"><b>Themes and styling</b></a>
+<a style="float: left;"  href="https://developers.arcgis.com/javascript/latest/styling/" target="_blank"><b>Themes and styling</b></a>
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fmain.css%2522%253E"
   style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
-- <a style="float: left;"  href="https://developers.arcgis.com/javascript/latest/styling/#sassy-widgets" target="_blank">Custom CSS (SASS)</a>
+<a style="float: left;"  href="https://developers.arcgis.com/javascript/latest/styling/#sassy-widgets" target="_blank">Custom CSS (SASS)</a>
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fview.css%2522%253E"
   style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
