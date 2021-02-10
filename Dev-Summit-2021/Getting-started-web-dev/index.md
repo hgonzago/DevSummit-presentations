@@ -201,7 +201,7 @@ Visualize data within Map or Scene
 ----
 
 ### **Data provided by BLACK GIRLS M.A.P.P.**
- <a href="https://bgmapp" target="_blank">
+ <a href="https://bgmapp.org" target="_blank">
   BGMAPP.org
 </a>
 
