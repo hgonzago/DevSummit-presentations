@@ -3,7 +3,7 @@
  * The FeatureTable allows us to view all of the features in the layer, as each record in
  * the table represents a feature from the FeatureLayer. Be default, when you select a record
  * in the table, the associated feature is highlighted on the map. This adds the ability
- * to also zoom and zoom to the selected fearue upon selecting its corresponding record on the table.
+ * to also zoom and zoom to the selected feature upon selecting its corresponding record on the table.
  * When a user selects multiple features, the app will zoom to the extent of those features selected.
  */
 require([
@@ -28,18 +28,34 @@ require([
   // a website field value or not.
   const template = {
     title: "{Name}",
-    content: `<b>Address:</b> {Address}<br/>
-      <b>Industry:</b> {Industry}<br/>
-      <b>{expression/has-website}</b> <a href={expression/website-expr}>{expression/website-expr}</a>
-      `,
-    expressionInfos: [{
+    lastEditInfoEnabled: false,
+    content: [
+      {
+        type: "fields",
+        fieldInfos: [
+        {
+          fieldName: "Address",
+          label: "Address"
+        },
+        {
+          fieldName: "Industry",
+          label: "Industry"
+        }]
+      },
+      {
+        type: "text",
+        text: '<b>{expression/has-website}</b> <a href={expression/website-expr}>{expression/website-expr}</a>'
+      }
+    ],
+  expressionInfos: [{
       name: 'website-expr',
-      expression: `IIF(!IsEmpty($feature.Website), $feature.Website, null)`
+      title: "Website:",
+      expression: 'IIF(!IsEmpty($feature.Website), $feature.Website, null)'
     }, {
       name: 'has-website',
-      expression: `IIf(!IsEmpty($feature.Website), "Website: ", "No website found for this business")`
+      expression: 'IIf(!IsEmpty($feature.Website), "Website: ", "No website found for this business")'
     }]
-  };
+};
 
   // Unique Value Renderer to apply on the FeatureLayer
   const uvrRenderer = {

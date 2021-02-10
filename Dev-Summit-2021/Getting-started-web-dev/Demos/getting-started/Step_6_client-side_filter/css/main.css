@@ -15,4 +15,7 @@ a {
 h4 {
   margin: 0px;
 }
-
+.esri-popup__footer .esri-popup__button {
+  font-size: 16px;
+  font-weight: 460;
+}

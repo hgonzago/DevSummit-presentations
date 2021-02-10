@@ -3,7 +3,7 @@
  * Arcade to display Website content on the popup depending on the attribute
  * value. If there is no Website values in the feature, the Arcade expression
  * will return "There is no website available".
-**/
+ **/
 require([
   "esri/config",
   "esri/Map",
@@ -21,42 +21,58 @@ require([
   // a website field value or not.
   const template = {
     title: "{Name}",
-    content: `<b>Address:</b> {Address}<br/>
-      <b>Industry:</b> {Industry}<br/>
-      <b>{expression/has-website}</b> <a href={expression/website-expr}>{expression/website-expr}</a>
-      `,
-    expressionInfos: [{
+    lastEditInfoEnabled: false,
+    content: [
+      {
+        type: "fields",
+        fieldInfos: [
+        {
+          fieldName: "Address",
+          label: "Address"
+        },
+        {
+          fieldName: "Industry",
+          label: "Industry"
+        }]
+      },
+      {
+        type: "text",
+        text: '<b>{expression/has-website}</b> <a href={expression/website-expr}>{expression/website-expr}</a>'
+      }
+    ],
+  expressionInfos: [{
       name: 'website-expr',
-      expression: `IIF(!IsEmpty($feature.Website), $feature.Website, null)`
+      title: "Website:",
+      expression: 'IIF(!IsEmpty($feature.Website), $feature.Website, null)'
     }, {
       name: 'has-website',
-      expression: `IIf(!IsEmpty($feature.Website), "Website: ", "No website found for this business")`
+      expression: 'IIf(!IsEmpty($feature.Website), "Website: ", "No website found for this business")'
     }]
-  };
+};
 
-  // Initializing the FeatureLayer
-  const featureLayer = new FeatureLayer({
-    title: "Black-owned Businesses",
-    url: url,
-    copyright: "BGMAPP",
-    popupTemplate: template
-  });
+// Initializing the FeatureLayer
+const featureLayer = new FeatureLayer({
+  title: "Black-owned Businesses",
+  url: url,
+  copyright: "BGMAPP",
+  popupTemplate: template
+});
 
-  const map = new Map({
-    basemap: "arcgis-dark-gray",
-    layers: [featureLayer]  // add the layer to the Map
-  });
+const map = new Map({
+  basemap: "arcgis-dark-gray",
+  layers: [featureLayer] // add the layer to the Map
+});
 
-  const view = new MapView({
-    container: "viewDiv",
-    map: map,
-    extent: {
-      xmin: -118.98364392089809,
-      ymin: 33.64236255586565,
-      xmax: -117.5073560791019,
-      ymax: 34.4638389963474,
-      spatialReference: 4326
-    }
-  });
-  
+const view = new MapView({
+  container: "viewDiv",
+  map: map,
+  extent: {
+    xmin: -118.98364392089809,
+    ymin: 33.64236255586565,
+    xmax: -117.5073560791019,
+    ymax: 34.4638389963474,
+    spatialReference: 4326
+  }
+});
+
 });

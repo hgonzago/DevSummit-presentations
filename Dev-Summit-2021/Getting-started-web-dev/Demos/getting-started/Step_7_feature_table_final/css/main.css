@@ -27,3 +27,7 @@ h4 {
   font-weight: bold;
   font-size: large;
 }
+.esri-popup__footer .esri-popup__button {
+  font-size: 16px;
+  font-weight: 460;
+}

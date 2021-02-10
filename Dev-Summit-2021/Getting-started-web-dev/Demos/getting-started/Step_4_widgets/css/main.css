@@ -12,4 +12,8 @@ a {
 #infoDiv {
   padding: 10px;
 }
+.esri-popup__footer .esri-popup__button {
+  font-size: 16px;
+  font-weight: 460;
+}
 

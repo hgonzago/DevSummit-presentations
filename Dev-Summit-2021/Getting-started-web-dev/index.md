@@ -31,6 +31,11 @@ Jose Banuelos and Heather Gonzago
 
 ----
 
+### **Heather Gonzago**
+
+
+----
+
 ### **Developer Setup**
 </br>
 <a href="https://www.slant.co/topics/1686/~javascript-ides-or-editors" target="_blank">
@@ -42,13 +47,14 @@ Jose Banuelos and Heather Gonzago
 ### **JSAPI Resources**
 </br>
 <a href="https://github.com/Esri/jsapi-resources" target="_blank">
-<img style="float: right;" alt="JSAPI resources" src="Images/jsapiResources_2.png" width="790" height="577">
+<img style="float: right;" alt="JSAPI resources" src="Images/jsapiResources_2.png" width="312" height="341">
 </a>
+
  - Includes
    - JSHint file
    - TypeScript definition file
    - Build tools (Webpack, npm)
-   - <a href="https://developers.arcgis.com/javascript/latest/guide/using-frameworks/" target="_blank">Working with frameworks</a>
+   - <a href="https://developers.arcgis.com/javascript/latest/tooling-intro/" target="_blank">Working with frameworks</a>
 
 ----
 
@@ -60,37 +66,39 @@ Jose Banuelos and Heather Gonzago
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=htmlmixed&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fmain.css%2522%253E%2520%250A%253Cscript%2520src%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252F%2522%253E%253C%252Fscript%253E"
-  style="transform:scale(1); width:1024px; height:273px; border:0; overflow:hidden; display:block;"
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-light&wt=none&l=htmlmixed&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=16px&lh=133%25&si=false&es=2x&wm=false&code=%2520%2520%2520%2520%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fthemes%252Flight%252Fmain.css%2522%2520%252F%253E%250A%2520%2520%2520%2520%253Cscript%2520src%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252F%2522%253E%253C%252Fscript%253E"
+  style="width: 1017px; height: 228px; border:0; transform: scale(1); overflow:hidden;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 ----
 
 ### CSS
 </br>
-- <a href="https://developers.arcgis.com/javascript/latest/guide/styling/index.html" target="_blank"><b>Main.css</b></a> contains styles for entire API
+- <a style="float: left;"  href="https://developers.arcgis.com/javascript/latest/styling/" target="_blank"><b>Themes and styling</b></a>
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fmain.css%2522%253E"
   style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
-- <b>View.css</b> is smaller in size but better choice if only needing basic CSS (maps, widgets, etc.)
-</br>
+- <a style="float: left;"  href="https://developers.arcgis.com/javascript/latest/styling/#sassy-widgets" target="_blank">Custom CSS (SASS)</a>
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522https%253A%252F%252Fjs.arcgis.com%252F4.18%252Fesri%252Fcss%252Fview.css%2522%253E"
   style="transform:scale(1); width:924px; height:173px; border:0; overflow:hidden; display:block;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
-- <a href="https://developers.arcgis.com/javascript/latest/guide/styling/#custom-css-using-sass" target="_blank">Custom CSS (SASS)</a>
+
+----
+
+### **Jose Banuelos**
+
 
 ----
 
 ### **First steps**
-</br>
 - How will your app be written?
 - Separate files or one combined file?
-</br>
-<img style="float: center;" src="Images/Step1_Combined_414.png">
+
+<img style="float: center;" src="Images/Step1_Combined_419.png">
 
 ----
 
@@ -133,15 +141,18 @@ Visualize data within Map or Scene
 ### **Common Gotchas**
 
 - Module order makes a difference
-- Missing module <img style="float:right;" src="Images/requireNotDefined.png">
-- Missing CSS <img style="float:right; width:80%" src="Images/merged-css.png">
+- Missing module
+- Missing CSS  
+</br>
+<img style="float:center;" src="Images/merged-css.png">
 
 ----
 
 ### **Add layers**
 </br>
 <img style="float:right;" src="Images/add-layers.png">
- - <a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-layers" target="_blank">Various layer types</a>
+<a href="https://developers.arcgis.com/javascript/latest/api-reference/index.html#modules-in-esri-layers" target="_blank">Various layer types</a>
+
 1. Load module </br>
 2. Create layers </br>
 3. Set properties </br>
@@ -168,7 +179,7 @@ Visualize data within Map or Scene
 ----
 
 ### **Watch for property changes**
-</br>
+
 - <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Accessor.html#watch" target="_blank">Watch</a> for changes </br>
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=layer.watch(%2522loadStatus%2522%252C%2520function(status)%2520%257B%252F%252F%2520do%2520something%257D)%253B"
@@ -193,6 +204,11 @@ Visualize data within Map or Scene
  <a href="https://bgmapp" target="_blank">
   BGMAPP.org
 </a>
+
+----
+
+
+### **Heather Gonzago**
 
 ----
 
@@ -243,14 +259,14 @@ Visualize data within Map or Scene
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.when(function)%257B%250A%2520%2520const%2520featurelayer%2520%253D%2520map.layers.getItemAt(1)%253B%250A%2520%2520%252F%252F%25201.%2520Create%2520the%2520widget%250A%2520%2520const%2520legend%2520%253D%2520new%2520Legend(%257B%250A%2520%2520%2520%2520%252F%252F%25202.%2520Specify%2520properties%2520for%2520widget%250A%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520layerInfos%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520layer%253A%2520featurelayer%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520title%253A%2520%2522Name%2522%250A%2520%2520%2520%2520%257D%255D%250A%257D)%253B%250A%2520%2520%252F%252F%25203.%2520Add%2520widget%2520to%2520the%2520view%2520UI%250A%2520%2520view.ui.add(legend%252C%2520%2522top-right%2522)%253B%250A%257D)%253B"
-  style="transform:scale(1); width:675px; height:473px; border:0; overflow:hidden; display:block;"
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-light&wt=none&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=15px&lh=133%25&si=false&es=2x&wm=false&code=%2520%2520%252F%252F%2520Adding%2520a%2520Legend%2520and%2520Expand%2520widget%250A%2520%2520const%2520legend%2520%253D%2520new%2520Legend%28%257B%250A%2520%2520%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520%2520%2520container%253A%2520%2522legendDiv%2522%250A%2520%2520%257D%29%253B%250A%250A%2520%2520const%2520expand%2520%253D%2520new%2520Expand%28%257B%250A%2520%2520%2520%2520%2520%2520view%253A%2520view%252C%250A%2520%2520%2520%2520%2520%2520content%253A%2520document.getElementById%28%2522infoDiv%2522%29%252C%250A%2520%2520%2520%2520%2520%2520expanded%253A%2520true%250A%2520%2520%257D%29%253B%250A%250A%2520%2520view.ui.add%28expand%252C%2520%2522top-right%2522%29%253B%250A"
+  style="width: 601px; height: 452px; border:0; transform: scale(1); overflow:hidden;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 
 ----
 
-### ** View UI**
+### **View UI**
 
 - Position widgets
   - Add
@@ -259,8 +275,8 @@ Visualize data within Map or Scene
 </br>
 </br>
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=36px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=view.ui.add(legend%252C%2520%2522bottom-left%2522)%253B%250Aview.ui.add(swipe)%253B"
-  style="transform:scale(1); width:624px; height:273px; border:0; overflow:hidden; display:block;"
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-light&wt=none&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=15px&lh=133%25&si=false&es=2x&wm=false&code=%2520view.ui.add%28expand%252C%2520%2522top-right%2522%29%253B"
+  style="width: 457px; height: 205px; border:0; transform: scale(1); overflow:hidden;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 
@@ -274,12 +290,15 @@ Visualize data within Map or Scene
 
 ----
 
+### **Jose Banuelos**
+
+----
+
 ### **Renderers**
-</br>
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/get-started-visualization/index.html" target="_blank">Define</a> a set of symbols to use for the layer</br>
-</br>
-- Sets the rules on how the symbols are used</br>
-</br>
+
+- Sets the rules on how the symbols are used
+
 - Basic coding pattern
 <iframe
   src="https://carbon.now.sh/embed?bg=rgba(194%2C186%2C206%2C1)&t=one-light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=30px&ph=38px&ln=false&fl=1&fm=Hack&fs=18px&lh=132%25&si=false&es=4x&wm=false&code=const%2520layerRenderer%2520%253D%2520new%2520UniqueValueRenderer()%253B%2520%252F%252F%2520Set%2520the%2520renderer%250Aconst%2520featurelayer%2520%253D%2520new%2520FeatureLayer(%257B%250A%2520%2520url%253A%2520%2522featurelayer%2520url%2522%252C%250A%2520%2520renderer%253A%2520layerRenderer%2520%252F%252F%2520pass%2520in%2520renderer%2520to%2520featurelayer%2520using%2520default%2520properties%250A%257D)"
@@ -303,13 +322,13 @@ Visualize data within Map or Scene
 ----
 
 ### **Autocasting**
-</br>
+
 - No need to <b>Require()</b> the module</br>
-</br>
+
 - Look for the <img style="margin:0px;" src="Images/autocast-label.png"> label in the API Reference</br>
-</br>
+
 - <a href="https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=layers-portal" target="_blank">Create a layer from portal item sample </a> shows autocasting in action</br>
-</br>
+
 - Read more about <a href="https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#autocasting" target="_blank">Autocasting</a> in the Guide</br>
 
 ----
@@ -329,8 +348,8 @@ Visualize data within Map or Scene
 - All data is filtered on the client = better performance
 
 <iframe
-  src="https://carbon.now.sh/embed?bg=rgba(171%2C%20184%2C%20195%2C%201)&t=one-light&wt=sharp&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=14px&ph=13px&ln=false&fl=1&fm=Hack&fs=17px&lh=133%25&si=false&es=4x&wm=false&code=switch%2520(selectedCrimeAmount)%2520%257B%250A%2520%2520case%2520'100'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253E%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'50-99'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520'(CrimeCnt%2520%253E%253D%252050)'%2520%252B%2520'AND'%2520%252B%2520'(CrimeCnt%2520%253C%253D%252099)'%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520break%250A%2520%2520case%2520'49'%253A%250A%2520%2520%2520%2520crimeLayerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520where%253A%2520%2522CrimeCnt%2520%253C%253D%2520'%2522%2520%252B%2520selectedCrimeAmount%2520%252B%2520%2522'%2522%250A%2520%2520%2520%2520%257D%250A%257D"
-  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden;"
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-light&wt=none&l=javascript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=15px&lh=133%25&si=false&es=2x&wm=false&code=%2520%2520%2520%2520filterSelect.addEventListener%28%27input%27%252C%2520%28event%29%2520%253D%253E%2520%257B%250A%2520%2520%2520%2520%2520%2520let%2520filterExpression%253B%250A%2520%2520%2520%2520%2520%2520if%28event.target.value%2520%253D%253D%253D%2520%271%253D1%27%29%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520show%2520all%2520the%2520features%250A%2520%2520%2520%2520%2520%2520%2520%2520filterExpression%2520%253D%2520event.target.value%250A%2520%2520%2520%2520%2520%2520%257D%2520else%2520if%28event.target.value%2520%253D%253D%253D%2520%2522other%2522%29%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520Show%2520all%2520other%2520features%2520with%2520all%2520other%2520industries%2520not%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520included%2520in%2520the%2520UniqueValueRenderer.uniqueValueInfos%250A%2520%2520%2520%2520%2520%2520%2520%2520filterExpression%2520%253D%2520generateOtherSQLString%28field%29%253B%250A%2520%2520%2520%2520%2520%2520%257D%2520else%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520Filter%2520by%2520the%2520selected%2520industry%2520in%2520the%2520dropdown%250A%2520%2520%2520%2520%2520%2520%2520%2520filterExpression%2520%253D%2520%2560%2524%257Bfield%257D%253D%27%2524%257Bevent.target.value%257D%27%2560%253B%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%2520%2520%252F%252F%2520Apply%2520the%2520filter%2520on%2520the%2520client-side%2520layerView.%250A%2520%2520%2520%2520%2520%2520%252F%252F%2520No%2520request%2520will%2520be%2520sent%2520out%2520to%2520the%2520feature%2520service%2520for%2520this.%250A%2520%2520%2520%2520%2520%2520layerView.filter%2520%253D%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520where%253A%2520filterExpression%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%29%253B"
+  style="width: 1024px; height: 473px; border:0; transform: scale(1); overflow:hidden;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
 
@@ -341,6 +360,10 @@ Visualize data within Map or Scene
 <a href="Demos/getting-started/Step_6_client-side_filter/" target="_blank">
   <img style="float: center;" src="Images/demo-step-6.png">
 </a>
+
+----
+
+### **Heather Gonzago**
 
 ----
 
@@ -359,6 +382,12 @@ Visualize data within Map or Scene
 - JavaScript online training, free and not-so-free
 - User forums, e.g. <a href="https://community.esri.com/community/developers/web-developers/arcgis-api-for-javascript/" target="_blank">GeoNet</a>, <a href="https://gis.stackexchange.com/questions/tagged/arcgis-javascript-api-4" target="_blank">StackExchange</a>, <a href="https://thespatialcommunity.org/" target="_blank">Spatial Community in Slack</a>, etc.
 <a href="https://developers.arcgis.com/javascript/support/index.html" target="_blank">
-<img style="display: block; margin-left: auto; margin-right: auto;" src="Images/4dot14_Support.png" alt="4dot10_Support" width="749" height="415"></a>
+<img style="display: block; margin-left: auto; margin-right: auto;" src="Images/support.png" alt="4dot10_Support" width="749" height="415"></a>
 
 ----
+
+<!-- .slide: data-background="../reveal.js/img/2021/dev-summit/bg-5.png" -->
+
+ Please provide your feedback for this
+ session by clicking on the session
+ survey link directly below the video.

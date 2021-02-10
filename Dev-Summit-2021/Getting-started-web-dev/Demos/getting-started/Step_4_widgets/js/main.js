@@ -22,18 +22,34 @@ require([
   // a website field value or not.
   const template = {
     title: "{Name}",
-    content: `<b>Address:</b> {Address}<br/>
-      <b>Industry:</b> {Industry}<br/>
-      <b>{expression/has-website}</b> <a href={expression/website-expr}>{expression/website-expr}</a>
-      `,
-    expressionInfos: [{
+    lastEditInfoEnabled: false,
+    content: [
+      {
+        type: "fields",
+        fieldInfos: [
+        {
+          fieldName: "Address",
+          label: "Address"
+        },
+        {
+          fieldName: "Industry",
+          label: "Industry"
+        }]
+      },
+      {
+        type: "text",
+        text: '<b>{expression/has-website}</b> <a href={expression/website-expr}>{expression/website-expr}</a>'
+      }
+    ],
+  expressionInfos: [{
       name: 'website-expr',
-      expression: `IIF(!IsEmpty($feature.Website), $feature.Website, null)`
+      title: "Website:",
+      expression: 'IIF(!IsEmpty($feature.Website), $feature.Website, null)'
     }, {
       name: 'has-website',
-      expression: `IIf(!IsEmpty($feature.Website), "Website: ", "No website found for this business")`
+      expression: 'IIf(!IsEmpty($feature.Website), "Website: ", "No website found for this business")'
     }]
-  };
+};
 
   // Initializing the FeatureLayer
   const featureLayer = new FeatureLayer({
