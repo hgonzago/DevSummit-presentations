@@ -14,7 +14,7 @@ require([
   "esri/widgets/Expand"
 ], function (esriConfig, Map, MapView, FeatureLayer, Legend, Expand) {
 
-  esriConfig.apiKey = "AAPK15bd34036fd445f0850f84ca52294aceBwailxyLCOIIgPnh8xOql3-POkdaSbXdkHoFmcCCRFbf7X1m5QcqSizaK-6GdanK";
+  //esriConfig.apiKey = "AAPK15bd34036fd445f0850f84ca52294aceBwailxyLCOIIgPnh8xOql3-POkdaSbXdkHoFmcCCRFbf7X1m5QcqSizaK-6GdanK";
 
   // Data courtesy of BGMAPP.org
   const url =
@@ -163,7 +163,8 @@ require([
   });
 
   const map = new Map({
-    basemap: "arcgis-dark-gray",
+    //basemap: "arcgis-dark-gray",
+    basemap: "dark-gray",
     layers: [featureLayer]  // add the layer to the Map
   });
 

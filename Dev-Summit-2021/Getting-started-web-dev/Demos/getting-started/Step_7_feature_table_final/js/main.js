@@ -16,7 +16,7 @@ require([
   "esri/widgets/FeatureTable"
 ], function (esriConfig, Map, MapView, FeatureLayer, Legend, Expand, FeatureTable) {
 
-  esriConfig.apiKey = "AAPK15bd34036fd445f0850f84ca52294aceBwailxyLCOIIgPnh8xOql3-POkdaSbXdkHoFmcCCRFbf7X1m5QcqSizaK-6GdanK";
+  //esriConfig.apiKey = "AAPK15bd34036fd445f0850f84ca52294aceBwailxyLCOIIgPnh8xOql3-POkdaSbXdkHoFmcCCRFbf7X1m5QcqSizaK-6GdanK";
 
   // Global variable to track the currently selected features on the FeatureTable.
   let currentSelectedOIDs = [];
@@ -166,8 +166,9 @@ require([
   });
 
   const map = new Map({
+    //basemap: "dark-gray",
     basemap: "dark-gray",
-    layers: [featureLayer],
+    layers: [featureLayer]
   });
 
   const view = new MapView({

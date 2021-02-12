@@ -11,7 +11,7 @@ require([
   "esri/layers/FeatureLayer"
 ], function (esriConfig, Map, MapView, FeatureLayer) {
 
-  esriConfig.apiKey = "AAPK15bd34036fd445f0850f84ca52294aceBwailxyLCOIIgPnh8xOql3-POkdaSbXdkHoFmcCCRFbf7X1m5QcqSizaK-6GdanK";
+  //esriConfig.apiKey = "AAPK15bd34036fd445f0850f84ca52294aceBwailxyLCOIIgPnh8xOql3-POkdaSbXdkHoFmcCCRFbf7X1m5QcqSizaK-6GdanK";
 
   // Data courtesy of BGMAPP
   const url =
@@ -25,7 +25,8 @@ require([
   });
 
   const map = new Map({
-    basemap: "arcgis-dark-gray",
+    //basemap: "arcgis-dark-gray",
+    basemap: "dark-gray",
     layers: [featureLayer]  // add the layer to the Map
   });
 
