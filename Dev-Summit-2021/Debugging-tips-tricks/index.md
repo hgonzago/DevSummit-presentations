@@ -1,51 +1,57 @@
 <!-- .slide: data-background="../reveal.js/img/2021/dev-summit/bg-1.png" -->
 <!-- .slide: class="title" -->
 ### Tips and Tricks for Developing and Debugging Apps
-Heather Gonzago and Kelly Hutchins
+Kelly Hutchins and Heather Gonzago
 
 ----
 
 ### **Presentations accessible via GitHub**
-👉 Slides & demos: <code>https://bit.ly/3oQMPAV</code> 👈
+👉 Slides & demos: <code>https://bit.ly/3absN00</code> 👈
 
 ----
 
 ### **Getting Started**
-  - [Getting Started Tutorial](https://developers.arcgis.com/javascript/latest/get-started/)
-  - [AMD vs ES Modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
+
+  - <a href="https://developers.arcgis.com/javascript/latest/get-started/" target="_blank">Getting started tutorial</a>
+  - <a href="https://developers.arcgis.com/javascript/latest/tooling-intro/" target="_blank">AMD vs ES Modules</a>
 
   ![Table of differences between CDN and ES Modules](images/tooling.png)
 
 ----
 ### **Detailed Tutorials**
 
-  [![Add a Feature Layer tutorial](images/tutorial.png)](https://developers.arcgis.com/javascript/latest/add-a-feature-layer/)
-
+<a href="https://developers.arcgis.com/javascript/latest/add-a-feature-layer/" target="_blank">
+<img alt="Add a feature layer tutorial" src="Images/tutorial.png">
+</a>
 
 ----
 ### **Additional Info**
 
-  - [odoenet](https://odoe.net/blog)
+- <a href="https://odoe.net/blog" target="_blank">odoenet (Rene's blog)</a>
 
-  - [GeoDev Webinar (older version of this session)](https://www.esri.com/en-us/landing-page/product/2018/geodev-webinar-series/arcgis-api-for-javascript-tips-and-tricks-for-developing-and-debugging)
+- <a href="https://www.esri.com/en-us/landing-page/product/2018/geodev-webinar-series/arcgis-api-for-javascript-tips-and-tricks-for-developing-and-debugging" target="_blank">GeoDev Webinar (older version of this session)</a>
 
 ----
 
 ### **esri community**
-  
-  ![esri community](images/community.png)
 
+<a href="https://community.esri.com/t5/arcgis-api-for-javascript/ct-p/arcgis-api-for-javascript" target="_blank">
+<img alt="esri community" src="Images/community.png">
+</a>
 
 ----
 
 ### ArcGIS API for JavaScript snippets 
 
-  - Available on Visual Studio Marketplace
-  - Contribute snippets to the GitHub repo 
+- <a href="https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets" target="_blank">Available on Visual Studio Marketplace</a>
+- <a href="https://github.com/Esri/arcgis-js-vscode-snippets" target="_blank">Contribute snippets to the GitHub repo</a>
 
   <iframe width=800 height=400 src="https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets"></iframe>
 
 ----
+
+<!-- .slide: data-background="../reveal.js/img/2021/dev-summit/bg-3.png" -->
+<!-- .slide: class="title" -->
 
 ## API Tips
 
