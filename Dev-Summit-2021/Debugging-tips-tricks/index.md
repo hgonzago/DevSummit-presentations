@@ -5,7 +5,7 @@ Kelly Hutchins and Heather Gonzago
 
 ----
 
-### **Presentations accessible via GitHub**
+### **Presentation accessible via GitHub**
 👉 Slides & demos: <code>https://bit.ly/3absN00</code> 👈
 
 ----
