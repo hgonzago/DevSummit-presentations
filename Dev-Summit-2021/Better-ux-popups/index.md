@@ -1,12 +1,12 @@
 <!-- .slide: data-background="../reveal.js/img/2021/dev-summit/bg-1.png" -->
 <!-- .slide: class="title" -->
 ### ArcGIS API for JavaScript: Better UX with Popups
-Heather Gonzago and Kelly Hutchins
+Kelly Hutchins and Heather Gonzago
 
 ----
 
 ### **Presentations accessible via GitHub**
-👉 Slides & demos: <code>https://bit.ly/36KzdB3</code> 👈
+👉 Slides & demos: <code>https://bit.ly/3rIORVq</code> 👈
 
 ----
 
@@ -71,3 +71,9 @@ Heather Gonzago and Kelly Hutchins
 
 
 ----
+
+<!-- .slide: data-background="../reveal.js/img/2021/dev-summit/bg-5.png" -->
+
+ Please provide your feedback for this
+ session by clicking on the session
+ survey link directly below the video.

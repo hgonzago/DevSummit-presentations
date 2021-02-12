@@ -175,3 +175,9 @@ Demo cool features available in developer tools
 
 
 ----
+
+<!-- .slide: data-background="../reveal.js/img/2021/dev-summit/bg-5.png" -->
+
+ Please provide your feedback for this
+ session by clicking on the session
+ survey link directly below the video.
