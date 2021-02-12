@@ -96,6 +96,22 @@ Tips on common questions people ask
 
 ----
 
+
+### GoTo Errors 
+  ![View goTo interrupted](images/goToError.png)
+  <code>
+      view.goTo({
+        center: [-126, 49]
+      })
+      .catch(function(error) {
+        if (error.name != "AbortError") {
+          console.error(error);
+        }
+      });
+  </code>
+
+---- 
+
 ## Developer Tools
 
 
