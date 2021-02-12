@@ -67,6 +67,9 @@ Tips on common questions people ask
   
   [![popup in side panel](images/fetch-features.png)](https://developers.arcgis.com/javascript/latest/sample-code/widgets-feature-multiplelayers/live/)
 
+----
+
+### **Kelly Hutchins**
 
 
 ----
