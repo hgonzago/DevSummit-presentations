@@ -16,19 +16,33 @@
     }
   </style>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/css/main.css">
 
-  <script src="https://js.arcgis.com/4.6/"></script>
+  <script src="https://js.arcgis.com/4.19/"></script>
 
   <script>
 
     require([
       "esri/views/MapView",
       "esri/WebMap",
-      "dojo/domReady!"
+      "esri/config"
     ], function(
-      MapView, WebMap
+      MapView, WebMap, esriConfig
     ) {
+
+       
+
+      esriConfig.request.interceptors.push({
+        // set the `urls` property to the URL of the FeatureLayer so that this
+        // interceptor only applies to requests made to the FeatureLayer URL
+        urls: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Chicago_L_Lines_Not_Shared/FeatureServer/0",
+        // use the BeforeInterceptorCallback to add token to query
+        before: function(params) {
+        if (params.requestOptions.authMode === "auto") {
+      params.requestOptions.authMode = "no-prompt";
+    }
+        },
+      });
 
       var webmap = new WebMap({
         portalItem: {
