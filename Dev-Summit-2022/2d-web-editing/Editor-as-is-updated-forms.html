@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Editor widget with no configurations</title>
+
+
+  <link rel="stylesheet" href="https://js.arcgis.com/next/esri/themes/light/main.css" />
+
+  <style media="screen">
+    html,
+    body,
+    #viewDiv {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+  </style>
+
+
+
+<script src="https://js.arcgis.com/next/"></script>
+
+
+  <script>
+    require(["esri/WebMap", "esri/views/MapView", "esri/widgets/Editor"], function(
+      WebMap,
+      MapView,
+      Editor
+    ) {
+
+      // Create a map from the referenced webmap item id
+      const webmap = new WebMap({
+        portalItem: {
+          id: "cd97b5cdf8394d8bb3610bca502624e7"
+        }
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: webmap
+      });
+
+      // Once the view is ready, then 
+      view.when(() => {
+        // when all the layers in the map load, then
+        view.map.loadAll().then(() => {
+
+          // At the very minimum, load the editor with the view
+          const editor = new Editor({
+            view: view
+          });
+
+          // Add the widget to the view
+          view.ui.add(editor, "top-right");
+        });
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

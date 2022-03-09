@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Editor widget with configurations</title>
+
+
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/4.23/esri/themes/light/main.css" />
+  <style media="screen">
+    html,
+    body,
+    #viewDiv {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+
+  <!--    <script src="https://hgonzago.esri.com/arcgis-js-api-4/buildOutput/init.js"></script>-->
+
+  <script src="https://jsdev.arcgis.com/4.23/"></script>
+
+
+  <script>
+    require(["esri/WebMap", "esri/views/MapView", "esri/widgets/Editor",
+      "esri/widgets/FeatureForm/FeatureFormViewModel"
+    ], (
+      WebMap,
+      MapView,
+      Editor,
+      FeatureFormViewModel
+    ) => {
+
+      let speedHumpPoint, firePoint, detourLine, closureLine, bikeLine, hazardAreas;
+
+      // Create a map from the referenced webmap item id
+      const webmap = new WebMap({
+        portalItem: {
+          id: "455890aa5a4545acbb4f5b494bfde4fa"
+        }
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: webmap
+      });
+
+      view.when(() => {
+        view.map.loadAll().then(() => {
+          view.map.allLayers.forEach((layer) => {
+            if (layer.type === "feature") {
+              switch (layer.geometryType) {
+                case "polygon":
+                  if (layer.title === "Hazard Areas") {
+                    hazardAreas = layer;
+                    break;
+                  }
+                  case "polyline":
+                    console.log(layer.title);
+                    if (layer.title === "Charlotte street detours") {
+                      detourLine = layer;
+                    } else if (layer.title === "Charlotte street closures") {
+                      closureLine = layer;
+                    } else {
+                      bikeLine = layer;
+                    }
+                    break;
+                  case "point":
+                    if (layer.title === "Speed humps") {
+                      speedHumpPoint = layer;
+                    } else {
+                      firePoint = layer;
+                    }
+                    break;
+              }
+            }
+          });
+
+          // Create layerInfos for layers in Editor. This
+          // sets the fields for editing.
+
+          const fireInfo = {
+            layer: firePoint,
+            enabled: false // 1. Disable editing on this layer
+          };
+
+          const humpsInfo = {
+            layer: speedHumpPoint,
+            formTemplate: {
+              // autocasts to FormTemplate
+              elements: [{
+                  // autocasts to Field Elements
+                  type: "field",
+                  fieldName: "ADDRESS",
+                  label: "Address"
+                },
+                {
+                  type: "field",
+                  fieldName: "AssetID",
+                  label: "Asset ID"
+                }
+              ]
+            }
+          };
+
+          const detourInfos = {
+            layer: detourLine,
+            addEnabled: false, // 1. Disable creating new features
+            formTemplate: {
+              // autocasts to FormTemplate
+              elements: [{
+                  // autocasts to FieldElement
+                  type: "field",
+                  fieldName: "BLOCKNM",
+                  label: "Block name"
+                },
+                {
+                  type: "field",
+                  fieldName: "COMMENT",
+                  label: "Comment",
+
+                  // 2. Use expression for visibility
+                  visibilityExpression: "hasConditionDefined"
+                }
+              ],
+              expressionInfos: [{ // 2. Only show this field if the comments aren't empty
+                name: "hasConditionDefined",
+                expression: "!IsEmpty($feature.COMMENT)"
+              }]
+            }
+          };
+
+          const closureInfos = {
+            layer: closureLine,
+            formTemplate: {
+              title: "Road closures",
+              description: "Provide information for type and location",
+              elements: [{
+                  // autocasts to new Group Element
+                  type: "group",
+                  label: "Type and location",
+                  description: "Construction, event, etc. and where it is located.",
+                  elements: [{
+                      // autocasts to FieldElement
+                      type: "field",
+                      fieldName: "BLOCKNM",
+                      label: "Block name"
+                    },
+                    {
+                      type: "field",
+                      fieldName: "BLOCKTYPE",
+                      label: "Block type"
+                    },
+                    {
+                      type: "field",
+                      fieldName: "LOCDESC",
+                      label: "Location",
+                      // 3. Provide extra details for a field by using
+                      // a placeholder for text and number fields
+                      hint: "Location of closure",
+                      // 3. Description text for a particular field
+                      description: "Detailed notes help prioritize traffic flow updates"
+                    }
+                  ]
+                }, // end of first group element
+                {
+                  type: "group",
+                  label: "Closure details",
+                  description: "Full or partial closure, and status",
+                  elements: [{
+                      type: "field",
+                      fieldName: "FULLCLOSE",
+                      label: "Closure"
+                    },
+                    {
+                      type: "field",
+                      fieldName: "ACTIVE",
+                      label: "Active"
+                    },
+                    {
+                      type: "field",
+                      fieldName: "DIRECTION",
+                      label: "Direction"
+                    },
+                    {
+                      type: "field",
+                      fieldName: "Hyperlink",
+                      label: "Link to URL: ",
+                      description: "(If applicable), Link for additional information",
+                      editable: false // 4. Disable editing on this field
+                    }
+                  ]
+                } // end of second group element
+              ]
+            }
+          };
+
+
+          const bikeInfos = {
+            layer: bikeLine,
+            addEnabled: true,
+            updateEnabled: true,
+            deleteEnabled: false, // 5. Do not allow deletes
+            formTemplate: {
+              // autocasts to FormTemplate
+              elements: [{
+                  // autocasts to FieldElement
+                  type: "field",
+                  fieldName: "WHOLESTNAM",
+                  label: "Street name"
+                },
+                {
+                  type: "field",
+                  fieldName: "SideOfStre",
+                  label: "Side of street"
+                },
+                {
+                  type: "field",
+                  fieldName: "lengt_mile",
+                  label: "Length (in mi.)"
+                  // valueExpression: "bikeLength" // 6. Set a value expression to generate a value based upon the length of the feature in miles
+                },
+                {
+                  type: "field",
+                  fieldName: "YEAR_BUILT",
+                  label: "Year established"
+                }
+              ]
+              // expressionInfos: [{ // 6. The expression to use for generating the bike length
+              //   name: "bikeLength",
+              //   expression: "Length($feature, 'miles')"
+              // }]
+            }
+          };
+
+          const hazardInfos = {
+            layer: hazardAreas,
+            formTemplate: {
+              // autocasts to FormTemplate
+              elements: [{
+                  // autocasts to FieldElement
+                  type: "field",
+                  fieldName: "incidenttype",
+                  label: "Incident type",
+                  // 7. Specify input type (requires custom coded-value domain for this input type)
+                  input: { // auto-cast to RadioButtonsInput
+                    type: "radio-buttons",
+                    showNoValueOption: false
+                  }
+                },
+                {
+                  type: "field",
+                  fieldName: "activeincid",
+                  label: "Active"
+                },
+                {
+                  type: "field",
+                  fieldName: "status",
+                  label: "Status"
+                  // editableExpression: "editingEnabled" // 8. Set an expression to determine whether editing can be enabled on this field
+                }
+              ]
+              // expressionInfos: [{
+              //   name: "editingEnabled",
+              //   expression: "$feature.activeincid == 'No'" // 8. Allow editing of the Status field if the feature is no longer considered active, i.e. "active field is 'no'"
+              // }]
+            }
+          };
+
+          const editor = new Editor({
+            layerInfos: [humpsInfo, fireInfo, detourInfos, closureInfos, bikeInfos, hazardInfos],
+
+            view: view,
+
+            supportingWidgetDefaults: {
+              featureForm: {
+                groupDisplay: "sequential"
+              }
+            }
+          });
+
+          // Add the widget to the view
+          view.ui.add(editor, "top-right");
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
