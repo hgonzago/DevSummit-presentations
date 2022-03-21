@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ArcGIS API for JavaScript</title>
+  <script>
+    function loadHandler() {
+      if (opener) {
+        if (location.hash) {
+          opener.require("esri/kernel").id.setOAuthResponseHash(location.hash);
+          close();
+        }
+      }
+      else {
+        close();
+      }
+    }
+  </script>
+</head>
+<body onload="loadHandler();">
+</body>
+</html>

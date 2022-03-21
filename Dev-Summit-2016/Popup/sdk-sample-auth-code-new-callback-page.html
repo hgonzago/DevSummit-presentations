@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title>Custom domain using popup and 2-step with PKCE flow</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css" />
+
+   <script src="https://jsdev.arcgis.com/4.23/">
+    </script>
+    <style>
+      html,
+      body {
+        font-size: 14px;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .esri-item-gallery .esri-item-container {
+        float: left;
+        text-align: center;
+        padding: 10px;
+        width: 204px;
+        display: inline-block;
+      }
+
+      .esri-item-gallery .esri-image {
+        width: 200px;
+        height: 133px;
+        border: 2px solid gray;
+        border-radius: 5px;
+      }
+
+      .esri-item-gallery .esri-null-image {
+        line-height: 133px;
+        text-align: center;
+        color: #999999;
+      }
+
+      .esri-item-gallery .esri-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .esri-item-gallery .esri-null-title {
+        color: #999999;
+      }
+
+      .action {
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      require([
+        "esri/portal/Portal",
+        "esri/identity/OAuthInfo",
+        "esri/identity/IdentityManager",
+        "esri/portal/PortalQueryParams"
+      ], (Portal, OAuthInfo, esriId, PortalQueryParams) => {
+        const personalPanelElement = document.getElementById("personalizedPanel");
+        const anonPanelElement = document.getElementById("anonymousPanel");
+        const userIdElement = document.getElementById("userId");
+
+        const info = new OAuthInfo({
+          // Swap this ID out with registered application ID
+          appId: "q244Lb8gDRgWQ8hM",
+          // Uncomment the next line and update if using your own portal
+          // portalUrl: "https://<host>:<port>/arcgis"
+          // Uncomment the next line to prevent the user's signed in state from being shared with other apps on the same domain with the same authNamespace value.
+          // authNamespace: "portal_oauth_inline",
+          popup: true,
+          flowType: "authorization-code"
+        });
+        
+        console.log(info.flowType);
+        esriId.registerOAuthInfos([info]);
+
+        esriId
+          .checkSignInStatus(info.portalUrl + "/sharing")
+          .then(() => {
+            displayItems();
+          })
+          .catch(() => {
+            // Anonymous view
+            anonPanelElement.style.display = "block";
+            personalPanelElement.style.display = "none";
+          });
+
+        document.getElementById("sign-in").addEventListener("click", () => {
+          // user will be redirected to OAuth Sign In page  + I added the second options part to work with the popup
+          esriId.getCredential((info.portalUrl + "/sharing"), {
+          oAuthPopupConfirmation: false
+        }
+      ).then(function() {
+          displayItems();
+        });
+    });
+
+        document.getElementById("sign-out").addEventListener("click", () => {
+          esriId.destroyCredentials();
+          window.location.reload();
+        });
+
+        function displayItems() {
+          const portal = new Portal();
+          // Setting authMode to immediate signs the user in once loaded
+          portal.authMode = "immediate";
+          // Once loaded, user is signed in
+          portal.load().then(() => {
+            // Create query parameters for the portal search
+            const queryParams = new PortalQueryParams({
+              query: "owner:" + portal.user.username,
+              sortField: "numViews",
+              sortOrder: "desc",
+              num: 20
+            });
+
+            userIdElement.innerHTML = portal.user.username;
+            anonPanelElement.style.display = "none";
+            personalPanelElement.style.display = "block";
+
+            // Query the items based on the queryParams created from portal above
+            portal.queryItems(queryParams).then(createGallery);
+          });
+        }
+
+        function createGallery(items) {
+          let htmlFragment = "";
+
+          items.results.forEach((item) => {
+            htmlFragment +=
+              '<div class="esri-item-container">' +
+              (item.thumbnailUrl
+                ? '<div class="esri-image" style="background-image:url(' + item.thumbnailUrl + ');"></div>'
+                : '<div class="esri-image esri-null-image">Thumbnail not available</div>') +
+              (item.title
+                ? '<div class="esri-title">' + (item.title || "") + "</div>"
+                : '<div class="esri-title esri-null-title">Title not available</div>') +
+              "</div>";
+          });
+          document.getElementById("itemGallery").innerHTML = htmlFragment;
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="anonymousPanel" style="display: none; padding: 5px; text-align: center;">
+      <span id="sign-in" class="action">Sign In</span> and view your ArcGIS Online items.
+    </div>
+
+    <div id="personalizedPanel" style="display: none; padding: 5px; text-align: center;">
+      Welcome <span id="userId" style="font-weight: bold;"></span> &nbsp;-&nbsp;
+      <span id="sign-out" class="action">Sign Out</span>
+    </div>
+
+    <div id="itemGallery" class="esri-item-gallery" style="width: 100%;"></div>
+  </body>
+</html>
