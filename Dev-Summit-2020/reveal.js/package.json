@@ -20,7 +20,7 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
-    "express": "^4.16.2",
+    "express": "^4.18.2",
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-cli": "^1.2.0",
@@ -30,7 +30,7 @@
     "grunt-contrib-qunit": "^2.0.0",
     "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-gh-pages": "^3.1.0",
+    "grunt-gh-pages": "^4.0.0",
     "grunt-retire": "^1.0.7",
     "grunt-sass": "^2.0.0",
     "grunt-zip": "~0.17.1",
